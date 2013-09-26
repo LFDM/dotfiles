@@ -1,0 +1,82 @@
+color vibrantink
+color ir_black
+color railscasts
+
+hi SignColumn ctermbg=233
+
+map   <Up>    <NOP>
+map   <Down>  <NOP>
+map   <Left>  <NOP>
+map   <Right> <NOP>
+imap  <Up>    <NOP>
+imap  <Down>  <NOP>
+imap  <Left>  <NOP>
+imap  <Right> <NOP>
+
+" short and long vowel insertion
+map <leader>aa ră
+map <leader>ee rĕ
+map <leader>ii rĭ
+map <leader>oo rŏ
+map <leader>uu rŭ
+map <leader>yy rў
+map <leader>aaa rā
+map <leader>eee rē
+map <leader>iii rī
+map <leader>ooo rō
+map <leader>uuu rū
+map <leader>yyy rȳ
+
+noremap , ;
+noremap ; ,
+
+" align + delimiter
+map <leader>a= :Tabularize /=<cr>
+map <leader>a: :Tabularize /:<cr>
+map <leader>at :Tabularize /then<cr>
+map <leader>ac :Tabularize /
+
+map <leader>p orequire 'pry'; binding.pry<esc>
+map <leader>P Orequire 'pry'; binding.pry<esc>
+
+" Disable K looking stuff up
+map K <Nop>
+
+" a common typo... :Q to :q
+command! Q q
+
+" Usually set to rspec, but we run rake instead
+map <leader>r :! rake<cr>
+
+" Faster saving of files
+map <leader>w :w<cr>
+map <leader>wa :wa<cr>
+map <leader>x :x<cr>
+
+function! RSpecFocus()
+  if getline(".") =~ ', :focus'
+    exec ":s/, :focus//g"
+  else
+    exec ":s/ do/, :focus do"
+  endif
+endfunction
+map <leader>j :call RSpecFocus()<Cr>
+
+function! RenameFile()
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'), 'file')
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
+endfunction
+map <Leader>ü :call RenameFile()<cr>
+
+function! OpenSpec()
+  let spec_file = substitute(expand('%'), ".rb$", "_spec.rb", "")
+  exec ":vs"
+  exec ":wincmd l"
+  exec ":e spec/" . spec_file
+endfunction
+map <Leader>k :call OpenSpec()<cr>
