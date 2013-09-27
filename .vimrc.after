@@ -4,6 +4,7 @@ color railscasts
 
 hi SignColumn ctermbg=233
 
+" A little force!
 map   <Up>    <NOP>
 map   <Down>  <NOP>
 map   <Left>  <NOP>
@@ -27,6 +28,7 @@ map <leader>ooo rō
 map <leader>uuu rū
 map <leader>yyy rȳ
 
+" Switch , and ;
 noremap , ;
 noremap ; ,
 
@@ -36,10 +38,11 @@ map <leader>a: :Tabularize /:<cr>
 map <leader>at :Tabularize /then<cr>
 map <leader>ac :Tabularize /
 
+" Insert pry statement
 map <leader>p orequire 'pry'; binding.pry<esc>
 map <leader>P Orequire 'pry'; binding.pry<esc>
 
-" Disable K looking stuff up
+" Disable K - looking up uninteresting stuff
 map K <Nop>
 
 " a common typo... :Q to :q
@@ -68,14 +71,18 @@ map Y y$
 noremap H ^
 noremap L $
 
-
 " Disables highlighting
 map <esc><esc> :nohl<cr>
 
 "Map <Space> to / (search)
 map <space> /
 
-" Some custom functions
+
+"""""""""""""
+" Functions "
+"""""""""""""
+
+" Focus the RSpec do block your currently hoverin
 function! RSpecFocus()
   if getline(".") =~ ', :focus'
     exec ":s/, :focus//g"
@@ -85,6 +92,17 @@ function! RSpecFocus()
 endfunction
 map <leader>j :call RSpecFocus()<Cr>
 
+" Opens a split window with the corresponding spec file of what
+" you're currently working on.
+function! OpenSpec()
+  let spec_file = substitute(expand('%'), ".rb$", "_spec.rb", "")
+  exec ":vs"
+  exec ":wincmd l"
+  exec ":e spec/" . spec_file
+endfunction
+map <Leader>k :call OpenSpec()<cr>
+
+" Quickly renames a file
 function! RenameFile()
   let old_name = expand('%')
   let new_name = input('New file name: ', expand('%'), 'file')
@@ -95,11 +113,3 @@ function! RenameFile()
   endif
 endfunction
 map <Leader>ü :call RenameFile()<cr>
-
-function! OpenSpec()
-  let spec_file = substitute(expand('%'), ".rb$", "_spec.rb", "")
-  exec ":vs"
-  exec ":wincmd l"
-  exec ":e spec/" . spec_file
-endfunction
-map <Leader>k :call OpenSpec()<cr>
