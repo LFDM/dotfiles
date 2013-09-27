@@ -53,6 +53,29 @@ map <leader>w :w<cr>
 map <leader>wa :wa<cr>
 map <leader>x :x<cr>
 
+" Searches always in the center of the screen
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
+nnoremap <silent> g# g#zz
+
+" Y like D, C...
+map Y y$
+
+" H and L for start and end of line
+noremap H ^
+noremap L $
+
+
+" Disables highlighting
+map <esc><esc> :nohl<cr>
+
+"Map <Space> to / (search)
+map <space> /
+
+" Some custom functions
 function! RSpecFocus()
   if getline(".") =~ ', :focus'
     exec ":s/, :focus//g"
