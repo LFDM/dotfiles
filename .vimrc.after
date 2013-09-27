@@ -33,22 +33,11 @@ noremap , ;
 noremap ; ,
 
 " align + delimiter
-vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a= :Tabularize /=<CR>
-nmap <leader>at :Tabularize /then<cr>
-vmap <leader>at :Tabularize /then<cr>
-nmap <Leader>a: :Tabularize /:<CR>
-vmap <Leader>a: :Tabularize /:<CR>
-"nmap <Leader>a:: :Tabularize /:\\zs<CR>
-"vmap <Leader>a:: :Tabularize /:\\zs<CR>
-nmap <Leader>a, :Tabularize /,<CR>
-vmap <Leader>a, :Tabularize /,<CR>
-nmap <Leader>a. :Tabularize /.<CR>
-vmap <Leader>a. :Tabularize /.<CR>
-nmap <Leader>a| :Tabularize /|<CR>
-vmap <Leader>a| :Tabularize /|<CR>
-nmap <leader>ac :Tabularize /
-vmap <leader>ac :Tabularize /
+map <leader>a= :Tabularize /=<cr>
+map <leader>a: :Tabularize /:<cr>
+map <leader>a. :Tabularize /.<cr>
+map <leader>at :Tabularize /then<cr>
+map <leader>ac :Tabularize /
 
 " Insert pry statement
 map <leader>p orequire 'pry'; binding.pry<esc>
@@ -64,9 +53,9 @@ command! Q q
 map <leader>r :! rake<cr>
 
 " Faster saving of files
-map <leader>w :w<cr>
+map <leader>w  :w<cr>
 map <leader>wa :wa<cr>
-map <leader>x :x<cr>
+map <leader>x  :x<cr>
 
 " Searches always in the center of the screen
 nnoremap <silent> n nzz
