@@ -32,9 +32,9 @@ map <leader>uuu rū
 map <leader>yyy rȳ
 
 " Tabs
-noremap  <C-t>     :tabnew<CR>
-nnoremap <leader>l :tabnext<CR>
-nnoremap <leader>h :tabprevious<CR>
+noremap  <C-t> :tabnew<CR>
+nnoremap <C-l> :tabnext<CR>
+nnoremap <C-h> :tabprevious<CR>
 
 " Switch , and ;
 noremap , ;
@@ -90,18 +90,27 @@ map <space> /
 vnoremap < <gv
 vnoremap > >gv
 
+" automatically reload the vimrc when it's saved (not working atm)
+au! BufWritePost .vimrc.after source %
+
 
 """""""""""""
 " Functions "
 """""""""""""
+" Change current directory to the llt path of the current file
+function! SetLLTPath()
+  exec ':lcd ' . matchlist(expand("%:p"), '\v.*llt-.{-}/')[0]
+endfunction
+map <leader>lt :call SetLLTPath()<Cr>
 
-" Focus the RSpec do block your currently hoverin
+" Focus the RSpec do block your currently hovering and saves the file
 function! RSpecFocus()
-  if getline(".") =~ ', :focus'
-    exec ":s/, :focus//g"
-  else
-    exec ":s/ do/, :focus do"
-  endif
+if getline(".") =~ ', :focus'
+exec ":s/, :focus//g"
+else
+exec ":s/ do/, :focus do"
+endif
+exec ":w"
 endfunction
 map <leader>j :call RSpecFocus()<Cr>
 
