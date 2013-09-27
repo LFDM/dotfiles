@@ -4,6 +4,9 @@ color railscasts
 
 hi SignColumn ctermbg=233
 
+
+set history=400
+
 " A little force!
 map   <Up>    <NOP>
 map   <Down>  <NOP>
@@ -27,6 +30,11 @@ map <leader>iii rī
 map <leader>ooo rō
 map <leader>uuu rū
 map <leader>yyy rȳ
+
+" Tabs
+noremap  <C-t>     :tabnew<CR>
+nnoremap <leader>l :tabnext<CR>
+nnoremap <leader>h :tabprevious<CR>
 
 " Switch , and ;
 noremap , ;
