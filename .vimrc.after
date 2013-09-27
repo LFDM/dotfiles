@@ -33,10 +33,22 @@ noremap , ;
 noremap ; ,
 
 " align + delimiter
-map <leader>a= :Tabularize /=<cr>
-map <leader>a: :Tabularize /:<cr>
-map <leader>at :Tabularize /then<cr>
-map <leader>ac :Tabularize /
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a= :Tabularize /=<CR>
+nmap <leader>at :Tabularize /then<cr>
+vmap <leader>at :Tabularize /then<cr>
+nmap <Leader>a: :Tabularize /:<CR>
+vmap <Leader>a: :Tabularize /:<CR>
+"nmap <Leader>a:: :Tabularize /:\\zs<CR>
+"vmap <Leader>a:: :Tabularize /:\\zs<CR>
+nmap <Leader>a, :Tabularize /,<CR>
+vmap <Leader>a, :Tabularize /,<CR>
+nmap <Leader>a. :Tabularize /.<CR>
+vmap <Leader>a. :Tabularize /.<CR>
+nmap <Leader>a| :Tabularize /|<CR>
+vmap <Leader>a| :Tabularize /|<CR>
+nmap <leader>ac :Tabularize /
+vmap <leader>ac :Tabularize /
 
 " Insert pry statement
 map <leader>p orequire 'pry'; binding.pry<esc>
@@ -76,6 +88,10 @@ map <esc><esc> :nohl<cr>
 
 "Map <Space> to / (search)
 map <space> /
+
+" Visual shifting - vmode is not exited
+vnoremap < <gv
+vnoremap > >gv
 
 
 """""""""""""
