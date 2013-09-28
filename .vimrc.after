@@ -57,6 +57,13 @@ map K <Nop>
 " a common typo... :Q to :q
 command! Q q
 
+" Session handling
+set ssop-=options    " do not store global and local values in a session
+set ssop-=folds      " do not store folds
+" waits for a prompt deliberately
+map <leader>ms :mksession! ~/session.vim
+map <leader>ls :so ~/session.vim
+
 " Usually set to rspec, but we run rake instead
 map <leader>r :! rake<cr>
 
@@ -97,6 +104,11 @@ au! BufWritePost .vimrc.after source %
 """""""""""""
 " Functions "
 """""""""""""
+" Change Ruby 1.8 style hashes to new syntax. Ask for confirmation.
+function! MorphHash()
+  exec ":'<,'>:s/:\([^ ]*\)\(\s*\)=>/\1:/gc"
+endfunction
+
 " Change current directory to the llt path of the current file
 function! SetLLTPath()
   exec ':lcd ' . matchlist(expand("%:p"), '\v.*llt-.{-}/')[0]
@@ -106,11 +118,11 @@ map <leader>lt :call SetLLTPath()<Cr>
 " Focus the RSpec do block your currently hovering and saves the file
 function! RSpecFocus()
 if getline(".") =~ ', :focus'
-exec ":s/, :focus//g"
-else
-exec ":s/ do/, :focus do"
-endif
-exec ":w"
+  exec ":s/, :focus//g"
+  else
+  exec ":s/ do/, :focus do"
+  endif
+  exec ":w"
 endfunction
 map <leader>j :call RSpecFocus()<Cr>
 
