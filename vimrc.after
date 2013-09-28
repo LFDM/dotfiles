@@ -95,6 +95,10 @@ map <space> /
 vnoremap < <gv
 vnoremap > >gv
 
+" Marks
+map <leader>mm `m
+map <leader>mn `n
+
 
 """""""""""""
 " Functions "
