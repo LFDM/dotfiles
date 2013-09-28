@@ -1,0 +1,15 @@
+[submodule "plugins/delimitMate"]
+	path = plugins/delimitMate
+	url = https://github.com/Raimondi/delimitMate.git
+[submodule "plugins/SearchComplete"]
+	path = plugins/SearchComplete
+	url = https://github.com/vim-scripts/SearchComplete.git
+[submodule "plugins/tabular"]
+	path = plugins/tabular
+	url = https://github.com/godlygeek/tabular.git
+[submodule "plugins/vim-snippets"]
+	path = plugins/vim-snippets
+	url = https://github.com/honza/vim-snippets
+[submodule "plugins/vim-surround"]
+	path = plugins/vim-surround
+	url = https://github.com/tpope/vim-surround.git
