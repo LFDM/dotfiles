@@ -1,0 +1,19 @@
+[user]
+	name = LFDM
+	email = 1986gh@gmail.com
+[color]
+  status = auto
+  branch = auto
+  ui = auto
+[core]
+  editor = vim
+[alias]
+  ci = commit
+  st = status
+  co = checkout
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  br = branch
+  type = cat-file -t
+  dump = cat-file -p
+  permission-reset = "!git diff -p | grep -E \"^-E(diff|old mode|new mode)\" | sed -e \"s/^old/NEW/;s/^new/old/;s/^NEW/new/\" | git apply"
+
