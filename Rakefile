@@ -19,7 +19,7 @@ task :snippets do
 end
 
 namespace :patches do
-  desc "Patches SnipMate inside of janus. Triggered by <c-j> and don't overwriting the paste buffer"
+  desc "Patches SnipMate inside of janus. Sets trigger to <c-j> and doesn't overwrite the paste buffer"
   task :snipmate do
     puts "######### Applying Patches to SnipMate #########"
 
