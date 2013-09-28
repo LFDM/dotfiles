@@ -129,7 +129,7 @@ function! OpenSpec()
   exec ":wincmd l"
   exec ":e spec/" . spec_file
 endfunction
-map <Leader>k :call OpenSpec()<cr>
+map <leader>k :call OpenSpec()<cr>
 
 " Quickly renames a file
 function! RenameFile()
@@ -141,4 +141,4 @@ function! RenameFile()
     redraw!
   endif
 endfunction
-map <Leader>ü :call RenameFile()<cr>
+map <leader>ü :call RenameFile()<cr>
