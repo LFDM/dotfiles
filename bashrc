@@ -14,6 +14,8 @@ alias ll='ls -l'
 alias la='ls -a'
 
 # Main folders
+alias c='cd ~/code'
+alias d='cd ~/dotfiles'
 
 # LLT folders
 alias llt=' cd ~/code/llt/'
@@ -24,10 +26,6 @@ alias lltc='cd ~/code/llt/llt-constants'
 alias llte='cd ~/code/llt/llt-core_extensions'
 alias lltf='cd ~/code/llt/llt-form_builder'
 alias lltt='cd ~/code/llt/llt-tokenizer'
-
-# Other folders
-alias c='cd ~/code'
-alias d='cd ~/dotfiles'
 
 # Rake and bundler
 alias r='rake'
@@ -42,3 +40,4 @@ alias gp='git push'
 alias gpr='git pull --rebase'
 alias grc='git rebase --continue'
 alias gg='git hist'
+alias gst='git st'
