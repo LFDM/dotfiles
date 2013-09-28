@@ -1,0 +1,149 @@
+color vibrantink
+color ir_black
+color railscasts
+
+hi SignColumn ctermbg=233
+
+
+set history=400
+
+" A little force!
+map   <Up>    <NOP>
+map   <Down>  <NOP>
+map   <Left>  <NOP>
+map   <Right> <NOP>
+imap  <Up>    <NOP>
+imap  <Down>  <NOP>
+imap  <Left>  <NOP>
+imap  <Right> <NOP>
+
+" short and long vowel insertion
+map <leader>aa ră
+map <leader>ee rĕ
+map <leader>ii rĭ
+map <leader>oo rŏ
+map <leader>uu rŭ
+map <leader>yy rў
+map <leader>aaa rā
+map <leader>eee rē
+map <leader>iii rī
+map <leader>ooo rō
+map <leader>uuu rū
+map <leader>yyy rȳ
+
+" Tabs
+noremap  <C-t> :tabnew<CR>
+nnoremap <C-l> :tabnext<CR>
+nnoremap <C-h> :tabprevious<CR>
+
+" Switch , and ;
+noremap , ;
+noremap ; ,
+
+" align + delimiter
+map <leader>a= :Tabularize /=<cr>
+map <leader>a: :Tabularize /:<cr>
+map <leader>a. :Tabularize /.<cr>
+map <leader>at :Tabularize /then<cr>
+map <leader>ac :Tabularize /
+
+" Insert pry statement
+map <leader>p orequire 'pry'; binding.pry<esc>
+map <leader>P Orequire 'pry'; binding.pry<esc>
+
+" Disable K - looking up uninteresting stuff
+map K <Nop>
+
+" a common typo... :Q to :q
+command! Q q
+
+" Session handling
+set ssop-=options    " do not store global and local values in a session
+set ssop-=folds      " do not store folds
+" waits for a prompt deliberately
+map <leader>ms :mksession! ~/session.vim
+map <leader>ls :so ~/session.vim
+
+" Usually set to rspec, but we run rake instead
+map <leader>r :! rake<cr>
+
+" Faster saving of files
+map <leader>w  :w<cr>
+map <leader>wa :wa<cr>
+map <leader>x  :x<cr>
+
+" Searches always in the center of the screen
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
+nnoremap <silent> g# g#zz
+
+" Y like D, C...
+map Y y$
+
+" H and L for start and end of line
+noremap H ^
+noremap L $
+
+" Disables highlighting
+map <esc><esc> :nohl<cr>
+
+"Map <Space> to / (search)
+map <space> /
+
+" Visual shifting - vmode is not exited
+vnoremap < <gv
+vnoremap > >gv
+
+" automatically reload the vimrc when it's saved (not working atm)
+au! BufWritePost .vimrc.after source %
+
+
+"""""""""""""
+" Functions "
+"""""""""""""
+" Change Ruby 1.8 style hashes to new syntax. Ask for confirmation.
+function! MorphHash()
+  exec ":'<,'>:s/:\([^ ]*\)\(\s*\)=>/\1:/gc"
+endfunction
+
+" Change current directory to the llt path of the current file
+function! SetLLTPath()
+  exec ':lcd ' . matchlist(expand("%:p"), '\v.*llt-.{-}/')[0]
+endfunction
+map <leader>lt :call SetLLTPath()<Cr>
+
+" Focus the RSpec do block your currently hovering and saves the file
+function! RSpecFocus()
+if getline(".") =~ ', :focus'
+  exec ":s/, :focus//g"
+  else
+  exec ":s/ do/, :focus do"
+  endif
+  exec ":w"
+endfunction
+map <leader>j :call RSpecFocus()<Cr>
+
+" Opens a split window with the corresponding spec file of what
+" you're currently working on.
+function! OpenSpec()
+  let spec_file = substitute(expand('%'), ".rb$", "_spec.rb", "")
+  exec ":vs"
+  exec ":wincmd l"
+  exec ":e spec/" . spec_file
+endfunction
+map <Leader>k :call OpenSpec()<cr>
+
+" Quickly renames a file
+function! RenameFile()
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'), 'file')
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
+endfunction
+map <Leader>ü :call RenameFile()<cr>
