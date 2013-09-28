@@ -4,7 +4,6 @@ color railscasts
 
 hi SignColumn ctermbg=233
 
-
 set history=400
 
 " A little force!
@@ -17,7 +16,7 @@ imap  <Down>  <NOP>
 imap  <Left>  <NOP>
 imap  <Right> <NOP>
 
-" short and long vowel insertion
+" short and long vowel replacements
 map <leader>aa ră
 map <leader>ee rĕ
 map <leader>ii rĭ
@@ -60,7 +59,6 @@ command! Q q
 " Session handling
 set ssop-=options    " do not store global and local values in a session
 set ssop-=folds      " do not store folds
-" waits for a prompt deliberately
 map <leader>ms :mksession! ~/session.vim
 map <leader>ls :so ~/session.vim
 
@@ -97,14 +95,12 @@ map <space> /
 vnoremap < <gv
 vnoremap > >gv
 
-" automatically reload the vimrc when it's saved (not working atm)
-au! BufWritePost .vimrc.after source %
-
 
 """""""""""""
 " Functions "
 """""""""""""
-" Change Ruby 1.8 style hashes to new syntax. Ask for confirmation.
+
+" Change Ruby 1.8 style hashes to new syntax - asks for confirmation
 function! MorphHash()
   exec ":'<,'>:s/:\([^ ]*\)\(\s*\)=>/\1:/gc"
 endfunction
@@ -126,8 +122,7 @@ if getline(".") =~ ', :focus'
 endfunction
 map <leader>j :call RSpecFocus()<Cr>
 
-" Opens a split window with the corresponding spec file of what
-" you're currently working on.
+" Opens a split window with the corresponding spec file of what you're currently working on
 function! OpenSpec()
   let spec_file = substitute(expand('%'), ".rb$", "_spec.rb", "")
   exec ":vs"
