@@ -50,8 +50,8 @@ DISABLE_LS_COLORS="true"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+
 # load customized aliases afterwards
-# source $PWD:A/zsh/aliases
 source $HOME/dotfiles/zsh/aliases
 
 # Customize to your needs...

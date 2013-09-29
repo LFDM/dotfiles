@@ -9,7 +9,7 @@ alias la='ls -a'
 
 # Main folders
 alias c='cd ~/code'
-alias d='cd ~/dotfiles'
+alias dots='cd ~/dotfiles'
 
 # LLT folders
 alias llt=' cd ~/code/llt/'
@@ -24,15 +24,17 @@ alias lltt='cd ~/code/llt/llt-tokenizer'
 # Rake and bundler
 alias r='rake'
 alias br='bundle exec rake'
-alias be='bundle exec'
-alias bi='bundle install'
-alias bu='bundle update'
+# Disabled for now, we try the bundler plugin
+#alias be='bundle exec'
+#alias bi='bundle install'
+#alias bu='bundle update'
 
 # Git
-alias gd='git diff'
-alias gp='git push'
-alias gpr='git pull --rebase'
-alias grc='git rebase --continue'
-alias gg='git hist'
-alias gst='git st'
+# most of these once custom aliases are included in the git plugin
+#alias gd='git diff'
+#alias gp='git push'
+#alias gpr='git pull --rebase'
+#alias grc='git rebase --continue'
+#alias gst='git st'
+alias gh='git hist'
 
