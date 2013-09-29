@@ -37,4 +37,7 @@ alias br='bundle exec rake'
 #alias grc='git rebase --continue'
 #alias gst='git st'
 alias gh='git hist'
+alias gcom='gcmsg'
 
+# Show the current path in themes that have only a stub prompt
+alias p='echo $PWD'
