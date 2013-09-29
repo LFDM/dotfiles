@@ -1,11 +1,13 @@
 # Fast cding
-alias ..='cd ..'
-alias ...='cd ../..'
+# Set by zsh
+#alias ..='cd ..'
+#alias ...='cd ../..'
 alias ....='cd ../../..'
 
 # Remnants of the past
-alias ll='ls -l'
-alias la='ls -a'
+# Set by zsh
+#alias ll='ls -l'
+#alias la='ls -a'
 
 # Main folders
 alias c='cd ~/code'
