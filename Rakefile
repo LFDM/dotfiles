@@ -56,10 +56,14 @@ class Linker
     @replace_all = false
     Dir.chdir("#{Dir.pwd}/#{dir}") do
       Dir[@selector].each do |file|
-        next if @exclusions.include?(file) || (no_dir && File.directory?(file))
+        next if @exclusions.include?(file) || (no_dir && non_linkable_directory(file))
         create_links(file)
       end
     end
+  end
+
+  def non_linkable_directory(file)
+    File.directory?(file) unless file == "oh-my-zsh"
   end
 
   def full_path(file)
