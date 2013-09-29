@@ -18,44 +18,6 @@ bindkey -v
 
 export TERM=xterm-256color
 
-# Fast cding
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-
-# Remnants of the past
-alias ll='ls -l'
-alias la='ls -a'
-
-# Main folders
-alias c='cd ~/code'
-alias d='cd ~/dotfiles'
-
-# LLT folders
-alias llt=' cd ~/code/llt/'
-alias llth='cd ~/code/llt/llt-helpers'
-alias lltd='cd ~/code/llt/llt-db_handler'
-alias lltm='cd ~/code/llt/llt-morphologizer'
-alias lltc='cd ~/code/llt/llt-constants'
-alias llte='cd ~/code/llt/llt-core_extensions'
-alias lltf='cd ~/code/llt/llt-form_builder'
-alias lltt='cd ~/code/llt/llt-tokenizer'
-
-# Rake and bundler
-alias r='rake'
-alias br='bundle exec rake'
-alias be='bundle exec'
-alias bi='bundle install'
-alias bu='bundle update'
-
-# Git
-alias gd='git diff'
-alias gp='git push'
-alias gpr='git pull --rebase'
-alias grc='git rebase --continue'
-alias gg='git hist'
-alias gst='git st'
-
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="false"
 
@@ -88,6 +50,9 @@ DISABLE_LS_COLORS="true"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+# load customized aliases afterwards
+# source $PWD:A/zsh/aliases
+source $HOME/dotfiles/zsh/aliases
 
 # Customize to your needs...
 export PATH=$PATH:/home/lfdm/.rvm/gems/ruby-2.0.0-p195/bin:/home/lfdm/.rvm/gems/ruby-2.0.0-p195@global/bin:/home/lfdm/.rvm/rubies/ruby-2.0.0-p195/bin:/home/lfdm/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/share/ruby-rvm/bin:/home/lfdm/.rvm/bin
