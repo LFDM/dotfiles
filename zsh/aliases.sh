@@ -40,6 +40,7 @@ alias br='bundle exec rake'
 #alias gst='git st'
 alias gh='git hist'
 alias gcom='gcmsg'
+alias gs='gss' # usually starts ghostscript, a common and annoying typo
 
 # Show the current path in themes that have only a stub prompt
 alias p='echo $PWD'
