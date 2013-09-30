@@ -8,7 +8,7 @@
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$FG[221]%}‹"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$FG[221]%}›"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$FG[196]%}⚡%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$FX[bold]%}%{$FG[196]%}⚡%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$FG[121]%}✔%{$reset_color%}"
 
 rvm_ruby='%{$FG[167]%}‹$(rvm-prompt i v g s)›%{$reset_color%}'
