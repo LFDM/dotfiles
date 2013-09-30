@@ -54,4 +54,5 @@ alias v='vim'
 # Config files
 alias vimrc='vim ~/.vimrc.after'
 alias zshrc='vim ~/.zshrc'
+alias snippets='vim ~/.janus/vim-snippets/snippets/ruby.snippets'
 alias aliases='vim ~/.zsh/aliases.sh'
