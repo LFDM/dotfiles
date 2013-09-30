@@ -48,3 +48,8 @@ alias p='echo $PWD'
 
 # Fast vim
 alias v='vim'
+
+# Config files
+alias vimrc='vim ~/.vimrc.after'
+alias zshrc='vim ~/.zshrc'
+alias aliases='vim ~/.zsh/aliases.sh'
