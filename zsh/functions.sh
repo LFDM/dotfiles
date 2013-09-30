@@ -1,6 +1,7 @@
 function git-on-master {
-  git checkout master && git pull --rebase 
-  git checkout '$(current_branch)'
+  branch=`current_branch`
+  git checkout master && git pull --rebase origin master
+  git checkout $branch
   git rebase master
 }
 
