@@ -47,12 +47,13 @@ CASE_SENSITIVE="false"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git colorize bundler)
+plugins=(git colorize bundler zeus)
 
 source $ZSH/oh-my-zsh.sh
 
 # load customized aliases afterwards
-source $HOME/dotfiles/zsh/aliases
+source $HOME/dotfiles/zsh/aliases.sh
+source $HOME/dotfiles/zsh/functions.sh
 
 # Customize to your needs...
 export PATH=$PATH:/home/lfdm/.rvm/gems/ruby-2.0.0-p195/bin:/home/lfdm/.rvm/gems/ruby-2.0.0-p195@global/bin:/home/lfdm/.rvm/rubies/ruby-2.0.0-p195/bin:/home/lfdm/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/share/ruby-rvm/bin:/home/lfdm/.rvm/bin
@@ -60,3 +61,8 @@ export PATH=$PATH:/home/lfdm/.rvm/gems/ruby-2.0.0-p195/bin:/home/lfdm/.rvm/gems/
 export PATH=$PATH:/usr/share/ruby-rvm/bin # Add RVM to PATH for scripting 
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
+export RUBY_HEAP_MIN_SLOTS="800000"
+export RUBY_HEAP_SLOTS_INCREMENT="1000000"
+export RUBY_HEAP_SLOTS_GROWTH_FACTOR="1"
+export RUBY_GC_MALLOC_LIMIT="89000000"
+export RUBY_HEAP_FREE_MIN="100000"
