@@ -51,7 +51,7 @@ plugins=(git colorize bundler zeus)
 
 source $ZSH/oh-my-zsh.sh
 
-# load customized aliases afterwards
+# Load customized aliases and functions afterwards
 source $HOME/dotfiles/zsh/aliases.sh
 source $HOME/dotfiles/zsh/functions.sh
 

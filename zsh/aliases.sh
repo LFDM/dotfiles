@@ -42,5 +42,8 @@ alias gh='git hist'
 alias gcom='gcmsg'
 alias gs='gss' # usually starts ghostscript, a common and annoying typo
 
-# Show the current path in themes that have only a stub prompt
+# Show the full current path
 alias p='echo $PWD'
+
+# Fast vim
+alias v='vim'
