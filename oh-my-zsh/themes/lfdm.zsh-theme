@@ -1,4 +1,10 @@
 # Styled like the vim railscasts theme in janus
+# 221 is yellow
+# 196 sharp red
+# 121 sharp green
+# 167 mild red
+# 107 mild green
+# 073 cyan
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$FG[221]%}‹"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$FG[221]%}›"
