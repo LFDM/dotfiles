@@ -15,10 +15,12 @@ alias dots='cd ~/dotfiles'
 
 # LLT folders
 alias llt=' cd ~/code/llt/'
+alias lltc='cd ~/code/llt/llt-core'
+alias lltl='cd ~/code/llt/llt-logger/'
 alias llth='cd ~/code/llt/llt-helpers'
 alias lltd='cd ~/code/llt/llt-db_handler'
 alias lltm='cd ~/code/llt/llt-morphologizer'
-alias lltc='cd ~/code/llt/llt-constants'
+alias lltk='cd ~/code/llt/llt-constants'
 alias llte='cd ~/code/llt/llt-core_extensions'
 alias lltf='cd ~/code/llt/llt-form_builder'
 alias lltt='cd ~/code/llt/llt-tokenizer'
