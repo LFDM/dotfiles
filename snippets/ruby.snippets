@@ -1141,6 +1141,6 @@ snippet hr
 	${1} => ${2},${0}
 snippet itmorph
 	it "${1}" do
-	  m = morph(${2}).morphologize
+	  m = morph("${2}").morphologize
 	  m.should have(${3}).item${0}
 	end

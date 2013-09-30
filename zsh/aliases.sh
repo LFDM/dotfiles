@@ -41,7 +41,7 @@ alias br='bundle exec rake'
 alias gh='git hist'
 alias gcom='gcmsg'
 alias gs='gss' # usually starts ghostscript, a common and annoying typo
-alias gcof='git checkout --file'
+alias gcof='git checkout --'
 alias gcob='git checkout -b'
 alias gcobt='git-new-tracked-branch'
 
