@@ -99,6 +99,11 @@ vnoremap > >gv
 map <leader>mm `m
 map <leader>mn `n
 
+" converts a ruby block with {} to a do/end block
+" place the cursor on the end of the newly created line as there might be a
+" trailing whitespace left
+map <leader><leader>d f{%s<cr>end<esc>k^f{sdo<esc>f\|,a<cr><esc>j=k$
+
 
 """""""""""""
 " Functions "
