@@ -42,6 +42,7 @@ alias gh='git hist'
 alias gcom='gcmsg'
 alias gs='gss' # usually starts ghostscript, a common and annoying typo
 alias gcof='git checkout --file'
+alias gcob='git checkout -b'
 
 # Show the full current path
 alias p='echo $PWD'
