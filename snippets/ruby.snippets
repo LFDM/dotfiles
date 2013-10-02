@@ -1141,8 +1141,8 @@ snippet hr
 	${1} => ${2},${0}
 snippet itmorph
 	it "${1}" do
-	  m = morph("${2}").morphologize
-	  m.should have(${3}).item${0}
+	  f = morphologizer.morphologize("${2}")
+	  f.should have(${3}).item${0}
 	end
 snippet sbt
 	should be_true
@@ -1152,5 +1152,5 @@ snippet sbe
 	should be_empty
 snippet sbn
 	should be_nil
-snippet sbh
+snippet shi
 	should have(${1}).item${0}
