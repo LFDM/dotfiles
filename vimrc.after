@@ -46,6 +46,9 @@ map <leader>a. :Tabularize /.<cr>
 map <leader>at :Tabularize /then<cr>
 map <leader>ac :Tabularize /
 
+" invoke sort on a visual selection of text
+map <leader>so :sort<cr>
+
 " Insert pry statement
 map <leader>p orequire 'pry'; binding.pry<esc>
 map <leader>P Orequire 'pry'; binding.pry<esc>
