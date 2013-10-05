@@ -16,3 +16,8 @@ function git-nuke {
 function git-nuke! {
   git branch -D $1 && git push origin :$1
 }
+
+# compile and run C
+function car {
+  gcc -o $1 $1.c; ./$1
+}

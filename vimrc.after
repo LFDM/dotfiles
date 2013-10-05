@@ -30,6 +30,12 @@ map <leader>ooo rō
 map <leader>uuu rū
 map <leader>yyy rȳ
 
+" Tag Hopping
+nnoremap <Leader>g <C-]>
+
+" open CtrlPTag
+" nnoremap <C-P> :CtrlPTag<cr>
+
 " Tabs
 noremap  <C-t> :tabnew<CR>
 nnoremap <C-l> :tabnext<CR>
