@@ -1,2 +1,5 @@
 # File created by Chrome if you use coveralls output in the browser
 libpeerconnection.log
+
+# File name I use to output UML diagrams with yard.
+uml_diagram.pdf
