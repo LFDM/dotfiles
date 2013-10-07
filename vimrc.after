@@ -113,6 +113,9 @@ map <leader>mn `n
 " trailing whitespace left
 map <leader><leader>d f{%s<cr>end<esc>k^f{sdo<esc>f\|,a<cr><esc>j=k$
 
+" Ruby String to Symbol. makes use of the Surround plugin.
+map <leader><leader>s ds"i:<esc>
+
 " Highlight long line
 autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
 autocmd BufEnter * match OverLength /\%74v.*/
