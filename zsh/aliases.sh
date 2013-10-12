@@ -22,6 +22,7 @@ alias lltd='cd ~/code/llt/llt-db_handler'
 alias lltk='cd ~/code/llt/llt-constants'
 alias llte='cd ~/code/llt/llt-core_extensions'
 alias lltf='cd ~/code/llt/llt-form_builder'
+alias mlld='cd ~/code/multi_language_latin_dictionary'
 
 # Rake and bundler
 alias r='rake'
