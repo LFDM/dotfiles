@@ -16,6 +16,13 @@ imap  <Down>  <NOP>
 imap  <Left>  <NOP>
 imap  <Right> <NOP>
 
+
+" Less shifting in insert mode with a customized qwerty?
+inoremap ; :
+inoremap : ;
+inoremap / _
+inoremap _ /
+
 " short and long vowel replacements
 map <leader>aa ră
 map <leader>ee rĕ
@@ -43,7 +50,9 @@ nnoremap <C-h> :tabprevious<CR>
 
 " Switch , and ;
 noremap , ;
-noremap ; ,
+" QWERTY
+"noremap ; ,
+noremap \ ,
 
 " align + delimiter
 map <leader>a= :Tabularize /=<cr>
@@ -98,7 +107,9 @@ noremap L $
 map <esc><esc> :nohl<cr>
 
 "Map <Space> to / (search)
-map <space> /
+"QWERTY
+"map <space> /
+map <space> <c-w>w
 
 " Visual shifting - vmode is not exited
 vnoremap < <gv

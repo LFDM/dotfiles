@@ -1,4 +1,6 @@
-let mapleader = "ö"
+" Going QWERTY
+let mapleader = ';'
+  "let mapleader = "ö"
 
 " Proper syntax highlighting for hamlc files
 au BufRead,BufNewFile *.hamlc set ft=haml
