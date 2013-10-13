@@ -2,11 +2,5 @@
 let mapleader = ';'
   "let mapleader = "ö"
 
-" Proper syntax highlighting for hamlc files
-au BufRead,BufNewFile *.hamlc set ft=haml
-
-" Remove trailing whitespace on save for ruby files
-au BufWritePre *.rb :%s/\s\+$//e
-
 " Disable snipmates-snippets to use customizations
 call janus#disable_plugin('snipmate-snippets')

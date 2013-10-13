@@ -131,7 +131,13 @@ map <leader><leader>s ds"i:<esc>
 autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
 autocmd BufEnter * match OverLength /\%74v.*/
 
-"""""""""""""
+" Proper syntax highlighting for hamlc files
+au BufRead,BufNewFile *.hamlc set ft=haml
+
+" Remove trailing whitespace on save for ruby files
+au BufWritePre *.rb :%s/\s\+$//e
+
+e""""""""""""
 " Functions "
 """""""""""""
 
@@ -176,4 +182,5 @@ function! RenameFile()
     redraw!
   endif
 endfunction
-map <leader>ü :call RenameFile()<cr>
+map <leader>` :call RenameFile()<cr>
+"was on german ue before, renamed due to qwerty
