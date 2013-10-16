@@ -16,6 +16,6 @@
 [submodule "plugins/vim-numbertoggle"]
 	path = plugins/vim-numbertoggle
 	url = https://github.com/jeffkreeftmeijer/vim-numbertoggle.git
-[submodule "vim-latex"]
-	path = vim-latex
+[submodule "plugins/vim-latex"]
+	path = plugins/vim-latex
 	url = https://github.com/jcf/vim-latex.git
