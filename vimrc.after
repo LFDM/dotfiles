@@ -22,6 +22,8 @@ inoremap ; :
 inoremap : ;
 inoremap / _
 inoremap _ /
+inoremap \ \|
+inoremap e| \
 
 " short and long vowel replacements
 map <leader>aa ră
