@@ -157,9 +157,9 @@ map <leader>lt :call SetLLTPath()<Cr>
 " Focus the RSpec do block your currently hovering and saves the file
 function! RSpecFocus()
 if getline(".") =~ ', :focus'
-  exec ":s/, :focus//g"
+  exec ":silent! s/, :focus//g"
   else
-  exec ":s/ do/, :focus do"
+  exec ":silent! s/ do/, :focus do"
   endif
   exec ":w"
 endfunction
