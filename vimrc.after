@@ -23,7 +23,7 @@ inoremap : ;
 inoremap / _
 inoremap _ /
 inoremap \ \|
-inoremap e| \
+inoremap \| \
 
 " short and long vowel replacements
 map <leader>aa ră
