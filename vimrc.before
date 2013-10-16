@@ -4,3 +4,9 @@ let mapleader = ';'
 
 " Disable snipmates-snippets to use customizations
 call janus#disable_plugin('snipmate-snippets')
+
+" remap vim_latexs jumper - it collides with our custom snippet trigger
+" suprisingly this won't work if put in the regular vimrc.after file
+imap <C-g> <Plug>IMAP_JumpForward
+nmap <C-g> <Plug>IMAP_JumpForward
+vmap <C-g> <Plug>IMAP_JumpForward
