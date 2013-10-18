@@ -67,8 +67,9 @@ map <leader>ac :Tabularize /
 map <leader>so :sort<cr>
 
 " Insert pry statement
-map <leader>p orequire 'pry'; binding.pry<esc>
-map <leader>P Orequire 'pry'; binding.pry<esc>
+" Mind that : is remapped - looks honky but only works this way
+map <leader>p orequire 'pry': binding.pry<esc>
+map <leader>P Orequire 'pry': binding.pry<esc>
 
 " Disable K - looking up uninteresting stuff
 map K <Nop>
@@ -89,6 +90,7 @@ map <leader>r :! rake<cr>
 map <leader>w  :w<cr>
 map <leader>wa :wa<cr>
 map <leader>x  :x<cr>
+map <leader>qq :q<cr>
 
 " Searches always in the center of the screen
 nnoremap <silent> n nzz
