@@ -63,7 +63,7 @@ class Linker
   end
 
   def non_linkable_directory(file)
-    File.directory?(file) unless %w{ oh-my-zsh zsh }.include?(file)
+    File.directory?(file) unless %w{ oh-my-zsh zsh git_template }.include?(file)
   end
 
   def full_path(file)
