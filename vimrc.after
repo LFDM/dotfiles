@@ -40,10 +40,10 @@ map <leader>uuu rū
 map <leader>yyy rȳ
 
 " Tag Hopping
-nnoremap <Leader>g <C-]>
+"nnoremap <Leader>g <C-]> - not needed with qwerty
 
 " open CtrlPTag
-" nnoremap <C-P> :CtrlPTag<cr>
+noremap <C-\> :CtrlPTag<cr>
 
 " Tabs
 noremap  <C-t> :tabnew<CR>
