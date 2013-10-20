@@ -19,3 +19,6 @@
 [submodule "plugins/vim-latex"]
 	path = plugins/vim-latex
 	url = https://github.com/jcf/vim-latex.git
+[submodule "matchit"]
+	path = plugins/matchit
+	url = https://github.com/tmhedberg/matchit.git
