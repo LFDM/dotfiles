@@ -139,6 +139,13 @@ vnoremap > >gv
 map <leader>mm `m
 map <leader>mn `n
 
+" Toggle Rainbow Parentheses
+map <leader>rp :RainbowParenthesesToggle<cr>
+" and show all kinds of parens
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
 " converts a ruby block with {} to a do/end block
 " place the cursor on the end of the newly created line as there might be a
 " trailing whitespace left
