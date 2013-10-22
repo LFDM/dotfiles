@@ -13,6 +13,8 @@ set scrolloff=3
 set splitright
 set splitbelow
 
+set wildignore+=*/doc/*
+
 " A little force!
 map   <Up>    <NOP>
 map   <Down>  <NOP>
