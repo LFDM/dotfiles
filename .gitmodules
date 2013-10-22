@@ -25,3 +25,6 @@
 [submodule "vim-ruby-refactoring"]
 	path = plugins/vim-ruby-refactoring
 	url = https://github.com/ecomba/vim-ruby-refactoring.git
+[submodule "rainbow_parentheses.vim"]
+	path = plugins/rainbow_parentheses.vim
+	url = https://github.com/kien/rainbow_parentheses.vim.git
