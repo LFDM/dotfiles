@@ -8,10 +8,14 @@ set history=400
 
 " Always show some context
 set scrolloff=3
+set sidescrolloff=5
 
 " Open to the right and below, even if using CtrlP splitters
 set splitright
 set splitbelow
+
+" Reread files when changed from the outside (e.g. you just made a git pull)
+set autoread
 
 "E.g. substitutions are multiple per line per default
 set gdefault
