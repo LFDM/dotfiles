@@ -9,6 +9,10 @@ set history=400
 " Always show some context
 set scrolloff=3
 
+" Open to the right and below, even if using CtrlP splitters
+set splitright
+set splitbelow
+
 " A little force!
 map   <Up>    <NOP>
 map   <Down>  <NOP>
