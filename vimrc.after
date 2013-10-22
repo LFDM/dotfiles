@@ -13,6 +13,9 @@ set scrolloff=3
 set splitright
 set splitbelow
 
+"E.g. substitutions are multiple per line per default
+set gdefault
+
 set wildignore+=*/doc/*
 
 " A little force!
