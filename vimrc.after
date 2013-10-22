@@ -6,6 +6,9 @@ hi SignColumn ctermbg=233
 
 set history=400
 
+" Always show some context
+set scrolloff=3
+
 " A little force!
 map   <Up>    <NOP>
 map   <Down>  <NOP>
