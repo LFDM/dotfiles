@@ -22,6 +22,9 @@ set gdefault
 
 set wildignore+=*/doc/*
 
+"Keeps file in buffer even after quitting, will remember undo history e.g.
+set hidden
+
 " A little force!
 map   <Up>    <NOP>
 map   <Down>  <NOP>
@@ -127,8 +130,8 @@ noremap L $
 map <esc><esc> :nohl<cr>
 
 "Map <Space> to / (search)
-"QWERTY
 "map <space> /
+"Switch windows with QWERTY
 map <space> <c-w>w
 
 " Visual shifting - vmode is not exited
@@ -145,6 +148,11 @@ map <leader>rp :RainbowParenthesesToggle<cr>
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+"Gist
+" Open Browser after gisting
+let g:gist/open/browser/after/post = 1
+let g:gist/clip/command = 'xclip -selection clipboard'
 
 " converts a ruby block with {} to a do/end block
 " place the cursor on the end of the newly created line as there might be a

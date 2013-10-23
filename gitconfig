@@ -20,3 +20,5 @@
 
 [init]
 	templatedir = ~/.git_template
+[github]
+	user = LFDM
