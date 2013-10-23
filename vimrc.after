@@ -61,9 +61,6 @@ map <leader>yyy rȳ
 " Tag Hopping
 "nnoremap <Leader>g <C-]> - not needed with qwerty
 
-" open CtrlPTag
-noremap <C-\> :CtrlPTag<cr>
-
 " Tabs
 noremap  <C-t> :tabnew<CR>
 nnoremap <C-l> :tabnext<CR>
@@ -74,13 +71,6 @@ noremap , ;
 " QWERTY
 "noremap ; ,
 noremap \ ,
-
-" align + delimiter
-map <leader>a= :Tabularize /=<cr>
-map <leader>a: :Tabularize /:<cr>
-map <leader>a. :Tabularize /.<cr>
-map <leader>at :Tabularize /then<cr>
-map <leader>ac :Tabularize /
 
 " invoke sort on a visual selection of text
 map <leader>so :sort<cr>
@@ -142,18 +132,6 @@ vnoremap > >gv
 map <leader>mm `m
 map <leader>mn `n
 
-" Toggle Rainbow Parentheses
-map <leader>rp :RainbowParenthesesToggle<cr>
-" and show all kinds of parens
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
-"Gist
-" Open Browser after gisting
-let g:gist_open_browser_after_post = 1
-let g:gist_clip_command = 'xclip -selection clipboard'
-
 " converts a ruby block with {} to a do/end block
 " place the cursor on the end of the newly created line as there might be a
 " trailing whitespace left
@@ -171,6 +149,37 @@ au BufRead,BufNewFile *.hamlc set ft=haml
 
 " Remove trailing whitespace on save for ruby files
 au BufWritePre *.rb :%s/\s\+$//e
+
+"""""""""""""
+"  Plugins  "
+"""""""""""""
+
+" Automatically show error list
+let g:syntastic_auto_loc_list=1
+" Make the list a little shorter
+let g:syntastic_loc_list_height=5
+
+" open CtrlPTag
+noremap <C-\> :CtrlPTag<cr>
+
+" align + delimiter
+map <leader>a= :Tabularize /=<cr>
+map <leader>a: :Tabularize /:<cr>
+map <leader>a. :Tabularize /.<cr>
+map <leader>at :Tabularize /then<cr>
+map <leader>ac :Tabularize /
+
+" Rainbow Parentheses
+map <leader>rp :RainbowParenthesesToggle<cr>
+" and show all kinds of parens
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" Gist
+" Open Browser after gisting
+let g:gist_open_browser_after_post = 1
+let g:gist_clip_command = 'xclip -selection clipboard'
 
 """""""""""""
 " Functions "
