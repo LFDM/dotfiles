@@ -146,6 +146,7 @@ autocmd BufEnter * match OverLength /\%74v.*/
 
 " Proper syntax highlighting for hamlc files
 au BufRead,BufNewFile *.hamlc set ft=haml
+au BufRead,BufNewFile .pryrc set ft=ruby
 
 " Remove trailing whitespace on save for ruby files
 au BufWritePre *.rb :%s/\s\+$//e
