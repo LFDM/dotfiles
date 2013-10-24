@@ -66,3 +66,7 @@ alias open='xdg-open'
 
 # For referencing...
 alias git_aliases='vim ~/.oh-my-zsh/plugins/git/git.plugin.zsh'
+
+# Get packages easier
+alias sagi='nocorrect sudo apt-get install'
+alias agi='apt-get install'
