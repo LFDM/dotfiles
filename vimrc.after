@@ -189,6 +189,10 @@ let g:gist_open_browser_after_post = 1
 " disable the annoying leader mapping
 map <leader>ww <nop>
 
+" Ack
+" usual mapping is <leader>f, which causes an unwanted timeout
+map <leader>fa :Ack<space>
+
 """""""""""""
 " Functions "
 """""""""""""
