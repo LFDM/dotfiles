@@ -140,13 +140,11 @@ map <leader><leader>d f{%s<cr>end<esc>k^f{sdo<esc>f\|,a<cr><esc>j=k$
 " Ruby String to Symbol. makes use of the Surround plugin.
 map <leader><leader>s ds"i:<esc>
 
-" Highlight long lines
-au BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
-au BufEnter * match OverLength /\%80v.\+/
-" Don't highlight in the quickfix window
-" This doesn't work well, the match command is still called...
-" The original BufEnter commands should not be triggered, but atm
-" not sure how this done.
+
+" Highlight long lines, but not in the quickfix windows.
+" Hacky, but vimscript is driving one mad sometimes...
+au BufRead * highlight OverLength ctermbg=darkgrey guibg=#592929
+au BufRead * match OverLength /\%80v.\+/
 au BufReadPost quickfix exec ':call clearmatches()'
 
 
