@@ -181,6 +181,10 @@ au Syntax * RainbowParenthesesLoadBraces
 " Open Browser after gisting
 let g:gist_open_browser_after_post = 1
 
+" VimWiki
+" disable the annoying leader mapping
+map <leader>ww <nop>
+
 """""""""""""
 " Functions "
 """""""""""""
