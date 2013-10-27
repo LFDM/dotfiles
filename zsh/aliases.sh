@@ -1,19 +1,11 @@
-# Fast cding
-# Set by zsh
-#alias ..='cd ..'
-#alias ...='cd ../..'
+# Even faster cding
 alias ....='cd ../../..'
-
-# Remnants of the past
-# Set by zsh
-#alias ll='ls -l'
-#alias la='ls -a'
 
 # Main folders
 alias c='cd ~/code'
 alias dots='cd ~/dotfiles'
 
-# LLT folders
+# Active projects
 alias llt=' cd ~/code/llt/'
 alias lltc='cd ~/code/llt/llt-core'
 alias lltl='cd ~/code/llt/llt-logger/'
@@ -28,18 +20,8 @@ alias diploma='cd ~/code/diploma_thesis'
 # Rake and bundler
 alias r='rake'
 alias br='bundle exec rake'
-# Disabled for now, we try the bundler plugin
-#alias be='bundle exec'
-#alias bi='bundle install'
-#alias bu='bundle update'
 
-# Git
-# most of these once custom aliases are included in the git plugin
-#alias gd='git diff'
-#alias gp='git push'
-#alias gpr='git pull --rebase'
-#alias grc='git rebase --continue'
-#alias gst='git st'
+# Additional Git
 alias gh='git hist'
 alias gcom='gcmsg'
 alias gs='gss' # usually starts ghostscript, a common and annoying typo
@@ -61,10 +43,10 @@ alias snippets='vim ~/.janus/vim-snippets/snippets/ruby.snippets'
 alias aliases='vim ~/.zsh/aliases.sh'
 alias zsh_func='vim ~/.zsh/functions.sh'
 
-# Open html, pdf...
+# Faster opening
 alias open='xdg-open'
 
-# For referencing...
+# For referencing
 alias git_aliases='vim ~/.oh-my-zsh/plugins/git/git.plugin.zsh'
 
 # Get packages easier

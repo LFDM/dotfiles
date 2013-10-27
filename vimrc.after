@@ -2,6 +2,7 @@ color vibrantink
 color ir_black
 color railscasts
 
+" Darker sign column, approx same color as background
 hi SignColumn ctermbg=233
 
 set history=400
@@ -17,15 +18,15 @@ set splitbelow
 " Reread files when changed from the outside (e.g. you just made a git pull)
 set autoread
 
-"E.g. substitutions are multiple per line per default
+" E.g. substitutions are multiple per line per default
 set gdefault
 
 set wildignore+=*/doc/*
 
-"Keeps file in buffer even after quitting, will remember undo history e.g.
+" Keeps file in buffer even after quitting, will remember undo history e.g.
 set hidden
 
-" A little force!
+" Forcing good habits
 map   <Up>    <NOP>
 map   <Down>  <NOP>
 map   <Left>  <NOP>
@@ -36,7 +37,7 @@ imap  <Left>  <NOP>
 imap  <Right> <NOP>
 
 
-" Less shifting in insert mode with a customized qwerty?
+" Less shift keys in insert mode with a customized qwerty?
 inoremap ; :
 inoremap : ;
 inoremap / _
@@ -58,9 +59,6 @@ map <leader>ooo rō
 map <leader>uuu rū
 map <leader>yyy rȳ
 
-" Tag Hopping
-"nnoremap <Leader>g <C-]> - not needed with qwerty
-
 " Tabs
 noremap  <C-t> :tabnew<CR>
 nnoremap <C-l> :tabnext<CR>
@@ -68,8 +66,6 @@ nnoremap <C-h> :tabprevious<CR>
 
 " Switch , and ;
 noremap , ;
-" QWERTY
-"noremap ; ,
 noremap \ ,
 
 " invoke sort on a visual selection of text
@@ -140,13 +136,11 @@ map <leader><leader>d f{%s<cr>end<esc>k^f{sdo<esc>f\|,a<cr><esc>j=k$
 " Ruby String to Symbol. makes use of the Surround plugin.
 map <leader><leader>s ds"i:<esc>
 
-
 " Highlight long lines, but not in the quickfix windows.
 " Hacky, but vimscript is driving one mad sometimes...
 au BufRead * highlight OverLength ctermbg=darkgrey guibg=#592929
 au BufRead * match OverLength /\%80v.\+/
 au BufReadPost quickfix exec ':call clearmatches()'
-
 
 " Proper syntax highlighting for hamlc files
 au BufRead,BufNewFile *.hamlc set ft=haml
@@ -239,4 +233,3 @@ function! RenameFile()
   endif
 endfunction
 map <leader>` :call RenameFile()<cr>
-"was on german ue before, renamed due to qwerty
