@@ -28,3 +28,9 @@
 [submodule "rainbow_parentheses.vim"]
 	path = plugins/rainbow_parentheses.vim
 	url = https://github.com/kien/rainbow_parentheses.vim.git
+[submodule "plugins/vim-clojure-static"]
+	path = plugins/vim-clojure-static
+	url = https://github.com/guns/vim-clojure-static.git
+[submodule "plugins/vim-fireplace"]
+	path = plugins/vim-fireplace
+	url = https://github.com/tpope/vim-fireplace.git
