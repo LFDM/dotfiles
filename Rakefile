@@ -10,6 +10,8 @@ desc "installs dot files in home directory"
 task :dots do
   puts "######### Installing Dotfiles #########"
   Linker.new.create_from(".")
+  # Leiningen profile file is not really a dot, but still fits here
+  Linker.new('.lein/').create_from('lein')
 end
 
 desc "installs snippets in the snippets directory"
@@ -63,7 +65,11 @@ class Linker
   end
 
   def non_linkable_directory(file)
-    File.directory?(file) unless %w{ oh-my-zsh zsh git_template }.include?(file)
+    File.directory?(file) unless linkable.include?(file)
+  end
+
+  def linkable
+    %w{ oh-my-zsh zsh git_template }
   end
 
   def full_path(file)
