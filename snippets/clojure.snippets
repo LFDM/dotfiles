@@ -90,3 +90,16 @@ snippet when
 snippet when-let
 	(when-let [${1:result} ${2:test}]
 		${0:body})
+
+# Midje snippets
+snippet fs
+	(facts "${1}"
+	  ${0})
+snippet fsf
+	(facts "${1}"
+	  (fact "${2}"
+	    (${3}) ${0}))
+snippet f
+	(fact "${1}"
+	  (${2}) ${0})
+
