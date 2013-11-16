@@ -34,6 +34,6 @@
 [submodule "plugins/vim-fireplace"]
 	path = plugins/vim-fireplace
 	url = https://github.com/tpope/vim-fireplace.git
-[submodule "plugins/vim-gitgutter.git"]
-	path = plugins/vim-gitgutter.git
+[submodule "plugins/vim-gitgutter"]
+	path = plugins/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
