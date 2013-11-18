@@ -26,6 +26,9 @@ set wildignore+=*/doc/*
 " Keeps file in buffer even after quitting, will remember undo history e.g.
 set hidden
 
+" never fold
+set nofoldenable
+
 " Forcing good habits
 map   <Up>    <NOP>
 map   <Down>  <NOP>
@@ -180,14 +183,22 @@ au Syntax * RainbowParenthesesLoadBraces
 let g:gist_open_browser_after_post = 1
 
 " VimWiki
+" Disabled for good in vimrc.before atm
+
 " disable the annoying leader mapping
-map <leader>ww <nop>
+"map <leader>ww <nop>
+
+"" use markdown syntax
+"let g:vimwiki_list = [{'path': '~/vimwiki/',
+                     "\ 'syntax': 'markdown', 'ext': '.md'}]
+"augroup filetypedetect
+  ""au! BufRead,BufNewFile */vimwiki/*        set filetype=vimwiki
+"augroup END
 
 " Ack
 " usual mapping is <leader>f, which causes an unwanted timeout
 map <leader>fa :Ack<space>
 
-"""""""""""""
 " Functions "
 """""""""""""
 
