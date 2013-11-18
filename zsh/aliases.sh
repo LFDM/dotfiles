@@ -41,6 +41,7 @@ alias zshrc='vim ~/.zshrc'
 alias pryrc='vim ~/.pryrc'
 alias rsnips='vim ~/dotfiles/snippets/ruby.snippets'
 alias csnips='vim ~/dotfiles/snippets/clojure.snippets'
+alias msnips='vim ~/dotfiles/snippets/markdown.snippets'
 alias aliases='vim ~/.zsh/aliases.sh'
 alias zsh_func='vim ~/.zsh/functions.sh'
 
