@@ -976,8 +976,8 @@ snippet aft
 	after :${1:each} do
 		${0}
 	end
-snippet let
-	let(:${1:object}) ${0}
+#snippet let
+#	let(:${1:object}) ${0}
 snippet let!
 	let!(:${1:object}) ${0}
 snippet subj
@@ -1158,6 +1158,12 @@ snippet se
 	should == ${0}
 snippet srt
 	should respond_to(${0})
+snippet let
+	let(:${1}) { ${2} }${0}
+snippet letd
+	let(:${1}) do
+	  ${2}
+	end${0}
 snippet itpf
 	it "like ${1}" do
 	  pf_composition("${2}", "${3}").should == "${4}"${0}
