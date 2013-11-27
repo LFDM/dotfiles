@@ -46,7 +46,7 @@ end
 task default: %i{ dots plugins snippets }
 
 class Linker
-  def initialize(path = "", selector = '*', exclusions = %w{ Rakefile })
+  def initialize(path = "", selector = '*', exclusions = %w{ Rakefile README.md })
     @path = File.join(ENV["HOME"], path)
     @selector = selector
     @exclusions = exclusions
@@ -69,7 +69,7 @@ class Linker
   end
 
   def linkable
-    %w{ oh-my-zsh zsh git_template }
+    %w{ oh-my-zsh zsh git_template scripts }
   end
 
   def full_path(file)
