@@ -21,3 +21,8 @@ function git-nuke! {
 function car {
   gcc -o $1 $1.c; ./$1
 }
+
+# map esc to caps lock if it fails on startup
+function esc {
+  /usr/bin/xmodmap $HOME/.Xmodmap
+}
