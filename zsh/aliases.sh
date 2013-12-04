@@ -50,13 +50,6 @@ alias msnips='vim ~/dotfiles/snippets/markdown.snippets'
 alias aliases='vim ~/.zsh/aliases.sh'
 alias zsh_func='vim ~/.zsh/functions.sh'
 
-# Start the dual screen tmux sessions
-alias tmux_start='~/.scripts/tmux_dual_screen_setup.sh'
-
-# Connect with tmux sessions
-alias tmux_main='tmux -2 attach-session -d -t main'
-alias tmux_aux='tmux -2 attach-session -d -t aux'
-
 # Faster opening
 alias open='xdg-open'
 
