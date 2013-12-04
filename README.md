@@ -8,5 +8,7 @@
   Don't forget that it's called ack-grep under ubuntu...
   (sudo ln -sf /usr/bin/ack-grep /usr/local/bin/ack to place a proper link for it)
 * Clone this repository.
+* Run git submodule init.
+* Run git submodule update.
 * Run rake.
 * Enjoy.
