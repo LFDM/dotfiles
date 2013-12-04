@@ -1,6 +1,6 @@
 ### Prerequisites
 
-* Get zsh and make it your default shell.
+* Get zsh and make it your default shell. (chsh -s /bin/zsh)
 * Get janus.
 * Get rvm.
 * Get leiningen.
