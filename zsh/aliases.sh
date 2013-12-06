@@ -4,6 +4,7 @@ alias ....='cd ../../..'
 # Main folders
 alias c='cd ~/code'
 alias dots='cd ~/dotfiles'
+alias tools='cd ~/tools'
 
 # Active projects
 alias llt=' cd ~/code/llt/'
