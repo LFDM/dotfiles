@@ -5,6 +5,7 @@ alias ....='cd ../../..'
 alias c='cd ~/code'
 alias dots='cd ~/dotfiles'
 alias tools='cd ~/tools'
+alias books='cd ~/books'
 
 # Active projects
 alias llt=' cd ~/code/llt/'
