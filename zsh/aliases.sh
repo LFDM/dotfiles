@@ -61,3 +61,6 @@ alias git_aliases='vim ~/.oh-my-zsh/plugins/git/git.plugin.zsh'
 # Get packages easier
 alias sagi='nocorrect sudo apt-get install'
 alias agi='apt-get install'
+
+# ssh to my desktop when at home
+alias connect='ssh 192.168.178.20'
