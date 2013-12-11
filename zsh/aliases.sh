@@ -22,6 +22,7 @@ alias lltf='cd ~/code/llt-dev/llt-form_builder'
 alias lltt='cd ~/code/llt-dev/llt-tokenizer'
 alias mlld='cd ~/code/multi_language_latin_dictionary'
 alias diploma='cd ~/code/diploma_thesis'
+alias dc='cd ~/code/diploma_thesis_code'
 
 # Rake and bundler
 alias r='rake'
