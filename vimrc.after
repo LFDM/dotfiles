@@ -65,10 +65,15 @@ map <leader>yyy rȳ
 autocmd BufRead,BufNewFile ~/code/diploma_thesis/* call GermanLetters()
 " doesn't work that way
 function GermanLetters()
-  iab ae ä
-  iab oe ö
-  iab ue ü
-  iab SS ß
+  ab ae ä
+  ab oe ö
+  ab ue ü
+  ab SS ß
+
+  ab c Caesar
+  ab bg Bellum Gallicum
+  ab cbg Caes. Gall.
+  ab tb Treebank
 endfunction
 
 " Tabs
