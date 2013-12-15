@@ -124,6 +124,10 @@ map Y y$
 noremap H ^
 noremap L $
 
+" Move over graphical lines, i.e. when they are wrapped
+noremap j gj
+noremap k gk
+
 " Disables highlighting
 map <esc><esc> :nohl<cr>
 
