@@ -62,6 +62,15 @@ map <leader>ooo rō
 map <leader>uuu rū
 map <leader>yyy rȳ
 
+autocmd BufRead,BufNewFile ~/code/diploma_thesis/* call GermanLetters()
+" doesn't work that way
+function GermanLetters()
+  iab ae ä
+  iab oe ö
+  iab ue ü
+  iab SS ß
+endfunction
+
 " Tabs
 noremap  <C-t> :tabnew<CR>
 nnoremap <C-l> :tabnext<CR>
