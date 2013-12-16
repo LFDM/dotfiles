@@ -267,3 +267,9 @@ function! RenameFile()
   endif
 endfunction
 map <leader>` :call RenameFile()<cr>
+
+function! TexRel()
+  exec 'silent !pdflatex main && xdg-open main.pdf'
+  redraw!
+endfunction
+map <leader>tr :call TexRel()<cr>
