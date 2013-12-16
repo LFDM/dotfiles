@@ -26,3 +26,8 @@ function car {
 function esc {
   /usr/bin/xmodmap $HOME/.Xmodmap
 }
+
+# creates a pdf from a tex file and opens it
+function texrel {
+  pdflatex $1 && xdg-open $1.pdf
+}
