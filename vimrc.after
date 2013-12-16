@@ -217,6 +217,10 @@ let g:gist_open_browser_after_post = 1
 " usual mapping is <leader>f, which causes an unwanted timeout
 map <leader>fa :Ack<space>
 
+" Latex
+let g:tex_flavor='latex'
+
+
 " Functions "
 """""""""""""
 
