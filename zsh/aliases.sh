@@ -50,6 +50,7 @@ alias tmuxc='vim ~/.tmux.conf'
 alias rsnips='vim ~/dotfiles/snippets/ruby.snippets'
 alias csnips='vim ~/dotfiles/snippets/clojure.snippets'
 alias msnips='vim ~/dotfiles/snippets/markdown.snippets'
+alias tsnips='vim ~/dotfiles/snippets/tex.snippets'
 alias aliases='vim ~/.zsh/aliases.sh'
 alias zsh_func='vim ~/.zsh/functions.sh'
 
