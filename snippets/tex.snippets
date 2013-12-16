@@ -198,10 +198,6 @@ snippet rm
 snippet tt
 	\texttt{${0:text}}
 #misc
-snippet ft
-	\footnote{
-	  ${1:text}
-	}${0}
 snippet fig
 	\begin{figure}
 	\begin{center}
@@ -252,7 +248,7 @@ snippet example
 snippet col2
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
-			${1}
+		${1}
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			${0}
@@ -267,3 +263,14 @@ snippet ph
 	\vspace{0.7cm}
 
 	${0}
+snippet dh
+	d.h.\ ${0}
+snippet bzw
+	bzw.\ ${0}
+snippet fn
+	\footnote{${1:text}} ${0}
+snippet fm
+	${1}\footnotemark{} ${0}
+snippet ft
+	\footnotetext{${0}}
+
