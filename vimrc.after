@@ -21,7 +21,7 @@ set autoread
 " E.g. substitutions are multiple per line per default
 set gdefault
 
-set wildignore+=*/doc/*
+set wildignore+=*/doc/*,*.aux,*.dvi,*.out,*.toc,*.pdf,*.log
 
 " Keeps file in buffer even after quitting, will remember undo history e.g.
 set hidden
