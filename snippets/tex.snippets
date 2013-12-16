@@ -187,7 +187,7 @@ snippet bf
 snippet under
 	\underline{${0:text}}
 snippet emp
-	\emph{${0:text}}
+	\emph{${1:text}} ${0}
 snippet sc
 	\textsc{${0:text}}
 #Choosing font
@@ -199,7 +199,9 @@ snippet tt
 	\texttt{${0:text}}
 #misc
 snippet ft
-	\footnote{${0:text}}
+	\footnote{
+	  ${1:text}
+	}${0}
 snippet fig
 	\begin{figure}
 	\begin{center}
