@@ -218,6 +218,7 @@ let g:gist_open_browser_after_post = 1
 map <leader>fa :Ack<space>
 
 " Latex
+let g:Tex_SmartKeyQuote=0
 let g:tex_flavor='latex'
 
 
