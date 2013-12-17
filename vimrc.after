@@ -221,6 +221,14 @@ map <leader>fa :Ack<space>
 let g:Tex_SmartKeyQuote=0
 let g:tex_flavor='latex'
 
+function! Wrapping()
+  set wrap
+  set linebreak
+  set textwidth=72
+  set nolist
+endfunction
+au Filetype tex call Wrapping()
+
 
 " Functions "
 """""""""""""
