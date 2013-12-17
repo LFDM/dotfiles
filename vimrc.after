@@ -229,6 +229,10 @@ function! Wrapping()
 endfunction
 au Filetype tex call Wrapping()
 
+" Spellchecking
+au Filetype gitcommit setlocal spell spelllang=en
+au Filetype markdown setlocal spell spelllang=en
+
 
 " Functions "
 """""""""""""
