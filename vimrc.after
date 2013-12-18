@@ -62,19 +62,13 @@ map <leader>ooo rō
 map <leader>uuu rū
 map <leader>yyy rȳ
 
-autocmd BufRead,BufNewFile ~/code/diploma_thesis/* call GermanLetters()
-" doesn't work that way
-function GermanLetters()
-  ab ae ä
-  ab oe ö
-  ab ue ü
-  ab SS ß
-
+function Abbrs()
   ab c Caesar
   ab bg Bellum Gallicum
   ab cbg Caes. Gall.
   ab tb Treebank
 endfunction
+autocmd BufRead,BufNewFile ~/code/diploma_thesis/text/tex/*.tex call Abbrs()
 
 " Tabs
 noremap  <C-t> :tabnew<CR>
