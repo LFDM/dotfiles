@@ -2,6 +2,7 @@
 
 tmux new -d -s home -n code
 tmux new-window -t home:2 -n diploma
+tmux new-window -t home:8 -n rake-runner
 tmux new-window -t home:9 -n cmus
 
 tmux send-keys -t home:1 'c' C-m
