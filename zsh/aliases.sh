@@ -69,5 +69,7 @@ alias connect='ssh 192.168.178.20'
 
 # start the home tmux session
 alias stmux='~/.tmux/home_session.sh'
-# connect to home session
-alias htmux='tmux a -t home'
+# attach to home session
+alias atmux='tmux a -t home'
+# connect to home session and remain independent
+alias ctmux='tmux new -t home'
