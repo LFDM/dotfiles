@@ -72,4 +72,4 @@ alias stmux='~/.tmux/home_session.sh'
 # attach to home session
 alias atmux='tmux a -t home'
 # connect to home session and remain independent
-alias ctmux='tmux new -t home'
+alias ctmux='tmux new -s home-sub -t home'
