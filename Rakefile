@@ -69,7 +69,7 @@ class Linker
   end
 
   def linkable
-    %w{ oh-my-zsh zsh git_template scripts }
+    %w{ oh-my-zsh zsh git_template scripts tmux }
   end
 
   def full_path(file)
