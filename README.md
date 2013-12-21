@@ -1,5 +1,6 @@
 ### Prerequisites
 
+* Get vim (preferably something with clipboard support like vim-athena)
 * Get zsh and make it your default shell (chsh -s /bin/zsh)
 * Get janus
 * Get rvm
