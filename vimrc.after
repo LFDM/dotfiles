@@ -83,9 +83,9 @@ noremap \ ,
 map <leader>so :sort<cr>
 
 " Insert pry statement
-" Mind that : is remapped - looks honky but only works this way
-map <leader>p orequire 'pry': binding.pry<esc>
-map <leader>P Orequire 'pry': binding.pry<esc>
+" Mind that ; is remapped - we have to shield it with paste mode
+map <leader>p :set paste<cr>orequire 'pry'; binding.pry<esc>:set nopaste<cr>
+map <leader>P :set paste<cr>Orequire 'pry'; binding.pry<esc>:set nopaste<cr>
 
 " Disable K - looking up uninteresting stuff
 map K <Nop>
@@ -106,7 +106,6 @@ function RakeThroughTmux()
   exec 'silent ! tmux send-keys -t home:rake-runner "cd ' . expand('%:p:h') . '&& rake" C-m'
   exec 'redraw!'
 endfunction
-
 map <leader>r :call RakeThroughTmux()<cr>
 
 " Faster saving of files
@@ -146,16 +145,14 @@ noremap k gk
 " Disables highlighting
 map <esc><esc> :nohl<cr>
 
-"Map <Space> to / (search)
-"map <space> /
-"Switch windows with QWERTY
+"Switch windows faster
 map <space> <c-w>w
 
 " Visual shifting - vmode is not exited
 vnoremap < <gv
 vnoremap > >gv
 
-" Marks
+" Two shortcuts for marks
 map <leader>mm `m
 map <leader>mn `n
 
@@ -165,7 +162,8 @@ map <leader>mn `n
 map <leader><leader>d f{%s<cr>end<esc>k^f{sdo<esc>f\|,a<cr><esc>j=k$
 
 " Ruby String to Symbol. makes use of the Surround plugin.
-map <leader><leader>s ds"i:<esc>
+" Mind the remap ; to :
+map <leader><leader>s ds"i;<esc>
 
 " Highlight long lines, but not in the quickfix windows.
 " Hacky, but vimscript is driving one mad sometimes...
@@ -243,7 +241,7 @@ au Filetype tex call Wrapping()
 au Filetype gitcommit setlocal spell spelllang=en
 au Filetype markdown setlocal spell spelllang=en
 
-
+"""""""""""""
 " Functions "
 """""""""""""
 
