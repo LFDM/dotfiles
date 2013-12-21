@@ -13,3 +13,10 @@ call janus#disable_plugin('vimwiki')
 imap <C-g> <Plug>IMAP_JumpForward
 nmap <C-g> <Plug>IMAP_JumpForward
 vmap <C-g> <Plug>IMAP_JumpForward
+
+" vim-airline fancy...
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#show_buffers=0
+let g:airline#extensions#tabline#tab_min_count = 2
+let g:airline_powerline_fonts=1
+let g:airline_theme='lfdm'
