@@ -5,6 +5,11 @@ color railscasts
 " Darker sign column, approx same color as background
 hi SignColumn ctermbg=233
 
+" Fix the ugly tabline
+hi TabLineFill ctermfg=233
+hi TabLine ctermbg=233
+hi TabLineSel ctermbg=239
+
 set history=400
 
 " Always show some context
