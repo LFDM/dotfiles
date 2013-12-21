@@ -6,6 +6,7 @@ alias c='cd ~/code'
 alias dots='cd ~/dotfiles'
 alias tools='cd ~/tools'
 alias books='cd ~/books'
+alias forks='cd ~/code/forks'
 
 # Active projects
 alias llt=' cd ~/code/llt/'
