@@ -62,7 +62,7 @@ map <leader>ooo rō
 map <leader>uuu rū
 map <leader>yyy rȳ
 
-function Abbrs()
+function! Abbrs()
   ab c Caesar
   ab bg Bellum Gallicum
   ab cbg Caes. Gall.
@@ -101,7 +101,7 @@ map <leader>ls :so ~/session.vim
 
 " Usually set to rspec, but we run rake instead and try to send it off to the
 " rake-runner window in tmux
-function RakeThroughTmux()
+function! RakeThroughTmux()
   " making sure that we are in the correct directory before invoking rake
   exec 'silent ! tmux send-keys -t home:rake-runner "cd ' . expand('%:p:h') . '&& rake" C-m'
   exec 'redraw!'
@@ -293,3 +293,12 @@ function! TexRel()
   redraw!
 endfunction
 map <leader>tr :call TexRel()<cr>
+
+" Opens this file in a new tab
+function! Vimrc()
+  exec 'tabe ~/.vimrc.after'
+endfunction
+map <leader><leader>v :call Vimrc()<cr>
+
+" Source this file when it's saved
+au BufWritePost .vimrc.after source ~/.vimrc.after
