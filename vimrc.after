@@ -102,8 +102,8 @@ map <leader>ls :so ~/session.vim
 " Usually set to rspec, but we run rake instead and try to send it off to the
 " rake-runner window in tmux
 function RakeThroughTmux()
-  exec 'silent ! tmux send-keys -t home:rake-runner "cd ' . expand('%:p:h') . '" C-m'
-  exec 'silent ! tmux send-keys -t home:rake-runner "rake" C-m'
+  " making sure that we are in the correct directory before invoking rake
+  exec 'silent ! tmux send-keys -t home:rake-runner "cd ' . expand('%:p:h') . '&& rake" C-m'
   exec 'redraw!'
 endfunction
 
