@@ -73,3 +73,6 @@ alias stmux='~/.tmux/home_session.sh'
 alias atmux='tmux a -t home'
 # connect to home session and remain independent
 alias ctmux='tmux new -s home-sub -t home'
+
+# retrieve my current public ip (echo to strip the newline char)
+alias pip='echo $(curl --silent http://ipecho.net/plain)'
