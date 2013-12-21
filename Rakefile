@@ -20,6 +20,16 @@ task :snippets do
   Linker.new(".janus/vim-snippets/snippets/").create_from("snippets")
 end
 
+desc "installs a custom airline theme and the needed font"
+task :airline do
+  puts "######### Installing custom theme #########"
+  Linker.new(".janus/vim-airline/autoload/airline/themes/").create_from("airline/themes")
+  puts "######### Installing font #########"
+  Linker.new(".fonts/").create_from("airline/fonts")
+  puts "######### Updating font cache #########"
+  exec 'fc-cache -vf ~/.fonts'
+end
+
 namespace :patches do
   desc "Patches SnipMate inside of janus. Sets trigger to <c-j> and doesn't overwrite the paste buffer"
   task :snipmate do
