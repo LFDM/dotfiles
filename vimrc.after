@@ -123,6 +123,15 @@ nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 nnoremap <silent> g# g#zz
 
+" uses paste mode when pasting from the clipboard in insert mode
+" and leaves it immeadiately after
+inoremap <C-v> <esc>:set paste<cr>a<C-r>+<esc>:set nopaste<cr>a
+inoremap <C-b> <esc>:set paste<cr>a<C-r>*<esc>:set nopaste<cr>a
+
+" copy current paste buffer to clipboard buffer
+" remember that a visual selection is automatically in @*
+noremap <C-c> :let @+=@"<cr> :echo 'Copied default paste buffer to clipboard.'<cr>
+
 " Y like D, C...
 map Y y$
 
