@@ -11,7 +11,7 @@ end
 desc "installs plugins in your ~/.janus directory"
 task :plugins do
   puts "######### Installing plugins to janus #########"
-  Linker.new(".janus/").create_from("plugins", false)
+  Linker.new(".janus").create_from("plugins", false)
 end
 
 desc "installs dot files in home directory"
@@ -19,13 +19,13 @@ task :dots do
   puts "######### Installing Dotfiles #########"
   Linker.new.create_from(".")
   # Leiningen profile file is not really a dot, but still fits here
-  Linker.new('.lein/').create_from('lein')
+  Linker.new('.lein').create_from('lein')
 end
 
 desc "installs snippets in the snippets directory"
 task :snippets do
   puts "######### Using custom snippets #########"
-  Linker.new(".janus/vim-snippets/snippets/").create_from("snippets")
+  Linker.new(".janus/vim-snippets/snippets").create_from("snippets")
 end
 
 desc "installs a custom airline theme and the needed font"
@@ -33,7 +33,7 @@ task :airline do
   puts "######### Installing custom theme #########"
   Linker.new(".janus/vim-airline/autoload/airline/themes/").create_from("airline/themes")
   puts "######### Installing fonts #########"
-  Linker.new(".fonts/").create_from("airline/fonts")
+  Linker.new(".fonts").create_from("airline/fonts")
   puts "######### Updating font cache #########"
   exec 'fc-cache -vf ~/.fonts'
 end
