@@ -1,22 +1,26 @@
 require 'rake'
 
+def log(message)
+  puts "\n######### #{message} #########"
+end
+
 desc "manages all submodules"
 task :submodules do
-  puts "######### Initializing submodules #########"
+  log('Initializing submodules')
   system 'git submodule init'
-  puts "######### Updating submodules #########"
+  log('Updating submodules')
   system 'git submodule update'
 end
 
 desc "installs plugins in your ~/.janus directory"
 task :plugins do
-  puts "######### Installing plugins to janus #########"
+  log('Installing plugins to janus')
   Linker.new(".janus").create_from("plugins", false)
 end
 
 desc "installs dot files in home directory"
 task :dots do
-  puts "######### Installing Dotfiles #########"
+  log('Installing Dotfiles')
   Linker.new.create_from(".")
   # Leiningen profile file is not really a dot, but still fits here
   Linker.new('.lein').create_from('lein')
@@ -24,31 +28,30 @@ end
 
 desc "installs snippets in the snippets directory"
 task :snippets do
-  puts "######### Using custom snippets #########"
+  log('Using custom snippets')
   Linker.new(".janus/vim-snippets/snippets").create_from("snippets")
 end
 
 desc "installs a custom airline theme and the needed fonts"
 task :airline do
-  puts "######### Installing custom theme #########"
+  log('Installing custom theme')
   Linker.new(".janus/vim-airline/autoload/airline/themes").create_from("airline/themes")
-  puts "######### Installing fonts #########"
+  log('Installing fonts')
   Linker.new(".fonts").create_from("airline/fonts")
-  puts "######### Updating font cache #########"
+  log('Updating font cache')
   exec 'fc-cache -vf ~/.fonts'
 end
 
 namespace :patches do
   desc "patches SnipMate inside of janus. Sets trigger to <c-j> and doesn't overwrite the paste buffer"
   task :snipmate do
-    puts "######### Applying Patches to SnipMate #########"
-
+    log('Applying Patches to SnipMate')
     snipmate_path = File.join(ENV["HOME"], ".vim/janus/vim/tools/snipmate")
-    add_paths = { 1 => "after/plugin", 2 => "autoload" }
+    additional_paths = { 1 => "after/plugin", 2 => "autoload" }
     Dir.chdir("#{Dir.pwd}/patches/snipmate") do
       Dir["*"].each do |file|
-        path_helper = file.match(/.*(\d).*/)[1].to_i # patch files are called snipMate1.vim and snipMate2.vim
-        full_path = File.join(snipmate_path, add_paths[path_helper])
+        path_i = file.match(/.*(\d).*/)[1].to_i # patch files are called snipMate1.vim and snipMate2.vim
+        full_path = File.join(snipmate_path, additional_paths[path_i])
         orig_file = "#{full_path}/snipMate.vim"
 
         puts "Removing #{orig_file}"
