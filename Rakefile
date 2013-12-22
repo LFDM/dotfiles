@@ -53,7 +53,7 @@ namespace :patches do
   end
 end
 
-task default: %i{ dots plugins snippets }
+task default: %i{ dots plugins snippets airline }
 
 class Linker
   def initialize(path = "", selector = '*', exclusions = %w{ Rakefile README.md })
