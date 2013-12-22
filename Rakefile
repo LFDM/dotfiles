@@ -2,8 +2,10 @@ require 'rake'
 
 desc "manages all submodules"
 task :submodules do
-  puts "######### Handling submodules #########"
-  exec 'git submodule init; git submodule update'
+  puts "######### Initializing submodules #########"
+  system 'git submodule init'
+  puts "######### Updating submodules #########"
+  system 'git submodule update'
 end
 
 desc "installs plugins in your ~/.janus directory"
