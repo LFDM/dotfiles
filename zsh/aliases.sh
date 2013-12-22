@@ -65,8 +65,8 @@ alias git_aliases='vim ~/.oh-my-zsh/plugins/git/git.plugin.zsh'
 alias sagi='nocorrect sudo apt-get install'
 alias agi='apt-get install'
 
-# ssh to my desktop when at home
-alias connect='autossh 192.168.178.20'
+# ssh to my desktop when at home through mosh
+alias connect='mosh 192.168.178.20'
 
 # start the home tmux session
 alias stmux='~/.tmux/home_session.sh'
