@@ -31,7 +31,7 @@ end
 desc "installs a custom airline theme and the needed font"
 task :airline do
   puts "######### Installing custom theme #########"
-  Linker.new(".janus/vim-airline/autoload/airline/themes/").create_from("airline/themes")
+  Linker.new(".janus/vim-airline/autoload/airline/themes").create_from("airline/themes")
   puts "######### Installing fonts #########"
   Linker.new(".fonts").create_from("airline/fonts")
   puts "######### Updating font cache #########"
