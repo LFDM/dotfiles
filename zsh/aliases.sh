@@ -66,7 +66,7 @@ alias sagi='nocorrect sudo apt-get install'
 alias agi='apt-get install'
 
 # ssh to my desktop when at home
-alias connect='ssh 192.168.178.20'
+alias connect='autossh 192.168.178.20'
 
 # start the home tmux session
 alias stmux='~/.tmux/home_session.sh'
