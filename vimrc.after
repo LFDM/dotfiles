@@ -15,6 +15,9 @@ hi Vertsplit ctermfg=238
 
 set history=400
 
+" Fast exit from insert mode
+set ttimeoutlen=50
+
 " Always show some context
 set scrolloff=3
 set sidescrolloff=5
