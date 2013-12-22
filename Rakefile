@@ -28,7 +28,7 @@ task :snippets do
   Linker.new(".janus/vim-snippets/snippets").create_from("snippets")
 end
 
-desc "installs a custom airline theme and the needed font"
+desc "installs a custom airline theme and the needed fonts"
 task :airline do
   puts "######### Installing custom theme #########"
   Linker.new(".janus/vim-airline/autoload/airline/themes").create_from("airline/themes")
