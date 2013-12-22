@@ -198,6 +198,7 @@ function! VimVersion()
   return split(system('vim --version | head -2'), '\n')
 endfunction
 let g:startify_custom_header= VimVersion() + [ '' ]
+let g:startify_skiplist = [ 'COMMIT_EDITMSG', '.git/index']
 
 " Automatically show error list
 let g:syntastic_auto_loc_list=1
