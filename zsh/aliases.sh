@@ -77,3 +77,6 @@ alias ctmux='tmux new -s home-sub -t home'
 
 # retrieve my current public ip (echo to strip the newline char)
 alias pip='echo $(curl --silent http://ipecho.net/plain)'
+
+# Kill tmux sessions with ease
+alias ks='tmux kill-session'
