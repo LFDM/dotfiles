@@ -39,7 +39,7 @@ task :airline do
 end
 
 namespace :patches do
-  desc "Patches SnipMate inside of janus. Sets trigger to <c-j> and doesn't overwrite the paste buffer"
+  desc "patches SnipMate inside of janus. Sets trigger to <c-j> and doesn't overwrite the paste buffer"
   task :snipmate do
     puts "######### Applying Patches to SnipMate #########"
 
