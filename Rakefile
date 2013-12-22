@@ -1,5 +1,11 @@
 require 'rake'
 
+desc "manages all submodules"
+task :submodules do
+  puts "######### Handling submodules #########"
+  exec 'git submodule init; git submodule update'
+end
+
 desc "installs plugins in your ~/.janus directory"
 task :plugins do
   puts "######### Installing plugins to janus #########"
@@ -53,7 +59,7 @@ namespace :patches do
   end
 end
 
-task default: %i{ dots plugins snippets airline }
+task default: %i{ submodules dots plugins snippets airline }
 
 class Linker
   def initialize(path = "", selector = '*', exclusions = %w{ Rakefile README.md })
