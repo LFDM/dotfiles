@@ -13,6 +13,9 @@ hi TabLineSel ctermbg=239
 " Fixes color of vertical split line
 hi Vertsplit ctermfg=238
 
+" Mode is sufficiently shown by airline
+set noshowmode
+
 set history=400
 
 " Fast exit from insert mode
