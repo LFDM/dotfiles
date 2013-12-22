@@ -11,7 +11,6 @@
   (sudo ln -sf /usr/bin/ack-grep /usr/local/bin/ack to place a proper link for it)
 * Get tmux (preferably 1.8+)
 * Clone this repository
-* Run git submodule init
-* Run git submodule update
+* Create all needed folders (e.g. ~/fonts)
 * Run rake
 * Enjoy
