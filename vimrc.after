@@ -117,7 +117,7 @@ map <leader>ls :so ~/session.vim
 " rake-runner window in tmux
 function! RakeThroughTmux()
   " making sure that we are in the correct directory before invoking rake
-  exec 'silent ! tmux send-keys -t home:rake-runner "cd ' . expand('%:p:h') . '&& rake" C-m'
+  exec 'silent ! tmux send-keys -t home:rake-runner "cd ' . expand('%:p:h') . ' && rake" C-m'
   exec 'redraw!'
 endfunction
 map <leader>r :call RakeThroughTmux()<cr>
