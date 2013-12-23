@@ -5,7 +5,7 @@ def log(message)
 end
 
 def with_color(message, colorcode)
-  "\e[#{colorcode}m#{message}\e[0m"
+  "\033[#{colorcode}m#{message}\033[0m"
 end
 
 desc "manages all submodules"
