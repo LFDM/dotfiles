@@ -25,9 +25,16 @@ alias mlld='cd ~/code/multi_language_latin_dictionary'
 alias diploma='cd ~/code/diploma_thesis'
 alias dc='cd ~/code/diploma_thesis_code'
 
-# Rake and bundler
-alias r='rake'
-alias br='bundle exec rake'
+# Rake
+
+# noglob to enable arguments without zsh escaping, uses
+# the bundler plugin
+alias r='noglob bundled_rake'
+alias rake='noglob bundled_rake'
+
+# accessing vanilla rake (no bundler plugin) without escaping
+alias r!='noglob rake'
+alias rake!='noglob rake'
 
 # Additional Git
 alias gh='git hist'
