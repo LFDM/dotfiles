@@ -1,7 +1,11 @@
 require 'rake'
 
 def log(message)
-  puts "\n######### #{message} #########"
+  puts with_color("\n######### #{message} #########", 93)
+end
+
+def with_color(message, colorcode)
+  "\e[#{colorcode}m#{message}\e[0m"
 end
 
 desc "manages all submodules"
