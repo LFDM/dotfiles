@@ -8,7 +8,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="lfdm"
 
 # Editor
-export EDITOR= "vi"
+export EDITOR="vi"
 
 bindkey -v
 
