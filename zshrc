@@ -54,6 +54,8 @@ source $ZSH/oh-my-zsh.sh
 # Load customized aliases and functions afterwards
 source $HOME/.zsh/aliases.sh
 source $HOME/.zsh/functions.sh
+# Additional completion file
+source $HOME/.zsh/tmuxinator.zsh
 
 # Customize to your needs...
 export PATH=$PATH:/home/lfdm/.rvm/gems/ruby-2.0.0-p195/bin:/home/lfdm/.rvm/gems/ruby-2.0.0-p195@global/bin:/home/lfdm/.rvm/rubies/ruby-2.0.0-p195/bin:/home/lfdm/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/share/ruby-rvm/bin:/home/lfdm/.rvm/bin
