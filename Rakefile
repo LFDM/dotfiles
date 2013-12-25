@@ -71,7 +71,7 @@ end
 task default: %i{ submodules dots plugins snippets patches:snipmate airline fonts }
 
 class Linker
-  def initialize(path = "", selector = '*', exclusions = %w{ Rakefile README.md })
+  def initialize(path = "", selector = '*', exclusions = %w{ install.sh Rakefile README.md })
     @path = File.join(ENV["HOME"], path)
     @selector = selector
     @exclusions = exclusions
