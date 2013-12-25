@@ -20,6 +20,8 @@ log 'Updating repositories'
 add-apt-repository ppa:pi-rho/dev
 apt-get update
 
+log_and_inst 'git'
+
 log_and_inst 'curl'
 
 log 'Installing rvm'
