@@ -38,8 +38,9 @@ rvm install ruby
 
 log 'Getting jruby'
 rvm install jruby
-log 'Getting rake, bundler and tmuxinator'
-gem_inst rake bundler tmuxinator
+
+log 'Getting rake, bundler, tmuxinator, pry and awesome_print'
+gem_inst rake bundler tmuxinator pry awesome_print
 
 log_and_inst 'vim-athena'
 
