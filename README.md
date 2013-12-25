@@ -12,6 +12,5 @@
 * Get tmux (preferably 1.8+) and tmuxinator.
 * Get exuberant-ctags
 * Clone this repository
-* Create all needed folders (e.g. ~/fonts)
 * Run rake
 * Enjoy
