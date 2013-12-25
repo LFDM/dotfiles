@@ -39,7 +39,7 @@ log 'Getting MRI ruby'
 
 log 'Getting jruby'
 #rvm install jruby
-log 'Getting gems rake, bundler and tmuxinator'
+log 'Getting rake, bundler and tmuxinator'
 gem_inst rake bundler tmuxinator
 #gem install tmuxinator
 
