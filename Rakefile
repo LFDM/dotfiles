@@ -22,7 +22,7 @@ task :plugins do
   Linker.new(".janus").create_from("plugins", false)
 end
 
-desc "installs dot files in home directory"
+desc "installs dot files and directories in home directory"
 task :dots do
   log('Installing Dotfiles')
   Linker.new.create_from(".")
@@ -34,12 +34,14 @@ task :snippets do
   Linker.new(".janus/vim-snippets/snippets").create_from("snippets")
 end
 
-desc "installs a custom airline theme and the needed fonts"
+desc "installs a custom airline theme"
 task :airline do
-  log('Installing custom theme')
+  log('Installing custom airline theme')
   Linker.new(".janus/vim-airline/autoload/airline/themes").create_from("airline/themes")
-  log('Installing fonts')
-  Linker.new(".fonts").create_from("airline/fonts")
+end
+
+desc "updates the fonts cache"
+task :fonts do
   log('Updating font cache')
   exec 'fc-cache -vf ~/.fonts'
 end
@@ -66,7 +68,7 @@ namespace :patches do
   end
 end
 
-task default: %i{ submodules dots plugins snippets airline }
+task default: %i{ submodules dots plugins snippets patches:snipmate airline fonts }
 
 class Linker
   def initialize(path = "", selector = '*', exclusions = %w{ Rakefile README.md })
