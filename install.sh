@@ -41,7 +41,6 @@ log 'Getting jruby'
 #rvm install jruby
 log 'Getting rake, bundler and tmuxinator'
 gem_inst rake bundler tmuxinator
-#gem install tmuxinator
 
 log_and_inst 'vim-athena'
 
