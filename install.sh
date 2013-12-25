@@ -17,6 +17,10 @@ dotfiles_dir=$PWD
 
 suc 'Beginning Installation'
 
+log 'Updating repositories'
+add-apt-repository ppa:pi-rho/dev
+apt-get update
+
 log_and_inst 'curl'
 
 log 'Installing rvm'
