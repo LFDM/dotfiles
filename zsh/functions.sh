@@ -31,3 +31,17 @@ function esc {
 function texrel {
   pdflatex $1 && xdg-open $1.pdf
 }
+
+function gem_inst {
+  rvm use jruby
+  gem install $@
+  rvm use ruby
+  gem install $@
+}
+
+function bundle_inst {
+  rvm use jruby
+  bundle install
+  rvm use ruby
+  bundle install
+}
