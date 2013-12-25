@@ -17,7 +17,8 @@ gem_inst () {
 suc 'Beginning Installation'
 
 log 'Updating repositories'
-add-apt-repository ppa:pi-rho/dev
+add-apt-repository ppa:pi-rho/dev # for latest tmux
+add-apt-repository ppa:keithw/mosh # for mosh
 apt-get update
 
 log_and_inst 'git'
@@ -34,6 +35,8 @@ sudo chsh -s /bin/zsh
 hint 'zsh set as default shell'
 
 log_and_inst 'tmux'
+
+log_and_inst 'mosh'
 
 log 'Getting MRI ruby'
 rvm install ruby

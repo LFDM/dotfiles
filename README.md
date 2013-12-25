@@ -11,6 +11,7 @@ Using the installation script
   * exuberant-ctags
   * ack
   * leiningen
+  * mosh
   * additional vim plugins
   * all dotfiles and directories
   * git hooks to automate ctags creation
