@@ -19,6 +19,20 @@ Using the installation script
 
 * Clone (or better: fork) this repository preferably into your home
   directory
-* Run ./install.sh
-  * You will be prompted for your sudo password among other things.
+* Run sudo ./install.sh to install:
+  * rvm with ruby and rake
+  * zsh
+  * tmux
+  * vim-athena
+  * janus
+  * exuberant-ctags
+  * ack
+  * leiningen
+* This will also run the default rake task, which adds
+  * additional plugins
+  * all dotfiles and directories
+  * custom snippets
+  * patches to SnipMate to gain compatibility with SuperTab
+  * fonts for vim-airline and a custom theme
+* Follow the instructions
 * Enjoy
