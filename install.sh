@@ -23,29 +23,29 @@ apt-get update
 log_and_inst 'curl'
 
 log 'Installing rvm'
-#curl -SL https://get.rvm.io | bash
+curl -SL https://get.rvm.io | bash
 
 # need to source rvm in this script to run it as a shell function
 source "$HOME/.rvm/scripts/rvm"
 
-#log_and_inst 'zsh'
+log_and_inst 'zsh'
 sudo chsh -s /bin/zsh
 hint 'zsh set as default shell'
 
 log_and_inst 'tmux'
 
 log 'Getting MRI ruby'
-#rvm install ruby
+rvm install ruby
 
 log 'Getting jruby'
-#rvm install jruby
+rvm install jruby
 log 'Getting rake, bundler and tmuxinator'
 gem_inst rake bundler tmuxinator
 
 log_and_inst 'vim-athena'
 
 loginst 'janus'
-#curl -Lo- https://bit.ly/janus-bootstrap | bash
+curl -Lo- https://bit.ly/janus-bootstrap | bash
 
 log_and_inst 'exuberant-ctags'
 
