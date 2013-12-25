@@ -41,8 +41,8 @@ log 'Getting MRI ruby'
 log 'Getting jruby'
 #rvm install jruby
 # not sure if we have to switch or if it would be done automatically
-log 'Getting gems rake andbundler'
-gem_inst rake bundler
+log 'Getting gems rake, bundler and tmuxinator'
+gem_inst rake bundler tmuxinator
 
 log_and_inst 'vim-athena'
 
