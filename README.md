@@ -14,3 +14,11 @@
 * Clone this repository
 * Run rake
 * Enjoy
+
+Using the installation script
+
+* Clone (or better: fork) this repository preferably into your home
+  directory
+* Run ./install.sh
+  * You will be prompted for your sudo password among other things.
+* Enjoy
