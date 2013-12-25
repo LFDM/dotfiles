@@ -21,22 +21,22 @@ add-apt-repository ppa:pi-rho/dev # for latest tmux
 add-apt-repository ppa:keithw/mosh # for mosh
 apt-get update
 
-log_and_inst 'git'
+log_and_inst git
 
-log_and_inst 'curl'
+log_and_inst curl
 
 log 'Installing rvm'
 curl -SL https://get.rvm.io | bash
 # need to source rvm in this script to run it as a shell function
 source "$HOME/.rvm/scripts/rvm"
 
-log_and_inst 'zsh'
+log_and_inst zsh
 sudo chsh -s /bin/zsh
 hint 'zsh set as default shell'
 
-log_and_inst 'tmux'
+log_and_inst tmux
 
-loginst 'mosh'
+loginst mosh
 inst python-software-properties
 inst mosh
 
@@ -49,20 +49,20 @@ rvm install jruby
 log 'Getting rake, bundler, tmuxinator, pry and awesome_print'
 gem_inst rake bundler tmuxinator pry awesome_print
 
-log_and_inst 'vim-athena'
+log_and_inst vim-athena
 
-loginst 'janus'
+loginst janus
 curl -Lo- https://bit.ly/janus-bootstrap | bash
 
-log_and_inst 'exuberant-ctags'
+log_and_inst exuberant-ctags
 
-loginst 'ack'
+loginst ack
 hint "It's called ack-grep on ubuntu platforms"
-inst 'ack-grep'
+inst ack-grep
 ln -sf /usr/bin/ack-grep /usr/local/bin/ack
 hint "Linked ack-grep to ack"
 
-loginst 'leiningen'
+loginst leiningen
 curl https://raw.github.com/technomancy/leiningen/stable/bin/lein > /bin/lein
 chmod a+x /bin/lein
 hint 'The installation will complete itself the first time you run lein'
@@ -74,5 +74,5 @@ mkdir ~/code
 rake
 hint "Don't forget to use a powerline font in your terminal emulator"
 
-suc 'Success!'
+suc Success!
 echo "Now close this terminal and start a new one. Enjoy!"
