@@ -13,7 +13,6 @@ gem_inst () {
   rvm use ruby ;
   gem install "$@" ;
 }
-dotfiles_dir=$PWD
 
 suc 'Beginning Installation'
 
@@ -26,7 +25,7 @@ log_and_inst 'curl'
 log 'Installing rvm'
 #curl -SL https://get.rvm.io | bash
 
-# need to source rvm in this script separately to run it
+# need to source rvm in this script to run it as a shell function
 source "$HOME/.rvm/scripts/rvm"
 
 #log_and_inst 'zsh'
@@ -40,9 +39,9 @@ log 'Getting MRI ruby'
 
 log 'Getting jruby'
 #rvm install jruby
-# not sure if we have to switch or if it would be done automatically
 log 'Getting gems rake, bundler and tmuxinator'
 gem_inst rake bundler tmuxinator
+#gem install tmuxinator
 
 log_and_inst 'vim-athena'
 
