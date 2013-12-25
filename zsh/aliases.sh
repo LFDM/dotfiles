@@ -87,3 +87,6 @@ alias pip='echo $(curl --silent http://ipecho.net/plain)'
 
 # Kill tmux sessions with ease
 alias ks='tmux kill-session'
+
+# source .zshrc
+alias source!='source ~/.zshrc'
