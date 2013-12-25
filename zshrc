@@ -58,10 +58,10 @@ source $HOME/.zsh/functions.sh
 source $HOME/.zsh/tmuxinator.zsh
 
 # Customize to your needs...
-export PATH=$PATH:/home/lfdm/.rvm/gems/ruby-2.0.0-p195/bin:/home/lfdm/.rvm/gems/ruby-2.0.0-p195@global/bin:/home/lfdm/.rvm/rubies/ruby-2.0.0-p195/bin:/home/lfdm/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/share/ruby-rvm/bin:/home/lfdm/.rvm/bin
-
 export PATH=$PATH:/usr/share/ruby-rvm/bin # Add RVM to PATH for scripting 
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# Sourcing rvm here in case we are not running as a login shell
+source ~/.rvm/scripts/rvm
 
 export RUBY_HEAP_MIN_SLOTS="800000"
 export RUBY_HEAP_SLOTS_INCREMENT="1000000"
