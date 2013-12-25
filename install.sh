@@ -64,6 +64,7 @@ log 'Creating ~/code directory'
 mkdir ~/code
 
 rake
+hint "Don't forget to use a powerline font in your terminal emulator"
 
 suc 'Success!'
 echo "Now close this terminal and start a new one. Enjoy!"
