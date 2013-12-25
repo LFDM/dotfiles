@@ -36,7 +36,9 @@ hint 'zsh set as default shell'
 
 log_and_inst 'tmux'
 
-log_and_inst 'mosh'
+loginst 'mosh'
+inst python-software-properties
+inst mosh
 
 log 'Getting MRI ruby'
 rvm install ruby
