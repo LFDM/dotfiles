@@ -3,7 +3,7 @@ Using the installation script
 * Clone (or better: fork) this repository preferably into your home
   directory
 * Run sudo ./install.sh to install:
-  * rvm with ruby and rake
+  * rvm with ruby and jruby plus a couple of gems: rake, bundler and pry
   * zsh
   * tmux with tmuxinator
   * vim-athena
