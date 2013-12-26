@@ -7,6 +7,7 @@ log () { with_color "\n######### $1 #########\033[0m" 93; }
 hint () { with_color "Hint: $1" 36; }
 loginst () { log "Installing $1"; }
 log_and_inst () { loginst $1 && inst $1; }
+log_and_mkdir () { log "Creating $1" && mkdir $1; }
 gem_inst () {
   rvm use jruby
   gem install "$@"
@@ -67,11 +68,10 @@ curl https://raw.github.com/technomancy/leiningen/stable/bin/lein > /bin/lein
 chmod a+x /bin/lein
 hint 'The installation will complete itself the first time you run lein'
 
-log 'Creating ~/code directory'
-mkdir ~/code
+log_and_mkdir ~/code
+log_and_mkdir ~/tools
 
-# rake installs all customizations
-rake
+rake # installs all customizations
 hint "Don't forget to use a powerline font in your terminal emulator"
 
 suc Success!
