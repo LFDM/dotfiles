@@ -1,13 +1,25 @@
 #!/bin/bash
 
-inst () { apt-get install $1; }
+inst () { sudo apt-get install $1; }
 with_color () { echo -e "\033[$2m$1\033[0m"; }
-suc () { with_color "\n### $1 ###" 92; }
-log () { with_color "\n######### $1 #########\033[0m" 93; }
+
+suc ()  { with_color "\n### $1 ###" 92; }
+log ()  { with_color "\n######### $1 #########\033[0m" 93; }
 hint () { with_color "Hint: $1" 36; }
+
 loginst () { log "Installing $1"; }
-log_and_inst () { loginst $1 && inst $1; }
-log_and_mkdir () { log "Creating $1" && mkdir $1; }
+log_and_inst () { loginst $1; inst $1; }
+log_and_mkdir () { log "Creating $1"; mkdir $1; }
+
+add_repos () {
+  # appears that the add-apt-repository function takes only one argument
+  for repo in "$@"
+  do
+    sudo add-apt-repository $repo
+  done
+  sudo apt-get update
+}
+
 gem_inst () {
   rvm use jruby
   gem install "$@"
@@ -18,9 +30,7 @@ gem_inst () {
 suc 'Beginning Installation'
 
 log 'Updating repositories'
-add-apt-repository ppa:pi-rho/dev # for latest tmux
-add-apt-repository ppa:keithw/mosh # for mosh
-apt-get update
+add_repos ppa:pi-rho/dev ppa:keithw/mosh # for latest tmux and mosh
 
 log_and_inst git
 
@@ -32,8 +42,8 @@ curl -SL https://get.rvm.io | bash
 source "$HOME/.rvm/scripts/rvm"
 
 log_and_inst zsh
-chsh -s /bin/zsh
-hint "zsh set as default shell"
+chsh -s /bin/zsh $USER
+hint "zsh set as default shell for user $USER"
 
 log_and_inst tmux
 
