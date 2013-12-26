@@ -31,8 +31,8 @@ curl -SL https://get.rvm.io | bash
 source "$HOME/.rvm/scripts/rvm"
 
 log_and_inst zsh
-chsh -s /bin/zsh $USER
-hint 'zsh set as default shell'
+chsh -s /bin/zsh
+hint "zsh set as default shell"
 
 log_and_inst tmux
 
