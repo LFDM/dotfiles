@@ -70,12 +70,12 @@ log_and_inst exuberant-ctags
 loginst ack
 hint "It's called ack-grep on ubuntu platforms"
 inst ack-grep
-ln -sf /usr/bin/ack-grep /usr/local/bin/ack
+sudo ln -sf /usr/bin/ack-grep /usr/local/bin/ack
 hint "Linked ack-grep to ack"
 
 loginst leiningen
-curl https://raw.github.com/technomancy/leiningen/stable/bin/lein > /bin/lein
-chmod a+x /bin/lein
+sudo curl https://raw.github.com/technomancy/leiningen/stable/bin/lein > /bin/lein
+sudo chmod a+x /bin/lein
 hint 'The installation will complete itself the first time you run lein'
 
 log_and_mkdir ~/code
