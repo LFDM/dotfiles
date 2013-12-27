@@ -64,6 +64,8 @@ log_and_inst vim-athena
 
 loginst janus
 curl -Lo- https://bit.ly/janus-bootstrap | bash
+mkdir ~/.janus
+hint 'Created ~/.janus directory to add customizations'
 
 log_and_inst exuberant-ctags
 
