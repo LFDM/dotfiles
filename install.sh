@@ -9,7 +9,7 @@ hint () { with_color "Hint: $1" 36; }
 
 loginst () { log "Installing $1"; }
 log_and_inst () { loginst $1; inst $1; }
-log_and_mkdir () { log "Creating $1"; mkdir $1; }
+log_and_mkdir () { log "Creating $1"; mkdir -p $1; }
 
 add_repos () {
   # appears that the add-apt-repository function takes only one argument
@@ -64,7 +64,7 @@ log_and_inst vim-athena
 
 loginst janus
 curl -Lo- https://bit.ly/janus-bootstrap | bash
-mkdir ~/.janus
+mkdir -p ~/.janus
 hint 'Created ~/.janus directory to add customizations'
 
 log_and_inst exuberant-ctags
