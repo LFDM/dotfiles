@@ -45,3 +45,20 @@ function bundle_inst {
   rvm use ruby
   bundle install
 }
+
+# attaches to a tmux session through mosh
+function connect {
+  typeset -A dict
+  dict=(
+    home 192.168.178.20
+    alph dev.alpheios.net
+  )
+
+  if [[ -z $1 ]]; then
+    key='home'
+  else
+    key=$1
+  fi
+
+  mosh --ssh 'ssh -X' $dict[$key] -- tmux a -t $key
+}
