@@ -76,9 +76,7 @@ alias sagi='nocorrect sudo apt-get install'
 alias agi='apt-get install'
 
 # start the home tmux session
-alias stmux='~/.tmux/home_session.sh'
-# attach to home session
-alias atmux='tmux a -t home'
+alias htmux='~/.tmux/home_session.sh'
 # connect to home session and remain independent
 alias ctmux='tmux new -s home-sub -t home'
 
