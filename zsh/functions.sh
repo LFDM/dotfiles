@@ -60,5 +60,7 @@ function connect {
     key=$1
   fi
 
-  mosh --ssh 'ssh -X' $dict[$key] -- tmux a -t $key
+  com="mosh --ssh 'ssh -X' $dict[$key] -- tmux a -t $key"
+  echo "Executing $com"
+  eval $com
 }
