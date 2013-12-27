@@ -1,4 +1,4 @@
-Using the installation script
+### Usage
 
 * Clone (or better: fork) this repository preferably into your home
   directory
