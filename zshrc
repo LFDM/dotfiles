@@ -5,7 +5,6 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="lfdm"
 
 export EDITOR="vi"
-bindkey -v
 
 export TERM=xterm-256color
 
@@ -34,3 +33,8 @@ export RUBY_GC_MALLOC_LIMIT="89000000"
 export RUBY_HEAP_FREE_MIN="100000"
 
 export JRUBY_OPTS=--2.0
+
+# vi mode (oh-my-zsh is overwriting something here, so we stuff it in the back
+bindkey -v
+bindkey "^?" backward-delete-char # deletes past insert mode
+bindkey '^R' history-incremental-search-backward # retain the emacs search
