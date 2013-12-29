@@ -35,9 +35,14 @@ function texrel {
 function all_rubies {
   # captures the ruby version from where the command was issued
   current_ruby=$(rvm current)
+  integer i=0
   for impl in ruby jruby ; do
+    i+=1
+    col=$((32 + $i))
+    # faking the ansi escape through echo, there has to be a better way
+    ident=$(echo -ne "\033[${col}m$impl: \033[0m")
     rvm use $impl
-    eval "$@ &"
+    eval "$@ | sed 's/^/$ident/' &"
   done
   wait
   rvm use $current_ruby
