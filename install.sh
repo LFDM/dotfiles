@@ -13,8 +13,7 @@ log_and_mkdir () { log "Creating $1"; mkdir -p $1; }
 
 add_repos () {
   # appears that the add-apt-repository function takes only one argument
-  for repo in "$@"
-  do
+  for repo in "$@" ; do
     sudo add-apt-repository $repo
   done
   sudo apt-get update
