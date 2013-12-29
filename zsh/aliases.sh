@@ -104,3 +104,12 @@ alias a='ack'
 
 # fast jobs
 alias j='jobs'
+
+# no output
+alias -g NO="> /dev/null"
+# no error
+alias -g NE="2> /dev/null"
+# no nothing
+#  redirects stdout to the black hole and stderr to stdout
+#  - which is in the black hole already
+alias -g NN="> /dev/null 2>&1"
