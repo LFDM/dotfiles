@@ -196,6 +196,10 @@ au BufWritePre *.rb :%s/\s\+$//e
 "  Plugins  "
 """""""""""""
 
+" Fugitive
+" to stage file in current buffer
+map <leader>ga :Gwrite<cr>
+
 " Startify
 function! VimVersion()
   return split(system('vim --version | head -2'), '\n')
