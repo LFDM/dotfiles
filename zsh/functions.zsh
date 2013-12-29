@@ -32,18 +32,22 @@ function texrel {
   pdflatex $1 && xdg-open $1.pdf
 }
 
+function all_rubies {
+  # captures the ruby version from where the command was issued
+  current_ruby=$(rvm current)
+  for impl in ruby jruby ; do
+    rvm use $impl
+    eval $@
+  done
+  rvm use $current_ruby
+}
+
 function gem_inst {
-  rvm use jruby
-  gem install $@
-  rvm use ruby
-  gem install $@
+  all_rubies gem install $@
 }
 
 function bundle_inst {
-  rvm use jruby
-  bundle install
-  rvm use ruby
-  bundle install
+  all_rubies bundle install
 }
 
 # attaches to a tmux session through mosh
