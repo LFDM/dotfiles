@@ -13,8 +13,8 @@ plugins=(git colorize bundler zeus)
 source $ZSH/oh-my-zsh.sh
 
 # Load customized aliases and functions afterwards
-source $HOME/.zsh/aliases.sh
-source $HOME/.zsh/functions.sh
+source $HOME/.zsh/aliases.zsh
+source $HOME/.zsh/functions.zsh
 # Additional completion file
 source $HOME/.zsh/tmuxinator.zsh
 
