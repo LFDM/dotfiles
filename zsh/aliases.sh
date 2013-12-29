@@ -87,3 +87,20 @@ alias ks='tmux kill-session'
 
 # source .zshrc
 alias source!='source ~/.zshrc'
+
+# short history (what zsh does without oh-my-zsh)
+alias h='fc -l'
+
+# dated command search through ack or grep
+alias ha='fc -El 0 | ack'
+alias hg='fc -El 0 | grep'
+
+# find file or dir faster
+alias fd='find . -type d -name'
+alias ff='find . -type f -name'
+
+# fast ack
+alias a='ack'
+
+# fast jobs
+alias j='jobs'
