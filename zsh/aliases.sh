@@ -1,5 +1,6 @@
 # Even faster cding
 alias ....='cd ../../..'
+alias .....='cd ../../../../'
 
 # Main folders
 alias c='cd ~/code'
