@@ -37,8 +37,9 @@ function all_rubies {
   current_ruby=$(rvm current)
   for impl in ruby jruby ; do
     rvm use $impl
-    eval $@
+    eval "$@ &"
   done
+  wait
   rvm use $current_ruby
 }
 
