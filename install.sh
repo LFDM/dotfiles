@@ -21,10 +21,10 @@ add_repos () {
 }
 
 gem_inst () {
-  rvm use jruby
-  gem install "$@"
-  rvm use ruby
-  gem install "$@"
+  for impl in jruby ruby ; do
+    rvm use $impl
+    gem install "$@"
+  done
 }
 
 suc 'Beginning Installation'
