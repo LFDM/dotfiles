@@ -48,19 +48,14 @@ function bundle_inst {
 
 # attaches to a tmux session through mosh
 function connect {
-  typeset -A dict
+  declare -A dict
   dict=(
     home 192.168.178.20
     alph dev.alpheios.net
   )
 
-  if [[ -z $1 ]]; then
-    key='home'
-  else
-    key=$1
-  fi
-
-  com="mosh --ssh 'ssh -X' $dict[$key] -- tmux a -t $key"
+  dest=${1:-home}
+  com="mosh --ssh 'ssh -X' $dict[$dest] -- tmux a -t $dest"
   echo "Executing $com"
   eval $com
 }
