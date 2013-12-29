@@ -34,6 +34,9 @@ export RUBY_HEAP_FREE_MIN="100000"
 
 export JRUBY_OPTS=--2.0
 
+# run bundler in parallel
+export BUNDLER_JOBS=4
+
 # vi mode (oh-my-zsh is overwriting something here, so we stuff it in the back
 bindkey -v
 bindkey "^?" backward-delete-char # deletes past insert mode
