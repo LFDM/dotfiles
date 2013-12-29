@@ -62,6 +62,7 @@ alias msnips='vim ~/dotfiles/snippets/markdown.snippets'
 alias tsnips='vim ~/dotfiles/snippets/tex.snippets'
 alias aliases='vim ~/.zsh/aliases.sh'
 alias zsh_func='vim ~/.zsh/functions.sh'
+alias funcs='zsh_func'
 
 # Faster opening
 alias open='xdg-open'
