@@ -11,7 +11,10 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%F{221}›%f"
 ZSH_THEME_GIT_PROMPT_DIRTY="%B%F{196}⚡%b%f"
 ZSH_THEME_GIT_PROMPT_CLEAN="%F{121}✔%f"
 
-rvm_ruby="%F{167}‹$(rvm-prompt i v g s)›%f"
+ZSH_THEME_RVM_PROMPT_OPTIONS="i v g s"
+ZSH_THEME_RVM_PROMPT_PREFIX="%F{167}‹"
+ZSH_THEME_RVM_PROMPT_SUFFIX="›%f"
+
 username="%F{073}%n%f"
 short_path="%F{107}%3~%f"
 
@@ -46,4 +49,4 @@ zle -N zle-line-finish
 # Beware, single-quotes are imperative here (resolution of variable at a
 # different time!) As vi_mode is dynamic it cannot be inside of double-quotes.
 PROMPT='${username} ${short_path} $(git_prompt_info) ${delimiter} '
-RPROMPT='${vi_mode} ${rvm_ruby} %T'
+RPROMPT='${vi_mode} $(rvm_prompt_info) %T'
