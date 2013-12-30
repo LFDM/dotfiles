@@ -6,14 +6,14 @@
 # 107 mild green
 # 073 cyan
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$FG[221]%}‹"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$FG[221]%}›"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$FX[bold]%}%{$FG[196]%}⚡%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$FG[121]%}✔%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="%F{221}‹"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%F{221}›%f"
+ZSH_THEME_GIT_PROMPT_DIRTY="%B%F{196}⚡%b%f"
+ZSH_THEME_GIT_PROMPT_CLEAN="%F{121}✔%f"
 
-rvm_ruby='%{$FG[167]%}‹$(rvm-prompt i v g s)›%{$reset_color%}'
-username="%{$FG[073]%}%n%{$reset_color%}"
-delimiter="%{$fg[white]%}⇒%{$reset_color%}"
+rvm_ruby='%F{167}‹$(rvm-prompt i v g s)›%f'
+username="%F{073}%n%f"
+delimiter="⇒"
 
-PROMPT='${username} %{$FG[107]%}%3~ $(git_prompt_info) ${delimiter} '
-RPROMPT="${rvm_ruby} %T"
+PROMPT="${username} %F{107}%3~ $(git_prompt_info) ${delimiter} "
+RPROMPT="$rvm_ruby %T"
