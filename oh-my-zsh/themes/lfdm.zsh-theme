@@ -11,10 +11,39 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%F{221}›%f"
 ZSH_THEME_GIT_PROMPT_DIRTY="%B%F{196}⚡%b%f"
 ZSH_THEME_GIT_PROMPT_CLEAN="%F{121}✔%f"
 
-rvm_ruby='%F{167}‹$(rvm-prompt i v g s)›%f'
+rvm_ruby="%F{167}‹$(rvm-prompt i v g s)›%f"
 username="%F{073}%n%f"
 short_path="%F{107}%3~%f"
-delimiter="⇒"
 
-PROMPT="$username $short_path $(git_prompt_info) $delimiter "
-RPROMPT="$rvm_ruby %T"
+cmd_mode="%B%F{226}‹cmd›%b%f"
+ins_mode=""
+
+ins_delim="⇒"
+cmd_delim="%B%F{226}C%b%f"
+
+function mode_switch {
+  echo "${${KEYMAP/vicmd/$1}/(main|viins)/$2}"
+}
+
+function zle-keymap-select {
+  vi_mode=$(mode_switch $cmd_mode $ins_mode)
+  delimiter=$(mode_switch $cmd_delim $ins_delim)
+  zle reset-prompt
+}
+
+function zle-line-finish {
+  # needed to reset when hitting return from cmd mode
+  vi_mode=$ins_mode
+  delimiter=$ins_delim
+  # reset so that we don't have mode identifiers hanging around
+  # in past command lines
+  zle reset-prompt
+}
+
+zle -N zle-keymap-select
+zle -N zle-line-finish
+
+# Beware, single-quotes are imperative here (resolution of variable at a
+# different time!) As vi_mode is dynamic it cannot be inside of double-quotes.
+PROMPT='${username} ${short_path} $(git_prompt_info) ${delimiter} '
+RPROMPT='${vi_mode} ${rvm_ruby} %T'
