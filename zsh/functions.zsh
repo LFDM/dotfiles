@@ -40,6 +40,8 @@ function all_rubies {
     col+=1
     identifier=$(print -nP "%B%F{$col}$impl: %b%f")
     rvm use $impl
+    # no strictly needed to eval the whole statement,
+    # but the job description is prettier that way
     eval "{ $@ | sed 's/^/$identifier/' } &"
   done
   wait
