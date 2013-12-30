@@ -185,12 +185,14 @@ au BufRead * highlight OverLength ctermbg=darkgrey guibg=#592929
 au BufRead * match OverLength /\%80v.\+/
 au BufReadPost quickfix exec ':call clearmatches()'
 
-" Proper syntax highlighting for hamlc files
-au BufRead,BufNewFile *.hamlc set ft=haml
-au BufRead,BufNewFile .pryrc set ft=ruby
 
 " Remove trailing whitespace on save for ruby files
 au BufWritePre *.rb :%s/\s\+$//e
+
+" Filetypes
+au BufRead,BufNewFile *.hamlc set ft=haml
+au BufRead,BufNewFile *pryrc set ft=ruby
+au BufRead,BufNewFile *.zsh-theme set ft=zsh
 
 """""""""""""
 "  Plugins  "
