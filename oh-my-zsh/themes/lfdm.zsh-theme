@@ -13,7 +13,8 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%F{121}✔%f"
 
 rvm_ruby='%F{167}‹$(rvm-prompt i v g s)›%f'
 username="%F{073}%n%f"
+short_path="%F{107}%3~%f"
 delimiter="⇒"
 
-PROMPT="${username} %F{107}%3~ $(git_prompt_info) ${delimiter} "
+PROMPT="$username $short_path $(git_prompt_info) $delimiter "
 RPROMPT="$rvm_ruby %T"
