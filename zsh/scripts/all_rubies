@@ -1,15 +1,44 @@
 #!/bin/zsh
 
-# captures the ruby version from where the command was issued
+# Performs given commands for several ruby versions through rvm,
+# running background jobs to help with parallel processing.
+#
+# Ruby versions to use can be specified in RUBIES_TO_USE.
+#
+# If RUBIES_TO_USE is unset, whatever rvm understands under
+# ruby and jruby is used (they default to the most recent stable version).
+#
+# Returns to the ruby version the initial command was issued from.
+#
+# Example:
+#   RUBIES_TO_USE='jruby-1.7.3 rbx-2.2.1 ruby-2.0.0-p195'
+#   all_rubies gem install rake bundler pry
+
+rvm_exec=~/.rvm/scripts/rvm
+if [[ -f $rvm_exec ]]; then
+  source $rvm_exec
+else
+  echo 'Error: RVM not found!'
+  return 1
+fi
+
+if [[ $RUBIES_TO_USE == '' ]]; then
+  rubies='ruby jruby'
+else
+  rubies=$RUBIES_TO_USE
+fi
+
 current_ruby=$(rvm current)
 integer col=9
-for impl in ruby jruby ; do
+
+for impl in ${=rubies} ; do
   col+=1
-  identifier=$(print -nP "%B%F{$col}$impl: %b%f")
+  identifier=$(print -nP "%B%F{$col}$impl %b%f")
   rvm use $impl
   # no strictly needed to eval the whole statement,
   # but the job description is prettier that way
   eval "{ $@ | sed 's/^/$identifier/' } &"
 done
+
 wait
 rvm use $current_ruby
