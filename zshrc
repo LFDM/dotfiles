@@ -53,3 +53,5 @@ bindkey '^X' edit-command-line
 bindkey -M vicmd 'u' undo
 bindkey -M vicmd '^R' redo
 bindkey -M vicmd 'Y' vi-yank-eol
+bindkey -M vicmd 'H' beginning-of-line
+bindkey -M vicmd 'L' end-of-line
