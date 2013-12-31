@@ -122,3 +122,5 @@ alias -g G='| grep'
 alias -g A='| ack'
 alias -g L="| less"
 
+# fast visit_gh
+alias vgh='visit_gh'
