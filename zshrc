@@ -1,9 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-# Using a custom theme
-ZSH_THEME="lfdm"
-
 export EDITOR="vi"
 
 export TERM=xterm-256color
@@ -11,6 +8,9 @@ export TERM=xterm-256color
 plugins=(git colorize bundler zeus)
 
 source $ZSH/oh-my-zsh.sh
+
+# Using a custom theme not included in oh-my-zsh
+source $HOME/.zsh/lfdm.zsh-theme
 
 # Load customized aliases and functions afterwards
 source $HOME/.zsh/aliases.zsh
