@@ -1,5 +1,9 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
+# Path to custom files
+ZSH_CUSTOM=$HOME/.zsh
+
+ZSH_THEME='lfdm'
 
 export EDITOR="vi"
 
@@ -8,15 +12,6 @@ export TERM=xterm-256color
 plugins=(git colorize bundler zeus)
 
 source $ZSH/oh-my-zsh.sh
-
-# Using a custom theme not included in oh-my-zsh
-source $HOME/.zsh/lfdm.zsh-theme
-
-# Load customized aliases and functions afterwards
-source $HOME/.zsh/aliases.zsh
-source $HOME/.zsh/functions.zsh
-# Additional completion file
-source $HOME/.zsh/tmuxinator.zsh
 
 # Customize to your needs...
 export PATH=$PATH:/usr/share/ruby-rvm/bin # Add RVM to PATH for scripting
