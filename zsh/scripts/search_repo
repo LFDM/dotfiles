@@ -1,0 +1,124 @@
+#!/usr/bin/env ruby
+
+require 'open-uri'
+require "json"
+
+class RepoSearch
+  GH_URL = 'https://api.github.com/search/repositories'
+  BROWSER = '/usr/bin/google-chrome'
+
+  def lookup_repo(query)
+    return "Error: Need something to look for" if query.empty?
+    @query = query
+
+    result = request
+    puts "Repositories found: #{result['total_count']}"
+    puts delim
+
+    @relevant = result['items'].take(20)
+    @relevant.each_with_index do |item, i|
+      name = item['full_name'].to_s
+      desc = item['description'].to_s
+
+      id = sprintf("%2d", i + 1)
+      n  = sprintf("%-35s", truncate(name, 34))
+      d = truncate(desc)
+
+      puts "#{id}: #{n} || #{d}"
+    end
+    puts delim
+    handle_input
+  end
+
+  def handle_input
+    prompt
+    while answer = $stdin.gets.chomp
+      case answer
+      when 'q'      then say_goodbye
+      when /^!\d*$/ then clone_it(answer)
+      when /^\d*$/  then view_it(answer)
+      else warning
+      end
+      come_again
+    end
+  end
+
+  def prompt
+    puts "Type number to open a repo in your browser, with a leading bang to clone the repo, or q to quit."
+    print "==> "
+  end
+
+  def clone_it(answer)
+    answer = answer[1..-1].to_i
+    if invalid?(answer)
+      warning
+    else
+      el = take(answer)
+      ssh = el['ssh_url']
+      system("git clone #{ssh}")
+    end
+  end
+
+  def view_it(answer)
+    answer = answer.to_i
+    if invalid?(answer)
+      warning
+    else
+      el = take(answer)
+      url = el['html_url']
+      puts "Viewing #{url}"
+      system("#{BROWSER} --new-tab #{url}")
+    end
+  end
+
+  def take(i)
+    @relevant[i - 1]
+  end
+
+  def invalid?(answer)
+    @relevant.size < answer
+  end
+
+  def warning
+    puts 'Did not understand your input, try again.'
+  end
+
+  def come_again
+    puts
+    prompt
+  end
+
+  def say_goodbye
+    puts
+    puts 'Good bye!'
+    puts
+    exit
+  end
+
+  def delim
+    '==============================================================='
+  end
+
+  def truncate(string, length = 65)
+    if string.length > length
+      "#{string[0..(length - 4)]} ..."
+    else
+      string
+    end
+  end
+
+  def query_string
+    "?q=#{@query}+in:name"
+  end
+
+  def request
+    puts "Searching #{req_string}"
+    JSON.parse(URI(req_string).read)
+  end
+
+  def req_string
+    "#{GH_URL}#{query_string}"
+  end
+end
+
+RepoSearch.new.lookup_repo(ARGV.shift.to_s)
