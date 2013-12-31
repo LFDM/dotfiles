@@ -15,6 +15,8 @@ source $ZSH/oh-my-zsh.sh
 
 # Add custom script folder to PATH
 export PATH=$PATH:$ZSH_CUSTOM/scripts
+# Using a custom theme not included in oh-my-zsh
+source $HOME/.zsh/lfdm.zsh-theme
 
 # Customize to your needs...
 export PATH=$PATH:/usr/share/ruby-rvm/bin # Add RVM to PATH for scripting
