@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+# attaches to a tmux session through mosh
+declare -A dict
+dict=(
+  home 192.168.178.20
+  alph dev.alpheios.net
+)
+
+dest=${1:-home}
+com="mosh --ssh 'ssh -X' $dict[$dest] -- tmux a -t $dest"
+echo "Executing $com"
+eval $com

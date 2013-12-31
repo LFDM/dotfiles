@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+# captures the ruby version from where the command was issued
+current_ruby=$(rvm current)
+integer col=9
+for impl in ruby jruby ; do
+  col+=1
+  identifier=$(print -nP "%B%F{$col}$impl: %b%f")
+  rvm use $impl
+  # no strictly needed to eval the whole statement,
+  # but the job description is prettier that way
+  eval "{ $@ | sed 's/^/$identifier/' } &"
+done
+wait
+rvm use $current_ruby

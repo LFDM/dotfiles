@@ -13,6 +13,9 @@ plugins=(git colorize bundler zeus)
 
 source $ZSH/oh-my-zsh.sh
 
+# Add custom script folder to PATH
+export PATH=$PATH:$ZSH_CUSTOM/scripts
+
 # Customize to your needs...
 export PATH=$PATH:/usr/share/ruby-rvm/bin # Add RVM to PATH for scripting
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
