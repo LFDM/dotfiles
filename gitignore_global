@@ -3,3 +3,6 @@ libpeerconnection.log
 
 # File name I use to output UML diagrams with yard.
 uml_diagram.pdf
+
+# (vim) swap files
+*.swp
