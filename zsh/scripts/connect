@@ -1,5 +1,4 @@
 #!/bin/zsh
-
 # attaches to a tmux session through mosh
 declare -A dict
 dict=(

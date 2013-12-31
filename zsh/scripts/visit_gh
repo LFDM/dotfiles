@@ -1,6 +1,5 @@
 #!/bin/zsh
-
-# tries to open the github page for the current repository you are
+# Tries to open the github page for the current repository you are
 # in, following remote origin. Uses chrome or firefox.
 
 repo_path=$(git remote -v 2>/dev/null | grep 'origin' | tail -1 |\

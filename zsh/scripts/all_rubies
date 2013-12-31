@@ -1,5 +1,4 @@
 #!/bin/zsh
-
 # Performs given commands for several ruby versions through rvm,
 # running background jobs to help with parallel processing.
 #
