@@ -25,7 +25,7 @@ export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 source ~/.rvm/scripts/rvm
 
 # Faster MRI ruby GC (actually needs testing if 2.1.0 makes this obsolete)
-export RUBY_HEAP_MIN_SLOTS="800000"
+#export RUBY_HEAP_MIN_SLOTS="800000" # deprecated after 2.1.0
 export RUBY_GC_HEAP_MIN_SLOTS="800000" # changed with 2.1.0
 export RUBY_HEAP_SLOTS_INCREMENT="1000000"
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR="1"
