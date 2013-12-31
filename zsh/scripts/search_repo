@@ -60,7 +60,10 @@ class RepoSearch
   end
 
   def view_it(answer)
-    answer = answer.to_i
+    answer  = answer.to_i
+    # coming from a plain enter hit (nil to "" to 0),
+    # we take a shortcut to the best hit.
+    answer += 1 if answer == 0
     if invalid?(answer)
       warning
     else
