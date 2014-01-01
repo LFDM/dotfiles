@@ -7,6 +7,9 @@
 # abandoned sessions staying alive forever.
 # Also launches a new window called breakout to which the new session
 # will attach.
+# This window will also be used run all commands you pass:
+#   breakout rake do_something
+# will run the do_something rake task.
 
 session=$(tmux display -p '#S')
 if [[ $session == '' ]]; then
@@ -16,11 +19,16 @@ fi
 
 term=$COLORTERM
 subsession="breakout-$session-$(date +%s)"
-tmux_create="tmux new -d -s $subsession -t $session"
-tmux_new_win="tmux new-window -t $subsession -n breakout"
-tmux_attach="tmux a -t $subsession "
+tmux_create="tmux new -d -s $subsession -t $session;"
+tmux_new_win="tmux new-window -t $subsession -n breakout;"
+if [[ $@ == '' ]]; then
+  tmux_exec=''
+else
+  tmux_exec="tmux send-keys -t $subsession '$@' C-m;"
+fi
+tmux_attach="tmux a -t $subsession;"
 tmux_kill="tmux kill-session -t $subsession"
-cmd="zsh -ilc '$tmux_create && $tmux_new_win && $tmux_attach; $tmux_kill'"
+cmd="zsh -ilc '$tmux_create $tmux_new_win $tmux_exec $tmux_attach $tmux_kill'"
 
 # don't take TMUX variable with you, it will create a nesting error
-#TMUX='' $term --full-screen --geometry=+1921 -e $cmd
+TMUX='' $term --full-screen --geometry=+1921 -e $cmd
