@@ -124,3 +124,6 @@ alias -g L="| less"
 
 # fast visit_gh
 alias vgh='visit-gh'
+
+# fast exit
+alias x='exit'
