@@ -123,6 +123,7 @@ alias -g T='| tail'
 alias -g G='| grep'
 alias -g A='| ack'
 alias -g L="| less"
+alias -g XC='| xclip -sel clipboard'
 
 # fast visit_gh
 alias vgh='visit-gh'
