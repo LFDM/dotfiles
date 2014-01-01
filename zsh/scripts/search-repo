@@ -53,7 +53,7 @@ class RepoSearch
   end
 
   def prompt
-    puts "What is thy bidding master? (type h for help, q to quit)"
+    puts "What is thy bidding, master? (type h for help, q to quit)"
     print "==> "
   end
 
