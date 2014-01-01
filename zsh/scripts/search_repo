@@ -89,13 +89,18 @@ class RepoSearch
     puts b
   end
 
-  def clone_it(answer, options)
+  def process_answer(answer, options)
     answer = answer.to_i
     if invalid?(answer)
       warning
     else
-      el = take(answer)
-      clone_element(el, options)
+      yield(answer, options)
+    end
+  end
+
+  def clone_it(answer, options)
+    process_answer(answer, options) do |a, o|
+      clone_element(take(a), options)
     end
   end
 
@@ -111,15 +116,12 @@ class RepoSearch
   end
 
   def fork_it(answer, options)
-    answer = answer.to_i
-    if invalid?(answer)
-      warning
-    else
-      el = take(answer)
+    process_answer(answer, options) do |a, o|
+      el = take(a)
       view_element(el, '/fork')
       print 'Finish the fork in your browser. Press any key to resume'
       gets
-      clone_element(el, options, true)
+      clone_element(el, o, true)
     end
   end
 
@@ -133,15 +135,11 @@ class RepoSearch
   end
 
   def view_it(answer, options)
-    answer = answer.to_i
     # coming from a plain enter hit (nil to "" to 0),
     # we take a shortcut to the best hit.
     answer += 1 if answer == 0
-    if invalid?(answer)
-      warning
-    else
-      el = take(answer)
-      view_element(el)
+    process_answer(answer, options) do |a, o|
+      view_element(take(a))
     end
   end
 
