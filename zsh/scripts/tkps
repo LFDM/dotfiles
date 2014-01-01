@@ -1,0 +1,9 @@
+#!/bin/zsh
+# tkps - tmux kill panes
+#
+# Kills tmux panes by their numbers. (tmux display-panes shows their indicator)
+#   tkps 1
+#   tkps 2 3 9
+#   tkps {2..6} # in case it gets extended by your shell
+
+for i in $@; { tmux kill-pane -t $i }
