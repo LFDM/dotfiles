@@ -43,9 +43,9 @@ class RepoSearch
       when 'h'      then show_help
       when 'q'      then say_goodbye
       when 'n'      then break new_search
-      when /^c(\d*)(.*)/ then clone_it($1, $2)
-      when /^f(\d*)(.*)/ then fork_it($1, $2)
-      when /^(\d*)(.*)/  then view_it($1, $2)
+      when /^c(\d+)(.*)/ then clone_it($1, $2)
+      when /^f(\d+)(.*)/ then fork_it($1, $2)
+      when /^(\d+)(.*)/  then view_it($1, $2)
       else warning
       end
       come_again
