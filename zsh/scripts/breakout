@@ -5,6 +5,8 @@
 # session but mirroring it.
 # Detaching from this new session will immediately kill it to avoid
 # abandoned sessions staying alive forever.
+# Also launches a new window called breakout to which the new session
+# will attach.
 
 session=$(tmux display -p '#S')
 if [[ $session == '' ]]; then
@@ -21,4 +23,4 @@ tmux_kill="tmux kill-session -t $subsession"
 cmd="zsh -ilc '$tmux_create && $tmux_new_win && $tmux_attach; $tmux_kill'"
 
 # don't take TMUX variable with you, it will create a nesting error
-TMUX='' $term --full-screen --geometry=+1921 -e $cmd
+#TMUX='' $term --full-screen --geometry=+1921 -e $cmd
