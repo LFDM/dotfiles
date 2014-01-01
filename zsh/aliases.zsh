@@ -8,6 +8,7 @@ alias dots='cd ~/dotfiles'
 alias tools='cd ~/tools'
 alias books='cd ~/books'
 alias forks='cd ~/code/forks'
+alias scripts='cd ~/.zsh/scripts'
 
 # Active projects
 alias llt=' cd ~/code/llt/'
@@ -88,6 +89,7 @@ alias tks='tmux kill-session'
 
 # source .zshrc
 alias source!='source ~/.zshrc'
+alias s!='source!'
 
 # short history (what zsh does without oh-my-zsh)
 alias h='fc -l'
@@ -127,3 +129,6 @@ alias vgh='visit-gh'
 
 # fast exit
 alias x='exit'
+
+# open chrome silently on my second monitor
+alias chrome='google-chrome --window-position=1921,0 2>/dev/null &!'
