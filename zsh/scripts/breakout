@@ -52,7 +52,6 @@ fi
 tmux_attach="tmux a -t $subsession;"
 tmux_kill="tmux kill-session -t $subsession"
 cmd="zsh -ilc '$tmux_create $tmux_new_win $tmux_exec $tmux_attach $tmux_kill'"
-echo $cmd
 
 # don't take TMUX variable with you, it will create a nesting error
 TMUX='' $term --full-screen --geometry=+1921 -e $cmd
