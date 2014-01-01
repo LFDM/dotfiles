@@ -8,12 +8,18 @@ class RepoSearch
   BROWSER = '/usr/bin/google-chrome'
 
   def lookup_repo(query)
-    return "Error: Need something to look for" if query.empty?
+    if query.empty?
+      puts "Error: Need something to look for."
+      return new_search
+    end
     @query = query
 
     result = request
-    puts "Repositories found: #{result['total_count']}"
+    count = result['total_count']
+    puts "Repositories found: #{count}"
     puts delim
+
+    new_search and return if count.zero?
 
     @relevant = result['items'].take(20)
     @relevant.each_with_index do |item, i|
@@ -34,9 +40,11 @@ class RepoSearch
     prompt
     while answer = $stdin.gets.chomp
       case answer
+      when 'h'      then show_help
       when 'q'      then say_goodbye
-      when /^!\d*$/ then clone_it(answer)
-      when /^\d*$/  then view_it(answer)
+      when 'n'      then break new_search
+      when /^c(\d*)(.*)/ then clone_it($1, $2)
+      when /^(\d*)(.*)/  then view_it($1, $2)
       else warning
       end
       come_again
@@ -44,23 +52,62 @@ class RepoSearch
   end
 
   def prompt
-    puts "Type number to open a repo in your browser, with a leading bang to clone the repo, or q to quit."
+    puts "What is thy bidding master? (type h for help, q to quit)"
     print "==> "
   end
 
-  def clone_it(answer)
-    answer = answer[1..-1].to_i
+  def new_search
+    puts
+    print 'Enter a new query ==> '
+    input = $stdin.gets.chomp
+    puts
+    lookup_repo(input)
+  end
+
+  def show_help
+    puts
+    puts "USAGE"
+    puts '----- Handling results'
+    helpline('1', 'views repo number 1 in a new Chrome tab')
+    helpline('c2', 'clones repo number 2')
+    helpline('<CR>', 'shortcut for 1')
+    puts
+    puts '------- Optional params'
+    helpline('-d', 'allows to specify a directory to clone into')
+    puts
+    puts '----- Runtime handling'
+    helpline('n', 'starts a new search')
+    helpline('q', 'quits the program')
+    helpline('h', 'shows these usage instructions')
+  end
+
+  def helpline(a, b)
+    print sprintf("%5s", a) + '   '
+    puts b
+  end
+
+  def clone_it(answer, options)
+    answer = answer.to_i
     if invalid?(answer)
       warning
     else
       el = take(answer)
       ssh = el['ssh_url']
-      system("git clone #{ssh}")
+      opts = parse_options(options)
+      system("git clone #{ssh} #{opts[:dir]}")
     end
   end
 
-  def view_it(answer)
-    answer  = answer.to_i
+  def parse_options(options)
+    opts = {}
+    case options
+    when /-d (.*)/ then opts[:dir] = $1
+    end
+    opts
+  end
+
+  def view_it(answer, options)
+    answer = answer.to_i
     # coming from a plain enter hit (nil to "" to 0),
     # we take a shortcut to the best hit.
     answer += 1 if answer == 0
