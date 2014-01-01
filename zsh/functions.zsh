@@ -41,6 +41,7 @@ function bundle-inst {
 }
 
 function topcmds {
+  lines=${1:-10}
   history | awk 'BEGIN {FS="[ \t]+|\\|"} {print $3}' |\
-    sort | uniq -c | sort -nr | head
+    sort | uniq -c | sort -nr | head -$lines
 }
