@@ -1,0 +1,9 @@
+#!/bin/zsh
+# tkws - tmux kill windows
+#
+# Kills tmux windows by their numbers.
+#   tkws 1
+#   tkws 2 3 9
+#   tkws {5..10} # in case it gets extended by your shell
+
+for i in $@; { tmux kill-window -t $i }
