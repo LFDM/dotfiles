@@ -39,3 +39,8 @@ function gem-inst {
 function bundle-inst {
   all-rubies bundle install
 }
+
+function topcmds {
+  history | awk 'BEGIN {FS="[ \t]+|\\|"} {print $3}' |\
+    sort | uniq -c | sort -nr | head
+}
