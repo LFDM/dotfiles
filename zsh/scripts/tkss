@@ -1,0 +1,20 @@
+#!/bin/zsh
+# tkss - tmux kill sessions
+#
+# Kills all tmux sessions matched by grep. Prompts before killing.
+# Example: tksr -P '.*'
+
+if [[ $@ == '' ]]; then
+  echo 'Error: need a pattern to look for'
+  return 1
+fi
+
+matches=$(tmux ls | awk '{print $1}' | sed 's/://g' | grep $@)
+if [[ $matches == '' ]]; then
+  echo 'No matches found.'
+else
+  echo $matches
+  echo -n 'Press any key to kill the displayed sessions or C-c to abort'
+  read
+  for match in ${=matches}; { tmux kill-session -t $match }
+fi
