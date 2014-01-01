@@ -85,8 +85,7 @@ class RepoSearch
   end
 
   def helpline(a, b)
-    print sprintf("%5s", a) + '   '
-    puts b
+    puts "#{sprintf("%5s", a)}   #{b}"
   end
 
   def process_answer(answer, options)
@@ -126,12 +125,15 @@ class RepoSearch
   end
 
   def parse_options(options)
-    opts = {}
-    case options
-    when /-d (.*)/ then opts[:dir] = $1
-    when /-u (.*)/ then opts[:user] = $1
+    valid_options.each_with_object({}) do |(key, opt), opts|
+      if options.match(/-#{opt} (.*?)(?=\s-|$)/)
+        opts[key] = $1
+      end
     end
-    opts
+  end
+
+  def valid_options
+    { dir: 'd', user: 'u'}
   end
 
   def view_it(answer, options)
