@@ -110,13 +110,13 @@ alias a='ack'
 alias j='jobs'
 
 # no output
-alias -g NO="> /dev/null"
+alias -g NO=">/dev/null"
 # no error
-alias -g NE="2> /dev/null"
+alias -g NE="2>/dev/null"
 # no nothing
 #  redirects stdout to the black hole and stderr to stdout
 #  - which is in the black hole already
-alias -g NN="> /dev/null 2>&1"
+alias -g NN=">/dev/null 2>&1"
 
 # fast pipes
 alias -g H='| head'
@@ -124,7 +124,7 @@ alias -g T='| tail'
 alias -g G='| grep'
 alias -g A='| ack'
 alias -g L="| less"
-alias -g XC='| xclip -sel clipboard'
+alias -g XC='| xclip -sel clip'
 
 # fast visit_gh
 alias vgh='visit-gh'
