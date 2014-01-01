@@ -79,7 +79,8 @@ alias agi='apt-get install'
 # start the home tmux session
 alias htmux='~/.tmux/home_session.sh'
 # connect to home session and remain independent
-alias ctmux='tmux new -s home-sub -t home'
+# kills subsession immediately after detachment
+alias ctmux='tmux new -s home-sub -t home; tmux kill-session -t home-sub'
 
 # retrieve my current public ip (echo to strip the newline char)
 alias pip='echo $(curl --silent http://ipecho.net/plain)'
