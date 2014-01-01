@@ -1,0 +1,24 @@
+#!/bin/zsh
+# Breaks out a new terminal window of a running tmux session,
+# if possible on a secondary monitor.
+# A new tmux subsession is created, independent from the calling
+# session but mirroring it.
+# Detaching from this new session will immediately kill it to avoid
+# abandoned sessions staying alive forever.
+
+session=$(tmux display -p '#S')
+if [[ $session == '' ]]; then
+  echo 'Error: cannot find a tmux session.'
+  return 1
+fi
+
+term=$COLORTERM
+subsession="breakout-$session-$(date +%s)"
+tmux_create="tmux new -d -s $subsession -t $session"
+tmux_new_win="tmux new-window -t $subsession -n breakout"
+tmux_attach="tmux a -t $subsession "
+tmux_kill="tmux kill-session -t $subsession"
+cmd="zsh -ilc '$tmux_create && $tmux_new_win && $tmux_attach; $tmux_kill'"
+
+# don't take TMUX variable with you, it will create a nesting error
+TMUX='' $term --full-screen --geometry=+1921 -e $cmd
