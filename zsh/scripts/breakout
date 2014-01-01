@@ -22,8 +22,10 @@
 # will executes ls -l in the new window.
 #
 # All special characters that should be sent to the new window need to
-# be escaped
+# be escaped, or the whole expression put into quotes
 #   echo ls | breakout -l \| grep txt
+#   echo ls | breakout -l '| grep txt'
+# Take this with a grain of salt, errors might occur.
 
 session=$(tmux display -p '#S')
 if [[ $session == '' ]]; then
