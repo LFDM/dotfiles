@@ -132,5 +132,8 @@ alias vgh='visit-gh'
 # fast exit
 alias x='exit'
 
+# fast breakout
+alias b='breakout'
+
 # open chrome silently on my second monitor
 alias chrome='google-chrome --window-position=1921,0 2>/dev/null &!'
