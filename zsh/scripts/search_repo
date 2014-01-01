@@ -75,7 +75,7 @@ class RepoSearch
     helpline('<CR>', 'shortcut for 1')
     puts
     puts '------- Optional params'
-    helpline('-d', 'specifies a directory to clone into')
+    helpline('-d', 'specifies a directory to clone into (defaults to ~/code/forks when forking)')
     helpline('-u', 'specifies user who is going to fork a repo (defaults to user.name in git config)')
     puts
     puts '----- Runtime handling'
@@ -136,13 +136,16 @@ class RepoSearch
 
   def clone_element(el, options, forking = false)
     opts = parse_options(options)
-    ssh = if forking
-            user = opts[:user] || `git config --get user.name`.strip
-            "git@github.com:#{user}/#{el['name']}.git"
-          else
-            el['ssh_url']
-          end
-    system("git clone #{ssh} #{opts[:dir]}")
+    if forking
+      name = el['name']
+      user = opts[:user] || `git config --get user.name`.strip
+      dir = opts[:dir] || "~/code/forks/#{name}"
+      ssh = "git@github.com:#{user}/#{name}.git"
+    else
+      ssh = el['ssh_url']
+      dir = opts[:dir]
+    end
+    system("git clone #{ssh} #{dir}")
   end
 
   def view_element(el, additional_path = '')
