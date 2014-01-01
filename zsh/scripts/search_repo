@@ -71,10 +71,12 @@ class RepoSearch
     puts '----- Handling results'
     helpline('1', 'views repo number 1 in a new Chrome tab')
     helpline('c2', 'clones repo number 2')
+    helpline('f2', 'forks and clones repo number 2')
     helpline('<CR>', 'shortcut for 1')
     puts
     puts '------- Optional params'
-    helpline('-d', 'allows to specify a directory to clone into')
+    helpline('-d', 'specifies a directory to clone into')
+    helpline('-u', 'specifies user who is going to fork a repo (defaults to user.name in git config)')
     puts
     puts '----- Runtime handling'
     helpline('n', 'starts a new search')
@@ -100,7 +102,7 @@ class RepoSearch
   def clone_element(el, options, forking = false)
     opts = parse_options(options)
     ssh = if forking
-            user = opts[:user] || 'LFDM'
+            user = opts[:user] || `git config --get user.name`.strip
             "git@github.com:#{user}/#{el['name']}.git"
           else
             el['ssh_url']
