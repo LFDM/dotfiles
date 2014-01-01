@@ -11,7 +11,7 @@
 #
 # Example:
 #   RUBIES_TO_USE='jruby-1.7.3 rbx-2.2.1 ruby-2.0.0-p195'
-#   all_rubies gem install rake bundler pry
+#   all-rubies gem install rake bundler pry
 
 rvm_exec=~/.rvm/scripts/rvm
 if [[ -f $rvm_exec ]]; then

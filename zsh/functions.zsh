@@ -32,10 +32,10 @@ function texrel {
   pdflatex $1 && xdg-open $1.pdf
 }
 
-function gem_inst {
-  all_rubies gem install $@
+function gem-inst {
+  all-rubies gem install $@
 }
 
-function bundle_inst {
-  all_rubies bundle install
+function bundle-inst {
+  all-rubies bundle install
 }
