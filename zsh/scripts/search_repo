@@ -44,6 +44,7 @@ class RepoSearch
       when 'q'      then say_goodbye
       when 'n'      then break new_search
       when /^c(\d*)(.*)/ then clone_it($1, $2)
+      when /^f(\d*)(.*)/ then fork_it($1, $2)
       when /^(\d*)(.*)/  then view_it($1, $2)
       else warning
       end
@@ -92,9 +93,31 @@ class RepoSearch
       warning
     else
       el = take(answer)
-      ssh = el['ssh_url']
-      opts = parse_options(options)
-      system("git clone #{ssh} #{opts[:dir]}")
+      clone_element(el, options)
+    end
+  end
+
+  def clone_element(el, options, forking = false)
+    opts = parse_options(options)
+    ssh = if forking
+            user = opts[:user] || 'LFDM'
+            "git@github.com:#{user}/#{el['name']}.git"
+          else
+            el['ssh_url']
+          end
+    system("git clone #{ssh} #{opts[:dir]}")
+  end
+
+  def fork_it(answer, options)
+    answer = answer.to_i
+    if invalid?(answer)
+      warning
+    else
+      el = take(answer)
+      view_element(el, '/fork')
+      print 'Finish the fork in your browser. Press any key to resume'
+      gets
+      clone_element(el, options, true)
     end
   end
 
@@ -102,6 +125,7 @@ class RepoSearch
     opts = {}
     case options
     when /-d (.*)/ then opts[:dir] = $1
+    when /-u (.*)/ then opts[:user] = $1
     end
     opts
   end
@@ -115,10 +139,14 @@ class RepoSearch
       warning
     else
       el = take(answer)
-      url = el['html_url']
-      puts "Viewing #{url}"
-      system("#{BROWSER} --new-tab #{url}")
+      view_element(el)
     end
+  end
+
+  def view_element(el, additional_path = '')
+    url = el['html_url'] + additional_path
+    puts "Viewing #{url}"
+    system("#{BROWSER} --new-tab #{url}")
   end
 
   def take(i)
