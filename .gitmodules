@@ -19,13 +19,13 @@
 [submodule "plugins/vim-latex"]
 	path = plugins/vim-latex
 	url = https://github.com/jcf/vim-latex.git
-[submodule "matchit"]
+[submodule "plugins/matchit"]
 	path = plugins/matchit
 	url = https://github.com/tmhedberg/matchit.git
 [submodule "vim-ruby-refactoring"]
 	path = plugins/vim-ruby-refactoring
 	url = https://github.com/ecomba/vim-ruby-refactoring.git
-[submodule "rainbow_parentheses.vim"]
+[submodule "plugins/rainbow_parentheses.vim"]
 	path = plugins/rainbow_parentheses.vim
 	url = https://github.com/kien/rainbow_parentheses.vim.git
 [submodule "plugins/vim-clojure-static"]
@@ -43,3 +43,6 @@
 [submodule "plugins/vim-startify"]
 	path = plugins/vim-startify
 	url = https://github.com/mhinz/vim-startify.git
+[submodule "plugins/ultisnips"]
+	path = plugins/ultisnips
+	url = git@github.com:LFDM/ultisnips.git
