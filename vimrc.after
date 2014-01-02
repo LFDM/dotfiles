@@ -198,6 +198,17 @@ au BufRead,BufNewFile *.zsh-theme set ft=zsh
 "  Plugins  "
 """""""""""""
 
+" UltiSnips
+let g:UltiSnips.always_use_first_snippet=1
+let g:UltiSnips.snipmate_ft_filter = {
+      \ "default": { "filetypes": [ "FILETYPE", "_" ] },
+      \ }
+" the UltiSnips fork disables select mode in snippets.
+" It is replaced with a change call, that yank the visual
+" selection to register u. The mapping will insert the
+" placeholder back in and jump forward.
+imap <C-l> <C-r>u<C-j>
+
 " Fugitive
 " to stage file in current buffer
 map <leader>ga :Gwrite<cr>

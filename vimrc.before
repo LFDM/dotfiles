@@ -5,7 +5,7 @@ let mapleader = ';'
 " Disable snipmates-snippets to use customizations
 call janus#disable_plugin('snipmate-snippets')
 
-" Disable vimwiki
+" Disable vimwiki and snipmate
 call janus#disable_plugin('vimwiki')
 call janus#disable_plugin('snipmate')
 
@@ -20,3 +20,7 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#show_buffers=1
 let g:airline_powerline_fonts=1
 let g:airline_theme='lfdm'
+
+" utilsnips (own fork)
+let g:UltiSnips = {}
+let g:UltiSnips.ExpandTrigger = "<c-j>"
