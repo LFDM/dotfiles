@@ -8,6 +8,21 @@ def with_color(message, colorcode)
   "\033[#{colorcode}m#{message}\033[0m"
 end
 
+def inst_message(arg, add_m)
+  "Installing #{arg} #{add_m}".strip
+end
+
+def argument_handler(def_args, opt_arg, creation_args, orig_m, add_m = '')
+  args = [def_args]
+  if opt_arg
+    log(inst_message(opt_arg, add_m))
+    args << opt_arg
+  else
+    log(inst_message(orig_m, add_m))
+  end
+  Linker.new(*args).create_from(*creation_args)
+end
+
 desc "manages all submodules"
 task :submodules do
   log('Initializing submodules')
@@ -17,27 +32,13 @@ task :submodules do
 end
 
 desc "installs plugins in your ~/.janus directory"
-task :plugins, :selector do |t, args|
-  linker_args = ['.janus']
-  if selector = args['selector']
-    log("Installing #{selector} to janus")
-    linker_args << selector
-  else
-    log('Installing plugins to janus')
-  end
-  Linker.new(*linker_args).create_from("plugins", false)
+task :plugins, :sel do |t, args|
+  argument_handler('.janus', args['sel'], [t.to_s, false], t.to_s, 'to janus')
 end
 
 desc "installs dot files and directories in home directory"
-task :dots, :selector do |t, args|
-  linker_args = ['']
-  if selector = args['selector']
-    log("Installing #{selector}")
-    linker_args << selector
-  else
-    log('Installing Dotfiles')
-  Linker.new(*linker_args).create_from(".")
-  end
+task :dots, :sel do |t, args|
+  argument_handler('', args['sel'], ['.'], 'Dotfiles')
 end
 
 desc "installs snippets in the snippets directory"
