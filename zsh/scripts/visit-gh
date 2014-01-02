@@ -3,7 +3,7 @@
 # in, following remote origin. Uses chrome or firefox.
 
 repo_path=$(git remote -v 2>/dev/null | grep 'origin' | tail -1 |\
-  cut -d ' ' -f 1 | grep -oP '(?<=[:/]).*/.*(?=\.git)')
+  cut -d ' ' -f 1 | grep -oP '(?<=com[:/]).*/.*?(?=\.git|$)')
 
 if [[ $repo_path == '' ]]; then
   echo "Error: No github path to go to. Are you in repository with a remote?"
