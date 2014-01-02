@@ -16,7 +16,6 @@
   * all dotfiles and directories
   * git hooks to automate ctags creation
   * custom snippets
-  * patches for SnipMate to gain compatibility with SuperTab
   * fonts for vim-airline and a custom theme
 * Follow the instructions
   * You'll be prompted for your sudo password among other things

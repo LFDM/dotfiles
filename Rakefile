@@ -59,29 +59,7 @@ task :fonts do
   exec 'fc-cache -vf ~/.fonts'
 end
 
-namespace :patches do
-  desc "patches SnipMate inside of janus. Sets trigger to <c-j> and doesn't overwrite the paste buffer"
-  task :snipmate do
-    log('Applying Patches to SnipMate')
-    snipmate_path = File.join(ENV["HOME"], ".vim/janus/vim/tools/snipmate")
-    additional_paths = { 1 => "after/plugin", 2 => "autoload" }
-    Dir.chdir("#{Dir.pwd}/patches/snipmate") do
-      Dir["*"].each do |file|
-        path_i = file.match(/.*(\d).*/)[1].to_i # patch files are called snipMate1.vim and snipMate2.vim
-        full_path = File.join(snipmate_path, additional_paths[path_i])
-        orig_file = "#{full_path}/snipMate.vim"
-
-        puts "Removing #{orig_file}"
-        system %Q{rm "#{orig_file}"}
-
-        puts "linking to patch #{file}"
-        system %Q{ln -s "#{Dir.pwd}/#{file}" "#{orig_file}"}
-      end
-    end
-  end
-end
-
-task default: %i{ submodules dots plugins snippets patches:snipmate airline fonts }
+task default: %i{ submodules dots plugins snippets airline fonts }
 
 class Linker
   def initialize(path = "", selector = '*', exclusions = %w{ install.sh Rakefile README.md })
