@@ -45,6 +45,7 @@ class RepoSearch
       when 'n'      then break new_search
       when /^c(\d+)(.*)/ then clone_it($1, $2)
       when /^f(\d+)(.*)/ then fork_it($1, $2)
+      when /^s(\d+)(.*)/ then submodule_it($1, $2)
       when /^(\d+)(.*)/  then view_it($1, $2)
       else warning
       end
@@ -72,6 +73,7 @@ class RepoSearch
     helpline('1', 'views repo number 1 in a new Chrome tab')
     helpline('c2', 'clones repo number 2')
     helpline('f2', 'forks and clones repo number 2')
+    helpline('s2', 'creates a submodule in ~/dotfiles/plugins')
     helpline('<CR>', 'shortcut for 1')
     puts
     puts '------- Optional params'
@@ -113,6 +115,12 @@ class RepoSearch
     end
   end
 
+  def submodule_it(answer, options)
+    process_answer(answer, options) do |a, o|
+      submodule_element(take(a))
+    end
+  end
+
   def view_it(answer, options)
     # coming from a plain enter hit (nil to "" to 0),
     # we take a shortcut to the best hit.
@@ -146,6 +154,15 @@ class RepoSearch
       dir = opts[:dir]
     end
     system("git clone #{ssh} #{dir}")
+  end
+
+  def submodule_element(el)
+    ssh = el['ssh_url']
+    name = el['name']
+    Dir.chdir("#{ENV['HOME']}/dotfiles") do
+      system("git submodule add #{ssh} plugins/#{name}")
+      system("rake plugins[#{name}]")
+    end
   end
 
   def view_element(el, additional_path = '')
