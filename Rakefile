@@ -17,15 +17,27 @@ task :submodules do
 end
 
 desc "installs plugins in your ~/.janus directory"
-task :plugins do
-  log('Installing plugins to janus')
-  Linker.new(".janus").create_from("plugins", false)
+task :plugins, :selector do |t, args|
+  linker_args = ['.janus']
+  if selector = args['selector']
+    log("Installing #{selector} to janus")
+    linker_args << selector
+  else
+    log('Installing plugins to janus')
+  end
+  Linker.new(*linker_args).create_from("plugins", false)
 end
 
 desc "installs dot files and directories in home directory"
-task :dots do
-  log('Installing Dotfiles')
-  Linker.new.create_from(".")
+task :dots, :selector do |t, args|
+  linker_args = ['']
+  if selector = args['selector']
+    log("Installing #{selector}")
+    linker_args << selector
+  else
+    log('Installing Dotfiles')
+  Linker.new(*linker_args).create_from(".")
+  end
 end
 
 desc "installs snippets in the snippets directory"
