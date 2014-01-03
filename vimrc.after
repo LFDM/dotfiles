@@ -194,9 +194,10 @@ au BufRead,BufNewFile *.hamlc set ft=haml
 au BufRead,BufNewFile *pryrc set ft=ruby
 au BufRead,BufNewFile *.zsh-theme set ft=zsh
 
-"""""""""""""
-"  Plugins  "
-"""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                          Plugin customization                           "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " UltiSnips
 let g:UltiSnips.always_use_first_snippet=1
@@ -279,9 +280,10 @@ au Filetype tex call Wrapping()
 au Filetype gitcommit setlocal spell spelllang=en
 au Filetype markdown setlocal spell spelllang=en
 
-"""""""""""""
-" Functions "
-"""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                Functions                                "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Change Ruby 1.8 style hashes to new syntax - asks for confirmation
 function! MorphHash()
