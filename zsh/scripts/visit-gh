@@ -12,6 +12,7 @@ fi
 
 gh_url=http://www.github.com/$repo_path
 
+# Deliberately not using xdg-open, as it acts up on some of my desktops
 for browser in /usr/bin/{google-chrome,firefox}; do
   if [[ -f $browser ]]; then
     echo "Visiting $gh_url"
