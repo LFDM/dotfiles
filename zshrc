@@ -9,7 +9,7 @@ export EDITOR="vi"
 
 export TERM=xterm-256color
 
-plugins=(git colorize bundler zeus)
+plugins=(git rvm colorize bundler zeus)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -18,7 +18,7 @@ export PATH=$PATH:$ZSH_CUSTOM/scripts
 # Using a custom theme not included in oh-my-zsh
 source $ZSH_CUSTOM/themes/lfdm.zsh-theme
 
-# Customize to your needs...
+# RVM
 export PATH=$PATH:/usr/share/ruby-rvm/bin # Add RVM to PATH for scripting
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # Sourcing rvm here in case we are not running as a login shell
