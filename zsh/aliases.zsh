@@ -132,6 +132,9 @@ alias vgh='visit-gh'
 # fast exit
 alias x='exit'
 
+#fast echo
+alias e='echo'
+
 # fast breakout
 alias b='breakout'
 
