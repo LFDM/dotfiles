@@ -42,3 +42,6 @@ function git_compare_version() {
 POST_1_7_2_GIT=$(git_compare_version "1.7.2")
 #clean up the namespace slightly by removing the checker function
 unset -f git_compare_version
+
+# Fixes an important git alias
+alias ggpull='git pull origin refs/heads/$(current_branch):refs/remotes/origin/$(current_branch)'
