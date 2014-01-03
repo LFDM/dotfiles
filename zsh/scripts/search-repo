@@ -73,7 +73,7 @@ class RepoSearch
     helpline('1', 'views repo number 1 in a new Chrome tab')
     helpline('c2', 'clones repo number 2')
     helpline('f2', 'forks and clones repo number 2')
-    helpline('s2', 'creates a submodule in ~/dotfiles/plugins')
+    helpline('s2', 'creates a submodule in $DOTFILES/plugins')
     helpline('<CR>', 'shortcut for 1')
     puts
     puts '------- Optional params'
@@ -159,7 +159,7 @@ class RepoSearch
   def submodule_element(el)
     ssh = el['ssh_url']
     name = el['name']
-    Dir.chdir("#{ENV['HOME']}/dotfiles") do
+    Dir.chdir(ENV['DOTFILES']) do
       system("git submodule add #{ssh} plugins/#{name}")
       system("rake plugins[#{name}]")
     end

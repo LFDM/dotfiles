@@ -4,7 +4,7 @@ alias .....='cd ../../../../'
 
 # Main folders
 alias c='cd ~/code'
-alias dots='cd ~/dotfiles'
+alias dots="cd $DOTFILES"
 alias tools='cd ~/tools'
 alias books='cd ~/books'
 alias forks='cd ~/code/forks'
@@ -57,11 +57,11 @@ alias vimrc='vim ~/.vimrc.after'
 alias zshrc='vim ~/.zshrc'
 alias pryrc='vim ~/.pryrc'
 alias tmuxc='vim ~/.tmux.conf'
-alias rsnips='vim ~/dotfiles/snippets/snipmate/ruby.snippets'
-alias csnips='vim ~/dotfiles/snippets/snipmate/clojure.snippets'
-alias msnips='vim ~/dotfiles/snippets/snipmate/markdown.snippets'
-alias tsnips='vim ~/dotfiles/snippets/snipmate/tex.snippets'
-alias zsnips='vim ~/dotfiles/snippets/snipmate/zsh.snippets'
+alias rsnips="vim $DOTFILES/snippets/snipmate/ruby.snippets"
+alias csnips="vim $DOTFILES/snippets/snipmate/clojure.snippets"
+alias msnips="vim $DOTFILES/snippets/snipmate/markdown.snippets"
+alias tsnips="vim $DOTFILES/snippets/snipmate/tex.snippets"
+alias zsnips="vim $DOTFILES/snippets/snipmate/zsh.snippets"
 alias aliases='vim ~/.zsh/aliases.zsh'
 alias zsh_func='vim ~/.zsh/functions.zsh'
 alias funcs='zsh_func'
