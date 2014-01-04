@@ -1,6 +1,6 @@
 #!/bin/zsh
 # kvs - kill vim swaps
-# Cleans up all your vim swap files, whether hidden or not.
+# Cleans up all your vim swap files.
 # Takes the option -r to do it recursively.
 
 if [[ $1 == '-r' ]]; then
