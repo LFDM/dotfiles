@@ -4,8 +4,8 @@
 # Takes the option -r to do it recursively.
 
 if [[ $1 == '-r' ]]; then
-  rm **/{,.}*.sw?
+  rm **/.*.sw?
 else
-  rm {,.}*.sw?
+  rm .*.sw?
 fi
 
