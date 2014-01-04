@@ -1,0 +1,11 @@
+#!/bin/zsh
+# kvs - kill vim swaps
+# Cleans up all your vim swap files, whether hidden or not.
+# Takes the option -r to do it recursively.
+
+if [[ $1 == '-r' ]]; then
+  rm **/{,.}*.sw?
+else
+  rm {,.}*.sw?
+fi
+
