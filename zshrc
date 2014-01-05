@@ -8,6 +8,8 @@ ZSH_CUSTOM=$HOME/.zsh
 
 ZSH_THEME='lfdm'
 
+ENABLE_CORRECTION=true
+
 export EDITOR="vi"
 
 export TERM=xterm-256color
