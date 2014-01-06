@@ -12,7 +12,7 @@
   ci = commit
   st = status
   co = checkout
-  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  hist = log --pretty=format:\"%h %ad | %C(bold blue)[%an]%Creset %s%C(yellow)%d%Creset\" --graph --date=short
   br = branch
   type = cat-file -t
   dump = cat-file -p
