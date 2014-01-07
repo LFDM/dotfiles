@@ -134,6 +134,8 @@ alias x='exit'
 
 #fast echo
 alias e='echo'
+compdef _echotc e=echotc
+compdef _echoti e=echoti
 
 # fast breakout
 alias b='breakout'
