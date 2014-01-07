@@ -45,3 +45,11 @@ function topcmds {
   history | awk 'BEGIN {FS="[ \t]+|\\|"} {print $3}' |\
     sort | uniq -c | sort -nr | head -$lines
 }
+
+function release_compdef {
+  for name in $@; do
+    sed -i "^'$name' /d" $ZSH_COMPDUMP
+  done
+}
+compdef _aliases release_compdef
+
