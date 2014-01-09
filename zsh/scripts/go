@@ -1,0 +1,17 @@
+#!/bin/zsh
+# go - google the given arguments
+
+google_url=http://www.google.com/#q=$@
+
+# deliberately not using xdg-open, as it acts up on some of my desktops
+for browser in /usr/bin/{google-chrome,firefox}; do
+  if [[ -f $browser ]]; then
+    echo "visiting $google_url"
+    # supresses some firefox bugs
+    $browser --new-tab $google_url 2>/dev/null
+    return 0
+  fi
+done
+
+echo "error: neither chrome nor firefox found."
+return 1
