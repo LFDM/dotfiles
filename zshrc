@@ -2,7 +2,7 @@
 export DOTFILES=$(dirname $(readlink $HOME/.zshrc))
 
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+ZSH=$HOME/code/forks/oh-my-zsh
 # Path to custom files
 ZSH_CUSTOM=$HOME/.zsh
 
