@@ -1,0 +1,6 @@
+#!/bin/zsh
+# tdao - tmux detach all others
+#
+# Detaches all other clients from a running tmux session.
+
+tmux detach -a
