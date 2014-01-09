@@ -6,7 +6,15 @@ dict=(
   alph dev.alpheios.net
 )
 
+[[ $1 == '-X' ]] && x=x && shift
 dest=${1:-home}
-com="mosh --ssh 'ssh -X' $dict[$dest] -- tmux a -t $dest"
+tmux_cmd="tmux a -t $dest"
+
+if [[ $x == 'x' ]]; then
+  com="autossh -X $dict[$dest] -t '$tmux_cmd'"
+else
+  com="mosh $dict[$dest] -- $tmux_cmd"
+fi
+
 echo "Executing $com"
 eval $com
