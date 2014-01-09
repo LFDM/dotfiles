@@ -42,6 +42,7 @@ term=$COLORTERM
 subsession="breakout-$session-$(date +%s)"
 tmux_create="tmux new -d -s $subsession -t $session;"
 tmux_new_win="tmux new-window -t $subsession -n breakout;"
+
 if [[ $args == '' ]]; then
   tmux_exec=''
 else
@@ -49,9 +50,18 @@ else
   # send-keys breaks!
   tmux_exec="tmux send-keys -t $subsession \"$args\" C-m;"
 fi
+
+full_screen_opt() {
+  if [[ $1 == 'xfce4-terminal' ]]; then
+    echo --fullscreen
+  else
+    echo --full-screen
+  fi
+}
+
 tmux_attach="tmux a -t $subsession;"
 tmux_kill="tmux kill-session -t $subsession"
 cmd="zsh -ilc '$tmux_create $tmux_new_win $tmux_exec $tmux_attach $tmux_kill'"
 
 # don't take TMUX variable with you, it will create a nesting error
-TMUX='' $term --full-screen --geometry=+1921 -e $cmd
+TMUX='' $term $(full_screen_opt $term) --geometry=+1921 -e $cmd
