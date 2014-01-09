@@ -41,9 +41,9 @@ function git_left_prompt() {
 
 function git_right_prompt {
   printf '%s%s%s' \
-    $ZSH_THEME_GIT_PROMPT_COMPLETE[ahead] \
     $ZSH_THEME_GIT_PROMPT_COMPLETE[change] \
-    $ZSH_THEME_GIT_PROMPT_COMPLETE[stash]
+    $ZSH_THEME_GIT_PROMPT_COMPLETE[stash] \
+    $ZSH_THEME_GIT_PROMPT_COMPLETE[remote]
 }
 
 function mode_switch {
