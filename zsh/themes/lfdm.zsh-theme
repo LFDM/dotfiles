@@ -31,6 +31,7 @@ cmd_delim="%B%F{226}C%b%f"
 add-zsh-hook precmd git_prompt_complete
 
 function git_left_prompt() {
+  [[ $ZSH_THEME_GIT_PROMPT_COMPLETE[branch] == '' ]] && return
   printf '%s%s%s%s'\
     $ZSH_THEME_GIT_PROMPT_PREFIX \
     $ZSH_THEME_GIT_PROMPT_COMPLETE[branch] \
