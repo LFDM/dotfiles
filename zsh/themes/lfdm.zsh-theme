@@ -28,6 +28,23 @@ ins_mode=""
 ins_delim="⇒"
 cmd_delim="%B%F{226}C%b%f"
 
+add-zsh-hook precmd git_prompt_complete
+
+function git_left_prompt() {
+  printf '%s%s%s%s'\
+    $ZSH_THEME_GIT_PROMPT_PREFIX \
+    $ZSH_THEME_GIT_PROMPT_COMPLETE[branch] \
+    $ZSH_THEME_GIT_PROMPT_COMPLETE[dirty] \
+    $ZSH_THEME_GIT_PROMPT_SUFFIX
+}
+
+function git_right_prompt {
+  printf '%s%s%s' \
+    $ZSH_THEME_GIT_PROMPT_COMPLETE[ahead] \
+    $ZSH_THEME_GIT_PROMPT_COMPLETE[change] \
+    $ZSH_THEME_GIT_PROMPT_COMPLETE[stash]
+}
+
 function mode_switch {
   echo "${${KEYMAP/vicmd/$1}/(main|viins)/$2}"
 }
@@ -52,5 +69,5 @@ zle -N zle-line-finish
 
 # Beware, single-quotes are imperative here (resolution of variable at a
 # different time!) As vi_mode is dynamic it cannot be inside of double-quotes.
-PROMPT='${username} ${short_path} $(git_prompt_info) ${delimiter} '
-RPROMPT='${vi_mode} $(git_stash_status 2>/dev/null) $(rvm_prompt_info) %T'
+PROMPT='${username} ${short_path} $(git_left_prompt) ${delimiter} '
+RPROMPT='${vi_mode} $(git_right_prompt) $(rvm_prompt_info) %T'
