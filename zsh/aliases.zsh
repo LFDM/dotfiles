@@ -42,12 +42,11 @@ alias rake!='noglob rake'
 alias gh='git hist'
 alias gcom='gcmsg'
 alias gs='gss' # usually starts ghostscript, a common and annoying typo
+alias gss='git status -s -b' # show branch - and therefore remote stats
 alias gcof='git checkout --'
 alias gcob='git checkout -b'
 alias gcobt='git-new-tracked-branch'
-
-# Show the full current path
-alias p='echo $PWD'
+alias gom='git-on-master'
 
 # Fast vim
 alias v='vim'
@@ -145,5 +144,3 @@ alias chrome='google-chrome --window-position=1921,0 2>/dev/null &!'
 
 # replacements
 alias top='htop'
-
-alias gom='git-on-master'
