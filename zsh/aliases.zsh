@@ -132,7 +132,7 @@ alias vgh='visit-gh'
 # fast exit
 alias x='exit'
 
-#fast echo
+# fast echo
 alias e='echo'
 compdef _echotc e=echotc
 compdef _echoti e=echoti
@@ -145,3 +145,5 @@ alias chrome='google-chrome --window-position=1921,0 2>/dev/null &!'
 
 # replacements
 alias top='htop'
+
+alias gom='git-on-master'
