@@ -8,6 +8,7 @@ if [[ $1 == 'list' ]]; then
   res=$(echo $list | tail -$half \
     | awk 'match ($0, /"(.*)".*>(.*)\(/, m) { print m[1], m[2] }')
 
+  # well, these one liners sure look confusing, as cool as they are
   [[ $2 == '' ]] && echo $res || echo $res | grep -i "$2"
   return
 fi
