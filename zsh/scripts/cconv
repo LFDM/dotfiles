@@ -1,0 +1,19 @@
+#!/bin/zsh
+
+if [[ $1 == 'list' ]]; then
+  # list contains all currencies twice, therefore we could it in half
+  list=$(curl -s https://www.google.com/finance/converter | grep 'option')
+  size=$(echo $list | wc -l)
+  half=$(($size / 2))
+  echo $list | tail -$half \
+    | awk 'match ($0, /"(.*)".*>(.*)\(/, m) { print m[1], m[2] }'
+  return
+fi
+
+amount=${1:=1}
+from=${2:=EUR}
+to=${3:=USD}
+
+curl -s https://www.google.com/finance/converter\?a\=$amount\&from\=$from\&to\=$to \
+  | grep 'currency_converter_result' \
+  | grep -oP '(?<=>).*?(?=<)' | tr -d "\n" && echo # hate the eof sign
