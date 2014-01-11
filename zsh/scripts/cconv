@@ -5,8 +5,10 @@ if [[ $1 == 'list' ]]; then
   list=$(curl -s https://www.google.com/finance/converter | grep 'option')
   size=$(echo $list | wc -l)
   half=$(($size / 2))
-  echo $list | tail -$half \
-    | awk 'match ($0, /"(.*)".*>(.*)\(/, m) { print m[1], m[2] }'
+  res=$(echo $list | tail -$half \
+    | awk 'match ($0, /"(.*)".*>(.*)\(/, m) { print m[1], m[2] }')
+
+  [[ $2 == '' ]] && echo $res || echo $res | grep -i "$2"
   return
 fi
 
