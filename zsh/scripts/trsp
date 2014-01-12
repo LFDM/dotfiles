@@ -1,0 +1,6 @@
+# trsp - Transparency
+# This only works in xfce4 terminal!
+# For now we just take for granted, that this is defined in line 3
+
+sed -i "3s/.*/BackgroundDarkness=0,${1}0000/"\
+ $HOME/.config/xfce4/terminal/terminalrc
