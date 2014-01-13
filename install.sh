@@ -82,6 +82,13 @@ hint 'The installation will complete itself the first time you run lein'
 log_and_mkdir ~/code
 log_and_mkdir ~/tools
 
+loginst 'hub'
+git clone https://github.com/github/hub.git
+cd hub
+sudo rake install prefix=/usr/local
+cd ..
+rm -rf hub
+
 rake # installs all customizations
 hint "Don't forget to use a powerline font in your terminal emulator"
 

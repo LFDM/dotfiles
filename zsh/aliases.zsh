@@ -146,3 +146,6 @@ alias chrome='google-chrome --window-position=1921,0 2>/dev/null &!'
 
 # replacements
 alias top='htop'
+
+# using hub
+alias git=hub

@@ -12,6 +12,7 @@
   * ack
   * leiningen
   * mosh
+  * hub for better communication with github
   * additional vim plugins
   * all dotfiles and directories
   * git hooks to automate ctags creation
