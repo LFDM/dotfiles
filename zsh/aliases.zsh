@@ -3,12 +3,14 @@ alias ....='cd ../../..'
 alias .....='cd ../../../../'
 
 # Main folders
-alias c='cd ~/code'
-alias dots="cd $DOTFILES"
 alias tools='cd ~/tools'
 alias books='cd ~/books'
-alias forks='cd ~/code/forks'
-alias scripts='cd ~/.zsh/scripts'
+# sadly not possible to name the dir, autocorrection
+# doesn't like dots...
+alias dots="cd $DOTFILES"
+c="$HOME/code"
+forks="$HOME/code/forks"
+scripts="$HOME/.zsh/scripts"
 
 # Active projects
 alias llt=' cd ~/code/llt/'
