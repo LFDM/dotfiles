@@ -46,3 +46,6 @@
 [submodule "plugins/ultisnips"]
 	path = plugins/ultisnips
 	url = git@github.com:LFDM/ultisnips.git
+[submodule "plugins/bats"]
+	path = plugins/bats
+	url = git@github.com:vim-scripts/bats.vim.git

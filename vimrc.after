@@ -199,6 +199,9 @@ au BufRead,BufNewFile *.zsh-theme set ft=zsh
 "                          Plugin customization                           "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Bats syntax highlighting, disables buggy syntastic checks
+let g:syntastic_ignore_files = ['\.bats$']
+
 " UltiSnips
 let g:UltiSnips.always_use_first_snippet=1
 let g:UltiSnips.snipmate_ft_filter = {
