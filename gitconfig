@@ -22,3 +22,5 @@
 	templatedir = ~/.git_template
 [github]
 	user = LFDM
+[push]
+	default = tracking
