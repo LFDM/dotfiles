@@ -83,7 +83,7 @@ log_and_mkdir ~/code
 log_and_mkdir ~/tools
 
 loginst 'hub'
-git clone https://github.com/github/hub.git
+git clone git://github.com/github/hub.git
 cd hub
 sudo rake install prefix=/usr/local
 cd ..
