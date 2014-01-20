@@ -148,4 +148,5 @@ alias chrome='google-chrome --window-position=1921,0 2>/dev/null &!'
 alias top='htop'
 
 # using hub
-alias git=hub
+# disabled temporarily, is buggy
+#alias git=hub
