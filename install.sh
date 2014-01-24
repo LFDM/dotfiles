@@ -85,11 +85,15 @@ log_and_mkdir ~/tools
 loginst 'hub'
 git clone git://github.com/github/hub.git
 cd hub
-sudo rake install prefix=/usr/local
 cd ..
+sudo rake install prefix=/usr/local
 rm -rf hub
 
+log_and_inst cmake
+log_and_inst python-dev
+
 rake # installs all customizations
+rake compile  # not part of the default task, as it usually takes a while
 hint "Don't forget to use a powerline font in your terminal emulator"
 
 suc Success!
