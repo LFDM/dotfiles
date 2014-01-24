@@ -59,6 +59,14 @@ task :fonts do
   exec 'fc-cache -vf ~/.fonts'
 end
 
+desc 'compiles several ressources'
+task :compile do
+  log('Compiling YouCompleteMe')
+  Dir.chdir('plugins/YouCompleteMe') do
+    exec './install.sh'
+  end
+end
+
 task default: %i{ submodules dots plugins snippets airline fonts }
 
 class Linker
