@@ -1,0 +1,15 @@
+coverage: true
+rspec_conf: true
+badges:
+  - badge_fury
+  - gemnasium
+  - travis
+  - coveralls
+  - code_climate
+travis:
+  before_script:
+    - "export JRUBY_OPTS=--2.0"
+  rvm:
+    - 2.1.0
+    - 2.0.0
+    - jruby-1.7.8
