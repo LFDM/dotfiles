@@ -26,8 +26,8 @@ snippet priv
 	${0}
 snippet y
 	:yields: ${0:arguments}
-snippet rb
-	#!/usr/bin/env ruby -wKU
+#snippet rb
+  #!/usr/bin/env ruby -wKU
 snippet beg
 	begin
 		${0}
@@ -225,8 +225,8 @@ snippet usau
 	#Array.new(${1:10}) { |${2:i}| ${0} }
 #snippet hash
 	#Hash.new { |${1:hash}, ${2:key}| $1[$2] = ${0} }
-snippet file File.foreach() { |line| .. }
-	File.foreach(${1:"path/to/file"}) { |${2:line}| ${0} }
+#snippet file File.foreach() { |line| .. }
+	#File.foreach(${1:"path/to/file"}) { |${2:line}| ${0} }
 snippet file File.read()
 	File.read(${1:"path/to/file"})
 snippet Dir Dir.global() { |file| .. }
@@ -1084,12 +1084,6 @@ snippet defi
 	end
 snippet llt
 	module LLT
-		${0}
-	end
-snippet spec
-	require 'spec_helper'
-
-	describe ${1:#class_name} do
 		${0}
 	end
 snippet al
