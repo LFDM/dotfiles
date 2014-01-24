@@ -197,6 +197,8 @@ def select(start, end):
         )
 
     feedkeys(move_cmd)
+    # Notify what we hold in register u
+    feedkeys(r"\<esc>\:echo 'register u contains: ' . @u\<cr>a")
 
 # Helper functions  {{{
 def _calc_end(lines, start):
