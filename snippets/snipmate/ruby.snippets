@@ -2,42 +2,18 @@
 # Ruby snippets - for Rails, see below #
 ########################################
 
-# encoding for Ruby 1.9
-snippet enc
-	# encoding: utf-8
-
-# #!/usr/bin/env ruby
-snippet #!
-	#!/usr/bin/env ruby
-	# encoding: utf-8
-
-# New Block
-snippet =b
-	=begin rdoc
-		${0}
-	=end
 snippet prot
 	protected
 
 	${0}
-snippet priv
-	private
-
-	${0}
 snippet y
 	:yields: ${0:arguments}
-#snippet rb
-  #!/usr/bin/env ruby -wKU
 snippet beg
 	begin
 		${0}
 	rescue ${1:Exception} => ${2:e}
 	end
 
-snippet req require
-	require "${1}"
-snippet reqr
-	require_relative "${1}"
 snippet #
 	# =>
 snippet end
@@ -50,10 +26,6 @@ snippet case
 snippet when
 	when ${1:condition}
 		${0}
-snippet def
-	def ${1:method_name}
-		${0}
-	end
 snippet deft
 	def test_${1:case_name}
 		${0}
@@ -151,19 +123,6 @@ snippet mod module .. ClassMethods .. end
 			receiver.send :include, InstanceMethods
 		end
 	end
-# attr_reader
-#snippet r
-	#attr_reader :${0:attr_names}
-## attr_writer
-#snippet w
-	#attr_writer :${0:attr_names}
-## attr_accessor
-#snippet rw
-	#attr_accessor :${0:attr_names}
-#snippet atp
-	#attr_protected :${0:attr_names}
-#snippet ata
-	#attr_accessible :${0:attr_names}
 snippet ana
 	accepts_nested_attributes_for :${0:association}
 # ivc == instance variable cache
@@ -1110,14 +1069,14 @@ snippet whent
 	when ${1:condition} then ${0}
 snippet ip
 	#{${1:interpolation}}${0}
-snippet descc
-	describe ${1:`substitute(substitute(vim_snippets#Filename(), '_spec$', '', ''), '\(_\|^\)\(.\)', '\u\2', 'g')`} do
-		${0}
-	end
-snippet desc
-	describe "#${1:method}" do
-		${0:pending "Not implemented"}
-	end
+#snippet descc
+	#describe ${1:`substitute(substitute(vim_snippets#Filename(), '_spec$', '', ''), '\(_\|^\)\(.\)', '\u\2', 'g')`} do
+		#${0}
+	#end
+#snippet desc
+	#describe "#${1:method}" do
+		#${0:pending "Not implemented"}
+	#end
 snippet todo
 	# TODO `strftime("%d.%m.%y %H:%M")` by LFDM
 	# ${1}
