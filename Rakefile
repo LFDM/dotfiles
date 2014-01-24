@@ -25,10 +25,8 @@ end
 
 desc "manages all submodules"
 task :submodules do
-  log('Initializing submodules')
-  system 'git submodule init'
   log('Updating submodules')
-  system 'git submodule update'
+  system 'git submodule update --init --recursive'
 end
 
 desc "installs plugins in your ~/.janus directory"
