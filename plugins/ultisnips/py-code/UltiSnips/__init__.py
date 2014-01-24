@@ -984,23 +984,21 @@ class SnippetManager(object):
             snippets = self._snips(re.sub("^.*[^a-zA-Z0-9]+", "", before), False)
 
         if not snippets:
-            # Patched by LFDM - avoid the completion menu
+            if vim.eval('g:UltiSnips.CompletionMenu'):
+                snippets = self._snips(before, True)
+                snippets.sort(key=lambda x: x.trigger)
 
-            #if vim.eval('g:UltiSnips.CompletionMenu'):
-            #    snippets = self._snips(before, True)
-            #    snippets.sort(key=lambda x: x.trigger)
+                if (len(snippets) > 0):
+                    # prepare completion items, pass to vim:
+                    completion_items = [ {'word': s.trigger[len(s._matched):], 'info': ("%s\nloc: %s" % (s.description, s.location_hint()))} for s in snippets ]
+                    vim.command('let g:UltiSnips.completionItems = %s' % json.dumps(completion_items))
+                    # call completion
+                    old = vim.eval('&l:omnifunc')
+                    vim.command("let &l:omnifunc = 'UltiSnips#CompleteSnippetTriggerFun'")
+                    vim.command("call feedkeys(\"\\<c-x>\\<c-o>\\<c-r>=UltiSnips#ResetOmniFunc(\\\"%s\\\")\\<cr>\",'n')" % old)
+                    return "ultilsnips_action_completion_menu"
 
-            #    if (len(snippets) > 0):
-            #        # prepare completion items, pass to vim:
-            #        completion_items = [ {'word': s.trigger[len(s._matched):], 'info': ("%s\nloc: %s" % (s.description, s.location_hint()))} for s in snippets ]
-            #        vim.command('let g:UltiSnips.completionItems = %s' % json.dumps(completion_items))
-            #        # call completion
-            #        old = vim.eval('&l:omnifunc')
-            #        vim.command("let &l:omnifunc = 'UltiSnips#CompleteSnippetTriggerFun'")
-            #        vim.command("call feedkeys(\"\\<c-x>\\<c-o>\\<c-r>=UltiSnips#ResetOmniFunc(\\\"%s\\\")\\<cr>\",'n')" % old)
-            #        return "ultilsnips_action_completion_menu"
-
-            ## No snippet found
+            # No snippet found
             return "ultilsnips_action_none"
 
 
