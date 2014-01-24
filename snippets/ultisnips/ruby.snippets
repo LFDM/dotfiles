@@ -598,10 +598,39 @@ when ${1:cond} then ${2:res}
 ${3:whent}
 endsnippet
 
-snippet iva "Instance variable assignment"
+snippet iva "Instance variable assignment with mirroring"
 @${1:iva} = $1
 ${0}
 endsnippet
+
+snippet iv "Plain instance variable assignment"
+@${1} = ${0}
+endsnippet
+
+snippet eawodh "each_with_object coming from hash"
+each_with_object(${1}) do |(${2:k}, ${3:v}), ${4:v}|
+  ${0}
+end
+endsnippet
+
+snippet CH "builds a constant hash"
+${1/\w+\s*/\u$0/g}
+endsnippet
+
+snippet mlh "multiline hash"
+${1:var} = {
+  ${0}
+}
+endsnippet
+
+snippet hr "hashrocket"
+${1} => ${2},
+${0:hr}
+endsnippet
+
+
+
+
 
 
 
