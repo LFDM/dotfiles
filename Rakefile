@@ -87,7 +87,7 @@ class Linker
   end
 
   def non_linkable
-    %w{ airline patches plugins snippets }
+    %w{ airline plugins snippets }
   end
 
   def full_path(file)
