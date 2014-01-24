@@ -210,6 +210,9 @@ let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
+" Eclim - used by YouCompleteMe
+" Currently unused, not really working
+let g:EclimCompletionMethod = 'omnifunc'
 
 " UltiSnips
 let g:UltiSnips.always_use_first_snippet=1
