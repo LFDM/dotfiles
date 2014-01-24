@@ -152,18 +152,18 @@ snippet mod module .. ClassMethods .. end
 		end
 	end
 # attr_reader
-snippet r
-	attr_reader :${0:attr_names}
-# attr_writer
-snippet w
-	attr_writer :${0:attr_names}
-# attr_accessor
-snippet rw
-	attr_accessor :${0:attr_names}
-snippet atp
-	attr_protected :${0:attr_names}
-snippet ata
-	attr_accessible :${0:attr_names}
+#snippet r
+	#attr_reader :${0:attr_names}
+## attr_writer
+#snippet w
+	#attr_writer :${0:attr_names}
+## attr_accessor
+#snippet rw
+	#attr_accessor :${0:attr_names}
+#snippet atp
+	#attr_protected :${0:attr_names}
+#snippet ata
+	#attr_accessible :${0:attr_names}
 snippet ana
 	accepts_nested_attributes_for :${0:association}
 # ivc == instance variable cache
@@ -227,8 +227,8 @@ snippet usau
 	#Hash.new { |${1:hash}, ${2:key}| $1[$2] = ${0} }
 #snippet file File.foreach() { |line| .. }
 	#File.foreach(${1:"path/to/file"}) { |${2:line}| ${0} }
-snippet file File.read()
-	File.read(${1:"path/to/file"})
+#snippet file File.read()
+	#File.read(${1:"path/to/file"})
 snippet Dir Dir.global() { |file| .. }
 	Dir.glob(${1:"dir/glob/*"}) { |${2:file}| ${0} }
 snippet Dir Dir[".."]
@@ -1096,6 +1096,10 @@ snippet ia
 	%i{ ${1:syms} }
 snippet wa
 	%w{ ${1:elements} }
+snippet qa
+  %Q{
+    ${0}
+  }
 snippet ts
 	t.send(${1:method})
 snippet caset
@@ -1125,12 +1129,6 @@ snippet ul
 	unless ${1:condition}
 		${0}
 	end
-snippet delim
-
-	######### ${1} #########
-	${0}	
-snippet ma
-	match(/${1:regexp}/)
 snippet itm
 	it "${1}" do
 	  f = morphologizer.morphologize("${2}")
@@ -1148,8 +1146,12 @@ snippet shi
 	should have(${1}).item${0}
 snippet se
 	should == ${0}
+snippet sr
+  should receive(:${0})
+snippet srw
+  should receive(:${1}).with(${0})
 snippet srt
-	should respond_to(${0})
+	should respond_to(:${0})
 snippet let
 	let(:${1}) { ${2} }${0}
 snippet letd
@@ -1159,15 +1161,4 @@ snippet letd
 snippet itpf
 	it "like ${1}" do
 	  pf_composition("${2}", "${3}").should == "${4}"${0}
-	end
-
-snippet get
-	get '/${1}' do
-	  ${0}
-	end
-snippet sinatra
-	require 'sinatra/base'
-
-	class ${1} < Sinatra::Base
-	  ${0}
 	end

@@ -108,9 +108,10 @@ endsnippet
 
 
 snippet defi "def initialize ..."
-def initialize${1: ${2:*args}}
-	${0}
+def initialize(${1:args})
+	${2:iva}
 end
+${0}
 endsnippet
 
 
@@ -538,8 +539,6 @@ rescue Exception => e
 	${0:# Rescue}
 endsnippet
 
-
-
 snippet "\b(case|sw(itch)?)" "case <variable> when <expression> ... end" r
 case ${1:variable}
 when ${2:expression}
@@ -554,23 +553,19 @@ alias :${1:new_name} :${2:old_name}
 endsnippet
 
 
+#snippet class "class <class_name> def initialize ... end end"
+#class ${1:class_name}
+	#def initialize ${2:*args}
+		#$0
+	#end
+#end
+#endsnippet
 
-snippet class "class <class_name> def initialize ... end end"
-class ${1:class_name}
-	def initialize ${2:*args}
-		$0
-	end
-end
-endsnippet
-
-
-
-snippet module "module"
-module ${1:module_name}
-	$0
-end
-endsnippet
-
+#snippet module "module"
+#module ${1:module_name}
+	#$0
+#end
+#endsnippet
 
 
 #snippet ###
@@ -579,6 +574,10 @@ endsnippet
 #=end
 #endsnippet
 
+#####################
+#  Customiztations  #
+#####################
+
 snippet asloop "ArrayScanner loop"
 loop do
   ${0}
@@ -586,10 +585,13 @@ loop do
 end
 endsnippet
 
+
+######### Case statements #########
+	
 snippet caset "Case with one line when then"
 case ${1:obj}
 when ${2:cond} then ${3:res}
-${4:whent}
+${0:whent}
 end
 endsnippet
 
@@ -598,6 +600,8 @@ when ${1:cond} then ${2:res}
 ${3:whent}
 endsnippet
 
+######### Instance variables #########
+	
 snippet iva "Instance variable assignment with mirroring"
 @${1:iva} = $1
 ${0}
@@ -607,31 +611,303 @@ snippet iv "Plain instance variable assignment"
 @${1} = ${0}
 endsnippet
 
+######### Concerning Hashes #########
+
 snippet eawodh "each_with_object coming from hash"
 each_with_object(${1}) do |(${2:k}, ${3:v}), ${4:v}|
   ${0}
 end
 endsnippet
 
-snippet CH "builds a constant hash"
-${1/\w+\s*/\u$0/g}
-endsnippet
-
-snippet mlh "multiline hash"
+snippet "ml?h" "multiline hash" r
 ${1:var} = {
   ${0}
 }
 endsnippet
 
-snippet hr "hashrocket"
-${1} => ${2},
+snippet "(hr|:)" "hashrocket" r
+'${1}' => ${2},
 ${0:hr}
 endsnippet
 
+######### File Handling #########
+	
+snippet fexp "Expand file path"
+File.expand_path(${1}, ${2:__FILE__})${0}
+endsnippet
+
+snippet fr "read a file"
+File.read("${1}")${0}
+endsnippet
+
+snippet "fod?" "file open with do end block" r
+File.open(${1}, '${2}') do
+  ${0}
+end
+endsnippet
 
 
+######### RSpec #########
+
+snippet spec "sets up a spec file"
+require 'spec_helper'
+
+describe ${1} do
+  ${0}
+end
+endsnippet
+
+snippet specm "sets up a spec file to test a module"
+require 'spec_helper'
+
+describe ${1} do
+  let(:dummy) { Class.new { include $1 }.new }
+
+  ${0}
+end
+endsnippet
+
+snippet specc "sets up a spec file to test a class"
+require 'spec_helper'
+
+describe ${1} do
+  let(:${2}) { $1.new${3} }
+
+  ${0}
+end
+endsnippet
+
+snippet stub "stubs a message with a block"
+stub(:${1}) { ${0} }
+endsnippet
+
+snippet stubd "stubs a message with a do end block" 
+stub(:${1}) do
+  ${0}
+end
+endsnippet
+
+snippet stubw "stubs message with explicit arguments" 
+stub(:${1}).with(${2}) { ${0} }
+endsnippet
+
+snippet stubwd "stubs message with explicit arguments and do end block"
+stub(:${1}).with(${2}) do
+  ${0}
+end
+endsnippet
+
+snippet dou "launches a spec double"
+obj = double(${1})
+${0}
+endsnippet
+
+snippet capture "captures $stdout in spec files"
+before :all do
+  string_io = StringIO.new
+  @stdout = $stdout
+  $stdout = string_io
+end
+
+${0}
+
+after :all do
+  $stdout = @stdout
+end
+endsnippet
+
+snippet outr "what $stdout receives"
+  $stdout.should receive(:${1:puts})
+endsnippet
+
+snippet outrw "what $stdout receives explicitly"
+  $stdout.should receive(:puts).with(/${0}/)
+endsnippet
+
+### Class level snippets
+
+snippet "clas?s?" "A class with optional intialize" rb
+class ${1}
+  ${2:defi}
+end
+endsnippet
+
+snippet modc "Module with class and instance methods"
+module ${1}
+  def self.included(obj)
+    obj.extend(ClassMethods)
+  end
+
+  ${0}
+
+  module ClassMethods
+  end
+end
+endsnippet
+
+snippet inc "Include with optional repetition"
+include ${1}
+${0:inc}
+endsnippet
+
+snippet "pri?v?a?" "make the rest private" br
+private
+
+${0}
+endsnippet
+
+snippet r "attr_reader" b
+attr_reader :${0:attr_names}
+endsnippet
+
+snippet w "attr_writer" b
+attr_writer :${0:attr_names}
+endsnippet
+
+snippet rw "attr_accessor" b
+attr_accessor :${0:attr_names}
+endsnippet
+
+snippet atp "attr_protected" b
+attr_protected :${0:attr_names}
+endsnippet
+
+snippet ata "attr_accessible" b
+attr_accessible :${0:attr_names}
+endsnippet
+
+######### LLT Snippets #########
+	
+snippet llt "the llt module" 
+module LLT
+  ${0}
+end
+endsnippet
+
+snippet lltc "llt module with a class"
+module LLT
+  class ${1}
+    ${2:defi}
+  end
+end
+endsnippet
+
+snippet lltm "lltc module with another module"
+module LLT
+  module ${1}
+    ${0}
+  end
+end
+endsnippet
+
+######### Regexp helpers #########
+	
+snippet lb "look-behind"
+(?<=${1})${0}
+endsnippet
+
+snippet nlb "negative look-behind"
+(?<!${1})${0}
+endsnippet
+
+snippet la "look-ahead" 
+(?=${1})${0}
+endsnippet
+
+snippet nla "negative look-ahead"
+(?!${1})${0}
+endsnippet
+
+snippet ma "match method"
+match(/${0}/)
+endsnippet
+
+snippet mab "match method with beginning and end (^$)"
+match(/^${0}$/)
+endsnippet
+
+snippet rbe "regular expression beginning and end (^$"
+/^${0}$/
+endsnippet
+
+######### Rake #########
+	
+snippet "ta?sk" "rake task" !br
+desc '${1}'
+task :${2} do
+  ${0}
+end
+endsnippet
+
+snippet "ta?ska" "rake task with arguments" !br
+desc '${1}'
+task :${2} do |t, args|
+  ${0}
+end
+endsnippet
+
+snippet ns "rake namespace" !b
+namespace :${1} do
+  ${0}
+end
+endsnippet
+
+######### Gemfile #########
+	
+snippet gem "a gem chain" !b
+gem '${1}'
+${0:gem}
+endsnippet
+
+snippet gemg "git gem git" !b
+gem '${1}', git: 'git://github.com/${2}/${3}.git'
+${0:gemg}
+endsnippet
+
+snippet geml "local gem" !b
+gem '${1}', path: '${2}'
+${0:geml}
+endsnippet
+
+snippet gemr "gem with a require statement" !b
+gem '${1}', require: ${2}
+${0:gemr}
+endsnippet
+
+snippet "gemp([rj])?" "Platform dependent gem" !br
+gem '${1}', platform: :`!p snip.rv =  'j' if match.group(1) == 'j' else ''`ruby
+endsnippet
+
+snippet "pl([rj])?" "Platform block" !br
+platform :`!p snip.rv =  'j' if match.group(1) == 'j' else ''`ruby do
+  ${0:gem}
+end
+endsnippet
+
+### ENV vars
+snippet env "env variable access"
+ENV['${1}']${0}
+endsnippet
+
+snippet envh "HOME env var"
+ENV['HOME']${0}
+endsnippet
 
 
+######### Sinatra #########
 
+snippet "sina?t?r?a?" "modular sinatra" !br
+require 'sinatra/base'
+
+class ${1} < Sinatra::Base
+  ${0}
+end
+endsnippet
+
+snippet sget
+get '/${1}' do
+  ${0}
+end
+endsnippet
 
 # vim: set ts=2 sw=2 expandtab:
