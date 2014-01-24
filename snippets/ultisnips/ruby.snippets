@@ -23,7 +23,7 @@ endsnippet
 
 
 snippet tern "ternary operator"
-${1:condition} ? ${2:true} : ${3:false}
+${1:condition} ? ${2:true} : ${0:false}
 endsnippet
 
 
@@ -106,14 +106,12 @@ endsnippet
 
 
 
-
 snippet defi "def initialize ..."
-def initialize(${1:args})
+def initialize(${1:*args})
 	${2:iva}
 end
 ${0}
 endsnippet
-
 
 
 snippet defr "def <name> ... rescue ..."
@@ -488,24 +486,6 @@ endsnippet
 
 
 
-snippet "\b(r|attr)" "attr_reader :<attr_names>" r
-attr_reader :${0:attr_names}
-endsnippet
-
-
-
-snippet "\b(w|attr)" "attr_writer :<attr_names>" r
-attr_writer :${0:attr_names}
-endsnippet
-
-
-
-snippet "\b(rw|attr)" "attr_accessor :<attr_names>" r
-attr_accessor :${0:attr_names}
-endsnippet
-
-
-
 snippet begin "begin ... rescue ... end"
 begin
 	${1}
@@ -677,6 +657,26 @@ describe ${1} do
 end
 endsnippet
 
+snippet "desc(c)?" "describe block for an instance or class method" !br
+describe "`!p snip.rv = '.' if match.group(1) == 'c' else '#'`${1:method}" do
+	${0:pending "not implemented"}
+end
+endsnippet
+
+snippet "cont?" "context with possibility of resuming with example" r
+context "${1}" do
+  ${0:it}
+end
+endsnippet
+
+snippet "it" "rspec example with repetition" br
+it "${1}" do
+  ${2}
+end
+
+${0:it}
+endsnippet
+
 snippet stub "stubs a message with a block"
 stub(:${1}) { ${0} }
 endsnippet
@@ -702,7 +702,7 @@ obj = double(${1})
 ${0}
 endsnippet
 
-snippet capture "captures $stdout in spec files"
+snippet "capt?u?r?e?" "captures $stdout in spec files" r
 before :all do
   string_io = StringIO.new
   @stdout = $stdout
@@ -732,6 +732,12 @@ class ${1}
 end
 endsnippet
 
+snippet "scla?s?s?" "Switches context to singleton class" rb
+class << self
+  ${0:def}
+end
+endsnippet
+
 snippet modc "Module with class and instance methods"
 module ${1}
   def self.included(obj)
@@ -756,7 +762,7 @@ private
 ${0}
 endsnippet
 
-snippet r "attr_reader" b
+snippet "\br" "attr_reader" r
 attr_reader :${0:attr_names}
 endsnippet
 
@@ -884,6 +890,22 @@ platform :`!p snip.rv =  'j' if match.group(1) == 'j' else ''`ruby do
 end
 endsnippet
 
+######### Thor #########
+
+snippet mo "method_option with an alias and repetition" !b
+method_option :${1}, aliases: '-${1/(\w).*/$1/}'
+${0:mo}
+endsnippet
+
+snippet "thorc?" "a full Thor command" !br
+desc '${1}', '${2}'
+${4:mo}
+def $1(${3:var})
+end
+endsnippet
+	
+
+
 ### ENV vars
 snippet env "env variable access"
 ENV['${1}']${0}
@@ -893,6 +915,18 @@ snippet envh "HOME env var"
 ENV['HOME']${0}
 endsnippet
 
+
+######### Requiring #########
+
+snippet req "simple require with repetition" !b
+require '${1}'
+${0:req}
+endsnippet
+
+snippet reqr "require relative with repetition" !b
+require_relative '${1}'
+${0:reqr}
+endsnippet
 
 ######### Sinatra #########
 
@@ -908,6 +942,16 @@ snippet sget
 get '/${1}' do
   ${0}
 end
+endsnippet
+
+######### Param and options handling #########
+
+snippet p "accessing params" !b
+params[:${1}]${0}
+endsnippet	
+
+snippet o "accessing options" !b
+options[:${1}]${0}
 endsnippet
 
 # vim: set ts=2 sw=2 expandtab:
