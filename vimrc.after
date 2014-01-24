@@ -202,6 +202,15 @@ au BufRead,BufNewFile *.zsh-theme set ft=zsh
 " Bats syntax highlighting, disables buggy syntastic checks
 let g:syntastic_ignore_files = ['\.bats$']
 
+" YouCompleteMe
+" Right now UltiSnips completions aren't working, I suspect the fork is to
+" blame, but unsure atm.
+let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_strings = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+
+
 " UltiSnips
 let g:UltiSnips.always_use_first_snippet=1
 let g:UltiSnips.snipmate_ft_filter = {

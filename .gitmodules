@@ -49,3 +49,6 @@
 [submodule "plugins/bats"]
 	path = plugins/bats
 	url = git@github.com:vim-scripts/bats.vim.git
+[submodule "plugins/YouCompleteMe"]
+	path = plugins/YouCompleteMe
+	url = git@github.com:Valloric/YouCompleteMe.git
