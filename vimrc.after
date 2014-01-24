@@ -211,7 +211,11 @@ let g:UltiSnips.snipmate_ft_filter = {
 " It is replaced with a change call, that yank the visual
 " selection to register u. The mapping will insert the
 " placeholder back in and jump forward.
-imap <C-l> <C-r>u<C-j>
+" Note that leaving and entering insert mode after the insertion
+" is another primitive hack. This avoids a race condition, where the
+" jump forward happens so fast, that the jump position hasn't been
+" updated by the insertion in time. The slight delay makes it right.
+imap <C-l> <C-r>u<esc>a<C-j>
 
 " Fugitive
 " to stage file in current buffer
