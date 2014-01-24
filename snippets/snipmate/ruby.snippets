@@ -221,10 +221,10 @@ snippet usau
 	unless ARGV.${1}
 		abort "Usage: #{$PROGRAM_NAME} ${2:ARGS_GO_HERE}"${0}
 	end
-snippet array
-	Array.new(${1:10}) { |${2:i}| ${0} }
-snippet hash
-	Hash.new { |${1:hash}, ${2:key}| $1[$2] = ${0} }
+#snippet array
+	#Array.new(${1:10}) { |${2:i}| ${0} }
+#snippet hash
+	#Hash.new { |${1:hash}, ${2:key}| $1[$2] = ${0} }
 snippet file File.foreach() { |line| .. }
 	File.foreach(${1:"path/to/file"}) { |${2:line}| ${0} }
 snippet file File.read()
