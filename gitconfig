@@ -7,7 +7,7 @@
   ui = auto
 [core]
   editor = vim
-	excludesfile = /home/lfdm/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [alias]
   ci = commit
   st = status
