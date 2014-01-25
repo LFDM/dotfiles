@@ -241,6 +241,14 @@ map <leader>ue :call UltiSnipsEdit()
 " updated by the insertion in time. The slight delay makes it right.
 imap <C-l> <C-r>u<esc>a<C-j>
 
+" number_toggle
+" Enables the only recently supported hybrid mode for line numbers.
+" Overrides the built in function
+function! EnableRelativeNumbers()
+  set number
+  set relativenumber
+endfunction
+
 " Fugitive
 " to stage file in current buffer
 map <leader>ga :Gwrite<cr>
