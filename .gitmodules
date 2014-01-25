@@ -52,3 +52,6 @@
 [submodule "plugins/ultisnips"]
 	path = plugins/ultisnips
 	url = git@github.com:LFDM/ultisnips.git
+[submodule "oh-my-zsh"]
+	path = oh-my-zsh
+	url = git@github.com:LFDM/oh-my-zsh.git
