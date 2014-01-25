@@ -58,8 +58,8 @@ alias vimrc="vim $DOTFILES/vimrc.after"
 alias zshrc="vim $DOTFILES/zshrc"
 alias pryrc="vim $DOTFILES/pryrc"
 alias tmuxc="vim $DOTFILES/tmux.conf"
-alias aliases='vim ~/.zsh/aliases.zsh'
-alias zsh_func='vim ~/.zsh/functions.zsh'
+alias aliases="vim $DOTFILES/zsh/aliases.zsh"
+alias zsh_func="vim $DOTFILES/zsh/functions.zsh"
 alias funcs='zsh_func'
 
 # Faster opening
