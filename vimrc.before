@@ -24,4 +24,4 @@ let g:airline_theme='lfdm'
 
 " utilsnips (own fork)
 let g:UltiSnipsExpandTrigger = "<c-j>"
-let g:UltiSnips_ListSnippets = "<c-e>"
+let g:UltiSnipsListSnippets = "<c-e>"
