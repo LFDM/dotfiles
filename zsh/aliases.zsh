@@ -54,10 +54,10 @@ alias gom='git-on-master'
 alias v='vim'
 
 # Config files
-alias vimrc='vim ~/.vimrc.after'
-alias zshrc='vim ~/.zshrc'
-alias pryrc='vim ~/.pryrc'
-alias tmuxc='vim ~/.tmux.conf'
+alias vimrc="vim $DOTFILES/vimrc.after"
+alias zshrc="vim $DOTFILES/zshrc"
+alias pryrc="vim $DOTFILES/pryrc"
+alias tmuxc="vim $DOTFILES/tmux.conf"
 alias rsnips="vim $DOTFILES/snippets/snipmate/ruby.snippets"
 alias csnips="vim $DOTFILES/snippets/snipmate/clojure.snippets"
 alias msnips="vim $DOTFILES/snippets/snipmate/markdown.snippets"
