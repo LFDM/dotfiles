@@ -43,7 +43,6 @@ desc "installs snippets in the snippets directory"
 task :snippets do
   log('Using custom snippets')
   snip_dir = '.vim/janus/vim/tools/vim-snippets'
-  Linker.new("#{snip_dir}/snippets").create_from("snippets/snipmate")
   Linker.new("#{snip_dir}/UltiSnips").create_from("snippets/ultisnips")
 end
 
