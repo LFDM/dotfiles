@@ -14,7 +14,7 @@ export EDITOR="vi"
 
 export TERM=xterm-256color
 
-plugins=(git rvm colorize bundler zeus)
+plugins=(git rvm colorize bundler zeus gibo)
 
 source $ZSH/oh-my-zsh.sh
 
