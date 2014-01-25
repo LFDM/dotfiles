@@ -210,9 +210,15 @@ let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
+" RubyComplete used by omnifunc and therefore YouCompleteMe.
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_classes_in_global = 1
+let g:rubycomplete_use_bundler = 1
+let g:rubycomplete_rails = 1
+
 " Eclim - used by YouCompleteMe
-" Currently unused, not really working
-let g:EclimCompletionMethod = 'omnifunc'
+" Currently unused, not really working and an expensive dependency
+" let g:EclimCompletionMethod = 'omnifunc'
 
 " UltiSnips
 let g:UltiSnips.always_use_first_snippet=1
