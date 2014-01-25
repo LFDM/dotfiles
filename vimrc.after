@@ -221,10 +221,6 @@ let g:rubycomplete_rails = 1
 " let g:EclimCompletionMethod = 'omnifunc'
 
 " UltiSnips
-let g:UltiSnips.always_use_first_snippet=1
-let g:UltiSnips.snipmate_ft_filter = {
-      \ "default": { "filetypes": [ "FILETYPE", "_" ] },
-      \ }
 " the UltiSnips fork disables select mode in snippets.
 " It is replaced with a change call, that yank the visual
 " selection to register u. The mapping will insert the

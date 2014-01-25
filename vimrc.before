@@ -23,5 +23,5 @@ let g:airline_powerline_fonts=1
 let g:airline_theme='lfdm'
 
 " utilsnips (own fork)
-let g:UltiSnips = {}
-let g:UltiSnips.ExpandTrigger = "<c-j>"
+let g:UltiSnipsExpandTriger = "<c-j>"
+let g:UltiSnips_ListSnippets = "<c-e>"
