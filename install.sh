@@ -31,9 +31,11 @@ suc 'Beginning Installation'
 log 'Updating repositories'
 add_repos ppa:pi-rho/dev ppa:keithw/mosh # for latest tmux and mosh
 
-log_and_inst git
-
+log_and_inst libcurl4-openssl-dev
+hint 'This was installed just in case git needs it'
 log_and_inst curl
+
+log_and_inst git
 
 log 'Installing rvm'
 curl -SL https://get.rvm.io | bash
