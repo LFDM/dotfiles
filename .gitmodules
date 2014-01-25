@@ -49,3 +49,6 @@
 [submodule "plugins/YouCompleteMe"]
 	path = plugins/YouCompleteMe
 	url = git@github.com:Valloric/YouCompleteMe.git
+[submodule "plugins/ultisnips"]
+	path = plugins/ultisnips
+	url = git@github.com:LFDM/ultisnips.git
