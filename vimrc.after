@@ -1,17 +1,25 @@
+""""""""""""""""""""""
+"  Theme and colors  "
+""""""""""""""""""""""
+
 "color vibrantink
 "color ir_black
 color railscasts
 
-" Darker sign column, approx same color as background
-hi SignColumn ctermbg=233
+" Additional colors not defined by railscasts
+" Completion menu colors
+hi Pmenu ctermfg=253 ctermbg=NONE
+hi PmenuSel ctermfg=180 ctermbg=0
+hi PmenuSbar ctermbg=242
+set pumheight=20
 
-" Fix the ugly tabline
+hi SignColumn ctermbg=233
+hi Vertsplit ctermfg=238
+
+" Fix the ugly tabline - not too important as we use vim-airline
 hi TabLineFill ctermfg=233
 hi TabLine ctermbg=233
 hi TabLineSel ctermbg=239
-
-" Fixes color of vertical split line
-hi Vertsplit ctermfg=238
 
 " Mode is sufficiently shown by airline
 set noshowmode
