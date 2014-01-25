@@ -12,12 +12,17 @@
   * ack
   * leiningen
   * mosh
-  * hub for better communication with github
-  * additional vim plugins
+  * hub for better communication with github (disabled atm)
+  * additional vim plugins (including YouCompleteMe and a fork of
+    UltiSnips)
   * all dotfiles and directories
   * git hooks to automate ctags creation
   * custom snippets
   * fonts for vim-airline and a custom theme
 * Follow the instructions
   * You'll be prompted for your sudo password among other things
-* Enjoy!
+* Enjoy, it's awesome!
+
+This is using a fork of oh-my-zsh which contains several refactors to
+its codebase. Among it is a cleaned up git.zsh file which vastly
+improves git querying speed in your prompt.
