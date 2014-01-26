@@ -1,3 +1,7 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                            General stuff                                "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 """"""""""""""""""""""
 "  Theme and colors  "
 """"""""""""""""""""""
@@ -6,8 +10,7 @@
 "color ir_black
 color railscasts
 
-" Additional colors not defined by railscasts
-" Completion menu colors
+" Completion menu
 hi Pmenu ctermfg=253 ctermbg=NONE
 hi PmenuSel ctermfg=180 ctermbg=0
 hi PmenuSbar ctermbg=242
@@ -16,10 +19,14 @@ set pumheight=20
 hi SignColumn ctermbg=233
 hi Vertsplit ctermfg=238
 
-" Fix the ugly tabline - not too important as we use vim-airline
+" Not too important as we use vim-airline
 hi TabLineFill ctermfg=233
 hi TabLine ctermbg=233
 hi TabLineSel ctermbg=239
+
+"""""""""""""""""
+"  set options  "
+"""""""""""""""""
 
 " Mode is sufficiently shown by airline
 set noshowmode
@@ -51,7 +58,11 @@ set hidden
 " never fold
 set nofoldenable
 
-" Forcing good habits
+"""""""""""""""""
+"  Good habits  "
+"""""""""""""""""
+
+" not needed anymore, I am converted
 map   <Up>    <NOP>
 map   <Down>  <NOP>
 map   <Left>  <NOP>
@@ -62,7 +73,16 @@ imap  <Left>  <NOP>
 imap  <Right> <NOP>
 
 
-" Less shift keys in insert mode with a customized qwerty?
+""""""""""""""""""""""""""""""""""
+"  Key Remappings - Insert mode  "
+""""""""""""""""""""""""""""""""""
+
+" This is potentially dangerous but saves quite a few keystrokes
+" Swaps the following keys:
+"   ; and :
+"   / and _
+"   \ and |
+
 inoremap ; :
 inoremap : ;
 inoremap / _
@@ -70,7 +90,28 @@ inoremap _ /
 inoremap \ \|
 inoremap \| \
 
-" short and long vowel replacements
+
+""""""""""""""""""""""""
+"  Insert mode helper  "
+""""""""""""""""""""""""
+
+" upcase the word just written - useful for constants
+" we don't use <C-c> to exit insert mode anyway
+imap <C-c> <esc>viwUea
+
+
+"""""""""""""""""""""""""""""""""""
+"  Key Remappings - Normal mode   "
+"""""""""""""""""""""""""""""""""""
+
+noremap , ;
+noremap \ ,
+
+
+""""""""""""""""""""
+"  Special vowels  "
+""""""""""""""""""""
+
 map <leader>aa ră
 map <leader>ee rĕ
 map <leader>ii rĭ
@@ -84,6 +125,11 @@ map <leader>ooo rō
 map <leader>uuu rū
 map <leader>yyy rȳ
 
+
+"""""""""""""""""""
+"  Abbreviations  "
+"""""""""""""""""""
+
 function! Abbrs()
   ab c Caesar
   ab bg Bellum Gallicum
@@ -92,18 +138,14 @@ function! Abbrs()
 endfunction
 autocmd BufRead,BufNewFile ~/code/diploma_thesis/text/tex/*.tex call Abbrs()
 
-" Tabs
+
+""""""""""""""""""
+"  Tab handling  "
+""""""""""""""""""
 noremap  <C-t> :tabnew<CR>
 nnoremap <C-l> :tabnext<CR>
 nnoremap <C-h> :tabprevious<CR>
 
-" Switch , and ;
-noremap , ;
-noremap \ ,
-
-" upcase the word just written - useful for constants
-" we don't use <C-c> to exit insert mode anyway
-imap <C-c> <esc>viwUea
 
 " invoke sort on a visual selection of text
 map <leader>so :sort<cr>
@@ -119,34 +161,36 @@ map K <Nop>
 " a common typo... :Q to :q
 command! Q q
 
-" Session handling
+
+""""""""""""""
+"  Sessions  "
+""""""""""""""
+
 set ssop-=options    " do not store global and local values in a session
 set ssop-=folds      " do not store folds
 map <leader>ms :mksession! ~/session.vim
 map <leader>ls :so ~/session.vim
 
-" Usually set to rspec, but we run rake instead and try to send it off to the
-" rake-runner window in tmux
-function! RakeThroughTmux()
-  " making sure that we are in the correct directory before invoking rake
-  exec 'silent ! tmux send-keys -t home:rake-runner "cd ' . expand('%:p:h') . ' && rake" C-m'
-  exec 'redraw!'
-endfunction
-map <leader>r :call RakeThroughTmux()<cr>
 
-" Faster saving of files
+"""""""""""""""""""""""""
+"  Saving and quitting  "
+"""""""""""""""""""""""""
 map <leader>w  :w<cr>
 map <leader>wa :wa<cr>
 map <leader>x  :x<cr>
 map <leader>qq :q<cr>
 
-" Searches always in the center of the screen
+
+""""""""""""""""""""""""""""
+"  Centering search jumps  "
+""""""""""""""""""""""""""""
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 nnoremap <silent> g# g#zz
+
 
 " uses paste mode when pasting from the clipboard in insert mode
 " and leaves it immeadiately after
@@ -178,51 +222,104 @@ map <space> <c-w>w
 vnoremap < <gv
 vnoremap > >gv
 
+
+"""""""""""
+"  Marks  "
+"""""""""""
+
+" Can be remapped, doesn't really help much
+" ` is close anyway
+
 " Two shortcuts for marks
 map <leader>mm `m
 map <leader>mn `n
+
+
+""""""""""""""""
+"  Ruby stuff  "
+""""""""""""""""
+
+" Usually set to rspec, but we run rake instead and try to send it off to the
+" rake-runner window in tmux
+function! RakeThroughTmux()
+  " making sure that we are in the correct directory before invoking rake
+  exec 'silent ! tmux send-keys -t home:rake-runner "cd ' . expand('%:p:h') . ' && rake" C-m'
+  exec 'redraw!'
+endfunction
+map <leader>r :call RakeThroughTmux()<cr>
+
+" Ruby String to Symbol. makes use of the Surround plugin.
+" Mind the remap ; to :
+map <leader><leader>s ds"i;<esc>
 
 " converts a ruby block with {} to a do/end block
 " place the cursor on the end of the newly created line as there might be a
 " trailing whitespace left
 map <leader><leader>d f{%s<cr>end<esc>k^f{sdo<esc>f\|,a<cr><esc>j=k$
 
-" Ruby String to Symbol. makes use of the Surround plugin.
-" Mind the remap ; to :
-map <leader><leader>s ds"i;<esc>
 
-" Highlight long lines, but not in the quickfix windows.
+"""""""""""""""""""""""""""""""""
+"  Highlighting too long lines  "
+"""""""""""""""""""""""""""""""""
+
+" Don't do it  in the quickfix windows.
 " Hacky, but vimscript is driving one mad sometimes...
 au BufRead * highlight OverLength ctermbg=darkgrey guibg=#592929
 au BufRead * match OverLength /\%80v.\+/
 au BufReadPost quickfix exec ':call clearmatches()'
 
 
-" Remove trailing whitespace on save for ruby files
+"""""""""""""""""""""""
+"  Whitespace delete  "
+"""""""""""""""""""""""
+
+" should be enabled for others too
 au BufWritePre *.rb :%s/\s\+$//e
 
-" Filetypes
+
+""""""""""""""""""""""
+"  Filetype setting  "
+""""""""""""""""""""""
+
 au BufRead,BufNewFile *.hamlc set ft=haml
 au BufRead,BufNewFile *pryrc set ft=ruby
 au BufRead,BufNewFile *.zsh-theme set ft=zsh
+
+
+"""""""""""""""""""
+"  spellchecking  "
+"""""""""""""""""""
+
+au Filetype gitcommit setlocal spell spelllang=en
+au Filetype markdown setlocal spell spelllang=en
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          Plugin customization                           "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Bats syntax highlighting, disables buggy syntastic checks
-let g:syntastic_ignore_files = ['\.bats$']
+"""""""""""""""
+"  Syntastic  "
+"""""""""""""""
 
-" YouCompleteMe
-" Right now UltiSnips completions aren't working, I suspect the fork is to
-" blame, but unsure atm.
+" Disables buggy checks for bats files
+let g:syntastic_ignore_files = ['\.bats$']
+" Automatically show error list
+let g:syntastic_auto_loc_list=1
+" Make the list a little shorter
+let g:syntastic_loc_list_height=5
+
+
+"""""""""""""""""""
+"  YouCompleteMe  "
+"""""""""""""""""""
+
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
-" RubyComplete used by omnifunc and therefore YouCompleteMe.
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_use_bundler = 1
@@ -232,7 +329,11 @@ let g:rubycomplete_rails = 1
 " Currently unused, not really working and an expensive dependency
 " let g:EclimCompletionMethod = 'omnifunc'
 
-" UltiSnips
+
+"""""""""""""""
+"  UltiSnips  "
+"""""""""""""""
+
 let g:UltiSnipsEditSplit = 'vertical'
 map <leader>ue :call UltiSnipsEdit()<cr>
 " the UltiSnips fork disables select mode in snippets.
@@ -245,12 +346,20 @@ map <leader>ue :call UltiSnipsEdit()<cr>
 " updated by the insertion in time. The slight delay makes it right.
 imap <C-l> <C-r>u<esc>a<C-j>
 
-" indentLine
+
+"""""""""""""""
+"  IndentLine  "
+"""""""""""""""
+
 let g:indentLine_color_term = 235
 let g:indentLine_char = '|'
 map <leader>il :IndentLinesToggle<cr>
 
-" number_toggle
+
+"""""""""""""""""""
+"  number_toggle  "
+"""""""""""""""""""
+
 " Enables the only recently supported hybrid mode for line numbers.
 " Overrides the built in function
 function! EnableRelativeNumbers()
@@ -258,24 +367,36 @@ function! EnableRelativeNumbers()
   set relativenumber
 endfunction
 
-" Fugitive
-" to stage file in current buffer
+
+""""""""""""""
+"  Fugitive  "
+""""""""""""""
+
+" stages file in current buffer
 map <leader>ga :Gwrite<cr>
 
-" Startify
+
+""""""""""""""
+"  Startify  "
+""""""""""""""
+
 function! VimVersion()
   return split(system('vim --version | head -2'), '\n')
 endfunction
 let g:startify_custom_header= VimVersion() + [ '' ]
 let g:startify_skiplist = [ 'COMMIT_EDITMSG', '.git/index']
 
-" Automatically show error list
-let g:syntastic_auto_loc_list=1
-" Make the list a little shorter
-let g:syntastic_loc_list_height=5
 
-" open CtrlPTag
+"""""""""""
+"  CtrlP  "
+"""""""""""
+
 noremap <C-\> :CtrlPTag<cr>
+
+
+""""""""""""""""
+"  Tabularize  "
+""""""""""""""""
 
 " align + delimiter
 map <leader>a= :Tabularize /=<cr>
@@ -284,35 +405,38 @@ map <leader>a. :Tabularize /.<cr>
 map <leader>at :Tabularize /then<cr>
 map <leader>ac :Tabularize /
 
-" Rainbow Parentheses
+
+""""""""""""""""""""""""
+"  RainbowParentheses  "
+""""""""""""""""""""""""
+
 map <leader>rp :RainbowParenthesesToggle<cr>
-" and show all kinds of parens
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-" Gist
+
+""""""""""
+"  Gist  "
+""""""""""
+
 " Open Browser after gisting
+" not really working right now
 let g:gist_open_browser_after_post = 1
 
-" VimWiki
-" Disabled for good in vimrc.before atm
 
-" disable the annoying leader mapping
-"map <leader>ww <nop>
+"""""""""
+"  Ack  "
+"""""""""
 
-"" use markdown syntax
-"let g:vimwiki_list = [{'path': '~/vimwiki/',
-                     "\ 'syntax': 'markdown', 'ext': '.md'}]
-"augroup filetypedetect
-  ""au! BufRead,BufNewFile */vimwiki/*        set filetype=vimwiki
-"augroup END
-
-" Ack
 " usual mapping is <leader>f, which causes an unwanted timeout
 map <leader>fa :Ack<space>
 
-" Latex
+
+"""""""""""
+"  Latex  "
+"""""""""""
+
 let g:Tex_SmartKeyQuote=0
 let g:tex_flavor='latex'
 
@@ -324,9 +448,6 @@ function! Wrapping()
 endfunction
 au Filetype tex call Wrapping()
 
-" Spellchecking
-au Filetype gitcommit setlocal spell spelllang=en
-au Filetype markdown setlocal spell spelllang=en
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
