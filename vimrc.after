@@ -101,6 +101,10 @@ nnoremap <C-h> :tabprevious<CR>
 noremap , ;
 noremap \ ,
 
+" upcase the word just written - useful for constants
+" we don't use <C-c> to exit insert mode anyway
+imap <C-c> <esc>viwUea
+
 " invoke sort on a visual selection of text
 map <leader>so :sort<cr>
 
