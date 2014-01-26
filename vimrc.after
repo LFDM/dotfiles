@@ -234,7 +234,7 @@ let g:rubycomplete_rails = 1
 
 " UltiSnips
 let g:UltiSnipsEditSplit = 'vertical'
-map <leader>ue :call UltiSnipsEdit()
+map <leader>ue :call UltiSnipsEdit()<cr>
 " the UltiSnips fork disables select mode in snippets.
 " It is replaced with a change call, that yank the visual
 " selection to register u. The mapping will insert the
