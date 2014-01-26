@@ -24,6 +24,7 @@ hi TabLineFill ctermfg=233
 hi TabLine ctermbg=233
 hi TabLineSel ctermbg=239
 
+
 """""""""""""""""
 "  set options  "
 """""""""""""""""
@@ -57,6 +58,7 @@ set hidden
 
 " never fold
 set nofoldenable
+
 
 """""""""""""""""
 "  Good habits  "
@@ -104,6 +106,7 @@ imap <C-c> <esc>viwUea
 "  Key Remappings - Normal mode   "
 """""""""""""""""""""""""""""""""""
 
+" jumping in f command or similar
 noremap , ;
 noremap \ ,
 
@@ -257,6 +260,43 @@ map <leader><leader>s ds"i;<esc>
 " trailing whitespace left
 map <leader><leader>d f{%s<cr>end<esc>k^f{sdo<esc>f\|,a<cr><esc>j=k$
 
+" Opens a split window with the corresponding spec file of what you're currently working on
+function! OpenSpec()
+  let spec_file = substitute(expand('%'), ".rb$", "_spec.rb", "")
+  exec ":vs"
+  exec ":wincmd l"
+  exec ":e spec/" . spec_file
+endfunction
+map <leader>k :call OpenSpec()<cr>
+
+" Focus the RSpec do block your currently hovering and saves the file
+function! RSpecFocus()
+if getline(".") =~ ', :focus'
+  exec ":silent! s/, :focus//g"
+  else
+  exec ":silent! s/ do/, :focus do"
+  endif
+  exec ":w"
+endfunction
+map <leader>j :call RSpecFocus()<Cr>
+
+" Change Ruby 1.8 style hashes to new syntax - asks for confirmation
+" Not terribly well done for now
+function! MorphHash()
+  exec ":'<,'>:s/:\([^ ]*\)\(\s*\)=>/\1:/gc"
+endfunction
+
+
+"""""""""""""""
+"  LLT stuff  "
+"""""""""""""""
+
+" Change current directory to the llt path of the current file
+function! SetLLTPath()
+  exec ':lcd ' . matchlist(expand("%:p"), '\v.*llt-.{-}/')[0]
+endfunction
+map <leader>lt :call SetLLTPath()<Cr>
+
 
 """""""""""""""""""""""""""""""""
 "  Highlighting too long lines  "
@@ -294,6 +334,22 @@ au Filetype gitcommit setlocal spell spelllang=en
 au Filetype markdown setlocal spell spelllang=en
 
 
+"""""""""""""""""""
+"  File renaming  "
+"""""""""""""""""""
+
+function! RenameFile()
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'), 'file')
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
+endfunction
+map <leader>` :call RenameFile()<cr>
+
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          Plugin customization                           "
@@ -314,6 +370,8 @@ let g:syntastic_loc_list_height=5
 """""""""""""""""""
 "  YouCompleteMe  "
 """""""""""""""""""
+
+let g:ycm_disable_semantic_completion = 1
 
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
@@ -448,60 +506,16 @@ function! Wrapping()
 endfunction
 au Filetype tex call Wrapping()
 
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                Functions                                "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Change Ruby 1.8 style hashes to new syntax - asks for confirmation
-function! MorphHash()
-  exec ":'<,'>:s/:\([^ ]*\)\(\s*\)=>/\1:/gc"
-endfunction
-
-" Change current directory to the llt path of the current file
-function! SetLLTPath()
-  exec ':lcd ' . matchlist(expand("%:p"), '\v.*llt-.{-}/')[0]
-endfunction
-map <leader>lt :call SetLLTPath()<Cr>
-
-" Focus the RSpec do block your currently hovering and saves the file
-function! RSpecFocus()
-if getline(".") =~ ', :focus'
-  exec ":silent! s/, :focus//g"
-  else
-  exec ":silent! s/ do/, :focus do"
-  endif
-  exec ":w"
-endfunction
-map <leader>j :call RSpecFocus()<Cr>
-
-" Opens a split window with the corresponding spec file of what you're currently working on
-function! OpenSpec()
-  let spec_file = substitute(expand('%'), ".rb$", "_spec.rb", "")
-  exec ":vs"
-  exec ":wincmd l"
-  exec ":e spec/" . spec_file
-endfunction
-map <leader>k :call OpenSpec()<cr>
-
-" Quickly renames a file
-function! RenameFile()
-  let old_name = expand('%')
-  let new_name = input('New file name: ', expand('%'), 'file')
-  if new_name != '' && new_name != old_name
-    exec ':saveas ' . new_name
-    exec ':silent !rm ' . old_name
-    redraw!
-  endif
-endfunction
-map <leader>` :call RenameFile()<cr>
-
 function! TexRel()
   exec 'silent !pdflatex main && xdg-open main.pdf'
   redraw!
 endfunction
 map <leader>tr :call TexRel()<cr>
+
+
+""""""""""""""""""""
+"  vimrc handling  "
+""""""""""""""""""""
 
 " Opens this file in a new tab
 function! Vimrc()
