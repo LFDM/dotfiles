@@ -99,7 +99,7 @@ inoremap \| \
 
 " upcase the word just written - useful for constants
 " we don't use <C-c> to exit insert mode anyway
-imap <C-c> <esc>viwUea
+inoremap <C-c> <esc>viwUea
 
 
 """""""""""""""""""""""""""""""""""
@@ -238,9 +238,67 @@ map <leader>mm `m
 map <leader>mn `n
 
 
-""""""""""""""""
-"  Ruby stuff  "
-""""""""""""""""
+"""""""""""""""""""""""""""""""""
+"  Highlighting too long lines  "
+"""""""""""""""""""""""""""""""""
+
+" Don't do it  in the quickfix windows.
+" Hacky, but vimscript is driving one mad sometimes...
+au BufRead * highlight OverLength ctermbg=darkgrey guibg=#592929
+au BufRead * match OverLength /\%80v.\+/
+au BufReadPost quickfix exec ':call clearmatches()'
+
+
+"""""""""""""""""""""""
+"  Whitespace delete  "
+"""""""""""""""""""""""
+
+" should be enabled for others too
+au BufWritePre *.rb :%s/\s\+$//e
+
+
+""""""""""""""""""""""
+"  Filetype setting  "
+""""""""""""""""""""""
+
+au BufRead,BufNewFile *.hamlc set ft=haml
+au BufRead,BufNewFile *pryrc set ft=ruby
+au BufRead,BufNewFile *.zsh-theme set ft=zsh
+
+
+"""""""""""""""""""
+"  spellchecking  "
+"""""""""""""""""""
+
+au Filetype gitcommit setlocal spell spelllang=en
+au Filetype markdown setlocal spell spelllang=en
+
+
+"""""""""""""""""""
+"  File renaming  "
+"""""""""""""""""""
+
+function! RenameFile()
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'), 'file')
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
+endfunction
+map <leader>` :call RenameFile()<cr>
+
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                       Language specific stuff                           "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""
+"  Ruby "
+"""""""""
 
 " Usually set to rspec, but we run rake instead and try to send it off to the
 " rake-runner window in tmux
@@ -298,57 +356,9 @@ endfunction
 map <leader>lt :call SetLLTPath()<Cr>
 
 
-"""""""""""""""""""""""""""""""""
-"  Highlighting too long lines  "
-"""""""""""""""""""""""""""""""""
-
-" Don't do it  in the quickfix windows.
-" Hacky, but vimscript is driving one mad sometimes...
-au BufRead * highlight OverLength ctermbg=darkgrey guibg=#592929
-au BufRead * match OverLength /\%80v.\+/
-au BufReadPost quickfix exec ':call clearmatches()'
-
-
-"""""""""""""""""""""""
-"  Whitespace delete  "
-"""""""""""""""""""""""
-
-" should be enabled for others too
-au BufWritePre *.rb :%s/\s\+$//e
-
-
-""""""""""""""""""""""
-"  Filetype setting  "
-""""""""""""""""""""""
-
-au BufRead,BufNewFile *.hamlc set ft=haml
-au BufRead,BufNewFile *pryrc set ft=ruby
-au BufRead,BufNewFile *.zsh-theme set ft=zsh
-
-
-"""""""""""""""""""
-"  spellchecking  "
-"""""""""""""""""""
-
-au Filetype gitcommit setlocal spell spelllang=en
-au Filetype markdown setlocal spell spelllang=en
-
-
-"""""""""""""""""""
-"  File renaming  "
-"""""""""""""""""""
-
-function! RenameFile()
-  let old_name = expand('%')
-  let new_name = input('New file name: ', expand('%'), 'file')
-  if new_name != '' && new_name != old_name
-    exec ':saveas ' . new_name
-    exec ':silent !rm ' . old_name
-    redraw!
-  endif
-endfunction
-map <leader>` :call RenameFile()<cr>
-
+""""""""""""
+"  Python  "
+""""""""""""
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -370,8 +380,6 @@ let g:syntastic_loc_list_height=5
 """""""""""""""""""
 "  YouCompleteMe  "
 """""""""""""""""""
-
-let g:ycm_disable_semantic_completion = 1
 
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
