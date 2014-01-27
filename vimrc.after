@@ -269,12 +269,12 @@ function! OpenSpec()
 endfunction
 map <leader>k :call OpenSpec()<cr>
 
-" Focus the RSpec do block your currently hovering and saves the file
+" Focus the RSpec do block you're currently hovering and saves the file
 function! RSpecFocus()
-if getline(".") =~ ', :focus'
-  exec ":silent! s/, :focus//g"
+  if getline(".") =~ ', :focus'
+    exec ":silent! s/, :focus//g"
   else
-  exec ":silent! s/ do/, :focus do"
+    exec ":silent! s/ do/, :focus do"
   endif
   exec ":w"
 endfunction
