@@ -22,6 +22,9 @@ let g:airline#extensions#tabline#show_buffers=1
 let g:airline_powerline_fonts=1
 let g:airline_theme='lfdm'
 
-" utilsnips (own fork)
+" UltiSnips (own fork)
 let g:UltiSnipsExpandTrigger = "<c-j>"
 let g:UltiSnipsListSnippets = "<c-e>"
+
+" YouCompleteMe
+let g:ycm_semantic_completion_toggle = '<c-f>'
