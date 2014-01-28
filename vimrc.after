@@ -397,13 +397,6 @@ map <leader>ue :call UltiSnipsEdit()<cr>
 imap <C-l> <C-r>u<esc>a<C-j>
 
 
-"""""""""""""""
-"  IndentLine  "
-"""""""""""""""
-
-let g:indentLine_color_term = 235
-let g:indentLine_char = '|'
-map <leader>il :IndentLinesToggle<cr>
 
 
 """""""""""""""""""
@@ -440,8 +433,19 @@ map <leader>ga :Gwrite<cr>
 function! VimVersion()
   return split(system('vim --version | head -2'), '\n')
 endfunction
-let g:startify_custom_header= VimVersion() + [ '' ]
+let g:startify_custom_header = VimVersion() + [ '' ]
 let g:startify_skiplist = [ 'COMMIT_EDITMSG', '.git/index']
+
+
+"""""""""""""
+"  Ack.vim  "
+"""""""""""""
+
+" much faster
+let g:ackprg = 'ag --nocolor --nogroup --column'
+
+" auto-quote
+map <leader>fa :Ack ""<left>
 
 
 """""""""""
@@ -450,17 +454,13 @@ let g:startify_skiplist = [ 'COMMIT_EDITMSG', '.git/index']
 
 noremap <C-\> :CtrlPTag<cr>
 
+let g:ctrlp_user_command = 'ag %s --files-with-matches -g "" --ignore "\.git$\|\.hg$\|\.svn$"'
 
-""""""""""""""""
-"  Tabularize  "
-""""""""""""""""
+" no caching needed, ag is so absurdely fast
+let g:ctrlp_use_caching = 0
 
-" align + delimiter
-map <leader>a= :Tabularize /=<cr>
-map <leader>a: :Tabularize /:<cr>
-map <leader>a. :Tabularize /.<cr>
-map <leader>at :Tabularize /then<cr>
-map <leader>ac :Tabularize /
+" reopens a file even when already open somewhere
+let g:ctrlp_switch_buffer = 0
 
 
 """"""""""""""""""""""""
@@ -480,14 +480,6 @@ au Syntax * RainbowParenthesesLoadBraces
 " Open Browser after gisting
 " not really working right now
 let g:gist_open_browser_after_post = 1
-
-
-"""""""""
-"  Ack  "
-"""""""""
-
-" usual mapping is <leader>f, which causes an unwanted timeout
-map <leader>fa :Ack<space>
 
 
 """""""""""
