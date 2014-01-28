@@ -503,7 +503,7 @@ let g:startify_skiplist = [ 'COMMIT_EDITMSG', '.git/index']
 "  Ack.vim  "
 """""""""""""
 
-" much faster
+" much faster when using ag
 let g:ackprg = 'ag --nocolor --nogroup --column'
 
 " auto-quote
@@ -528,9 +528,10 @@ let g:ctrlp_switch_buffer = 0
 "  EasyMotion  "
 """"""""""""""""
 
-" I need to use it more, so here'săan easier mapping
+" I need to use it more, so here are easier mappings
 map <leader>a <leader><leader>f
 map <leader><esc> <leader><leader>F
+
 
 """"""""""""""""
 "  Tabularize  "
