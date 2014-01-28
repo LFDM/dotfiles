@@ -216,12 +216,10 @@ vnoremap > >gv
 "  Marks  "
 """""""""""
 
-" Can be remapped, doesn't really help much
-" ` is close anyway
-
-" Two shortcuts for marks
-map <leader>mm `m
-map <leader>mn `n
+" swaps for easier mark navigation
+" ` jumps directly to the mark
+nnoremap ' `
+nnoremap ` '
 
 
 """""""""""""""""""""""""""""""""
