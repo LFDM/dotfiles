@@ -111,24 +111,6 @@ noremap , ;
 noremap \ ,
 
 
-""""""""""""""""""""
-"  Special vowels  "
-""""""""""""""""""""
-
-map <leader>aa ră
-map <leader>ee rĕ
-map <leader>ii rĭ
-map <leader>oo rŏ
-map <leader>uu rŭ
-map <leader>yy rў
-map <leader>aaa rā
-map <leader>eee rē
-map <leader>iii rī
-map <leader>ooo rō
-map <leader>uuu rū
-map <leader>yyy rȳ
-
-
 """""""""""""""""""
 "  Abbreviations  "
 """""""""""""""""""
