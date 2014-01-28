@@ -6,58 +6,39 @@
 "  Theme and colors  "
 """"""""""""""""""""""
 
-"color vibrantink
-"color ir_black
 color railscasts
 
 " Completion menu
-hi Pmenu ctermfg=253 ctermbg=NONE
-hi PmenuSel ctermfg=180 ctermbg=0
-hi PmenuSbar ctermbg=242
+hi Pmenu             ctermfg=253 ctermbg=NONE
+hi PmenuSel          ctermfg=180 ctermbg=0
+hi PmenuSbar                     ctermbg=242
 set pumheight=20
 
-hi SignColumn ctermbg=233
-hi Vertsplit ctermfg=238
+hi SignColumn                    ctermbg=233
+hi Vertsplit         ctermfg=238
 
 " Not too important as we use vim-airline
-hi TabLineFill ctermfg=233
-hi TabLine ctermbg=233
-hi TabLineSel ctermbg=239
+hi TabLineFill       ctermfg=233
+hi TabLine                       ctermbg=233
+hi TabLineSel                    ctermbg=239
 
 
 """""""""""""""""
 "  set options  "
 """""""""""""""""
 
-" Mode is sufficiently shown by airline
-set noshowmode
-
+set noshowmode          " Mode is sufficiently shown by airline
 set history=400
-
-" Fast exit from insert mode
-set ttimeoutlen=50
-
-" Always show some context
-set scrolloff=3
+set ttimeoutlen=50      " Fast exit from insert mode
+set scrolloff=3         " Always show some context
 set sidescrolloff=5
-
-" Open to the right and below, even if using CtrlP splitters
-set splitright
-set splitbelow
-
-" Reread files when changed from the outside (e.g. you just made a git pull)
-set autoread
-
-" E.g. substitutions are multiple per line per default
-set gdefault
-
+set splitright          " Open to the right and below
+set splitbelow          " even when using CtrlP splitters
+set autoread            " Reread files when changed from the outside
+set gdefault            " E.g. substitutions are multiple per line per default
 set wildignore+=*/doc/*,*.aux,*.dvi,*.out,*.toc,*.pdf,*.log
-
-" Keeps file in buffer even after quitting, will remember undo history e.g.
-set hidden
-
-" never fold
-set nofoldenable
+set hidden              " Keep file in buffer after quit, remembers undo etc.
+set nofoldenable        " Never fold
 
 
 """""""""""""""""
@@ -79,18 +60,21 @@ imap  <Right> <NOP>
 "  Key Remappings - Insert mode  "
 """"""""""""""""""""""""""""""""""
 
-" This is potentially dangerous but saves quite a few keystrokes
-" Swaps the following keys:
-"   ; and :
-"   / and _
-"   \ and |
+" This is potentially dangerous but saves quite a few keystrokes for
+" keys that are used heavily in programming.
+"   ; is :
+"   : is ;
+"   / is _
+"   \ is /
+"   _ is \
+" No shifting needed for _ : /
+" \ is never used and moved away
 
 inoremap ; :
 inoremap : ;
 inoremap / _
-inoremap _ /
-inoremap \ \|
-inoremap \| \
+inoremap _ \
+inoremap \ /
 
 
 """"""""""""""""""""""""
@@ -109,6 +93,16 @@ inoremap <C-c> <esc>viwUea
 " jumping in f command or similar
 noremap , ;
 noremap \ ,
+
+
+"""""""""""""""""""""
+"  Typo Prevention  "
+"""""""""""""""""""""
+
+command! Q q
+
+" don't want to lookup stuff by accident
+map K <Nop>
 
 
 """""""""""""""""""
@@ -134,21 +128,8 @@ nnoremap <C-h> :tabprevious<CR>
 nnoremap vv <c-w>v " opens vertical split
 nnoremap ss <c-s>s " opens horizontal split
 
-
-
-" invoke sort on a visual selection of text
-map <leader>so :sort<cr>
-
-" Insert pry statement
-" Mind that ; is remapped - we have to shield it with paste mode
-map <leader>p :set paste<cr>orequire 'pry'; binding.pry<esc>:set nopaste<cr>
-map <leader>P :set paste<cr>Orequire 'pry'; binding.pry<esc>:set nopaste<cr>
-
-" Disable K - looking up uninteresting stuff
-map K <Nop>
-
-" a common typo... :Q to :q
-command! Q q
+"Switch windows faster
+map <space> <c-w>w
 
 
 """"""""""""""
@@ -170,6 +151,23 @@ map <leader>x  :x<cr>
 map <leader>qq :q<cr>
 
 
+""""""""""""""
+"  Movement  "
+""""""""""""""
+
+" H and L for start and end of line
+noremap H ^
+noremap L $
+
+" Move over graphical lines, i.e. when they are wrapped
+noremap j gj
+noremap k gk
+
+" Visual shifting - vmode is not exited
+vnoremap < <gv
+vnoremap > >gv
+
+
 """"""""""""""""""""""""""""
 "  Centering search jumps  "
 """"""""""""""""""""""""""""
@@ -180,6 +178,10 @@ nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 nnoremap <silent> g# g#zz
 
+
+""""""""""""""""""""
+"  Copy and Paste  "
+""""""""""""""""""""
 
 " uses paste mode when pasting from the clipboard in insert mode
 " and leaves it immeadiately after
@@ -193,24 +195,6 @@ noremap <C-c> :let @+=@"<cr> :echo 'Copied default paste buffer to clipboard.'<c
 " Y like D, C...
 map Y y$
 
-" H and L for start and end of line
-noremap H ^
-noremap L $
-
-" Move over graphical lines, i.e. when they are wrapped
-noremap j gj
-noremap k gk
-
-" Disables highlighting
-map <esc><esc> :nohl<cr>
-
-"Switch windows faster
-map <space> <c-w>w
-
-" Visual shifting - vmode is not exited
-vnoremap < <gv
-vnoremap > >gv
-
 
 """""""""""
 "  Marks  "
@@ -222,20 +206,23 @@ nnoremap ' `
 nnoremap ` '
 
 
-"""""""""""""""""""""""""""""""""
-"  Highlighting too long lines  "
-"""""""""""""""""""""""""""""""""
+""""""""""""""""""
+"  Highlighting  "
+""""""""""""""""""
 
-" Don't do it  in the quickfix windows.
+" Overlong lines. Don't do it  in the quickfix windows.
 " Hacky, but vimscript is driving one mad sometimes...
 au BufRead * highlight OverLength ctermbg=darkgrey guibg=#592929
 au BufRead * match OverLength /\%80v.\+/
 au BufReadPost quickfix exec ':call clearmatches()'
 
+" Disables highlighting
+map <esc><esc> :nohl<cr>
 
-"""""""""""""""""""""""
-"  Whitespace delete  "
-"""""""""""""""""""""""
+
+"""""""""""""""""""""""""
+"  Whitespace deletion  "
+"""""""""""""""""""""""""
 
 " should be enabled for others too
 au BufWritePre *.rb :%s/\s\+$//e
@@ -251,7 +238,7 @@ au BufRead,BufNewFile *.zsh-theme set ft=zsh
 
 
 """""""""""""""""""
-"  spellchecking  "
+"  Spellchecking  "
 """""""""""""""""""
 
 au Filetype gitcommit setlocal spell spelllang=en
@@ -283,6 +270,11 @@ map <leader>` :call RenameFile()<cr>
 """""""""
 "  Ruby "
 """""""""
+
+" Insert pry statement
+" Mind that ; is remapped - we have to shield it with paste mode
+map <leader>p :set paste<cr>orequire 'pry'; binding.pry<esc>:set nopaste<cr>
+map <leader>P :set paste<cr>Orequire 'pry'; binding.pry<esc>:set nopaste<cr>
 
 " Usually set to rspec, but we run rake instead and try to send it off to the
 " rake-runner window in tmux
@@ -466,7 +458,7 @@ imap <C-a> <esc>wa
 
 let g:indentLine_color_term = 235
 let g:indentLine_char = '|'
-map <leader>ig :IndentLinesToggle<cr> " indenation guides
+map <leader>ig :IndentLinesToggle<cr>
 
 
 """""""""""""""""""
