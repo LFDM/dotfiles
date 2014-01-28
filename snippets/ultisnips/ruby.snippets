@@ -2,19 +2,6 @@
 #  Custom Snippets by LFDM  #
 ############################
 
-snippet "^#!" "#!/usr/bin/env ruby" r
-#!/usr/bin/env ruby
-$0
-endsnippet
-
-snippet end "__END__"
-__END__
-endsnippet
-
-snippet # "comment: indicates return value"
-# =>
-endsnippet
-
 ######### if and unless #########
 
 snippet "tern" "ternary operator" r
@@ -566,12 +553,37 @@ snippet ata "attr_accessible" b
 attr_accessible :${0:attr_names}
 endsnippet
 
+
+######### Executables #########
+
+snippet "^#!" "#!/usr/bin/env ruby" r
+#!/usr/bin/env ruby
+$0
+endsnippet
+
+snippet end "__END__"
+__END__
+endsnippet
+
+snippet # "comment: indicates return value"
+# =>
+endsnippet
+
 snippet app "if __FILE__ == .."
 if __FILE__ == $PROGRAM_NAME
 	${0}
 end
 endsnippet
 
+snippet bin_file "ruby bin file with load path loading" b
+#!/usr/bin/env ruby
+
+lib = File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+${0:req}
+endsnippet
+	
 
 ######### Iterators #########
 
@@ -926,12 +938,20 @@ endsnippet
 
 ######### Param and options handling #########
 
-snippet p "accessing params" !b
+snippet p "accessing params"
 params[:${1}]${0}
 endsnippet	
 
-snippet o "accessing options" !b
+snippet pe "extract param to variable"
+${1} = params[:$1]${0}
+endsnippet
+
+snippet o "accessing options"
 options[:${1}]${0}
+endsnippet
+
+snippet oe "extract option to variable"
+${1} = options[:$1]${0}
 endsnippet
 
 
