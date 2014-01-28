@@ -397,6 +397,43 @@ map <leader>ue :call UltiSnipsEdit()<cr>
 imap <C-l> <C-r>u<esc>a<C-j>
 
 
+""""""""""""""
+"  Surround  "
+""""""""""""""
+
+let g:surround_35  = "#{\r}"   " ruby interpolation triggered by #
+
+" Quickly surround the inner word by triggering
+" , and the surrounder.
+" When triggered from normal mode, jump to the later surrounder
+
+map ,# ysiw#2w
+vmap ,# c#{<C-R>"}<ESC>
+
+map ," ysiw"2w
+vmap ," c"<C-R>""<ESC>
+
+map ,' ysiw'2w
+vmap ,' c'<C-R>"'<ESC>
+
+map ,( ysiw(2w
+map ,) ysiw)2w
+vmap ,( c( <C-R>" )<ESC>
+vmap ,) c(<C-R>")<ESC>
+
+map ,] ysiw]2w
+map ,[ ysiw[2w
+vmap ,[ c[ <C-R>" ]<ESC>
+vmap ,] c[<C-R>"]<ESC>
+
+map ,} ysiw}2w
+map ,{ ysiw{2w
+vmap ,} c{ <C-R>" }<ESC>
+vmap ,{ c{<C-R>"}<ESC>
+
+map ,` ysiw`2w
+vmap ,` c`<C-R>"`<ESC>
+
 
 """""""""""""""""
 "  delimitMate  "
