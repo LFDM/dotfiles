@@ -1,6 +1,3 @@
-[user]
-	name = LFDM
-	email = 1986gh@gmail.com
 [color]
   status = auto
   branch = auto
@@ -20,7 +17,7 @@
 
 [init]
 	templatedir = ~/.git_template
-[github]
-	user = LFDM
 [push]
 	default = tracking
+[include]
+  path = ~/.gitconfig.user

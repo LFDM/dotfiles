@@ -26,6 +26,12 @@ gem_inst () {
   done
 }
 
+create_user_files () {
+  for file in "$@" ; do
+    touch "$file.user"
+  done
+}
+
 suc 'Beginning Installation'
 
 log 'Updating repositories'
@@ -97,10 +103,13 @@ rm -rf hub
 log_and_inst cmake
 log_and_inst python-dev
 
+log 'Creating user files'
+create_user_files gitconfig
+
 rake # installs all customizations
 rake compile  # not part of the default task, as it usually takes a while
 hint "Don't forget to use a powerline font in your terminal emulator"
-hint "Oh and change your git user information in the gitconfig file!"
+hint "Oh and add your git user information in the gitconfig.user file!"
 
 suc Success!
 echo "Now close this terminal and start a new one. Enjoy!"
