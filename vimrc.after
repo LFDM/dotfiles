@@ -212,7 +212,7 @@ nnoremap ` '
 
 " Overlong lines. Don't do it  in the quickfix windows.
 " Hacky, but vimscript is driving one mad sometimes...
-au BufRead * highlight OverLength ctermbg=darkgrey guibg=#592929
+au BufRead * highlight OverLength ctermbg=238
 au BufRead * match OverLength /\%80v.\+/
 au BufReadPost quickfix exec ':call clearmatches()'
 
