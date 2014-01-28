@@ -101,6 +101,8 @@ alias ff='find . -type f -name'
 
 # fast ack
 alias a='ack'
+# don't correct ag!
+alias ag='nocorrect ag'
 
 # fast jobs
 alias j='jobs'
