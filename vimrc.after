@@ -397,6 +397,13 @@ map <leader>ue :call UltiSnipsEdit()<cr>
 imap <C-l> <C-r>u<esc>a<C-j>
 
 
+"""""""""""""""""""
+"  NerdCommenter  "
+"""""""""""""""""""
+
+" comment a whole paragraph
+map <leader>cp vip<leader>c<space>
+
 
 """"""""""""""
 "  NerdTree  "
