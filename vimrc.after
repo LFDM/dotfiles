@@ -418,6 +418,13 @@ function! EnableRelativeNumbers()
 endfunction
 
 
+"""""""""""
+"  Gundo  "
+"""""""""""
+
+let g:gundo_right = 1
+
+
 """"""""""""""
 "  Fugitive  "
 """"""""""""""
