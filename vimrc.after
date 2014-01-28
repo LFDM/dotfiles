@@ -462,7 +462,6 @@ let g:ctrlp_use_caching = 0
 " reopens a file even when already open somewhere
 let g:ctrlp_switch_buffer = 0
 
-
 """"""""""""""""
 "  EasyMotion  "
 """"""""""""""""
@@ -471,6 +470,16 @@ let g:ctrlp_switch_buffer = 0
 map <leader>a <leader><leader>f
 map <leader><esc> <leader><leader>F
 
+""""""""""""""""
+"  Tabularize  "
+""""""""""""""""
+
+" align + delimiter
+map <leader>t= :Tabularize /=<cr>
+map <leader>t: :Tabularize /:<cr>
+map <leader>t. :Tabularize /.<cr>
+map <leader>tt :Tabularize /then<cr>
+map <leader>tc :Tabularize /
 
 
 """"""""""""""""""""""""
