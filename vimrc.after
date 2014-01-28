@@ -398,6 +398,14 @@ imap <C-l> <C-r>u<esc>a<C-j>
 
 
 
+"""""""""""""""
+"  IndentLine  "
+"""""""""""""""
+
+let g:indentLine_color_term = 235
+let g:indentLine_char = '|'
+map <leader>ig :IndentLinesToggle<cr> " indenation guides
+
 
 """""""""""""""""""
 "  number_toggle  "
