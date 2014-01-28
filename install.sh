@@ -76,7 +76,8 @@ inst ack-grep
 sudo ln -sf /usr/bin/ack-grep /usr/local/bin/ack
 hint "Linked ack-grep to ack"
 
-log_and_inst ag
+loginst ag
+inst silversearcher-ag
 
 loginst leiningen
 sudo curl https://raw.github.com/technomancy/leiningen/stable/bin/lein > /bin/lein
