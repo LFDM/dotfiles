@@ -463,6 +463,16 @@ let g:ctrlp_use_caching = 0
 let g:ctrlp_switch_buffer = 0
 
 
+""""""""""""""""
+"  EasyMotion  "
+""""""""""""""""
+
+" I need to use it more, so here'săan easier mapping
+map <leader>a <leader><leader>f
+map <leader><esc> <leader><leader>F
+
+
+
 """"""""""""""""""""""""
 "  RainbowParentheses  "
 """"""""""""""""""""""""
