@@ -13,6 +13,22 @@
   br = branch
   type = cat-file -t
   dump = cat-file -p
+
+  unstage = reset HEAD              # unstage a file
+  uncommit = reset --soft HEAD~1    # go back one commit
+
+  r = remote -v                     # show remotes
+
+  rc = rebase --continue            # continue rebase
+  rs = rebase --skip                # skip rebaseo
+
+  b = branch -v                     # verbose branch info
+
+  ss = stash
+  sl = stash list
+  sa = stash apply                  # apply stash, changes restored
+  sd = stash drop                   # drops stash, changes lost
+
   permission-reset = "!git diff -p | grep -E \"^-E(diff|old mode|new mode)\" | sed -e \"s/^old/NEW/;s/^new/old/;s/^NEW/new/\" | git apply"
 
 [init]
