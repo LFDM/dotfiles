@@ -58,3 +58,6 @@
 [submodule "plugins/indentLine"]
 	path = plugins/indentLine
 	url = git@github.com:Yggdroot/indentLine.git
+[submodule "plugins/camelcasemotion"]
+	path = plugins/camelcasemotion
+	url = git@github.com:vim-scripts/camelcasemotion.git
