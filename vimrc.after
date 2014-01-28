@@ -124,12 +124,16 @@ endfunction
 autocmd BufRead,BufNewFile ~/code/diploma_thesis/text/tex/*.tex call Abbrs()
 
 
-""""""""""""""""""
-"  Tab handling  "
-""""""""""""""""""
+""""""""""""""""""""""
+"  Tabs and Windows  "
+""""""""""""""""""""""
 noremap  <C-t> :tabnew<CR>
 nnoremap <C-l> :tabnext<CR>
 nnoremap <C-h> :tabprevious<CR>
+
+nnoremap vv <c-w>v " opens vertical split
+nnoremap ss <c-s>s " opens horizontal split
+
 
 
 " invoke sort on a visual selection of text
