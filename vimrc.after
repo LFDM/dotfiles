@@ -397,6 +397,16 @@ map <leader>ue :call UltiSnipsEdit()<cr>
 imap <C-l> <C-r>u<esc>a<C-j>
 
 
+
+""""""""""""""
+"  NerdTree  "
+""""""""""""""
+
+let NERDTreeMinimalUI = 1
+let NERDTreeWinSize = 30
+let NERDTreeShowHidden = 1
+
+
 """"""""""""""
 "  Surround  "
 """"""""""""""
