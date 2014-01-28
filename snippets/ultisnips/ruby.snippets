@@ -253,6 +253,10 @@ snippet "(hr|:)" "hashrocket" r
 ${0:hr}
 endsnippet
 
+snippet hzip "Hash.new from zip"
+Hash[${1}.zip(${2})]${0}
+endsnippet
+
 ######### File Handling #########
 	
 snippet fexp "Expand file path"
@@ -267,6 +271,10 @@ snippet fo "file open with do end block"
 File.open(${1}, '${2}') do
   ${0}
 end
+endsnippet
+
+snippet fj "file join"
+File.join(${1})${0}
 endsnippet
 
 
@@ -621,6 +629,12 @@ each_with_index do |${1:e}, ${2:i}|
 end
 endsnippet
 
+snippet ealwo "each_line.with_object do .. end" w
+each_line.with_object(${1:obj}) do  |line, ${2:var}|
+  ${0}
+end
+endsnippet
+
 snippet eawo "each_with_object {}" w
 each_with_object(${1:init}) { |${2:e}, ${3:var}| ${0} }
 endsnippet
@@ -886,7 +900,8 @@ endsnippet
 ######### Thor #########
 
 snippet mo "method_option with an alias and repetition" !b
-method_option :${1}, aliases: '-${1/(\w).*/$1/}'
+method_option :${1}, aliases: '-${1/(\w).*/$1/}',
+  desc: '${2}'
 ${0:mo}
 endsnippet
 
