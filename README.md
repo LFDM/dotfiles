@@ -9,7 +9,7 @@
   * vim-athena
   * janus
   * exuberant-ctags
-  * ack
+  * ack and ag
   * leiningen
   * mosh
   * hub for better communication with github (disabled atm)

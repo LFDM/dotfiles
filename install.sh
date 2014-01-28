@@ -29,7 +29,7 @@ gem_inst () {
 suc 'Beginning Installation'
 
 log 'Updating repositories'
-add_repos ppa:pi-rho/dev ppa:keithw/mosh # for latest tmux and mosh
+add_repos ppa:pi-rho/dev ppa:keithw/mosh ppa:mizuno-as/silversearcher-ag
 
 log_and_inst libcurl4-openssl-dev
 hint 'This was installed just in case git needs it'
@@ -75,6 +75,8 @@ hint "It's called ack-grep on ubuntu platforms"
 inst ack-grep
 sudo ln -sf /usr/bin/ack-grep /usr/local/bin/ack
 hint "Linked ack-grep to ack"
+
+log_and_inst ag
 
 loginst leiningen
 sudo curl https://raw.github.com/technomancy/leiningen/stable/bin/lein > /bin/lein
