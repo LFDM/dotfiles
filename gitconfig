@@ -2,6 +2,13 @@
   status = auto
   branch = auto
   ui = auto
+[color "diff"]
+  old = red
+  new = green
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
 [core]
   editor = vim
 	excludesfile = ~/.gitignore_global
@@ -37,3 +44,5 @@
 	default = tracking
 [include]
   path = ~/.gitconfig.user
+[diff]
+	algorithm = patience
