@@ -36,7 +36,9 @@ set splitright          " Open to the right and below
 set splitbelow          " even when using CtrlP splitters
 set autoread            " Reread files when changed from the outside
 set gdefault            " E.g. substitutions are multiple per line per default
-set wildignore+=*/doc/*,*.aux,*.dvi,*.out,*.toc,*.pdf,*.log
+set wildmenu            " get a little help. not properly colorized yet
+set wildmode=longest:full,full
+set wildignore+=*/doc/*,*.aux,*.dvi,*.out,*.toc,*.pdf,*.log   " latex stuff
 set hidden              " Keep file in buffer after quit, remembers undo etc.
 set nofoldenable        " Never fold
 
