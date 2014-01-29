@@ -519,6 +519,7 @@ function! VimVersion()
 endfunction
 let g:startify_custom_header = VimVersion() + [ '' ]
 let g:startify_skiplist = [ 'COMMIT_EDITMSG', '.git/index']
+let g:startify_change_to_dir = 0
 
 
 """""""""""""
@@ -545,6 +546,9 @@ let g:ctrlp_use_caching = 0
 
 " reopens a file even when already open somewhere
 let g:ctrlp_switch_buffer = 0
+
+" no new window directly on startified startup
+let g:ctrlp_reuse_window = 'startify'
 
 """"""""""""""""
 "  EasyMotion  "
