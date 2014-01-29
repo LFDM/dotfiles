@@ -214,7 +214,7 @@ snippet iv "Plain instance variable assignment"
 @${1} = ${0}
 endsnippet
 
-snippet ics "Instance variable cache"
+snippet ivc "Instance variable cache"
 @${1:variable_name} ||= ${0:chached_value}
 endsnippet
 
@@ -408,8 +408,16 @@ snippet se "should == " w
 should == ${0}
 endsnippet
 
+snippet sm "should =~" w
+should =~ ${0}
+endsnippet
+
 snippet sr "should receive" w
 should receive(:${0})
+endsnippet
+
+snippet snr "should_not receive" w
+should_not receive(:${0})
 endsnippet
 
 snippet srw "should receive with" w
