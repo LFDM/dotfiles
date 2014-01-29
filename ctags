@@ -6,3 +6,5 @@
 --regex-markdown=/^####[ \t]+(.*)/\1/r,Heading_L4/
 
 --regex-ruby=/(^[ \t]*)describe ['"]([\.#].*)['"] do/\2/f,function,describe/
+
+--langmap=Lisp:+.clj
