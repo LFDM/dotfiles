@@ -169,6 +169,9 @@ noremap k gk
 vnoremap < <gv
 vnoremap > >gv
 
+" go to last edit
+nnoremap ,. '.
+
 
 """"""""""""""""""""""""""""
 "  Centering search jumps  "
