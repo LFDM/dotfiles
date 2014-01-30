@@ -67,3 +67,6 @@
 [submodule "plugins/switch.vim"]
 	path = plugins/switch.vim
 	url = git@github.com:AndrewRadev/switch.vim.git
+[submodule "plugins/splitjoin.vim"]
+	path = plugins/splitjoin.vim
+	url = git@github.com:AndrewRadev/splitjoin.vim.git

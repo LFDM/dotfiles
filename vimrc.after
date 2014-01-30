@@ -466,8 +466,15 @@ au Filetype ruby let b:switch_custom_definitions =
       \  scdh['should'],
       \]
 
-
 nnoremap - :Switch<cr>
+
+
+"""""""""""""""
+"  splitjoin  "
+"""""""""""""""
+nnoremap ,j :SplitjoinJoin<cr>
+nnoremap ,s :SplitjoinSplit<cr>
+
 
 """""""""""""""""
 "  delimitMate  "
