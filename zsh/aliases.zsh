@@ -50,6 +50,7 @@ alias gcob='git checkout -b'
 alias gcobt='git-new-tracked-branch'
 alias gom='git-on-master'
 alias gdw='git diff --word-diff'
+alias gst='git-pretty-status-wrapper'
 
 # Fast vim
 alias v='vim'

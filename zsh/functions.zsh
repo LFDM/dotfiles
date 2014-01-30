@@ -53,3 +53,19 @@ function release_compdef {
 }
 compdef _aliases release_compdef
 
+# inspired by scm_breeze, lightweight implementation by populating
+# the associative array with a filelist.
+declare -A e
+function git-pretty-status-wrapper {
+  local git_status files index file list
+  list='@@filelist@@::'
+  git_status=$(git-pretty-status)
+  files=$(echo $git_status | grep $list | sed "s/$list//g")
+  index=0
+  for file in ${(s/|/)files}; do
+    let index++
+    e[$index]=$file
+  done
+  echo $git_status | grep -v $list
+}
+
