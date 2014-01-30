@@ -250,7 +250,7 @@ endsnippet
 
 snippet "(hr|:)" "hashrocket" r
 '${1}' => ${2},
-${0:hr}
+${0::}
 endsnippet
 
 snippet hzip "Hash.new from zip"
@@ -677,8 +677,14 @@ snippet map "map {}" w
 map { |${1:e}| ${0} }
 endsnippet
 
-snippet mapd "map do end" w
+snippet mapd "map do ... end" w
+map do |${1}|
+  ${0}
 end
+endsnippet
+
+snippet mapp "map(&:method)" w
+map(&:${1})${0}
 endsnippet
 
 snippet sor "sort {}" w
