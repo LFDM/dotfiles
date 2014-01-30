@@ -70,3 +70,12 @@
 [submodule "plugins/splitjoin.vim"]
 	path = plugins/splitjoin.vim
 	url = git@github.com:AndrewRadev/splitjoin.vim.git
+[submodule "plugins/vim-fieldtrip"]
+	path = plugins/vim-fieldtrip
+	url = git@github.com:tek/vim-fieldtrip.git
+[submodule "plugins/sideways.vim"]
+	path = plugins/sideways.vim
+	url = git@github.com:AndrewRadev/sideways.vim.git
+[submodule "plugins/vim-submode"]
+	path = plugins/vim-submode
+	url = git@github.com:kana/vim-submode.git
