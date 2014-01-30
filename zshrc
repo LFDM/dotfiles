@@ -10,7 +10,7 @@ ZSH_THEME='lfdm'
 
 ENABLE_CORRECTION=true
 
-export EDITOR="vi"
+export EDITOR="vim"
 
 export TERM=xterm-256color
 
