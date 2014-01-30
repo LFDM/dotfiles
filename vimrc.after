@@ -224,12 +224,12 @@ vnoremap > >gv
 nnoremap ,. '.
 
 SubmodeDefine speedjumping
-Submode n <enter> sj 5j
-Submode n <enter> sk 5k
-Submode n j 5j
-Submode n J 10j
-Submode n k 5k
-Submode n K 10k
+Submode vn <enter> sj 5j
+Submode vn <enter> sk 5k
+Submode vn j 5j
+Submode vn J 10j
+Submode vn k 5k
+Submode vn K 10k
 SubmodeDefineEnd
 
 
