@@ -64,3 +64,6 @@
 [submodule "plugins/vim-blockle"]
 	path = plugins/vim-blockle
 	url = git@github.com:jgdavey/vim-blockle.git
+[submodule "plugins/switch.vim"]
+	path = plugins/switch.vim
+	url = git@github.com:AndrewRadev/switch.vim.git

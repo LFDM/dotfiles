@@ -446,6 +446,29 @@ map ,` ysiw`2w
 vmap ,` c`<C-R>"`<ESC>
 
 
+""""""""""""
+"  switch  "
+""""""""""""
+
+" switch_custom_def_helper
+let scdh =
+      \{
+      \  'class_module': ['class', 'module'],
+      \  'should': {
+      \    '^\(.*\)should ': '\1should_not ',
+      \    '^\(.*\)should_not ': '\1should ',
+      \  },
+      \}
+
+au Filetype ruby let b:switch_custom_definitions =
+      \[
+      \  scdh['class_module'],
+      \  scdh['should'],
+      \]
+
+
+nnoremap - :Switch<cr>
+
 """""""""""""""""
 "  delimitMate  "
 """""""""""""""""
