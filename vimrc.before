@@ -28,3 +28,10 @@ let g:UltiSnipsListSnippets = "<c-e>"
 
 " YouCompleteMe
 let g:ycm_semantic_completion_toggle = '<c-f>'
+
+" fieldtrip"
+let g:fieldtrip_start_map = ',f'
+let g:fieldtrip_jump_right = 'j'
+let g:fieldtrip_jump_left = 'k'
+let g:fieldtrip_right = 'J'
+let g:fieldtrip_left = 'K'

@@ -484,6 +484,21 @@ nnoremap ,j :SplitjoinJoin<cr>
 nnoremap ,s :SplitjoinSplit<cr>
 
 
+"""""""""""""""
+"  fieldtrip  "
+"""""""""""""""
+
+" also see vimrc.before
+
+
+"""""""""""""
+"  submode  "
+"""""""""""""
+
+" stay - we entered for a cause
+let g:submode_timeoutlen = 5000
+
+
 """""""""""""""""
 "  delimitMate  "
 """""""""""""""""
