@@ -454,6 +454,11 @@ vmap ,` c`<C-R>"`<ESC>
 let scdh =
       \{
       \  'class_module': ['class', 'module'],
+      \  'any_empty': ['any', 'empty'],
+      \  'if_unless': ['if', 'unless'],
+      \  'ternary_args': {
+      \     '^\(.*\) ? \(.*\) : \(.*\)': '\1 ? \3 : \2'
+      \  },
       \  'should': {
       \    '^\(.*\)should ': '\1should_not ',
       \    '^\(.*\)should_not ': '\1should ',
@@ -463,6 +468,9 @@ let scdh =
 au Filetype ruby let b:switch_custom_definitions =
       \[
       \  scdh['class_module'],
+      \  scdh['any_empty'],
+      \  scdh['if_unless'],
+      \  scdh['ternary_args'],
       \  scdh['should'],
       \]
 
