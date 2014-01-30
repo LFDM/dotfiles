@@ -79,3 +79,6 @@
 [submodule "plugins/vim-submode"]
 	path = plugins/vim-submode
 	url = git@github.com:kana/vim-submode.git
+[submodule "plugins/vim-easy-submode"]
+	path = plugins/vim-easy-submode
+	url = git@github.com:boolfool/vim-easy-submode.git
