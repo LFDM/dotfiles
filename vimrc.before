@@ -1,30 +1,54 @@
-" Going QWERTY
+""""""""""""
+"  Leader  "
+""""""""""""
 let mapleader = ';'
-  "let mapleader = "ö"
 
-" Disable snipmates-snippets to use customizations
+
+""""""""""""""""""""""""""
+"  Disabled janus stuff  "
+""""""""""""""""""""""""""
+
 call janus#disable_plugin('snipmate-snippets')
-
-" Disable vimwiki and snipmate
 call janus#disable_plugin('vimwiki')
 call janus#disable_plugin('snipmate')
 call janus#disable_plugin('supertab')
 
-" remap vim_latexs jumper - it collides with our custom snippet trigger
-" suprisingly this won't work if put in the regular vimrc.after file
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                        Upfront Keybindings                              "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""
+"  vim-latex  "
+"""""""""""""""
+
+" the default <c-j> collides with UltiSnips
 imap <C-g> <Plug>IMAP_JumpForward
 nmap <C-g> <Plug>IMAP_JumpForward
 vmap <C-g> <Plug>IMAP_JumpForward
 
-" vim-airline fancy...
+
+"""""""""""""
+"  Airline  "
+"""""""""""""
+
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#show_buffers=1
 let g:airline_powerline_fonts=1
 let g:airline_theme='lfdm'
 
-" UltiSnips (own fork)
+
+"""""""""""""""
+"  UltiSnips  "
+"""""""""""""""
+
 let g:UltiSnipsExpandTrigger = "<c-j>"
 let g:UltiSnipsListSnippets = "<c-e>"
 
-" YouCompleteMe
+
+"""""""""""""""""""
+"  YouCompleteMe  "
+"""""""""""""""""""
+
 let g:ycm_semantic_completion_toggle = '<c-f>'
