@@ -172,6 +172,15 @@ vnoremap > >gv
 " go to last edit
 nnoremap ,. '.
 
+SubmodeDefine speedjumping
+Submode n <enter> sj 5j
+Submode n <enter> sk 5k
+Submode n j 5j
+Submode n J 10j
+Submode n k 5k
+Submode n K 10k
+SubmodeDefineEnd
+
 
 """"""""""""""""""""""""""""
 "  Centering search jumps  "
