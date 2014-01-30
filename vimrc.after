@@ -127,8 +127,8 @@ noremap  <C-t> :tabnew<CR>
 nnoremap <C-l> :tabnext<CR>
 nnoremap <C-h> :tabprevious<CR>
 
-nnoremap vv <c-w>v " opens vertical split
-nnoremap ss <c-s>s " opens horizontal split
+nnoremap vv <c-w>v
+nnoremap ss <c-s>s
 
 "Switch windows faster
 map <space> <c-w>w
