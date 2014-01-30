@@ -52,3 +52,10 @@ let g:UltiSnipsListSnippets = "<c-e>"
 """""""""""""""""""
 
 let g:ycm_semantic_completion_toggle = '<c-f>'
+
+
+""""""""""""
+"  Blocke  "
+""""""""""""
+
+let g:blockle_mapping = ',b'

@@ -336,6 +336,9 @@ map <leader>` :call RenameFile()<cr>
 "  Ruby "
 """""""""
 
+" see also vimrc.before for blockle
+
+
 " Insert pry statement
 " Mind that ; is remapped - we have to shield it with paste mode
 map <leader>p :set paste<cr>orequire 'pry'; binding.pry<esc>:set nopaste<cr>
