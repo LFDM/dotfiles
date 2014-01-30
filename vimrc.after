@@ -493,12 +493,23 @@ nnoremap ,j :SplitjoinJoin<cr>
 nnoremap ,s :SplitjoinSplit<cr>
 
 
-"""""""""""""""
-"  fieldtrip  "
-"""""""""""""""
+""""""""""""""
+"  sideways  "
+""""""""""""""
 
-" also see vimrc.before
-
+SubmodeDefine sideways
+Submode n <enter> sf <nop>
+Submode n h :SidewaysJumpLeft<cr>
+Submode n k :SidewaysJumpLeft<cr>
+Submode n j :SidewaysJumpRight<cr>
+Submode n l :SidewaysJumpRight<cr>
+Submode n H :SidewaysLeft<cr>
+Submode n K :SidewaysLeft<cr>
+Submode n L :SidewaysRight<cr>
+Submode n J :SidewaysRight<cr>
+SubmodeDefineEnd
+call submode#map('sideways', 'n', 'rs', 'd', 'd<Plug>SidewaysArgumentTextobjA')
+call submode#map('sideways', 'n', 'rs', 'x', 'd<Plug>SidewaysArgumentTextobjI')
 
 """""""""""""
 "  submode  "
