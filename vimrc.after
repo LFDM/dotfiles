@@ -71,12 +71,62 @@ imap  <Right> <NOP>
 "   _ is \
 " No shifting needed for _ : /
 " \ is never used and moved away
+"
+" Toggle with the command ToggleCustomizedKeymap
 
-inoremap ; :
-inoremap : ;
-inoremap / _
-inoremap _ \
-inoremap \ /
+let g:lfdm_custom_keymap = {
+      \  ';' : ':',
+      \  ':' : ';',
+      \  '/' : '_',
+      \  '_' : '\',
+      \  '\' : '/',
+      \}
+
+function s:UseCustomKeymap()
+  for [lhs, rhs] in items(g:lfdm_custom_keymap)
+    exe 'inoremap '.lhs.' '.rhs
+  endfor
+  let g:lfdm_custom_keymap_in_use = 1
+  echo "Using custom keymap"
+endfunction
+
+function s:UseNormalKeymap()
+  for lhs in keys(g:lfdm_custom_keymap)
+    exe 'iunmap '.lhs
+  endfor
+  let g:lfdm_custom_keymap_in_use = 0
+  echo "Using normal keymap"
+endfunction
+
+function s:ToggleCustomizedKeymap()
+  if g:lfdm_custom_keymap_in_use
+    call s:UseNormalKeymap()
+  else
+    call s:UseCustomKeymap()
+  endif
+endfunction
+command! ToggleCustomizedKeymap call s:ToggleCustomizedKeymap()
+
+" call this from insert mode
+function! ToggleCustomizedKeymapFromInsertMode()
+  let g:lfdm_custom_keymap_toggled = 1
+  ToggleCustomizedKeymap
+endfunction
+
+function! s:RestoreKeymapToggling()
+  if g:lfdm_custom_keymap_toggled
+    ToggleCustomizedKeymap
+  endif
+endfunction
+
+let g:lfdm_custom_keymap_toggled = 0
+
+au InsertLeave * call s:RestoreKeymapToggling()
+
+silent call s:UseCustomKeymap()
+
+map ,ck :ToggleCustomizedKeymap()<cr>
+inoremap ,ck <c-o>:call ToggleCustomizedKeymapFromInsertMode()<cr>
 
 
 """"""""""""""""""""""""
@@ -123,6 +173,7 @@ autocmd BufRead,BufNewFile ~/code/diploma_thesis/text/tex/*.tex call Abbrs()
 """"""""""""""""""""""
 "  Tabs and Windows  "
 """"""""""""""""""""""
+
 noremap  <C-t> :tabnew<CR>
 nnoremap <C-l> :tabnext<CR>
 nnoremap <C-h> :tabprevious<CR>
