@@ -613,6 +613,7 @@ map <leader><esc> <leader><leader>F
 
 " align + delimiter
 map <leader>t= :Tabularize /=<cr>
+map <leader>th :Tabularize / => <cr>
 map <leader>t: :Tabularize /:<cr>
 map <leader>t. :Tabularize /.<cr>
 map <leader>tt :Tabularize /then<cr>
