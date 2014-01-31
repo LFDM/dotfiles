@@ -22,6 +22,8 @@ hi TabLineFill       ctermfg=233
 hi TabLine                       ctermbg=233
 hi TabLineSel                    ctermbg=239
 
+hi Visual                        ctermbg=236
+
 
 """""""""""""""""
 "  set options  "
