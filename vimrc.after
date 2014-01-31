@@ -172,9 +172,9 @@ endfunction
 autocmd BufRead,BufNewFile ~/code/diploma_thesis/text/tex/*.tex call Abbrs()
 
 
-""""""""""""""""""""""
-"  Tabs and Windows  "
-""""""""""""""""""""""
+""""""""""""""""""""""""""""
+"  Tabs, Buffers, Windows  "
+""""""""""""""""""""""""""""
 
 noremap  <C-t> :tabnew<CR>
 nnoremap <C-l> :tabnext<CR>
@@ -185,6 +185,8 @@ nnoremap ss <c-w>s
 
 "Switch windows faster
 map <space> <c-w>w
+
+nnoremap <leader>bd :bd<cr>
 
 
 """"""""""""""
