@@ -116,6 +116,7 @@ endfunction
 function! s:RestoreKeymapToggling()
   if g:lfdm_custom_keymap_toggled
     ToggleCustomizedKeymap
+    let g:lfdm_custom_keymap_toggled = 0
   endif
 endfunction
 
