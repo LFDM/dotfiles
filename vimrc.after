@@ -447,15 +447,16 @@ let g:rubycomplete_rails = 1
 
 let g:UltiSnipsEditSplit = 'vertical'
 map <leader>ue :call UltiSnipsEdit()<cr>
-" the UltiSnips fork disables select mode in snippets.
-" It is replaced with a change call, that yank the visual
-" selection to register u. The mapping will insert the
-" placeholder back in and jump forward.
-" Note that leaving and entering insert mode after the insertion
-" is another primitive hack. This avoids a race condition, where the
-" jump forward happens so fast, that the jump position hasn't been
-" updated by the insertion in time. The slight delay makes it right.
-imap <C-l> <C-r>u<esc>a<C-j>
+" expand the snippet in current selection
+smap <C-l> <esc>a<c-j>
+smap <C-x> <bs><esc>:call CleanUpSnippetRemainings()<cr>
+
+function! CleanUpSnippetRemainings()
+  while getline('.') =~ '^\s*$'
+    delete
+    call cursor(line('.') - 1, 0)
+  endwhile
+endfunction
 
 
 """""""""""""""""""
