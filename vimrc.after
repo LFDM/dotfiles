@@ -454,6 +454,7 @@ map <leader>ue :call UltiSnipsEdit()<cr>
 " expand the snippet in current selection
 smap <C-l> <esc>a<c-j>
 smap <C-x> <bs><esc>:call CleanUpSnippetRemainings()<cr>
+imap <C-m> <c-j><esc>"_dd
 
 function! CleanUpSnippetRemainings()
   while getline('.') =~ '^\s*$'
