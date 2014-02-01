@@ -35,6 +35,7 @@
   sl = stash list
   sa = stash apply                  # apply stash, changes restored
   sd = stash drop                   # drops stash, changes lost
+  sp = stash pop                    # applies and drops stash
 
   permission-reset = "!git diff -p | grep -E \"^-E(diff|old mode|new mode)\" | sed -e \"s/^old/NEW/;s/^new/old/;s/^NEW/new/\" | git apply"
 
