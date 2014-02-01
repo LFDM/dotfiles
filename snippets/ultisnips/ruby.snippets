@@ -264,22 +264,22 @@ def case_creator(obj, args, indent):
 endglobal
 
 snippet toca "creates a one-liner case switch" !b
-case ${1:obj} => $2
+case ${1:obj} => $2 $0
 `!p snip.rv = case_creator(t[1], t[2], snip._initial_indent)`
-$0
 
 endsnippet
 global !p
 def hash_creator(var, args, opts, indent):
-	str = var.upper() if 'c' in opts else var
- 	str += ' = {\n'
+	first_line = [(var.upper() if 'c' in opts else var) + ' = {']
 	lines = args.split(' . ')
+	body = []
 	delim = ' => ' if 'i' in opts or 's' in opts else ': '
 	for line in lines:
-		lhs, rhs = line.split(' ') if ' ' in line else [line, '']
+		lhs, rhs = line.split('  ') if '  ' in line else [line, '']
 		lhs = "'%s'" % lhs if 's' in opts else lhs
-		str = str + indent + '  ' + lhs + delim + rhs + ',\n'
-	return str + indent + '}'
+		body.append(indent + '  ' + lhs + delim + rhs + ',')
+	end_line = [indent + '}']
+	return '\n'.join(first_line + body + end_line)
 endglobal
 
 snippet "toh(c?[si]?)" "creates a multiline hash" r
