@@ -249,6 +249,27 @@ ${1:var} = {
 endsnippet
 
 global !p
+def case_creator(obj, args, indent):
+	first_line = ['case ' + obj]
+	when_lines, else_line = args.split(' .. ') if ' .. ' in args else [args, '']
+	when_lines = when_lines.split(' . ')
+	body = []
+	for line in when_lines:
+		lhs, rhs = line.split('  ') if '  ' in line else [line, '']
+		body.append('when %s then %s' % (lhs, rhs))
+	body.append('else ' + else_line) if else_line else None
+	body.append('end')
+	result = first_line + ['%s%s' % (indent, line) for line in body]
+ 	return '\n'.join(result)
+endglobal
+
+snippet toca "creates a one-liner case switch" !b
+case ${1:obj} => $2
+`!p snip.rv = case_creator(t[1], t[2], snip._initial_indent)`
+$0
+
+endsnippet
+global !p
 def hash_creator(var, args, opts, indent):
 	str = var.upper() if 'c' in opts else var
  	str += ' = {\n'
