@@ -426,11 +426,13 @@ let g:syntastic_loc_list_height=5
 """""""""""""""
 
 SubmodeDefine gitgutter
-Submode n <enter> sg :GitGutterNextHunk<cr>
+Submode n <enter> sg <nop>
 Submode n j :GitGutterNextHunk<cr>
 Submode n k :GitGutterPrevHunk<cr>
 Submode n a :GitGutterStageHunk<cr>
-Submode n u :GitGutterRevertHunk
+Submode n s :GitGutterStageHunk<cr>
+Submode n u :GitGutterRevertHunk<cr>
+Submode n r :GitGutterRevertHunk<cr>
 SubmodeDefineEnd
 
 
