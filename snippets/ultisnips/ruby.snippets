@@ -2,6 +2,48 @@
 #  Custom Snippets by LFDM  #
 ############################
 
+######### Global Snippets #########
+
+global !p
+def insert_creator_return(snip, first_line, body, end_line, body_indent):
+	snip.rv = first_line
+	snip >> body_indent
+	for line in body:
+		snip += line
+	snip.reset_indent()
+	snip += end_line
+
+def split_body(body):
+	return body.split(' . ')
+
+def lhs_and_rhs(line):
+	return line.split('  ') if '  ' in line else [line, '']
+
+def hash_creator(var, args, opts, snip):
+	first_line = (var.upper() if 'c' in opts else var) + ' = {'
+	lines = split_body(args)
+	body = []
+	delim = ' => ' if 'i' in opts or 's' in opts else ': '
+	for line in lines:
+		lhs, rhs = lhs_and_rhs(line)
+		lhs = "'%s'" % lhs if 's' in opts else lhs
+		body.append(lhs + delim + rhs + ',')
+
+	insert_creator_return(snip, first_line, body, '}', 1)
+
+def case_creator(obj, args, snip):
+	when_lines, else_line = args.split(' .. ') if ' .. ' in args else [args, '']
+	when_lines = split_body(when_lines)
+	body = []
+	for line in when_lines:
+		lhs, rhs = lhs_and_rhs(line)
+		body.append('when %s then %s' % (lhs, rhs))
+	body.append('else ' + else_line) if else_line else None
+	
+	insert_creator_return(snip, 'case ' + obj, body, 'end', 0)
+endglobal
+
+	
 ######### if and unless #########
 
 snippet "tern" "ternary operator" r
@@ -201,24 +243,9 @@ when ${1:condition}
 	${0}
 endsnippet
 
-global !p
-def case_creator(obj, args, indent):
-	first_line = ['case ' + obj]
-	when_lines, else_line = args.split(' .. ') if ' .. ' in args else [args, '']
-	when_lines = when_lines.split(' . ')
-	body = []
-	for line in when_lines:
-		lhs, rhs = line.split('  ') if '  ' in line else [line, '']
-		body.append('when %s then %s' % (lhs, rhs))
-	body.append('else ' + else_line) if else_line else None
-	body.append('end')
-	result = first_line + ['%s%s' % (indent, line) for line in body]
- 	return '\n'.join(result)
-endglobal
-
 snippet toca "creates a one-liner case switch" !b
 case ${1:obj} => $2 $0
-`!p snip.rv = case_creator(t[1], t[2], snip._initial_indent)`
+`!p case_creator(t[1], t[2], snip)`
 
 endsnippet
 ######### Instance variables #########
@@ -266,23 +293,9 @@ ${1:var} = {
 }
 endsnippet
 
-global !p
-def hash_creator(var, args, opts, indent):
-	first_line = [(var.upper() if 'c' in opts else var) + ' = {']
-	lines = args.split(' . ')
-	body = []
-	delim = ' => ' if 'i' in opts or 's' in opts else ': '
-	for line in lines:
-		lhs, rhs = line.split('  ') if '  ' in line else [line, '']
-		lhs = "'%s'" % lhs if 's' in opts else lhs
-		body.append(indent + '  ' + lhs + delim + rhs + ',')
-	end_line = [indent + '}']
-	return '\n'.join(first_line + body + end_line)
-endglobal
-
 snippet "toh(c?[si]?)" "creates a multiline hash" r
 $1 = ${2:dot_delimits_key_and_value_two_spaces_pairs} $0
-`!p snip.rv = hash_creator(t[1], t[2], match.group(1), snip._initial_indent)`
+`!p hash_creator(t[1], t[2], match.group(1), snip)`
 endsnippet
 
 snippet "(hr|:)" "hashrocket" r
