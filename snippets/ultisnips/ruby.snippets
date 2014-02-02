@@ -1,6 +1,6 @@
 #############################
 #  Custom Snippets by LFDM  #
-############################
+#############################
 
 ######### Global Snippets #########
 
@@ -41,6 +41,19 @@ def case_creator(obj, args, snip):
 	body.append('else ' + else_line) if else_line else None
 	
 	insert_creator_return(snip, 'case ' + obj, body, 'end', 0)
+
+def spec_class_name(snip, path, re):
+	path_parts = path.split('/')
+	path_parts = [part for part in path_parts if not re.match('^(spec|lib)$', part)]
+	corrected_parts = []
+	for part in path_parts:
+		if part == 'llt':
+			p = part.upper()
+		else:
+			p = part.rstrip('_spec.rb')
+			p = ''.join([x.capitalize() for x in p.split('_')])
+		corrected_parts.append(p)
+	snip.rv = '::'.join(corrected_parts)
 endglobal
 
 	
@@ -341,20 +354,20 @@ endsnippet
 snippet specm "sets up a spec file to test a module"
 require 'spec_helper'
 
-describe ${1} do
-  let(:dummy) { Class.new { include $1 }.new }
+describe ${1:`!p spec_class_name(snip, path, re)`} do
+  let(:dummy) { Class.new { include $1 } }
 
-  ${0}
+  ${0:desc}
 end
 endsnippet
 
 snippet specc "sets up a spec file to test a class"
 require 'spec_helper'
 
-describe ${1} do
-  let(:${2}) { $1.new${3} }
+describe ${1:`!p spec_class_name(snip, path, re)`} do
+  let(:${2:`!p snip.rv = snip.basename.rstrip('_spec.rb')`}) { $1.new${3:()} }
 
-  ${0}
+  ${0:desc}
 end
 endsnippet
 
@@ -1070,8 +1083,7 @@ endsnippet
 
 snippet mai "Migrations: add_index"
 add_index :${1:table_name}, :${0:column_name}
-endsnippet
-
+endsnippe	
 snippet mrc "Migrations: remove_column"
 remove_column :${1:table_name}, :${0:column_name}
 endsnippet
