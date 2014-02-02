@@ -561,6 +561,8 @@ nnoremap - :Switch<cr>
 nnoremap ,j :SplitjoinJoin<cr>
 nnoremap ,s :SplitjoinSplit<cr>
 
+let g:splitjoin_align = 1
+
 
 """"""""""""""
 "  sideways  "
