@@ -76,3 +76,6 @@
 [submodule "plugins/vim-easy-submode"]
 	path = plugins/vim-easy-submode
 	url = git@github.com:boolfool/vim-easy-submode.git
+[submodule "plugins/YankRing.vim"]
+	path = plugins/YankRing.vim
+	url = git@github.com:vim-scripts/YankRing.vim.git
