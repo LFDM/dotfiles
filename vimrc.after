@@ -418,6 +418,7 @@ let g:syntastic_auto_loc_list=1
 " Make the list a little shorter
 let g:syntastic_loc_list_height=5
 
+
 """""""""""""""
 "  gitgutter  "
 """""""""""""""
@@ -556,6 +557,7 @@ nnoremap - :Switch<cr>
 """""""""""""""
 "  splitjoin  "
 """""""""""""""
+
 nnoremap ,j :SplitjoinJoin<cr>
 nnoremap ,s :SplitjoinSplit<cr>
 
@@ -578,12 +580,13 @@ SubmodeDefineEnd
 call submode#map('sideways', 'n', 'rs', 'd', 'd<Plug>SidewaysArgumentTextobjA')
 call submode#map('sideways', 'n', 'rs', 'x', 'd<Plug>SidewaysArgumentTextobjI')
 
+
 """""""""""""
 "  submode  "
 """""""""""""
 
 " stay - we entered for a cause
-let g:submode_timeoutlen = 5000
+let g:submode_timeoutlen = 15000
 let g:submode_showmode = 1
 
 
@@ -693,6 +696,7 @@ let g:ctrlp_switch_buffer = 0
 
 " no new window directly on startified startup
 let g:ctrlp_reuse_window = 'startify'
+
 
 """"""""""""""""
 "  EasyMotion  "
