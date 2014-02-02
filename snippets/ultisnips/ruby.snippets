@@ -62,8 +62,6 @@ def ${1:function_name}
 end
 endsnippet
 
-snippet "(de)?fa" "def <name>(*args)"
-endsnippet
 snippet "(de)?fa" "def <name>(*args)" rb
 def ${1:function_name}(${2:*args})
 	${0}	
@@ -203,6 +201,26 @@ when ${1:condition}
 	${0}
 endsnippet
 
+global !p
+def case_creator(obj, args, indent):
+	first_line = ['case ' + obj]
+	when_lines, else_line = args.split(' .. ') if ' .. ' in args else [args, '']
+	when_lines = when_lines.split(' . ')
+	body = []
+	for line in when_lines:
+		lhs, rhs = line.split('  ') if '  ' in line else [line, '']
+		body.append('when %s then %s' % (lhs, rhs))
+	body.append('else ' + else_line) if else_line else None
+	body.append('end')
+	result = first_line + ['%s%s' % (indent, line) for line in body]
+ 	return '\n'.join(result)
+endglobal
+
+snippet toca "creates a one-liner case switch" !b
+case ${1:obj} => $2 $0
+`!p snip.rv = case_creator(t[1], t[2], snip._initial_indent)`
+
+endsnippet
 ######### Instance variables #########
 	
 snippet iva "Instance variable assignment with mirroring"
@@ -236,7 +254,7 @@ endsnippet
 	
 ######### Concerning Hashes #########
 
-snippet eawodh "each_with_object coming from hash"
+snippet eawodh "each_with_object coming from hash" w
 each_with_object(${1}) do |(${2:k}, ${3:v}), ${4:v}|
   ${0}
 end
@@ -248,26 +266,6 @@ ${1:var} = {
 }
 endsnippet
 
-global !p
-def case_creator(obj, args, indent):
-	first_line = ['case ' + obj]
-	when_lines, else_line = args.split(' .. ') if ' .. ' in args else [args, '']
-	when_lines = when_lines.split(' . ')
-	body = []
-	for line in when_lines:
-		lhs, rhs = line.split('  ') if '  ' in line else [line, '']
-		body.append('when %s then %s' % (lhs, rhs))
-	body.append('else ' + else_line) if else_line else None
-	body.append('end')
-	result = first_line + ['%s%s' % (indent, line) for line in body]
- 	return '\n'.join(result)
-endglobal
-
-snippet toca "creates a one-liner case switch" !b
-case ${1:obj} => $2 $0
-`!p snip.rv = case_creator(t[1], t[2], snip._initial_indent)`
-
-endsnippet
 global !p
 def hash_creator(var, args, opts, indent):
 	first_line = [(var.upper() if 'c' in opts else var) + ' = {']
@@ -641,7 +639,7 @@ snippet end "__END__"
 __END__
 endsnippet
 
-snippet # "comment: indicates return value"
+snippet # "comment to indicate return value"
 # =>
 endsnippet
 
@@ -807,7 +805,7 @@ snippet any "any? {}" w
 any? { |${1:e}| ${0} }
 endsnippet
 
-snippet any "any? do ... end" w
+snippet anyd "any? do ... end" w
 any? do |${1:e}|
   ${0}
 end
