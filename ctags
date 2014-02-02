@@ -8,3 +8,7 @@
 --regex-ruby=/(^[ \t]*)describe ['"]([\.#].*)['"] do/\2/f,function,describe/
 
 --langmap=Lisp:+.clj
+
+--langdef=snippets
+--langmap=snippets:.snippets
+--regex-snippets=/^snippet (.*)/\1/s,snippet/

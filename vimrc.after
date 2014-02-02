@@ -454,7 +454,8 @@ map <leader>ue :call UltiSnipsEdit()<cr>
 " expand the snippet in current selection
 smap <C-l> <esc>a<c-j>
 smap <C-x> <bs><esc>:call CleanUpSnippetRemainings()<cr>
-imap <C-m> <c-j><esc>"_dd
+"imap <C-b> <c-j><esc>"_dd " this is acting up a bit, would be useful for the
+"creator plugins
 
 function! CleanUpSnippetRemainings()
   while getline('.') =~ '^\s*$'
@@ -602,6 +603,14 @@ let g:tagbar_type_markdown = {
               \ 'i:Heading_L2',
               \ 'k:Heading_L3',
               \ 'r:Heading_L4'
+      \ ]
+\ }
+
+let g:tagbar_type_snippets = {
+      \ 'ctagstype' : 'snippets',
+      \ 'kinds' : [
+              \ 's:snippets',
+              \ 'g:globals',
       \ ]
 \ }
 
