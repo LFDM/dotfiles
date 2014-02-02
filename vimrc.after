@@ -421,6 +421,18 @@ let g:syntastic_auto_loc_list=1
 " Make the list a little shorter
 let g:syntastic_loc_list_height=5
 
+"""""""""""""""
+"  gitgutter  "
+"""""""""""""""
+
+SubmodeDefine gitgutter
+Submode n <enter> sg :GitGutterNextHunk<cr>
+Submode n j :GitGutterNextHunk<cr>
+Submode n k :GitGutterPrevHunk<cr>
+Submode n a :GitGutterStageHunk<cr>
+Submode n u :GitGutterRevertHunk
+SubmodeDefineEnd
+
 
 """""""""""""""""""
 "  YouCompleteMe  "
