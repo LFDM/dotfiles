@@ -587,6 +587,7 @@ call submode#map('sideways', 'n', 'rs', 'x', 'd<Plug>SidewaysArgumentTextobjI')
 
 " stay - we entered for a cause
 let g:submode_timeoutlen = 5000
+let g:submode_showmode = 1
 
 
 """""""""""""""""
