@@ -453,16 +453,7 @@ let g:UltiSnipsEditSplit = 'vertical'
 map <leader>ue :call UltiSnipsEdit()<cr>
 " expand the snippet in current selection
 smap <C-l> <esc>a<c-j>
-smap <C-x> <bs><esc>:call CleanUpSnippetRemainings()<cr>
-"imap <C-b> <c-j><esc>"_dd " this is acting up a bit, would be useful for the
-"creator plugins
-
-function! CleanUpSnippetRemainings()
-  while getline('.') =~ '^\s*$'
-    delete
-    call cursor(line('.') - 1, 0)
-  endwhile
-endfunction
+imap <C-b> <c-j><esc>"_dd}
 
 
 """""""""""""""""""
