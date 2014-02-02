@@ -84,7 +84,7 @@ let g:lfdm_custom_keymap = {
       \  '\' : '/',
       \}
 
-function s:UseCustomKeymap()
+function! s:UseCustomKeymap()
   for [lhs, rhs] in items(g:lfdm_custom_keymap)
     exe 'inoremap '.lhs.' '.rhs
   endfor
@@ -92,7 +92,7 @@ function s:UseCustomKeymap()
   echo "Using custom keymap"
 endfunction
 
-function s:UseNormalKeymap()
+function! s:UseNormalKeymap()
   for lhs in keys(g:lfdm_custom_keymap)
     exe 'iunmap '.lhs
   endfor
@@ -100,7 +100,7 @@ function s:UseNormalKeymap()
   echo "Using normal keymap"
 endfunction
 
-function s:ToggleCustomizedKeymap()
+function! s:ToggleCustomizedKeymap()
   if g:lfdm_custom_keymap_in_use
     call s:UseNormalKeymap()
   else
