@@ -79,3 +79,6 @@
 [submodule "plugins/YankRing.vim"]
 	path = plugins/YankRing.vim
 	url = git@github.com:vim-scripts/YankRing.vim.git
+[submodule "plugins/vim-sneak"]
+	path = plugins/vim-sneak
+	url = git@github.com:justinmk/vim-sneak.git
