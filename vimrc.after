@@ -228,7 +228,7 @@ vnoremap > >gv
 nnoremap ,. '.
 
 SubmodeDefine speedjumping
-Submode vn <enter> sj 5j
+Submode vn <enter> <leader>sj 5j
 Submode vn <enter> sk 5k
 Submode vn j 5j
 Submode vn J 10j
@@ -356,10 +356,6 @@ function! RakeThroughTmux()
 endfunction
 map <leader>r :call RakeThroughTmux()<cr>
 
-" Ruby String to Symbol. makes use of the Surround plugin.
-" Mind the remap ; to :
-map <leader><leader>s ds"i;<esc>
-
 " Opens a split window with the corresponding spec file of what you're currently working on
 function! OpenSpec()
   let spec_file = substitute(expand('%'), ".rb$", "_spec.rb", "")
@@ -424,7 +420,7 @@ let g:syntastic_loc_list_height=5
 """""""""""""""
 
 SubmodeDefine gitgutter
-Submode n <enter> sg <nop>
+Submode n <enter> <leader>sg <nop>
 Submode n j :GitGutterNextHunk<cr>
 Submode n k :GitGutterPrevHunk<cr>
 Submode n a :GitGutterStageHunk<cr>
@@ -561,15 +557,13 @@ nnoremap - :Switch<cr>
 nnoremap ,j :SplitjoinJoin<cr>
 nnoremap ,s :SplitjoinSplit<cr>
 
-let g:splitjoin_align = 1
-
 
 """"""""""""""
 "  sideways  "
 """"""""""""""
 
 SubmodeDefine sideways
-Submode n <enter> sf <nop>
+Submode n <enter> <leader>sf <nop>
 Submode n h :SidewaysJumpLeft<cr>
 Submode n k :SidewaysJumpLeft<cr>
 Submode n j :SidewaysJumpRight<cr>
@@ -746,6 +740,22 @@ let g:gist_open_browser_after_post = 1
 """""""""""""
 
 " see also vimrc.before
+
+
+""""""""""""""""""""""
+"  ruby-refactoring  "
+""""""""""""""""""""""
+
+let g:ruby_refactoring_map_keys = 0
+
+nnoremap ,rap :RAddParameter<cr>
+nnoremap ,rel :RExtractLet<cr>
+nnoremap ,rec :RExtractConstant<cr>
+nnoremap ,relv :RExtractLocalVariable<cr>
+nnoremap ,rit :RInlineTemp<cr>
+nnoremap ,rrlv :RRenameLocalVariable<cr>
+nnoremap ,rriv :RRenameInstanceVariable<cr>
+nnoremap ,rem :RExtractMethod<cr>
 
 
 """""""""""""""
