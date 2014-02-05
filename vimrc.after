@@ -590,6 +590,8 @@ call submode#map('sideways', 'n', 'rs', 'x', 'd<Plug>SidewaysArgumentTextobjI')
 " stay - we entered for a cause
 let g:submode_timeoutlen = 15000
 let g:submode_always_show_submode = 1
+" unmapped keys leave the submode and are immediately processed by vim
+let g:submode_keep_leaving_key = 1
 
 
 """""""""""""""""
