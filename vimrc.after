@@ -430,6 +430,8 @@ Submode n r :GitGutterRevertHunk<cr>
 SubmodeDefineEnd
 
 
+Submode n c :Gcommit<cr>
+Submode n c :GitCommit<cr>
 """""""""""""""""""
 "  YouCompleteMe  "
 """""""""""""""""""
