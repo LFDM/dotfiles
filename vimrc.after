@@ -168,6 +168,9 @@ function! Abbrs()
   ab bg Bellum Gallicum
   ab cbg Caes. Gall.
   ab tb Treebank
+  ab u und
+  ab a auch
+  ab f f"uer
 endfunction
 autocmd BufRead,BufNewFile ~/code/diploma_thesis/text/tex/*.tex call Abbrs()
 
@@ -184,7 +187,7 @@ nnoremap vv <c-w>v
 nnoremap ss <c-w>s
 
 "Switch windows faster
-map <space> <c-w>w
+nnoremap <space> <c-w>w
 
 nnoremap <leader>bd :bd<cr>
 
@@ -427,11 +430,10 @@ Submode n a :GitGutterStageHunk<cr>
 Submode n s :GitGutterStageHunk<cr>
 Submode n u :GitGutterRevertHunk<cr>
 Submode n r :GitGutterRevertHunk<cr>
+Submode n c :Gcommit<cr>
 SubmodeDefineEnd
 
 
-Submode n c :Gcommit<cr>
-Submode n c :GitCommit<cr>
 """""""""""""""""""
 "  YouCompleteMe  "
 """""""""""""""""""
@@ -625,9 +627,9 @@ let g:tagbar_type_snippets = {
 
 let g:indentLine_color_term = 235
 let g:indentLine_char = '|'
+let g:indentLine_noConcealCursor = 1
 map <leader>ig :IndentLinesToggle<cr>
 
-let g:indentLine_noConcealCursor = 1
 
 """""""""""""""""""
 "  number_toggle  "
@@ -679,11 +681,6 @@ let g:ackprg = 'ag --nocolor --nogroup --column'
 map <leader>fa :Ack ""<left>
 
 
-"""""""""""
-"  CtrlP  "
-"""""""""""
-
-noremap <C-\> :CtrlPTag<cr>
 """"""""""""""
 "  yankring  "
 """"""""""""""
