@@ -184,7 +184,7 @@ nnoremap <C-l> :tabnext<CR>
 nnoremap <C-h> :tabprevious<CR>
 
 nnoremap vv <c-w>v
-nnoremap ss <c-w>s
+nnoremap <leader>ss <c-w>s
 
 "Switch windows faster
 nnoremap <space> <c-w>w
