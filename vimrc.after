@@ -627,6 +627,7 @@ let g:indentLine_color_term = 235
 let g:indentLine_char = '|'
 map <leader>ig :IndentLinesToggle<cr>
 
+let g:indentLine_noConcealCursor = 1
 
 """""""""""""""""""
 "  number_toggle  "
