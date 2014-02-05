@@ -14,6 +14,7 @@ hi PmenuSel          ctermfg=180 ctermbg=0
 hi PmenuSbar                     ctermbg=242
 set pumheight=20
 
+filetype plugin on
 hi SignColumn                    ctermbg=233
 hi Vertsplit         ctermfg=238
 
@@ -145,6 +146,7 @@ inoremap <C-c> <esc>viwUea
 """""""""""""""""""""""""""""""""""
 
 " jumping in f command or similar
+" obsolete - we jump with easymotion
 noremap , ;
 noremap \ ,
 
@@ -587,7 +589,7 @@ call submode#map('sideways', 'n', 'rs', 'x', 'd<Plug>SidewaysArgumentTextobjI')
 
 " stay - we entered for a cause
 let g:submode_timeoutlen = 15000
-let g:submode_showmode = 1
+let g:submode_always_show_submode = 1
 
 
 """""""""""""""""
@@ -710,11 +712,10 @@ let g:ctrlp_reuse_window = 'startify'
 "  EasyMotion  "
 """"""""""""""""
 
-map f <Plug>(easymotion-fl)
-map F <Plug>(easymotion-Fl)
-map t <Plug>(easymotion-tl)
-map T <Plug>(easymotion-Tl)
+map f <Plug>(easymotion-bd-fl)
+map t <Plug>(easymotion-bd-tl)
 map s <Plug>(easymotion-s2)
+map S <Plug>(easymotion-sn)
 
 let g:EasyMotion_keys = 'asdfjkl:ghqweruioptyzxcvbnm'
 
