@@ -713,9 +713,17 @@ let g:ctrlp_reuse_window = 'startify'
 "  EasyMotion  "
 """"""""""""""""
 
-" I need to use it more, so here are easier mappings
-map <leader>a <leader><leader>f
-map <leader><esc> <leader><leader>F
+map f <Plug>(easymotion-fl)
+map F <Plug>(easymotion-Fl)
+map t <Plug>(easymotion-tl)
+map T <Plug>(easymotion-Tl)
+map s <Plug>(easymotion-s2)
+
+let g:EasyMotion_keys = 'asdfjkl:ghqweruioptyzxcvbnm'
+
+let g:EasyMotion_do_shade = 0
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_enter_jump_first = 1
 
 
 """"""""""""""""
