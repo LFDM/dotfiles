@@ -13,6 +13,8 @@ call janus#disable_plugin('vimwiki')
 call janus#disable_plugin('snipmate')
 call janus#disable_plugin('supertab')
 call janus#disable_plugin('syntastic')
+" have pulled the plugin under vim-easymotion myself
+call janus#disable_plugin('easymotion')
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
