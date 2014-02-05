@@ -6,3 +6,6 @@ uml_diagram.pdf
 
 # (vim) swap files
 *.swp
+
+# bundler files
+.bundle
