@@ -52,3 +52,11 @@ let g:UltiSnipsListSnippets = "<c-e>"
 """""""""""""""""""
 
 let g:ycm_semantic_completion_toggle = '<c-f>'
+
+
+""""""""""""""
+"  yankring  "
+""""""""""""""
+
+let g:yankring_replace_n_pkey = ',p'
+let g:yankring_replace_n_nkey = ',n'
