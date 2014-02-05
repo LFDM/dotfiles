@@ -723,6 +723,9 @@ let g:EasyMotion_do_shade = 0
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_enter_jump_first = 1
 
+EMCommandLineNoremap <C-p> <Up>
+EMCommandLineNoremap <C-n> <Down>
+
 
 """"""""""""""""
 "  Tabularize  "
