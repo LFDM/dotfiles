@@ -604,6 +604,9 @@ imap <C-a> <esc>wa
 "  Tagbar  "
 """"""""""""
 
+" shows a tags definition, a is for args, don't want this on <space>
+let g:tagbar_map_showproto = 'a'
+
 let g:tagbar_type_markdown = {
       \ 'ctagstype' : 'markdown',
       \ 'kinds' : [
