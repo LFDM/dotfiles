@@ -717,7 +717,7 @@ map t <Plug>(easymotion-bd-tl)
 map s <Plug>(easymotion-s2)
 map S <Plug>(easymotion-sn)
 
-let g:EasyMotion_keys = 'asdfjkl:ghqweruioptyzxcvbnm'
+let g:EasyMotion_keys = 'asdfjkl;ghqweruioptyzxcvbnm'
 
 let g:EasyMotion_do_shade = 0
 let g:EasyMotion_do_mapping = 0
