@@ -54,6 +54,13 @@ def spec_class_name(snip, path, re):
 			p = ''.join([x.capitalize() for x in p.split('_')])
 		corrected_parts.append(p)
 	snip.rv = '::'.join(corrected_parts)
+
+def pluralize(count, re):
+	if not re.match('^\d+$', count):
+		return ''
+
+	count = int(count)
+	return '' if count == 1 else 's'
 endglobal
 
 	
@@ -464,7 +471,7 @@ should be_nil
 endsnippet
 
 snippet shi "should have item(s)" w
-should have(${1}).item${0}
+should have(${1}).item`!p snip.rv = pluralize(t[1], re)`$0
 endsnippet
 
 snippet se "should == " w
