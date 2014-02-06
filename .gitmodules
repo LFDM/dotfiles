@@ -82,3 +82,27 @@
 [submodule "plugins/vim-easymotion"]
 	path = plugins/vim-easymotion
 	url = git@github.com:Lokaltog/vim-easymotion.git
+[submodule "plugins/vim-textobj-user"]
+	path = plugins/vim-textobj-user
+	url = git@github.com:kana/vim-textobj-user.git
+[submodule "plugins/vim-textobj-rubyblock"]
+	path = plugins/vim-textobj-rubyblock
+	url = git@github.com:nelstrom/vim-textobj-rubyblock.git
+[submodule "plugins/vim-textobj-function"]
+	path = plugins/vim-textobj-function
+	url = git@github.com:kana/vim-textobj-function.git
+[submodule "plugins/vim-textobj-indent"]
+	path = plugins/vim-textobj-indent
+	url = git@github.com:kana/vim-textobj-indent.git
+[submodule "plugins/vim-textobj-underscore"]
+	path = plugins/vim-textobj-underscore
+	url = git@github.com:lucapette/vim-textobj-underscore.git
+[submodule "plugins/vim-textobj-line"]
+	path = plugins/vim-textobj-line
+	url = git@github.com:kana/vim-textobj-line.git
+[submodule "plugins/vim-textobj-function-javascript"]
+	path = plugins/vim-textobj-function-javascript
+	url = git@github.com:thinca/vim-textobj-function-javascript.git
+[submodule "plugins/argtextobj.vim"]
+	path = plugins/argtextobj.vim
+	url = git@github.com:vim-scripts/argtextobj.vim.git
