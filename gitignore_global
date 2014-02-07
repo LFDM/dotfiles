@@ -9,3 +9,5 @@ uml_diagram.pdf
 
 # bundler files
 .bundle
+
+doc/tags
