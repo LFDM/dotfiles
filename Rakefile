@@ -46,12 +46,6 @@ task :snippets do
   Linker.new("#{snip_dir}/UltiSnips").create_from("snippets/ultisnips")
 end
 
-desc "installs a custom airline theme"
-task :airline do
-  log('Installing custom airline theme')
-  Linker.new(".janus/vim-airline/autoload/airline/themes").create_from("airline/themes")
-end
-
 desc "updates the fonts cache"
 task :fonts do
   log('Updating font cache')
@@ -66,7 +60,7 @@ task :compile do
   end
 end
 
-task default: %i{ submodules dots plugins snippets airline fonts }
+task default: %i{ submodules dots plugins snippets fonts }
 
 class Linker
   def initialize(path = "", selector = '*', exclusions = %w{ install.sh Rakefile README.md })
@@ -92,7 +86,7 @@ class Linker
   end
 
   def non_linkable
-    %w{ airline plugins snippets }
+    %w{ plugins snippets }
   end
 
   def full_path(file)
