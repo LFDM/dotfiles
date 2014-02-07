@@ -106,3 +106,6 @@
 [submodule "plugins/argtextobj.vim"]
 	path = plugins/argtextobj.vim
 	url = git@github.com:vim-scripts/argtextobj.vim.git
+[submodule "plugins/vim-hopper"]
+	path = plugins/vim-hopper
+	url = git@github.com:LFDM/vim-hopper.git

@@ -232,15 +232,6 @@ vnoremap > >gv
 " go to last edit
 nnoremap ,. '.
 
-SubmodeDefine speedjumping
-Submode vn <enter> <leader>sj 5j
-Submode vn <enter> <leader>sk 5k
-Submode vn j 5j
-Submode vn J 10j
-Submode vn k 5k
-Submode vn K 10k
-SubmodeDefineEnd
-
 
 """"""""""""""""""""""""""""
 "  Centering search jumps  "
@@ -420,22 +411,6 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_loc_list_height=5
 
 
-"""""""""""""""
-"  gitgutter  "
-"""""""""""""""
-
-SubmodeDefine gitgutter
-Submode n <enter> <leader>sg <nop>
-Submode n j :GitGutterNextHunk<cr>
-Submode n k :GitGutterPrevHunk<cr>
-Submode n a :GitGutterStageHunk<cr>
-Submode n s :GitGutterStageHunk<cr>
-Submode n u :GitGutterRevertHunk<cr>
-Submode n r :GitGutterRevertHunk<cr>
-Submode n c :Gcommit<cr>
-SubmodeDefineEnd
-
-
 """""""""""""""""""
 "  YouCompleteMe  "
 """""""""""""""""""
@@ -588,7 +563,7 @@ call submode#map('sideways', 'n', 'rs', 'x', 'd<Plug>SidewaysArgumentTextobjI')
 """""""""""""
 
 " stay - we entered for a cause
-let g:submode_timeoutlen = 15000
+let g:submode_timeoutlen = 30000
 let g:submode_always_show_submode = 1
 " unmapped keys leave the submode and are immediately processed by vim
 let g:submode_keep_leaving_key = 1
