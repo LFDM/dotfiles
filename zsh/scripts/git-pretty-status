@@ -161,7 +161,11 @@ class GitStatus
   ######### Items of interest #########
 
   def branch
-    @status.lines.first.strip[/^On branch (.*)$/, 1]
+    @branch ||= begin
+
+      fl = @status.lines.first.strip
+      fl[/^On branch (.*)$/, 1] || fl # it's detached then
+    end
   end
 
   def ahead
@@ -177,10 +181,14 @@ class GitStatus
   end
 
   def header
-    parts = [[:branch, :branch], [:difference, :new]]
-    parts << (anything_changed? ? [:hotkey, :dark] : [:clean_state, :mod]) # mod is green
-    # compact because difference might return nil
-    "On branch: #{parts.map { |meth, col| mu(send(meth), col) }.compact.join('  |  ')}"
+    if branch.match(/detached/)
+      mu(branch, :del)
+    else
+      parts = [[:branch, :branch], [:difference, :new]]
+      parts << (anything_changed? ? [:hotkey, :dark] : [:clean_state, :mod]) # mod is green
+      # compact because difference might return nil
+      "On branch: #{parts.map { |meth, col| mu(send(meth), col) }.compact.join('  |  ')}"
+    end
   end
 
   def clean_state
