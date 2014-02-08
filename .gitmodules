@@ -109,3 +109,6 @@
 [submodule "plugins/vim-hopper"]
 	path = plugins/vim-hopper
 	url = git@github.com:LFDM/vim-hopper.git
+[submodule "plugins/vim-textobj-entire"]
+	path = plugins/vim-textobj-entire
+	url = git@github.com:kana/vim-textobj-entire.git
