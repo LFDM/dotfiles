@@ -1,0 +1,31 @@
+#!/bin/zsh
+
+staged_files=$(git diff --cached --name-only --diff-filter=ACM)
+top_level=$(git rev-parse --show-toplevel)
+
+messages=()
+
+function check_for_pattern() {
+  if [[ $1 =~ $2 ]]; then
+    if cat $top_level/$1 | grep -q $3; then
+      messages+="$3 found in $1"
+    fi
+  fi
+}
+
+for file in ${(f)staged_files}; do
+  check_for_pattern $file 'spec.rb$' ':focus'
+  check_for_pattern $file '.rb$' 'binding.pry'
+done
+
+if [[ -z $#messages ]]; then
+  exit 0
+else
+  echo "COMMIT ABORTED"
+  for message in $messages; do
+    echo $message
+  done
+  exit 1
+fi
+
+
