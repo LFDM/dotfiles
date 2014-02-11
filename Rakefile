@@ -60,7 +60,7 @@ task :compile do
   end
 end
 
-task default: %i{ submodules dots plugins snippets fonts }
+task default: [:submodules, :dots, :plugins, :snippets, :fonts ]
 
 class Linker
   def initialize(path = "", selector = '*', exclusions = %w{ install.sh Rakefile README.md })
