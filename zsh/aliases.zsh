@@ -13,7 +13,7 @@ forks="$HOME/code/forks"
 scripts="$HOME/.zsh/scripts"
 
 # Active projects
-alias llt=' cd ~/code/llt/'
+#alias llt=' cd ~/code/llt/'
 alias lltdev='cd ~/code/llt-dev/'
 alias lltm='cd ~/code/llt-dev/llt'
 alias lltc='cd ~/code/llt-dev/llt-core'
