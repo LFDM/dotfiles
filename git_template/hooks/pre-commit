@@ -18,7 +18,7 @@ for file in ${(f)staged_files}; do
   check_for_pattern $file '.rb$' 'binding.pry'
 done
 
-if [[ -z $#messages ]]; then
+if [[ $#messages == 0 ]]; then
   exit 0
 else
   echo "COMMIT ABORTED"
