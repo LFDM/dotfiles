@@ -7,7 +7,7 @@ messages=()
 
 function check_for_pattern() {
   if [[ $1 =~ $2 ]]; then
-    if cat $top_level/$1 | grep -q $3; then
+    if grep $3 "$top_level/$1" | grep -qv "#" ; then
       messages+="$3 found in $1"
     fi
   fi
