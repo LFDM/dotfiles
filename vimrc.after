@@ -439,7 +439,7 @@ let g:rubycomplete_rails = 1
 " see also vimrc.before
 
 let g:UltiSnipsEditSplit = 'vertical'
-map <leader>ue :call UltiSnipsEdit()<cr>
+map <leader>ue :UltiSnipsEdit<cr>
 " expand the snippet in current selection
 smap <C-l> <esc>a<c-j>
 imap <C-b> <c-j><esc>"_dd}
