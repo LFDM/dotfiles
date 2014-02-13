@@ -149,6 +149,9 @@ def self.${1:class_method_name}(3:*args)
 end
 endsnippet
 
+
+######### Loops and Begins #########
+
 snippet defmm "method_missing" b
 def method_missing(meth, *args, &blk)
 	${0}
@@ -160,9 +163,6 @@ until ${1:expression}
 	${0}
 end
 endsnippet
-
-
-######### Loops and Begins #########
 
 snippet Until "begin ... end until <expression>"
 begin
@@ -378,9 +378,6 @@ describe ${1:`!p spec_class_name(snip, path, re)`} do
 end
 endsnippet
 
-# looks bad to have such things twice instead of just processing it through a
-# RegExp, but snippets with option r are not shown in completion menu or other
-# snippet listings - not cool.
 snippet desc "describe instance method" !b
 describe "#${1:method}" do
 	${0:pending "not implemented"}
@@ -407,7 +404,11 @@ end
 ${0:it}
 endsnippet
 
-snippet stub "stubs a message with a block" w
+snippet stub "simple stub" w
+stub(${1:method}: ${0:return})
+endsnippet
+
+snippet stubb "stubs a message with a block" w
 stub(:${1}) { ${0} }
 endsnippet
 
@@ -545,7 +546,7 @@ endsnippet
 
 ######### String handling #########
 
-snippet ip "ip" i
+snippet ip "string interpolation" i
 #{${1:interpolation}}${0}
 endsnippet
 
