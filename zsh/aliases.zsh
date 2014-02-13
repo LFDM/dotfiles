@@ -150,6 +150,9 @@ alias top='htop'
 alias gpol='gem_polish'
 alias gpolv='gem_polish version'
 
+# shows a tree of subdirectories
+alias t='tree'
+
 # using hub
 # disabled temporarily, is buggy
 #alias git=hub
