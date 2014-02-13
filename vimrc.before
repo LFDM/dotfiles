@@ -47,7 +47,6 @@ let g:airline_theme='lfdm'
 let g:UltiSnipsExpandTrigger = "<c-j>"
 let g:UltiSnipsListSnippets = "<c-e>"
 
-
 """""""""""""""""""
 "  YouCompleteMe  "
 """""""""""""""""""
@@ -64,3 +63,9 @@ let g:yankring_replace_n_nkey = ',n'
 " not sure what this is good for - it works without them
 " and it breaks easymotion in operator pending mode
 let g:yankring_zap_keys = ''
+
+""""""""""""""""
+"  IndentLine  "
+""""""""""""""""
+
+let g:indentLine_noConcealCursor = 1

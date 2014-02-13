@@ -613,9 +613,10 @@ let g:tagbar_type_snippets = {
 "  IndentLine  "
 """""""""""""""
 
+" see also vimrc.before
+
 let g:indentLine_color_term = 235
 let g:indentLine_char = '|'
-let g:indentLine_noConcealCursor = 1
 map <leader>ig :IndentLinesToggle<cr>
 
 
