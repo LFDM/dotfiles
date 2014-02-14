@@ -69,3 +69,10 @@ let g:yankring_zap_keys = ''
 """"""""""""""""
 
 let g:indentLine_noConcealCursor = 1
+
+
+""""""""""""""""
+"  vim-hopper  "
+""""""""""""""""
+
+let g:hopper_prefix = '<space>'

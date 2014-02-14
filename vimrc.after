@@ -454,6 +454,13 @@ smap <C-l> <esc>a<c-j>
 imap <C-b> <c-j><esc>"_dd}
 
 
+""""""""""""""""
+"  vim-hopper  "
+""""""""""""""""
+
+" see vimrc.before
+
+
 """""""""""""""""""
 "  NerdCommenter  "
 """""""""""""""""""
