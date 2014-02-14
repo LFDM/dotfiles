@@ -58,6 +58,11 @@ task :compile do
   Dir.chdir('plugins/YouCompleteMe') do
     exec './install.sh'
   end
+
+  Dir.chdir('util/xcape') do
+    system 'make'
+    system 'sudo make install'
+  end
 end
 
 task default: [:submodules, :dots, :plugins, :snippets, :fonts ]
@@ -86,7 +91,7 @@ class Linker
   end
 
   def non_linkable
-    %w{ plugins snippets }
+    %w{ plugins snippets util }
   end
 
   def full_path(file)

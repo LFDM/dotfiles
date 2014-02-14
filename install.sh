@@ -1,6 +1,6 @@
 #!/bin/bash
 
-inst () { sudo apt-get install $1; }
+inst () { sudo apt-get install $@; }
 with_color () { echo -e "\033[$2m$1\033[0m"; }
 
 suc ()  { with_color "\n### $1 ###" 92; }
@@ -102,6 +102,9 @@ rm -rf hub
 
 log_and_inst cmake
 log_and_inst python-dev
+
+inst libx11-dev libxtst-dev libxi-dev
+hint "These libs will be used by xcape"
 
 log 'Creating user files'
 create_user_files gitconfig

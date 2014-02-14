@@ -112,3 +112,6 @@
 [submodule "plugins/vim-textobj-entire"]
 	path = plugins/vim-textobj-entire
 	url = git@github.com:kana/vim-textobj-entire.git
+[submodule "util/xcape"]
+	path = util/xcape
+	url = git@github.com:alols/xcape.git
