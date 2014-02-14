@@ -59,3 +59,6 @@ bindkey -M vicmd 'Y' vi-yank-eol
 bindkey -M vicmd 'H' beginning-of-line
 bindkey -M vicmd 'L' end-of-line
 
+
+# custom keybindings ftw!
+rebind-keys
