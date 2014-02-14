@@ -22,3 +22,5 @@ xc 'Shift_R=parenright'
 
 # Easier return, triggered by the thumb
 xc 'Alt_R=Return'
+
+# Could try something with backspace too?
