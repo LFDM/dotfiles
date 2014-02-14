@@ -181,15 +181,24 @@ autocmd BufRead,BufNewFile ~/code/diploma_thesis/text/tex/*.tex call Abbrs()
 "  Tabs, Buffers, Windows  "
 """"""""""""""""""""""""""""
 
+" not really using tabs a lot anymore...
 noremap  <C-t> :tabnew<CR>
-nnoremap <C-l> :tabnext<CR>
-nnoremap <C-h> :tabprevious<CR>
+nnoremap ,l :tabnext<CR>
+nnoremap ,h :tabprevious<CR>
 
 nnoremap vv <c-w>v
 nnoremap <leader>ss <c-w>s
 
-"Switch windows faster
-nnoremap <space> <c-w>w
+" Switch windows faster
+" Think about freeing up space againg. Hopper trigger maybe?
+"nnoremap space> <c-w>w
+
+" Regular window movement
+" Destroys line bubbling, use unimpaired and hopper instead
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
 
 nnoremap <leader>bd :bd<cr>
 
