@@ -19,6 +19,7 @@
   * git hooks to automate ctags creation
   * custom snippets
   * fonts for vim-airline and a custom theme
+  * xcape to remap `Caps_Lock` to `Ctrl` AND `Esc`
 * Follow the instructions
   * You'll be prompted for your sudo password among other things
 * Enjoy, it's awesome!
