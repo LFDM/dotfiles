@@ -1,16 +1,16 @@
-#!/bin/zsh
-
-if [[ $DOTFILES_HAVE_REBOUND_KEYS == 0 ]]; then
-  exit 0
-fi
+#!/bin/zsh -e
 
 function xm {
-  xmodmap -e $1
+  xmodmap -e $1 2>/dev/null
 }
 
 function xc {
   xcape -t 200 -e $1
 }
+
+# The -e in the shebang line is a rather rude hack to avoid getting this run
+# more than once and still be able to execute it from zshrc. With lock removed
+# an exception is thrown, when the script encounters this line again...
 
 # Caps lock to left control
 xm 'remove lock = Caps_Lock'
@@ -28,7 +28,3 @@ xc 'Shift_R=parenright'
 xc 'Alt_R=Return'
 
 # Could try something with backspace too?
-
-
-# avoid to reload this script over and over again
-export DOTFILES_HAVE_REBOUND_KEYS=0
