@@ -32,6 +32,13 @@ function! ${1:function_name}(${2})
 endfunction
 endsnippet
 
+snippet dict "dictionary with proper indentation" !b
+let ${1:var} = {
+      \  $2 : $0,
+\}
+endsnippet
+
+
 snippet for
 for ${1} in ${2}
 	${3}
@@ -60,6 +67,22 @@ endsnippet
 
 snippet l
 <leader>$0
+endsnippet
+
+# hopper plugin development
+
+snippet fh "temporary mapping for hopper functions" !b
+function! hopper#${1:function_name}(${2})
+	${3}
+endfunction
+endsnippet
+
+snippet hg "hopper#guard"
+hopper#guard("${1:cmd}", "${0:message}")
+endsnippet
+
+snippet c "simulated ex mode call" w
+:call $1<cr>$0)
 endsnippet
 
 # vim:ft=snippets:
