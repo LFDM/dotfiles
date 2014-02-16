@@ -820,3 +820,10 @@ map <leader><leader>v :call Vimrc()<cr>
 
 " Source this file when it's saved
 au BufWritePost .vimrc.after source ~/.vimrc.after
+
+
+"""""""""
+"  ghi  "
+"""""""""
+
+au bufRead GHI_* set ft=markdown
