@@ -34,10 +34,11 @@ vmap <C-g> <Plug>IMAP_JumpForward
 "  Airline  "
 """""""""""""
 
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#show_buffers=1
-let g:airline_powerline_fonts=1
-let g:airline_theme='lfdm'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#submode#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'lfdm'
 
 
 """""""""""""""
@@ -46,6 +47,7 @@ let g:airline_theme='lfdm'
 
 let g:UltiSnipsExpandTrigger = "<c-j>"
 let g:UltiSnipsListSnippets = "<c-e>"
+
 
 """""""""""""""""""
 "  YouCompleteMe  "
@@ -63,6 +65,7 @@ let g:yankring_replace_n_nkey = ',n'
 " not sure what this is good for - it works without them
 " and it breaks easymotion in operator pending mode
 let g:yankring_zap_keys = ''
+
 
 """"""""""""""""
 "  IndentLine  "
