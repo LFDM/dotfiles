@@ -1039,6 +1039,30 @@ def $1${4:(${5:var})}
   $0
 end
 endsnippet
+
+######### OptionParser #########
+
+snippet opparser "Description" !
+OptionParser.new do |opts|
+  opts.banner "${1:`!p snip.rv = snip.basename`}"
+  opts.separator ''
+  ${0:opt}
+end
+endsnippet
+
+snippet op "opts.on" !
+opts.on('-${1/(\w).*/$1/}', '--${1:option}', '${2:description}') do |${3:$1}|
+  $0
+end
+endsnippet
+	
+snippet opsep "opts.separator" !
+opts.separator '$0'
+endsnippet
+
+snippet oph "opts.on <help>" !
+opts.on('-h', '--help', 'Displays this help')
+endsnippet
 	
 ######### Environmental Variables #########
 	
@@ -1544,4 +1568,3 @@ endsnippet
 #snippet xput "xput"
 #xhr :put, :${1:update}, :id => ${2:1}, :${3:object} => { ${4} }
 #endsnippet
-
