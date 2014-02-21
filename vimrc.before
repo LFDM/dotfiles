@@ -36,7 +36,6 @@ vmap <C-g> <Plug>IMAP_JumpForward
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
-let g:airline#extensions#submode#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'lfdm'
 
@@ -79,3 +78,11 @@ let g:indentLine_noConcealCursor = 1
 """"""""""""""""
 
 let g:hopper_prefix = '<space>'
+
+
+""""""""""""""""""
+"  numbertoggle  "
+""""""""""""""""""
+
+" this basically says: we don't want to use you
+let g:NumberToggleTrigger = '<Plug>UndefinedOfNoMansLand'

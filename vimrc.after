@@ -636,6 +636,8 @@ map <leader>ig :IndentLinesToggle<cr>
 "  number_toggle  "
 """""""""""""""""""
 
+" see also vimrc.before
+
 " Enables the only recently supported hybrid mode for line numbers.
 " Overrides the built in function
 function! EnableRelativeNumbers()
