@@ -51,6 +51,7 @@ alias gcobt='git-new-tracked-branch'
 alias gom='git-on-master'
 alias gdw='git diff --word-diff'
 alias gst='git-pretty-status-wrapper'
+alias gprum='git pull --rebase upstream master'
 
 # Fast vim
 alias v='vim'
