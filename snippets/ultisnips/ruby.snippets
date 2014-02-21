@@ -283,6 +283,12 @@ snippet ivc "Instance variable cache"
 @${1:variable_name} ||= ${0:chached_value}
 endsnippet
 
+snippet ivcb "Instance variable cache (multiline)" !b
+@${1:variable} ||= begin
+  ${0:body}
+end
+endsnippet
+
 ######### %{} Expression #########
 
 snippet ia "ia"
