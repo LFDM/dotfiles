@@ -319,6 +319,14 @@ au Filetype gitcommit setlocal spell spelllang=en
 au Filetype markdown setlocal spell spelllang=en
 
 
+""""""""""""""
+"  Wrapping  "
+""""""""""""""
+
+command! -nargs=* HardWrap set wrap linebreak nolist textwidth=72
+command! -nargs=* Wrap set wrap linebreak nolist textwidth=0 wrapmargin=0
+
+
 """""""""""""""""""
 "  File renaming  "
 """""""""""""""""""
@@ -795,13 +803,7 @@ nnoremap ,rem :RExtractMethod<cr>
 let g:Tex_SmartKeyQuote=0
 let g:tex_flavor='latex'
 
-function! Wrapping()
-  set wrap
-  set linebreak
-  set textwidth=72
-  set nolist
-endfunction
-au Filetype tex call Wrapping()
+au Filetype tex HardWrap
 
 function! TexRel()
   exec 'silent !pdflatex main && xdg-open main.pdf'
@@ -828,4 +830,5 @@ au BufWritePost .vimrc.after source ~/.vimrc.after
 "  ghi  "
 """""""""
 
-au bufRead GHI_* set ft=markdown
+au BufRead GHI_* set ft=markdown | Wrap
+au BufWinEnter GHI_* call clearmatches()
