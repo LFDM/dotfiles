@@ -1,0 +1,60 @@
+#!/usr/bin/env ruby
+
+# gbs - git bisect, automated
+
+require 'optparse'
+
+class Bisect
+  attr_accessor :bad, :good, :command
+
+  def execute(args)
+    try_shortform(args)
+    options.parse!(args)
+    begin
+      bisect "start #{bad} #{good}"
+      bisect "run '#{command}'"
+      bisect "reset"
+    rescue
+      puts options.to_s
+    end
+  end
+
+  def options
+    @options ||= OptionParser.new do |opts|
+      opts.banner = "gbs - automated git bisect\nUsage:"
+      opts.separator ''
+      opts.on('-b', '--bad <commit>',
+              'First bad commit, defaults to HEAD') { |b| @bad = b }
+      opts.on('-g', '--good <commit>',
+              'Last known good commit') { |g| @good = g }
+      opts.on('-c', '--command <cmd>',
+              'Command to test against, defaults to rake') { @command = c }
+      opts.on('-h', '--help', 'Displays these instructions') { abort opts.help }
+      opts.separator ''
+      opts.separator 'Alternative short form: gbs <good-commit>'
+    end
+  end
+
+  def bad
+    @bad ||= 'HEAD'
+  end
+
+  def command
+    @command ||= 'rake'
+  end
+
+  private
+
+  def bisect(cmd)
+     system("git bisect #{cmd}")
+     abort puts and options.to_s unless $?.success?
+  end
+
+  def try_shortform(args)
+    if args.one? && ! args.first.match(/--?h(elp)?/)
+      @good = args.shift
+    end
+  end
+end
+
+Bisect.new.execute(ARGV)
