@@ -689,6 +689,10 @@ if __FILE__ == $PROGRAM_NAME
 end
 endsnippet
 
+snippet tst "Description" !b
+${VISUAL}
+endsnippet
+
 snippet bin "ruby bin file with load path loading" b!
 #!/usr/bin/env ruby
 
@@ -1044,9 +1048,9 @@ endsnippet
 
 snippet opparser "Description" !
 OptionParser.new do |opts|
-  opts.banner "${1:`!p snip.rv = snip.basename`}"
+  opts.banner = "${1:`!p snip.rv = snip.basename`}"
   opts.separator ''
-  ${0:opt}
+  ${0:op}
 end
 endsnippet
 
@@ -1061,7 +1065,7 @@ opts.separator '$0'
 endsnippet
 
 snippet oph "opts.on <help>" !
-opts.on('-h', '--help', 'Displays this help')
+opts.on('-h', '--help', 'Displays this help') { abort opts.help }
 endsnippet
 	
 ######### Environmental Variables #########
