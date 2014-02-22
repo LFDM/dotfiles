@@ -1,0 +1,91 @@
+#!/usr/bin/env ruby
+
+# git-fork-with-upstream - clones a forked repo with an upstream remote
+require 'optparse'
+
+class GitFork
+  def options
+    @options ||= OptionParser.new do |opts|
+      opts.banner = "git-fork-with-upstream - clone a forked repo with upstream remote"
+      opts.separator ''
+      opts.on('-f', '--forker <user>>', 'forking user- defaults to your github user') do |user|
+        @user = user
+      end
+      opts.on('-u', '--upstreamer <user>', 'upstreaming user') do |upstreamer|
+        @upstreamer = upstreamer
+      end
+      opts.on('-h', '--help', 'Displays this help') { abort opts.help }
+      opts.separator ''
+      opts.separator <<EOF
+Examples (when your gitconfig holds the github.user LFDM):
+    git-fork-with-upstream -u jruby warbler
+    git-fork-with-upstream git@github.com:jruby/warbler.git
+    git-fork-with-upstream -u jruby -f LFDM warbler
+
+    All examples clone from the adress git@github.com:LFDM/warbler.git
+    and add the upstream remote git@github.com:jruby/warbler
+EOF
+    end
+  end
+
+  def execute(args)
+    options.parse!(args)
+    parse_argument(args)
+
+    clone_repo
+    add_upstream
+  end
+
+  private
+
+  def github_path
+    "git@github.com:"
+  end
+
+  def parse_argument(args)
+    abort "Too many args given" and options.help if args.size > 1
+    abort "No args given" and options.help if args.empty?
+
+    extract_info(args.shift)
+  end
+
+  def extract_info(arg)
+    if arg.start_with?(github_path)
+      parse_github_link(arg)
+    else
+      @repo = arg
+    end
+  end
+
+  def parse_github_link(arg)
+    arg.match(/(#{github_path})(.*?)\/(.*)/)
+    @upstreamer = $2
+    @repo = $3.chomp('.git')
+  end
+
+  def clone_repo
+    `git clone #{to_gh(user, @repo)}`	
+  end
+
+  def add_upstream
+    upstream = to_gh(@upstreamer, @repo)
+    print "Adding upstream #{upstream}... "
+    Dir.chdir(@repo) do
+      `git remote add upstream #{upstream}`
+    end
+    puts 'done.'
+
+  end
+
+  def to_gh(*args)
+    github_path + args.join('/') + '.git'
+  end
+
+  def user
+    @user ||= `git config github.user`.strip
+  end
+end
+
+if __FILE__ == $PROGRAM_NAME
+  GitFork.new.execute(ARGV)
+end

@@ -141,6 +141,7 @@ compdef _echoti e=echoti
 # Script shortcuts
 alias b='breakout'
 alias gbs='git-bisect'
+alias gfwu='git-fork-with-upstream'
 alias tkks='tmux-kill-sessions'
 alias tkps='tmux-kill-panes'
 alias tkws='tmux-kill-windows'
