@@ -66,7 +66,7 @@ endglobal
 	
 ######### if and unless #########
 
-snippet "tern" "ternary operator" r
+snippet ? "ternary operator" w
 ${1:condition} ? ${2:true} : ${0:false}
 endsnippet
 	
@@ -130,20 +130,20 @@ def ${1:function_name}(${2:*args})
 end
 endsnippet
 
-snippet defi "def initialize ..." b
+snippet "(de)?fi" "def initialize ..." br
 def initialize(${1:*args})
 	${2:iva}
 end
 ${0}
 endsnippet
 
-snippet defs "def self.<name>" b
+snippet "(de)?fs" "def self.<name>" br
 def self.${1:class_method_name}
 	${0}
 end
 endsnippet
 
-snippet defsa "def self.<name>(*args)" b
+snippet "(de)?fsa" "def self.<name>(*args)" rb
 def self.${1:class_method_name}(3:*args)
 	${0}
 end
@@ -689,17 +689,17 @@ if __FILE__ == $PROGRAM_NAME
 end
 endsnippet
 
-snippet bin_file "ruby bin file with load path loading" b
+snippet bin "ruby bin file with load path loading" b!
 #!/usr/bin/env ruby
 
 lib = File.expand_path('../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-${0:req}
+require '${0:`!p snip.rv = snip.basename`}'
 endsnippet
 
-snippet lpath "adds lib folder to load" !b
-lib = File.expand_path('../../lib', __FILE__)
+snippet lp "adds lib folder to load" !b
+lib = File.expand_path('${0:../..}/lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 endsnippet
 	
