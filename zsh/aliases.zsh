@@ -138,8 +138,14 @@ alias e='echo'
 compdef _echotc e=echotc
 compdef _echoti e=echoti
 
-# fast breakout
+# Script shortcuts
 alias b='breakout'
+alias gbs='git-bisect'
+alias tkks='tmux-kill-sessions'
+alias tkps='tmux-kill-panes'
+alias tkws='tmux-kill-windows'
+alias tdp='tmux display-panes'
+alias kvs='kill-vim-swaps'
 
 # open chrome silently on my second monitor
 alias chrome='google-chrome --window-position=1921,0 2>/dev/null &!'
@@ -157,3 +163,5 @@ alias t='tree'
 # using hub
 # disabled temporarily, is buggy
 #alias git=hub
+
+alias ghi='/home/lfdm/code/forks/ghi/bin/ghi'

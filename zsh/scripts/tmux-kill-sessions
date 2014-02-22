@@ -1,5 +1,5 @@
 #!/bin/zsh
-# tkss - tmux kill sessions
+# tkss - tmux-kill-sessions
 #
 # Kills all tmux sessions matched by grep. Prompts before killing.
 # Example: tksr -P '.*'

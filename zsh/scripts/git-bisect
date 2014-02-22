@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-# gbs - git bisect, automated
+# git bisect, automated
 
 require 'optparse'
 
