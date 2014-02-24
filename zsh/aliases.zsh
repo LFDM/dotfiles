@@ -165,4 +165,7 @@ alias t='tree'
 # disabled temporarily, is buggy
 #alias git=hub
 
+# For local development
+alias gem_polish="$HOME/code/gem_polish/bin/gem_polish"
+
 alias ghi='/home/lfdm/code/forks/ghi/bin/ghi'
