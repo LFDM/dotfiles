@@ -115,3 +115,6 @@
 [submodule "util/xcape"]
 	path = util/xcape
 	url = git@github.com:alols/xcape.git
+[submodule "plugins/vim-ghi"]
+	path = plugins/vim-ghi
+	url = git@github.com:LFDM/vim-ghi.git
