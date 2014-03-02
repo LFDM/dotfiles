@@ -404,10 +404,8 @@ endsnippet
 
 snippet it "it example" b
 it "${1}" do
-  ${2}
+  ${0}
 end
-
-${0:it}
 endsnippet
 
 snippet stub "simple stub" w
@@ -486,7 +484,7 @@ should == ${0}
 endsnippet
 
 snippet sm "should =~" w
-should =~ ${0}
+should =~ /${0}/
 endsnippet
 
 snippet sr "should receive" w
