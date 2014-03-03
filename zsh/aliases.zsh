@@ -168,4 +168,12 @@ alias t='tree'
 # For local development
 alias gem_polish="$HOME/code/gem_polish/bin/gem_polish"
 
-alias ghi='/home/lfdm/code/forks/ghi/bin/ghi'
+alias ghi='/home/lfdm/code/ghi/bin/ghi'
+
+# gem_polish aliases
+alias gph='gem_polish help'
+alias gpp='gem_polish polish'
+alias gpv='gem_polish version'
+alias gpga='gem_polish gem add'
+alias gpgd='gem_polish gem delete'
+alias gpgu='gem_polish gem update'
