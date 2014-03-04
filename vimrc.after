@@ -824,11 +824,3 @@ map <leader><leader>v :call Vimrc()<cr>
 
 " Source this file when it's saved
 au BufWritePost .vimrc.after source ~/.vimrc.after
-
-
-"""""""""
-"  ghi  "
-"""""""""
-
-au BufRead GHI_* set ft=markdown | Wrap
-au BufWinEnter GHI_* call clearmatches()
