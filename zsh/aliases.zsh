@@ -154,10 +154,6 @@ alias chrome='google-chrome --window-position=1921,0 2>/dev/null &!'
 # replacements
 alias top='htop'
 
-# Gem polish - avoid conflicts with git
-alias gpol='gem_polish'
-alias gpolv='gem_polish version'
-
 # shows a tree of subdirectories
 alias t='tree'
 
