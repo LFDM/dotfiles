@@ -3,7 +3,7 @@
 declare -A dict
 dict=(
   home 192.168.178.20
-  alph dev.alpheios.net
+  alph 74.70.97.104
 )
 
 [[ $1 == '-X' ]] && x=x && shift
