@@ -1,5 +1,5 @@
 #!/bin/zsh
-# Launches a webserver on port 8000 to the share the current
+# Launches a webserver on port [PORT - default 8000] to the share the current
 # directory tree.
 
 function kbj {
@@ -8,13 +8,13 @@ function kbj {
 }
 trap 'kbj' 1 2 4
 
-port=8000
-python -m SimpleHTTPServer &
+port=${1:-8000}
+python -m SimpleHTTPServer $port &
 
 pip=$(echo $(curl --silent http://ipecho.net/plain))
 if [[ ! $pip == '' ]]; then
   echo "Server also accessible through $pip:$port"
-  echo -n "Hit y to copy it to the clipboard >> "
+  echo -n "Hit y to copy the address to the clipboard >> "
   read -t 5 var
   if [[ $var == 'y' ]]; then
     echo -n "$pip:$port" | xclip -sel clip
