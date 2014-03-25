@@ -47,7 +47,11 @@ class GitStatus
   ######### Parsing methods #########
 
   def get_status
-    `git status 2>/dev/null`
+    # newer versions of git come with a delimiting # - delete it,
+    # so we're back to the old status again
+    `git status 2>/dev/null`.lines.map do |line|
+      line.start_with?('#') ? line[1..-1] : line
+    end.join
   end
 
   # Remote info is always on the second line of git status
