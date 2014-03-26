@@ -77,6 +77,7 @@ alias agi='apt-get install'
 
 # start the home tmux session
 alias htmux='~/.tmux/home_session.sh'
+alias ttmux='~/.tmux/thinkpad-session.sh'
 # connect to home session and remain independent
 # kills subsession immediately after detachment
 alias ctmux='tmux new -s home-sub -t home; tmux kill-session -t home-sub'
