@@ -69,7 +69,7 @@ desc 'install synaptics configuration for T440s'
 task :synaptics do
   Dir.chdir('t440s') do
     exec 'sudo mkdir -p /etc/X11/xorg.conf.d && \
-      cp 50-synaptics.conf /etc/X11/xorg.conf.d/'
+      sudo cp 50-synaptics.conf /etc/X11/xorg.conf.d/'
   end
 end
 
