@@ -102,6 +102,7 @@ rm -rf hub
 
 log_and_inst cmake
 log_and_inst python-dev
+log_and_inst libxml2
 
 inst libx11-dev libxtst-dev libxi-dev
 hint "These libs will be used by xcape"
