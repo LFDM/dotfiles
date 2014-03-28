@@ -65,6 +65,14 @@ task :compile do
   end
 end
 
+desc 'install synaptics configuration for T440s'
+task :synaptics do
+  Dir.chdir('t440s') do
+    exec 'sudo mkdir -p /etc/X11/xorg.conf.d && \
+      cp 50-synaptics.conf /etc/X11/xorg.conf.d/'
+  end
+end
+
 task default: [:submodules, :dots, :plugins, :snippets, :fonts ]
 
 class Linker
@@ -91,7 +99,7 @@ class Linker
   end
 
   def non_linkable
-    %w{ plugins snippets util }
+    %w{ plugins snippets util t440s }
   end
 
   def full_path(file)
