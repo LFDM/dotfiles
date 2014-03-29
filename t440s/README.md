@@ -7,6 +7,11 @@ echo N >  /sys/module/video/parameters/brightness_switch_enabled
 echo disable > /proc/acpi/ibm/blueetooth
 ```
 
+* Fixes the bug of the brightness buttons
+* Disables bluetooth on startup
+* TODO: Don't start with maximum brightness. No working solution found
+  so far.
+
 ### Clickpad
 
 ```
@@ -15,9 +20,12 @@ dconf-editor
 ```
 
 Navigate to org.gnome.settings-daemon.plugins.mouse and uncheck the
-Active box.
+Active box - gnome would otherwise override our customized synaptics
+configuration.
 
-Run `rake synaptics`
+Run `rake synaptics` - this will copy the synaptics configuration file
+to `/etc/X11/xorg.conf.d` (and create the folder if need be).
+
 
 ### Startup script
 
