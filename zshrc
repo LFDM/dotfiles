@@ -40,6 +40,10 @@ export JRUBY_OPTS=--2.0
 # run bundler in parallel
 export BUNDLER_JOBS=4
 
+# scala
+export SCALA_HOME='~/tools/scala-2.10.4'
+export PATH=$PATH:$SCALA_HOME/bin
+
 # vi mode (oh-my-zsh is overwriting something here, so we stuff it in the back)
 bindkey -v
 bindkey ' ' magic-space
