@@ -9,8 +9,6 @@ echo disable > /proc/acpi/ibm/blueetooth
 
 * Fixes the bug of the brightness buttons
 * Disables bluetooth on startup
-* TODO: Don't start with maximum brightness. No working solution found
-  so far.
 
 ### Clickpad
 
@@ -31,3 +29,11 @@ to `/etc/X11/xorg.conf.d` (and create the folder if need be).
 
 Add a startup application with the following:
 `gnome-terminal --maximize-screen -e "zsh -ilc ttmux"`
+
+----------------
+
+### Unsolved Issues
+
+* Don't start with maximum brightness. No working solution found
+  so far.
+* Sound is ineffective after a suspend.
