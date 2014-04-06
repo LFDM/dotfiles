@@ -1,0 +1,14 @@
+#!/bin/zsh -e
+
+function xc {
+  xcape -t 200 -e $1
+}
+
+# Avoid Shift-0 and Shift-9
+xc 'Shift_L=parenleft'
+xc 'Shift_R=parenright'
+
+# Easier return, triggered by the thumb
+xc 'Alt_R=Return'
+
+# Could try something with backspace too?

@@ -1,0 +1,21 @@
+#!/bin/zsh -e
+
+function xm {
+  xmodmap -e $1 2>/dev/null
+}
+
+function xc {
+  xcape -t 200 -e $1
+}
+
+# The -e in the shebang line is a rather rude hack to avoid getting this run
+# more than once and still be able to execute it from zshrc. With lock removed
+# an exception is thrown, when the script encounters this line again...
+
+# Caps lock to left control
+xm 'remove lock = Caps_Lock'
+xm 'keysym Caps_Lock = Control_L'
+xm 'add control = Control_L'
+
+# Left control is also Escape
+xc 'Control_L=Escape'
