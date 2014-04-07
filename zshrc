@@ -63,6 +63,5 @@ bindkey -M vicmd 'Y' vi-yank-eol
 bindkey -M vicmd 'H' beginning-of-line
 bindkey -M vicmd 'L' end-of-line
 
-
-# custom keybindings ftw!
-rebind-keys
+# Here the rebind-keys script was called in the past. Run it on startup of the machine
+# instead, to avoid duplification of the xcape daemons.
