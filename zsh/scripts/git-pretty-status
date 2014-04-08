@@ -92,7 +92,10 @@ class GitStatus
   end
 
   def scan_until_next_empty_line(scanner)
-    scanner.scan_until(/\n\n/)
+    # New git versions do not have an empty file following the
+    # block of changes files anymore, as they are delimited trough
+    # # anyway. In such a case we just take the rest of the string
+    scanner.scan_until(/\n\n/) || scanner.rest
   end
 
   # Matches
