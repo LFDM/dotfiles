@@ -100,6 +100,7 @@ cd ..
 sudo rake install prefix=/usr/local
 rm -rf hub
 
+log_and_inst tree
 log_and_inst cmake
 log_and_inst python-dev
 log_and_inst libxml2
