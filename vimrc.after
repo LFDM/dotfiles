@@ -364,7 +364,9 @@ map <leader>P :set paste<cr>Orequire 'pry'; binding.pry<esc>:set nopaste<cr>
 function! RakeThroughTmux()
   " making sure that we are in the correct directory before invoking rake
   exec 'w'
-  exec 'silent ! tmux send-keys -t home:rake-runner "cd ' . expand('%:p:h') . ' && rake" C-m'
+  let session = system('tmux display-message -p "#S"')
+  let session = substitute(session, '\n$', '', '')
+  exec 'silent ! tmux send-keys -t '.session.':rake-runner "cd ' . expand('%:p:h') . ' && rake" C-m'
   exec 'redraw!'
 endfunction
 map <leader>r :call RakeThroughTmux()<cr>
