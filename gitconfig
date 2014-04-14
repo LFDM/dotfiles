@@ -16,6 +16,8 @@
   ci = commit
   st = status
   co = checkout
+  cl = clone
+  pu = git push -u origin master
   hist = log --pretty=format:\"%h %ad | %C(bold blue)[%an]%Creset %s%C(yellow)%d%Creset\" --graph --date=short
   br = branch
   type = cat-file -t
