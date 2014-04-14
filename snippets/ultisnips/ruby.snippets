@@ -1094,6 +1094,24 @@ class ${1} < Sinatra::Base
 end
 endsnippet
 
+snippet lltsin "Basic LLT Sinatra API file" !b
+require 'sinatra/base'
+require 'sinatra/respond_with'
+require 'llt/${1:file}'
+
+class Api < Sinatra::Base
+  register Sinatra::RespondWith
+
+  get '/${2:route}' do
+		$0
+
+    respond_to do |f|
+			f.xml {}
+		end
+  end
+end
+endsnippet
+
 snippet sget "sinatra get"
 get '/${1}' do
   ${0}
