@@ -4,7 +4,7 @@ Add the following to `/etc/rc.local`, right before the `exit 0` line
 
 ```
 echo N >  /sys/module/video/parameters/brightness_switch_enabled
-echo disable > /proc/acpi/ibm/blueetooth
+echo disable > /proc/acpi/ibm/bluetooth
 ```
 
 * Fixes the bug of the brightness buttons
