@@ -86,3 +86,10 @@ let g:hopper_prefix = '<space>'
 
 " this basically says: we don't want to use you
 let g:NumberToggleTrigger = '<Plug>UndefinedOfNoMansLand'
+
+
+"""""""""""""""
+"  emmet-vim  "
+"""""""""""""""
+
+let g:user_emmet_leader_key = ','
