@@ -107,6 +107,10 @@ endsnippet
 #  AngularJS  #
 ###############
 
+snippet s "$scope." w
+$scope.$0
+endsnippet
+
 snippet sf "$scope function" !
 $scope.${1:function_name} = function(${2:args}) {
   $0
@@ -160,8 +164,16 @@ endsnippet
 
 snippet ngdc "Define a controller inside an Angular Directive"
 controller: function($scope, $element, $attrs${1}) {
-  $2
+  return {
+    $2
+  };
 },$0
+endsnippet
+
+snippet ngdl "Define a link function inside an Angular Directive"
+link: function(scope, element, attrs) {
+  $0
+};
 endsnippet
 
 # vim:ft=snippets:
