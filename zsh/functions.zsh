@@ -73,3 +73,6 @@ function git-pretty-status-wrapper {
   fi
 }
 
+function npm-global-install {
+  sudo npm install $1 -g
+}

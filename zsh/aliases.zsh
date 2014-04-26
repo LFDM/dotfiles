@@ -174,3 +174,13 @@ alias gpv='gem_polish version'
 alias gpga='gem_polish gem add'
 alias gpgd='gem_polish gem delete'
 alias gpgu='gem_polish gem update'
+
+# npm
+alias ni="npm install"
+alias ngi="npm-global-install"
+
+# bower - b as prefix is gone for bundler already
+alias boi="bower install"
+
+# npm and bower
+alias nbi="npm install && bower install"
