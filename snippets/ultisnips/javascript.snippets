@@ -89,9 +89,17 @@ alert($0);
 endsnippet
 
 snippet tf "this.function"
-this.function(${1:args}) {
+this.${1:function_name} = function(${2:args}) {
   $0
 };
+endsnippet
+
+snippet tv "this.variable"
+this.${1:variable_name} = ${2:value};
+endsnippet
+
+snippet r "return"
+return $0
 endsnippet
 
 
@@ -111,6 +119,12 @@ endsnippet
 
 snippet svc "$scope variable from constructor" !
 $scope.${1:var} = $1;
+endsnippet
+
+snippet ngfe "angular.forEach" !
+angular.forEach(${1:var}, function(${2:value}, ${3:key}) {
+  $0
+});
 endsnippet
 
 snippet ngmfa "A factory in a module" w
