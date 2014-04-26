@@ -130,18 +130,24 @@ service('${1:serviceName}', function(${2:injectables}) {
 });
 endsnippet
 
-snippet ngmd "Define an Angular Module Directive to be attached to a previously defined module. You can change the service name and service injectables." w
-directive('${1:directiveName}', function(${2:injectables}) {
-  $0
-});
-endsnippet
-
 snippet ngmfi "Define an Angular Module Filter to be attached to a previously defined module. You can change the filter name." w
 filter('${1:filterName}', function(${2:injectables}) {
   return function(input, ${3:args}) {
     $0
   };
 })
+endsnippet
+
+snippet ngmd "Define an Angular Module Directive to be attached to a previously defined module. You can change the service name and service injectables." w
+directive('${1:directiveName}', function(${2:injectables}) {
+  $0
+});
+endsnippet
+
+snippet ngdc "Define a controller inside an Angular Directive"
+controller: function($scope, $element, $attrs${1}) {
+  $2
+},$0
 endsnippet
 
 # vim:ft=snippets:
