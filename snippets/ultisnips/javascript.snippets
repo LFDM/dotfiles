@@ -75,8 +75,8 @@ endsnippet
 ###########################################################################
 
 snippet f "function"
-function (${1:args}) {
-  $0;
+function(${1:args}) {
+  $0
 };
 endsnippet
 
@@ -88,11 +88,29 @@ snippet al "alert"
 alert($0);
 endsnippet
 
+snippet tf "this.function"
+this.function(${1:args}) {
+  $0
+};
+endsnippet
+
 
 ###############
 #  AngularJS  #
 ###############
 
+snippet sf "$scope function" !
+$scope.${1:function_name} = function(${2:args}) {
+  $0
+};
+endsnippet
 
+snippet sv "$scope variable" !
+$scope.${1:var} = ${2:val};
+endsnippet
+
+snippet svc "$scope variable from constructor" !
+$scope.${1:var} = $1;
+endsnippet
 
 # vim:ft=snippets:
