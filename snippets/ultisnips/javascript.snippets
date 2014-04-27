@@ -102,6 +102,12 @@ snippet r "return"
 return $0
 endsnippet
 
+snippet us "use strict" b
+"use strict";
+
+$0
+endsnippet
+
 
 ###############
 #  AngularJS  #
@@ -158,22 +164,28 @@ endsnippet
 
 snippet ngmd "Define an Angular Module Directive to be attached to a previously defined module. You can change the service name and service injectables." w
 directive('${1:directiveName}', function(${2:injectables}) {
+  return {
+    $3
+  };
   $0
 });
 endsnippet
 
 snippet ngdc "Define a controller inside an Angular Directive"
 controller: function($scope, $element, $attrs${1}) {
-  return {
-    $2
-  };
+  $2
 },$0
 endsnippet
 
 snippet ngdl "Define a link function inside an Angular Directive"
 link: function(scope, element, attrs) {
   $0
-};
+}
+endsnippet
+
+snippet ngdr "Define restriction of an Angular Directive" !b
+restrict: '${1:E}';
+$0
 endsnippet
 
 # vim:ft=snippets:
