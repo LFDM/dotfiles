@@ -1,0 +1,3 @@
+killall pulseaudio: sleep 3: killall -9 pulseaudio
+sudo modprobe -r snd\hda\intel
+sudo modprobe snd\hda\intel
