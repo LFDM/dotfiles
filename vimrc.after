@@ -361,6 +361,21 @@ endfunction
 map <leader>r :call TestThroughTmux()<cr>
 
 
+" Opens a split window with the corresponding spec file of what you're currently working on
+function! OpenSpec()
+  let curr_file = expand('%')
+  if &ft == 'ruby'
+    let spec_file = substitute(expand('%'), ".rb$", "_spec.rb", "")
+  elseif &ft == 'javascript'
+    let spec_file = substitute(expand('%'), ".js$", "_spec.js", "")
+    let spec_file = substitute(spec_file, "^app\/js\/" , "", "")
+  endif
+  exec ":vs"
+  exec ":wincmd l"
+  exec ":e spec/" . spec_file
+endfunction
+map <leader>k :call OpenSpec()<cr>
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -376,14 +391,6 @@ map <leader>r :call TestThroughTmux()<cr>
 map <leader>p :set paste<cr>orequire 'pry'; binding.pry<esc>:set nopaste<cr>
 map <leader>P :set paste<cr>Orequire 'pry'; binding.pry<esc>:set nopaste<cr>
 
-" Opens a split window with the corresponding spec file of what you're currently working on
-function! OpenSpec()
-  let spec_file = substitute(expand('%'), ".rb$", "_spec.rb", "")
-  exec ":vs"
-  exec ":wincmd l"
-  exec ":e spec/" . spec_file
-endfunction
-map <leader>k :call OpenSpec()<cr>
 
 " Focus the RSpec do block you're currently hovering and saves the file
 function! RSpecFocus()
