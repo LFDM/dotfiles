@@ -76,3 +76,12 @@ function git-pretty-status-wrapper {
 function npm-global-install {
   sudo npm install $1 -g
 }
+
+# run rake or grunt, whatever is available to us
+function rake-or-grunt {
+  rake # rake exits with 1 when no Rakefile is found
+
+  if [[ $? == 1 ]]; then
+    grunt
+  fi
+}
