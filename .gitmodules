@@ -51,7 +51,7 @@
 	url = git@github.com:Valloric/YouCompleteMe.git
 [submodule "plugins/ultisnips"]
 	path = plugins/ultisnips
-	url = git@github.com:LFDM/ultisnips.git
+	url = git@github.com:SirVer/ultisnips.git
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = git@github.com:LFDM/oh-my-zsh.git
