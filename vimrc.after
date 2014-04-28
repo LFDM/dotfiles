@@ -347,18 +347,18 @@ map <leader>` :call RenameFile()<cr>
 "  running tests through rake and grunt  "
 """"""""""""""""""""""""""""""""""""""""""
 
-" Usually set to rspec, but we run rake instead and try to send it off to the
+" Usually set to rspec, but we run rake or grunt instead and try to send it off to the
 " test-runner window in tmux
-" Also saves the buffer before invoking rake
-function! RakeThroughTmux()
+" Also saves the buffer before invoking rake-or-grunt
+function! TestThroughTmux()
   " making sure that we are in the correct directory before invoking rake
   exec 'w'
   let session = system('tmux display-message -p "#S"')
   let session = substitute(session, '\n$', '', '')
-  exec 'silent ! tmux send-keys -t '.session.':test-runner C-u "cd ' . expand('%:p:h') . ' && rake" C-m'
+  exec 'silent ! tmux send-keys -t '.session.':test-runner C-u "cd ' . expand('%:p:h') . ' && rake-or-grunt" C-m'
   exec 'redraw!'
 endfunction
-map <leader>r :call RakeThroughTmux()<cr>
+map <leader>r :call TestThroughTmux()<cr>
 
 
 
