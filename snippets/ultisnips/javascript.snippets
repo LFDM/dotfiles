@@ -188,4 +188,27 @@ restrict: '${1:E}',
 $0
 endsnippet
 
+#############
+#  Jasmine  #
+#############
+
+snippet desc "Describe block"
+describe('${1:description}', function(){
+  $0
+});
+endsnippet
+
+snippet ait "Angular it block"
+it('${1:description}', inject(function(${2:injectables}) {
+  $0
+}));
+endsnippet
+
+snippet abe "Angular before each"
+beforeEach(module('${1:module', function($provide) {
+  $provide.value('${2:val}', ${3:obj})
+}));
+endsnippet
+
+
 # vim:ft=snippets:
