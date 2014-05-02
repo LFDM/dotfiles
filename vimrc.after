@@ -826,7 +826,12 @@ endfunction
 map <leader>tr :call TexRel()<cr>
 
 
-""""""""""""""""""""
+"""""""""""
+"  cosco  "
+"""""""""""
+
+au Filetype javascript,css nmap <silent> <leader>< :call cosco#commaOrSemiColon()<cr>
+
 "  vimrc handling  "
 """"""""""""""""""""
 
