@@ -127,3 +127,6 @@
 [submodule "plugins/jshint2.vim"]
 	path = plugins/jshint2.vim
 	url = git@github.com:Shutnik/jshint2.vim.git
+[submodule "plugins/cosco.vim"]
+	path = plugins/cosco.vim
+	url = git@github.com:lfilho/cosco.vim.git
