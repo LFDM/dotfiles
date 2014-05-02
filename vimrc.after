@@ -300,6 +300,7 @@ map <esc><esc> :nohl<cr>
 
 " should be enabled for others too
 au BufWritePre *.rb :%s/\s\+$//e
+au BufWritePre *.js :%s/\s\+$//e
 
 
 """"""""""""""""""""""
