@@ -46,6 +46,7 @@ alias gcom='gcmsg'
 alias gs='gss' # usually starts ghostscript, a common and annoying typo
 alias gss='git status -s -b' # show branch - and therefore remote stats
 alias gcof='git checkout --'
+alias gcor='git-checkout-remote-branch'
 alias gcob='git checkout -b'
 alias gcobt='git-new-tracked-branch'
 alias gom='git-on-master'
