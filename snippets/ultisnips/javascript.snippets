@@ -210,5 +210,13 @@ beforeEach(module('${1:module', function($provide) {
 }));
 endsnippet
 
+snippet ete "expect to equal" !b
+expect(${1:actual}).toEqual(${2:expected});
+endsnippet
+
+snippet etb "expect to be" !b
+expect(${1:actual}).toBe(${2:expected});
+endsnippet
+
 
 # vim:ft=snippets:
