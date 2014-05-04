@@ -192,6 +192,20 @@ endsnippet
 #  Jasmine  #
 #############
 
+snippet ngj "angular jasmine file" !b
+"use strict";
+
+describe("${1:instance}", function() {
+	beforeEach(module("${2:module}", function($provide) {
+		$provide.${3:mock_injectables};
+	}));
+
+	describe("${4:function}", function() {
+		${0:ait}
+	});
+});
+endsnippet
+
 snippet desc "Describe block"
 describe('${1:description}', function(){
   $0
@@ -205,7 +219,7 @@ it('${1:description}', inject(function(${2:injectables}) {
 endsnippet
 
 snippet abe "Angular before each"
-beforeEach(module('${1:module', function($provide) {
+beforeEach(module('${1:module}', function($provide) {
   $provide.value('${2:val}', ${3:obj})
 }));
 endsnippet
