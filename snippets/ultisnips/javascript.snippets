@@ -225,12 +225,31 @@ beforeEach(module('${1:module}', function($provide) {
 endsnippet
 
 snippet ete "expect to equal" !b
-expect(${1:actual}).toEqual(${2:expected});
+expect(${1:actual}).toEqual(${0:expected});
 endsnippet
 
 snippet etb "expect to be" !b
-expect(${1:actual}).toBe(${2:expected});
+expect(${1:actual}).toBe(${0:expected});
 endsnippet
 
+snippet ett "expect to be truthy" !b
+expect(${1:actual}).toBeTruthy();
+endsnippet
+
+snippet etf "expect to be falsy" !b
+expect(${1:actual}).toBeFalsy();
+endsnippet
+
+snippet etd "expect to be defined" !b
+expect(${1:actual}).toBeDefined();
+endsnippet
+
+snippet etud "expect to be undefined" !b
+expect(${1:actual}).toBeUndefined();
+endsnippet
+
+snippet etc "expect to contain" !b
+expect(${1:actual}).toContain(${0:expected};
+endsnippet
 
 # vim:ft=snippets:
