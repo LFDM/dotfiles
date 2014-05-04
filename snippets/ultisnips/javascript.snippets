@@ -119,7 +119,7 @@ endsnippet
 
 snippet sf "$scope function" !
 $scope.${1:function_name} = function(${2:args}) {
-  $0
+	$0
 };
 endsnippet
 
@@ -133,53 +133,53 @@ endsnippet
 
 snippet ngfe "angular.forEach" !
 angular.forEach(${1:var}, function(${2:value}, ${3:key}) {
-  $0
+	$0
 });
 endsnippet
 
 snippet ngmfa "A factory in a module" w
 factory('${1:factoryName}', function(${2:dependencies}) {
-  var obj = {};
+	var obj = {};
 
-  $0
+	$0
 
-  return obj;
+	return obj;
 });
 endsnippet
 
 
 snippet ngms "Define an Angular Module Service to be attached to a previously defined module. You can change the service name and service injectables." w
 service('${1:serviceName}', function(${2:injectables}) {
-  $0
+	$0
 });
 endsnippet
 
 snippet ngmfi "Define an Angular Module Filter to be attached to a previously defined module. You can change the filter name." w
 filter('${1:filterName}', function(${2:injectables}) {
-  return function(input, ${3:args}) {
-    $0
-  };
+	return function(input, ${3:args}) {
+		$0
+	};
 })
 endsnippet
 
 snippet ngmd "Define an Angular Module Directive to be attached to a previously defined module. You can change the service name and service injectables." w
 directive('${1:directiveName}', function(${2:injectables}) {
-  return {
-    $3
-  };
-  $0
+	return {
+		$3
+	};
+	$0
 });
 endsnippet
 
 snippet ngdc "Define a controller inside an Angular Directive"
 controller: function($scope, $element, $attrs${1}) {
-  $2
+	$2
 },$0
 endsnippet
 
 snippet ngdl "Define a link function inside an Angular Directive"
 link: function(scope, element, attrs) {
-  $0
+	$0
 }
 endsnippet
 
@@ -208,19 +208,19 @@ endsnippet
 
 snippet desc "Describe block"
 describe('${1:description}', function(){
-  $0
+	$0
 });
 endsnippet
 
 snippet ait "Angular it block"
 it('${1:description}', inject(function(${2:injectables}) {
-  $0
+	$0
 }));
 endsnippet
 
 snippet abe "Angular before each"
 beforeEach(module('${1:module}', function($provide) {
-  $provide.value('${2:val}', ${3:obj})
+	$provide.value('${2:val}', ${3:obj})
 }));
 endsnippet
 
