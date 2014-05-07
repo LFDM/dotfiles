@@ -74,9 +74,9 @@ endsnippet
 #                             Customizations                              #
 ###########################################################################
 
-snippet f "function"
+snippet f "function" w
 function(${1:args}) {
-  $0
+	$0
 };
 endsnippet
 
@@ -90,7 +90,7 @@ endsnippet
 
 snippet tf "this.function"
 this.${1:function_name} = function(${2:args}) {
-  $0
+	$0
 };
 endsnippet
 
@@ -113,7 +113,7 @@ endsnippet
 #  AngularJS  #
 ###############
 
-snippet s "$scope." w
+snippet s "$scope." w!
 $scope.$0
 endsnippet
 
@@ -146,7 +146,6 @@ factory('${1:factoryName}', function(${2:dependencies}) {
 	return obj;
 });
 endsnippet
-
 
 snippet ngms "Define an Angular Module Service" w
 service('${1:serviceName}', function(${2:injectables}) {
