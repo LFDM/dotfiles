@@ -145,6 +145,12 @@ snippet aupa "arethusaUtil.pushAll" !b
 arethusaUtil.pushAll(${1:target}, ${0:pusher});
 endsnippet
 
+snippet am "arethusa module"
+"use strict";
+
+angular.module('arethusa$1').$0
+endsnippet
+
 
 ###############
 #  AngularJS  #
@@ -166,6 +172,16 @@ endsnippet
 
 snippet svc "$scope variable from constructor" !
 $scope.${1:var} = $1;
+endsnippet
+
+snippet sw "scope watch" w
+$scope.$watch(${1:expression}, function(newVal, oldVal) {
+  $0
+});
+endsnippet
+
+snippet sa "scope apply" !b
+scope.$apply($0);
 endsnippet
 
 snippet ngfe "angular.forEach" !
@@ -207,6 +223,23 @@ directive('${1:directiveName}', function(${2:injectables}) {
 });
 endsnippet
 
+snippet ngmdl "Angular directive with a link function" !b
+directive('${1:directiveName}', function(${2:injectables}) {
+	return {
+    restrict: '${1:A}',
+		link: function(scope, element, attrs) {
+			$0
+		}
+	};
+});
+endsnippet
+
+snippet ngds "Define an isolated scope in an Angular Directive" !b
+scope: {
+  $0
+},
+endsnippet
+
 snippet ngdc "Define a controller inside an Angular Directive"
 controller: function($scope, $element, $attrs${1}) {
 	$2
@@ -222,6 +255,12 @@ endsnippet
 snippet ngdr "Define restriction of an Angular Directive" !b
 restrict: '${1:E}',
 $0
+endsnippet
+
+snippet nglc "click event inside a link function" !b
+element.bind('click', function(e) {
+  $0
+});
 endsnippet
 
 
