@@ -44,7 +44,7 @@ set wildmode=longest:full,full
 set wildignore+=*/doc/*,*.aux,*.dvi,*.out,*.toc,*.pdf,*.log   " latex stuff
 set hidden              " Keep file in buffer after quit, remembers undo etc.
 set nofoldenable        " Never fold
-
+set completeopt=menuone " don't open the preview scratch buffer
 
 """""""""""""""""
 "  Good habits  "
@@ -426,6 +426,12 @@ map <leader>lt :call SetLLTPath()<Cr>
 "  Python  "
 """"""""""""
 
+
+""""""""""""""""
+"  javascript  "
+""""""""""""""""
+
+" wrap a line in a console log
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          Plugin customization                           "
