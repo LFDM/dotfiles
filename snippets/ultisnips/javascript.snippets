@@ -88,6 +88,28 @@ snippet al "alert"
 alert($0);
 endsnippet
 
+snippet ife "if - else" !b
+if (${1:condition}) {
+  ${2:truePath}
+} else {
+  ${3:falsePath}
+}
+endsnippet
+
+snippet tc "try - catch" !b
+try {
+  ${1:statements}
+} catch(err) {
+  ${0:catch}
+}
+endsnippet
+
+snippet vf "var ... = function" !b
+var ${1:function_name} = function(${2:args}) {
+  $0
+};
+endsnippet
+
 snippet tf "this.function"
 this.${1:function_name} = function(${2:args}) {
 	$0
@@ -99,7 +121,7 @@ this.${1:variable_name} = ${2:value};
 endsnippet
 
 snippet r "return"
-return $0
+return $0;
 endsnippet
 
 snippet us "use strict" b
