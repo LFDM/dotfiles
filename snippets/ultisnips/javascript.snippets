@@ -104,8 +104,8 @@ try {
 }
 endsnippet
 
-snippet vf "var ... = function" !b
-var ${1:function_name} = function(${2:args}) {
+snippet vf "named function" !b
+function ${1:function_name}(${2:args}) {
   $0
 };
 endsnippet
@@ -121,7 +121,7 @@ this.${1:variable_name} = ${2:value};
 endsnippet
 
 snippet r "return"
-return $0;
+return $0
 endsnippet
 
 snippet us "use strict" b
@@ -141,6 +141,12 @@ endsnippet
 
 snippet aum "aretusaUtil.map" !b
 arethusaUtil.map(${1:container}, function(el) {
+  $0
+});
+endsnippet
+
+snippet aui "arethusaUtil.inject" !b
+arethusaUtil.inject(${1:obj}, ${2:container}, function(memo, ${3:args}) {
   $0
 });
 endsnippet
@@ -199,6 +205,10 @@ snippet sa "scope apply" !b
 scope.$apply($0);
 endsnippet
 
+snippet ngbi "get angular element by id" !b
+angular.element(document.geElementById(${0:id}));
+endsnippet
+
 snippet ngfe "angular.forEach" !
 angular.forEach(${1:var}, function(${2:value}, ${3:key}) {
 	$0
@@ -213,6 +223,12 @@ factory('${1:factoryName}', function(${2:dependencies}) {
 
 	return obj;
 });
+endsnippet
+
+snippet ngmc "Define an Angular Module Controller" w
+controller('${1:controllerName}', function($scope${2:injectables}) {
+  $0
+}),
 endsnippet
 
 snippet ngms "Define an Angular Module Service" w
@@ -265,6 +281,10 @@ snippet ngdl "Define a link function inside an Angular Directive"
 link: function(scope, element, attrs) {
 	$0
 }
+endsnippet
+
+snippet ngea "Eval an elements attribute" b
+scope.$eval(attrs.${0:attr});
 endsnippet
 
 snippet ngdr "Define restriction of an Angular Directive" !b
