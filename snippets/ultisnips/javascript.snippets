@@ -288,7 +288,7 @@ global !p
 def injectables(inj, snip):
 	strings = inj.split(', ')
 	indent = snip._initial_indent + '  '
-	result = ''.join(["%s'%s'\n" % (indent, string) for string in strings])
+	result = ''.join(["%s'%s',\n" % (indent, string) for string in strings])
 	snip.rv = result
 endglobal
 
