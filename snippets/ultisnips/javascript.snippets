@@ -214,8 +214,11 @@ $scope.${1:var} = $1;
 endsnippet
 
 snippet sw "scope watch" w
-$scope.$watch(${1:expression}, function(newVal, oldVal) {
-  $0
+scope.$watch(${1:expression}, function(newVal, oldVal) {
+	${2:if (newVal !== oldVal) {
+		$3
+	}}
+	$0
 });
 endsnippet
 
@@ -245,7 +248,7 @@ endsnippet
 
 snippet ngmc "Define an Angular Module Controller" w
 controller('${1:controllerName}', function($scope${2:injectables}) {
-  $0
+	$0
 }),
 endsnippet
 
@@ -253,6 +256,14 @@ snippet ngms "Define an Angular Module Service" w
 service('${1:serviceName}', function(${2:injectables}) {
 	$0
 });
+endsnippet
+
+snippet ngmsi "Define Angular directive with injectables" !b
+service('${1:serviceName}', [
+`!p injectables(t[2], snip)`  function(${2:injectables}) {
+		$0
+	}
+]);
 endsnippet
 
 snippet ngmfi "Define an Angular Module Filter" w
@@ -264,12 +275,33 @@ filter('${1:filterName}', function(${2:injectables}) {
 endsnippet
 
 snippet ngmd "Define an Angular Module Directive" w
-directive('${1:directiveName}', function(${2:injectables}) {
+directive('${1:directiveName}', function() {
 	return {
-		$3
+		restrict: 'A',
+		$0
 	};
-	$0
 });
+endsnippet
+
+global !p
+
+def injectables(inj, snip):
+	strings = inj.split(', ')
+	indent = snip._initial_indent + '  '
+	result = ''.join(["%s'%s'\n" % (indent, string) for string in strings])
+	snip.rv = result
+endglobal
+
+
+snippet ngmdi "Define Angular directive with injectables" !b
+directive('${1:directiveName}', [
+`!p injectables(t[2], snip)`  function(${2:injectables}) {
+		return {
+			restrict: 'A',
+			$0
+		};
+	}
+]);
 endsnippet
 
 snippet ngmdl "Angular directive with a link function" !b
