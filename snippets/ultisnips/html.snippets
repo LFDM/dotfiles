@@ -63,7 +63,7 @@ endsnippet
 #  Foundation helpers  #
 ########################
 
-snippet dfg "div with full grid" !b
+snippet dgf "div with full grid" !b
 <div class="small-12 columns">
 	$0
 </div>
@@ -80,22 +80,43 @@ endsnippet
 #  AngularJS helpers  #
 #######################
 
-snippet ngr "ng-repeat" !b
-ng-repeat="${1:el}" in ${0:obj}"
+snippet ngr "ng-repeat" !w
+ng-repeat="${1:el} in ${0:obj}"
 endsnippet
 
-snippet ngcl "ng-click" !b
+snippet ngcl "ng-click" !w
 ng-click="$0"
 endsnippet
 
-snippet ngm "ng-model" !b
+snippet ngm "ng-model" !w
 ng-model="$0"
 endsnippet
 
-snippet ngc "ng-class" !b
+snippet ngc "ng-class" !w
 ng-class="$0"
 endsnippet
 
-snippet ngs "ng-show" !b
+snippet ngch "ng-change" !w
+ng-change="$0"
+endsnippet
+
+snippet ngs "ng-show" !w
 ng-show="$0"
+endsnippet
+
+snippet ngf "form with input" !w
+<form ng-submit="${1:meth}">
+	<input type="text" ng-model="${2:model}"/>
+</form>
+endsnippet
+
+snippet ngi "input" !w
+<input type="text" ng-model="${2:model}"/>
+endsnippet
+
+snippet ngic "input checkbox" !w
+<input
+	type="checkbox"
+	ng-change="${1:change}"
+	ng-model="${2:model}"/>
 endsnippet
