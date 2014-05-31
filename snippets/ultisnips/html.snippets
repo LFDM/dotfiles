@@ -1,0 +1,101 @@
+###########################################################################
+#                            TextMate Snippets                            #
+###########################################################################
+
+global !p
+def x(snip):
+		if snip.ft.startswith("x"):
+			snip.rv = '/'
+		else:
+			snip.rv = ""
+endglobal
+
+############
+# Doctypes #
+############
+snippet doctype "DocType XHTML 1.0 Strict" b
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+endsnippet
+
+snippet doctype "DocType XHTML 1.0 Transitional" b
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+endsnippet
+
+snippet doctype "DocType XHTML 1.1" b
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+endsnippet
+
+snippet doctype "HTML - 4.0 Transitional (doctype)" b
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+
+endsnippet
+
+snippet doctype "HTML - 5.0 (doctype)" b
+<!DOCTYPE html>
+
+endsnippet
+
+#############
+# Shortcuts #
+#############
+snippet down "Down (down)"
+&#x2193;
+endsnippet
+
+
+
+
+###########################################################################
+#                             Customizations                              #
+###########################################################################
+
+# We actually don't use mist of these snoppets, as we use emmet!
+
+
+########################
+#  Foundation helpers  #
+########################
+
+snippet dfg "div with full grid" !b
+<div class="small-12 columns">
+	$0
+</div>
+endsnippet
+
+snippet dg "div inside a grid full grid" !b
+<div class="small-${1:6} large-${2:4} columns">
+	$0
+</div>
+endsnippet
+
+
+#######################
+#  AngularJS helpers  #
+#######################
+
+snippet ngr "ng-repeat" !b
+ng-repeat="${1:el}" in ${0:obj}"
+endsnippet
+
+snippet ngcl "ng-click" !b
+ng-click="$0"
+endsnippet
+
+snippet ngm "ng-model" !b
+ng-model="$0"
+endsnippet
+
+snippet ngc "ng-class" !b
+ng-class="$0"
+endsnippet
+
+snippet ngs "ng-show" !b
+ng-show="$0"
+endsnippet
