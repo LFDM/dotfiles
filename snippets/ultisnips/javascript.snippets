@@ -258,7 +258,7 @@ service('${1:serviceName}', function(${2:injectables}) {
 });
 endsnippet
 
-snippet ngmsi "Define Angular directive with injectables" !b
+snippet ngmsi "Define Angular directive with injectables" !w
 service('${1:serviceName}', [
 `!p injectables(t[2], snip)`  function(${2:injectables}) {
 		$0
@@ -293,7 +293,7 @@ def injectables(inj, snip):
 endglobal
 
 
-snippet ngmdi "Define Angular directive with injectables" !b
+snippet ngmdi "Define Angular directive with injectables" !w
 directive('${1:directiveName}', [
 `!p injectables(t[2], snip)`  function(${2:injectables}) {
 		return {
@@ -304,10 +304,23 @@ directive('${1:directiveName}', [
 ]);
 endsnippet
 
-snippet ngmdl "Angular directive with a link function" !b
+snippet ngmdil "Define Angular directive with injectables" !w
+directive('${1:directiveName}', [
+`!p injectables(t[2], snip)`  function(${2:injectables}) {
+		return {
+			restrict: '${3:A}',
+			link: function(scope, element, attrs) {
+				$0
+			}
+		};
+	}
+]);
+endsnippet
+
+snippet ngmdl "Angular directive with a link function" !w
 directive('${1:directiveName}', function(${2:injectables}) {
 	return {
-    restrict: '${1:A}',
+		restrict: '${1:A}',
 		link: function(scope, element, attrs) {
 			$0
 		}
