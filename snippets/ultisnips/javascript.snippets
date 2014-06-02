@@ -161,15 +161,32 @@ snippet am "arethusa module"
 angular.module('arethusa$1').$0
 endsnippet
 
-snippet acm "arehusa morph configuration"
+snippet acm "arethusa morph configuration"
 "${1}" : {
-  "long" : "$2",
-  "short" : "$1",
-  "postag" : "$3"${4:,
+	"long" : "$2",
+	"short" : "$1",
+	"postag" : "$3"${4:,
     "style" : {
     "color" : "$5"
   }}
 }$0
+endsnippet
+
+snippet ar "arethusa relation configuration" !w
+"${1}" : {
+	"short" : "$1",
+	"long" : "$2"
+}$0
+endsnippet
+
+snippet arn "arethusa relation configuration with nesting" !w
+"${1}" : {
+	"short" : "$1",
+	"long" : "$2",
+	"nested" : {
+		$0
+	}
+}
 endsnippet
 
 
