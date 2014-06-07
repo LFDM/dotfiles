@@ -562,6 +562,10 @@ let scdh =
       \    '\v^(.*)should ': '\1should_not ',
       \    '\v^(.*)should_not ': '\1should ',
       \  },
+      \  'jasmine-bools': ['toBeTruthy', 'toBeFalsy'],
+      \  'jasmine-defined': ['toBeDefined', 'toBeUndefined'],
+      \  'jasmine-not': ['.to', '.not.to'],
+      \  'ng-scope': ['scope', '$scope'],
       \}
 
 au Filetype ruby let b:switch_custom_definitions =
@@ -571,6 +575,14 @@ au Filetype ruby let b:switch_custom_definitions =
       \  scdh['if_unless'],
       \  scdh['ternary_args'],
       \  scdh['should'],
+      \]
+
+au Filetype javascript let b:switch_custom_definitions =
+      \[
+      \  scdh['jasmine-bools'],
+      \  scdh['jasmine-defined'],
+      \  scdh['jasmine-not'],
+      \  scdh['ng-scope'],
       \]
 
 let g:switch_custom_definitions =
