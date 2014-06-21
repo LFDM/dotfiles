@@ -461,4 +461,10 @@ snippet etc "expect to contain" !b
 expect(${1:actual}).toContain(${0:expected};
 endsnippet
 
+snippet ette "expect to throw error" !b
+expect(function() {
+  ${1}
+}).toThrow(new ${2:Error}(${3:"${4:message}"}));
+endsnippet
+
 # vim:ft=snippets:
