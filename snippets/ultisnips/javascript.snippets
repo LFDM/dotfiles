@@ -247,6 +247,12 @@ snippet ngbi "get angular element by id" !w
 angular.element(document.getElementById(${0:id}));
 endsnippet
 
+snippet ngbind "bind function" !b
+${1:element}.bind('${2:click}', function(${:event}) {
+  $0
+});
+endsnippet
+
 snippet ngfe "angular.forEach" !
 angular.forEach(${1:var}, function(${2:value}, ${3:key}) {
 	$0
