@@ -189,6 +189,18 @@ snippet arn "arethusa relation configuration with nesting" !w
 }
 endsnippet
 
+snippet aikc "arethusa initKeyCaptures" !b
+function initKeyCaptures() {
+  var kC = keyCapture;
+  var conf = kC.conf('${1}');
+  var captures = {};
+
+  ${2:Define your keys and functions now on the capture obj}
+
+  kC.registerCaptures(captures)
+}
+endsnippet
+
 
 ####################
 #  arethusa-specs  #
