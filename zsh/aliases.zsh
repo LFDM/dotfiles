@@ -28,7 +28,7 @@ alias lltt='cd ~/code/llt-dev/llt-tokenizer'
 alias mlld='cd ~/code/multi_language_latin_dictionary'
 alias diploma='cd ~/code/diploma_thesis'
 alias dc='cd ~/code/diploma_thesis_code'
-alias are='cd ~/code/latin-language-toolkit/llt-annotation_environment'
+alias are='cd ~/code/arethusa'
 
 # Rake
 
