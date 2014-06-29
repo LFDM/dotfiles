@@ -187,5 +187,5 @@ alias boi="bower install"
 # npm and bower
 alias nbi="npm install && bower install"
 
-# arethusa plugin generator - local
-alias apg="$HOME/code/arethusa_plugin_generator/bin/arethusa_plugin_generator"
+# arethusa cli - local
+alias acli="$HOME/code/arethusa_cli/bin/arethusa"
