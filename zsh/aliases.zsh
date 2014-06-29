@@ -188,4 +188,4 @@ alias boi="bower install"
 alias nbi="npm install && bower install"
 
 # arethusa cli - local
-alias acli="$HOME/code/arethusa_cli/bin/arethusa"
+alias acli="$HOME/code/arethusa-cli/bin/arethusa"
