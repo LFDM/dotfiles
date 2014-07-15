@@ -272,13 +272,11 @@ angular.forEach(${1:var}, function(${2:value}, ${3:key}) {
 endsnippet
 
 snippet ngmfa "A factory in a module" w
-factory('${1:factoryName}', function(${2:dependencies}) {
-	var obj = {};
-
-	$0
-
-	return obj;
-});
+factory('${1:factoryName}', [
+`!p injectables(t[2], snip)`  function(${2:injectables}) {
+		return $0
+	}
+]);
 endsnippet
 
 snippet ngmc "Define an Angular Module Controller" w
