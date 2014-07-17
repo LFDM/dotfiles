@@ -229,17 +229,17 @@ $scope.$0
 endsnippet
 
 snippet sf "$scope function" !
-$scope.${1:function_name} = function(${2:args}) {
+scope.${1:function_name} = function(${2:args}) {
 	$0
 };
 endsnippet
 
 snippet sv "$scope variable" !
-$scope.${1:var} = ${2:val};
+scope.${1:var} = ${2:val};
 endsnippet
 
 snippet svc "$scope variable from constructor" !
-$scope.${1:var} = $1;
+scope.${1:var} = $1;
 endsnippet
 
 snippet sw "scope watch" w
@@ -363,7 +363,7 @@ endsnippet
 
 snippet ngds "Define an isolated scope in an Angular Directive" !b
 scope: {
-  $0
+	$0
 },
 endsnippet
 
@@ -390,7 +390,7 @@ endsnippet
 
 snippet nglc "click event inside a link function" !b
 element.bind('click', function(e) {
-  $0
+	$0
 });
 endsnippet
 
@@ -479,7 +479,7 @@ endsnippet
 
 snippet ette "expect to throw error" !b
 expect(function() {
-  ${1}
+	${1}
 }).toThrow(new ${2:Error}(${3:"${4:message}"}));
 endsnippet
 
