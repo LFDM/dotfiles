@@ -21,6 +21,12 @@ function git-nuke! {
   git branch -D $1 && git push origin :$1
 }
 
+function git-post-merge-cleanup {
+  branch = `current_branch`
+  git checkout master
+  git pull origin master && git-nuke! $branch
+}
+
 # compile and run C
 function car {
   gcc -o $1 $1.c; ./$1
