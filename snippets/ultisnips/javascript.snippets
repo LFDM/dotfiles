@@ -88,12 +88,8 @@ snippet al "alert"
 alert($0);
 endsnippet
 
-snippet ife "if - else" !b
-if (${1:condition}) {
-  ${2:truePath}
-} else {
-  ${3:falsePath}
-}
+snippet ifs "if shorthand"
+if (${1}) ${2};
 endsnippet
 
 snippet tc "try - catch" !b
@@ -201,6 +197,16 @@ function initKeyCaptures() {
 }
 endsnippet
 
+snippet aic "arethusa init captures" !b
+keyCapture.initCaptures(function((kC) {
+	return {
+		${1:category}: [
+			kC.create($0)
+		]
+	}
+})
+endsnippet
+
 
 ####################
 #  arethusa-specs  #
@@ -243,7 +249,7 @@ scope.${1:var} = $1;
 endsnippet
 
 snippet sw "scope watch" w
-scope.$watch(${1:expression}, function(newVal, oldVal) {
+scope.$watch('${1:expression}', function(newVal, oldVal) {
 	${2:if (newVal !== oldVal) {
 		$3
 	}}
@@ -260,8 +266,8 @@ angular.element(document.getElementById(${0:id}));
 endsnippet
 
 snippet ngbind "bind function" !b
-${1:element}.bind('${2:click}', function($3{event}) {
-	$0
+${1:element}.bind('${2:click}', function(${3:event}) {
+	${4:scope.$apply(${5})}
 });
 endsnippet
 
@@ -342,9 +348,11 @@ directive('${1:directiveName}', [
 `!p injectables(t[2], snip)`  function(${2:injectables}) {
 		return {
 			restrict: '${3:A}',
+			scope: ${4},
 			link: function(scope, element, attrs) {
 				$0
-			}
+			},
+			${5:templateUrl: 'templates/${6:path}.html'}
 		};
 	}
 ]);
