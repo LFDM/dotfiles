@@ -29,7 +29,7 @@ snippet proto "Prototype (proto)"
 ${1:class_name}.prototype.${2:method_name} = function(${3:first_argument}) ,,{
 	${0}
 }
- 
+
 endsnippet
 
 snippet for "for (...) {...} (faster)"
@@ -94,15 +94,15 @@ endsnippet
 
 snippet tc "try - catch" !b
 try {
-  ${1:statements}
+	${1:statements}
 } catch(err) {
-  ${0:catch}
+	${0:catch}
 }
 endsnippet
 
 snippet vf "named function" !b
 function ${1:function_name}(${2:args}) {
-  $0
+	$0
 }
 endsnippet
 
@@ -137,13 +137,13 @@ endsnippet
 
 snippet aum "aretusaUtil.map" !w
 arethusaUtil.map(${1:container}, function(el) {
-  $0
+	$0
 });
 endsnippet
 
 snippet aui "arethusaUtil.inject" !w
 arethusaUtil.inject(${1:obj}, ${2:container}, function(memo, ${3:args}) {
-  $0
+	$0
 });
 endsnippet
 
@@ -185,18 +185,6 @@ snippet arn "arethusa relation configuration with nesting" !w
 }
 endsnippet
 
-snippet aikc "arethusa initKeyCaptures" !b
-function initKeyCaptures() {
-  var kC = keyCapture;
-  var conf = kC.conf('${1}');
-  var captures = {};
-
-  ${2:Define your keys and functions now on the capture obj}
-
-  kC.registerCaptures(captures)
-}
-endsnippet
-
 snippet aic "arethusa init captures" !b
 keyCapture.initCaptures(function((kC) {
 	return {
@@ -211,19 +199,6 @@ endsnippet
 ####################
 #  arethusa-specs  #
 ####################
-
-# Mnemomic: arethusa spec mock
-
-snippet asmc "Arethusa mock configurator" !b
-var mockConfigurator = {
-	configurationFor: function(name) {
-		return {};
-	},
-	getRetrievers: function(name) {
-		return {};
-	}
-}
-endsnippet
 
 
 ###############
