@@ -116,6 +116,25 @@ snippet tv "this.variable"
 this.${1:variable_name} = ${2:value};
 endsnippet
 
+snippet pv "prototype.variable"
+${1:cl}.prototype.${2:var} = ${0:val};
+endsnippet
+
+snippet pf "prototype.function"
+${1:cl}.prototype.${2:fn} = function(${3:args}) {
+	$0
+};
+endsnippet
+
+snippet of "constructor function" !b
+function ${1:class}(${2:args}) {
+	var self = this;
+	var cl   = $1;
+
+	$0
+}
+endsnippet
+
 snippet r "return"
 return $0
 endsnippet
@@ -240,6 +259,14 @@ snippet sa "scope apply" !b
 scope.$apply($0);
 endsnippet
 
+snippet sa "scope apply with function" !b
+function ${1:fn}() {
+	$0
+}
+
+scope.$apply($1);
+endsnippet
+
 snippet ngbi "get angular element by id" !w
 angular.element(document.getElementById(${0:id}));
 endsnippet
@@ -259,28 +286,30 @@ endsnippet
 
 snippet ngfe "angular.forEach" !
 angular.forEach(${1:var}, function(${2:value}, ${3:key}) {
-snippet sa "scope apply with function" !b
-function ${1:fn}() {
-	$0
-}
-
-scope.$apply($1);
-endsnippet
-
-snippet sa "scope apply with function" !b
-function ${1:fn}() {
-	$0
-}
-
-scope.$apply($1);
-endsnippet
-
 	$0
 });
 endsnippet
 
 snippet ngfes "angular.forEach short" !b
 angular.forEach(${1:var}, ${0:fn});
+endsnippet
+
+snippet ngfesc "angular.forEach short with fn declaration" !b
+function ${2:fn}(${3:value}, ${3:key}) {
+	$0
+}
+
+angular.forEach(${1:var}, $2);
+endsnippet
+
+snippet ngfei "angular.forEach iterate function" !b
+function ${3:fn}(${4:value}, ${4:key}) {
+	$0
+}
+
+function $3s(${2:args}) {
+	angular.forEach(${1:var}, $3);
+}
 endsnippet
 
 snippet ngmfa "A factory in a module" w
