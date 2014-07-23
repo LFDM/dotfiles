@@ -126,11 +126,22 @@ ${1:cl}.prototype.${2:fn} = function(${3:args}) {
 };
 endsnippet
 
+global !p
+def init_args(arg_string, indentation):
+		indent = indentation + '  '
+		args = arg_string.split(', ')
+		vars = ['this.%s = %s;' % (var, var) for var in args if var]
+		# first line already has proper indentation
+		vars = [vars[0]] + [indent + var for var in vars[1:]]
+		return '\n'.join(vars)
+endglobal
+
 snippet of "constructor function" !b
 function ${1:class}(${2:args}) {
 	var self = this;
 	var cl   = $1;
 
+	`!p snip.rv = init_args(t[2], snip._initial_indent)`
 	$0
 }
 endsnippet
