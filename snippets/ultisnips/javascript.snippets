@@ -259,6 +259,22 @@ endsnippet
 
 snippet ngfe "angular.forEach" !
 angular.forEach(${1:var}, function(${2:value}, ${3:key}) {
+snippet sa "scope apply with function" !b
+function ${1:fn}() {
+	$0
+}
+
+scope.$apply($1);
+endsnippet
+
+snippet sa "scope apply with function" !b
+function ${1:fn}() {
+	$0
+}
+
+scope.$apply($1);
+endsnippet
+
 	$0
 });
 endsnippet
@@ -338,7 +354,7 @@ directive('${1:directiveName}', [
 `!p injectables(t[2], snip)`  function(${2:injectables}) {
 		return {
 			restrict: '${3:A}',
-			scope: ${4},
+			scope: ${4:true},
 			link: function(scope, element, attrs) {
 				$0
 			},
