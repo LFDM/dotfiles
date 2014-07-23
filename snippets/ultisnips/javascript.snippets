@@ -250,6 +250,13 @@ ${1:element}.bind('${2:click}', function(${3:event}) {
 });
 endsnippet
 
+snippet ngon "on function" !b
+${1:element}.on('${2:click}', function(${3:event}) {
+	${4:scope.$apply(${5})}
+});
+endsnippet
+
+
 snippet ngfe "angular.forEach" !
 angular.forEach(${1:var}, function(${2:value}, ${3:key}) {
 	$0
