@@ -668,3 +668,27 @@ endsnippet
 snippet an "animation: ___ ___"
 @include animation(${1:name} ${2:300ms linear infinite});
 endsnippet
+
+
+###########################################################################
+#                             Customizations                              #
+###########################################################################
+
+
+snippet mi "@mixin" !b
+@mixin ${1:name}() {
+	$0
+}
+endsnippet
+
+snippet im "@import" !b
+@import "$0";
+endsnippet
+
+snippet in "@include" !b
+@include $0;
+endsnippet
+
+snippet ex "@extnd" !b
+@extend $0;
+endsnippet
