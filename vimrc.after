@@ -477,6 +477,7 @@ let g:rubycomplete_rails = 1
 " see also vimrc.before
 
 let g:UltiSnipsEditSplit = 'vertical'
+let g:UltiSnipsSnippetsDir = '~/dotfiles/snippets/ultisnips'
 map <leader>ue :UltiSnipsEdit<cr>
 " expand the snippet in current selection
 smap <C-l> <esc>a<c-j>
