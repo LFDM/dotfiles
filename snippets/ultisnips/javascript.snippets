@@ -483,11 +483,16 @@ describe("${1:directiveName}", function() {
     module("arethusa.${3}");
 
     inject(function($compile, $rootScope, _state_) {
-      element = angular.element(template);
-      scope = $rootScope;
-      $compile(element)(scope);
       state = _state_;
-      state.tokens = arethusaMocks.createTokens();
+      state.replaceState(arethusaMocks.createTokens());
+
+      element = angular.element(template);
+      $compile(element)($rootScope);
+
+			// Change isolateScope() to scope() when needed
+      scope = element.isolateScope();
+
+			scope.$digest()
     });
   });
 
