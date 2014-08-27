@@ -467,6 +467,34 @@ endsnippet
 #  Jasmine  #
 #############
 
+snippet ajd "Arethusa directive spec with jasmine" !b
+"use strict";
+
+describe("${1:directiveName}", function() {
+  var element;
+  var state;
+  var scope;
+
+  var template = '\
+		${2}
+  ';
+
+  beforeEach(function() {
+    module("arethusa.${3}");
+
+    inject(function($compile, $rootScope, _state_) {
+      element = angular.element(template);
+      scope = $rootScope;
+      $compile(element)(scope);
+      state = _state_;
+      state.tokens = arethusaMocks.createTokens();
+    });
+  });
+
+  ${0}
+});
+endsnippet
+
 snippet ngj "angular jasmine file" !b
 "use strict";
 
