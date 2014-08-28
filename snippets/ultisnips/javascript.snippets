@@ -471,32 +471,44 @@ snippet ajd "Arethusa directive spec with jasmine" !b
 "use strict";
 
 describe("${1:directiveName}", function() {
-  var element;
-  var state;
-  var scope;
+	var element, state, scope, parentScope;
 
-  var template = '\
+	var template = '\
 		${2}
-  ';
+	';
 
-  beforeEach(function() {
-    module("arethusa.${3}");
+	beforeEach(function() {
+		module("arethusa.core", function($provide) {
+			$provide.value('configurator', arethusaMocks.configurator());
+		});
+	});
 
-    inject(function($compile, $rootScope, _state_) {
-      state = _state_;
-      state.replaceState(arethusaMocks.createTokens());
+	function init(template, fn) {
+		inject(function($compile, $rootScope, _state_) {
+			state = _state_;
+			state.replaceState(arethusaMocks.createTokens());
+			state.postInit();
 
-      element = angular.element(template);
-      $compile(element)($rootScope);
+			parentScope = $rootScope.$new();
+			element = angular.element(template);
+
+			if (angular.isFunction(fn)) fn();
+
+			$compile(element)(parentScope);
 
 			// Change isolateScope() to scope() when needed
-      scope = element.isolateScope();
+			scope = element.isolateScope();
+			scope.$digest();
+		});
+	}
 
-			scope.$digest()
-    });
-  });
+	describe('general behavior', function() {
+		beforeEach(function() {
+			init(template);
+		});
 
-  ${0}
+		${0}
+	});
 });
 endsnippet
 
