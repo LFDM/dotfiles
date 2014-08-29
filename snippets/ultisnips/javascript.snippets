@@ -486,7 +486,7 @@ describe("${1:directiveName}", function() {
 	function init(template, fn) {
 		inject(function($compile, $rootScope, _state_) {
 			state = _state_;
-			state.replaceState(arethusaMocks.createTokens());
+			state.replaceState(arethusaMocks.tokens());
 			state.postInit();
 
 			parentScope = $rootScope.$new();
@@ -495,10 +495,10 @@ describe("${1:directiveName}", function() {
 			if (angular.isFunction(fn)) fn();
 
 			$compile(element)(parentScope);
+			parentScope.$digest();
 
 			// Change isolateScope() to scope() when needed
 			scope = element.isolateScope();
-			scope.$digest();
 		});
 	}
 
