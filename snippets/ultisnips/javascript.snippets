@@ -266,6 +266,13 @@ scope.$watch('${1:expression}', function(newVal, oldVal) {
 });
 endsnippet
 
+snippet so "scope on" w
+scope.$on('${1:expression}', function(${2:event}) {
+	$0
+});
+
+endsnippet
+
 snippet sa "scope apply" !b
 scope.$apply($0);
 endsnippet
