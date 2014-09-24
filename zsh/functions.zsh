@@ -95,3 +95,7 @@ function rake-or-grunt {
     grunt
   fi
 }
+
+function xml-format {
+  xmllint --format $1 > temporary_formatted_xml_file && mv temporary_formatted_xml_file $1
+}
