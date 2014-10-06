@@ -44,6 +44,10 @@ export BUNDLER_JOBS=4
 export SCALA_HOME='~/tools/scala-2.10.4'
 export PATH=$PATH:$SCALA_HOME/bin
 
+# mongoDB
+
+export PATH=$PATH:$HOME/tools/mongodb/bin
+
 # vi mode (oh-my-zsh is overwriting something here, so we stuff it in the back)
 bindkey -v
 bindkey ' ' magic-space
