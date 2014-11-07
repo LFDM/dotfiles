@@ -86,7 +86,7 @@ alias ttmux='~/.tmux/thinkpad-session.sh'
 alias ctmux='tmux new -s home-sub -t home; tmux kill-session -t home-sub'
 
 # retrieve my current public ip (echo to strip the newline char)
-alias pip='echo $(curl --silent http://ipecho.net/plain)'
+#alias pip='echo $(curl --silent http://ipecho.net/plain)'
 
 # Kill tmux sessions with ease
 alias tks='tmux kill-session'
@@ -190,3 +190,6 @@ alias nbi="npm install && bower install"
 
 # arethusa cli - local
 alias acli="$HOME/code/arethusa-cli/bin/arethusa"
+
+# arethusa dev server
+alias ares="DEV=1 grunt reloading-server"
