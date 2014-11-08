@@ -702,6 +702,9 @@ let g:gundo_right = 1
 " stages file in current buffer
 map <leader>ga :Gwrite<cr>
 
+" removes a file from the git tree
+map <leader>gr :Gremove<cr>
+
 
 """"""""""""""
 "  Startify  "
