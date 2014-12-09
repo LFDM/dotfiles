@@ -59,9 +59,16 @@ task :compile do
     exec './install.sh'
   end
 
+  log('Compiling xcape')
   Dir.chdir('util/xcape') do
     system 'make'
     system 'sudo make install'
+  end
+
+  log('Compiling tig')
+  Dir.chdir('util/tig') do
+    system 'make prefix=/usr/local'
+    system 'sudo make install prefix=/usr/local'
   end
 end
 
