@@ -159,9 +159,6 @@ alias chrome='google-chrome --window-position=1921,0 2>/dev/null &!'
 # replacements
 alias top='htop'
 
-# shows a tree of subdirectories
-alias t='tree'
-
 # using hub
 # disabled temporarily, is buggy
 #alias git=hub
@@ -178,6 +175,13 @@ alias gpv='gem_polish version'
 alias gpga='gem_polish gem add'
 alias gpgd='gem_polish gem delete'
 alias gpgu='gem_polish gem update'
+
+# tig
+alias t='tig'
+alias ts="tig status"
+alias ta="tig --all"
+alias td="tig show"
+alias tb="tig blame"
 
 # npm
 alias ni="npm install"
