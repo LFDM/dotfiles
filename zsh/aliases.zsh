@@ -55,6 +55,7 @@ alias gdw='git diff --word-diff'
 alias gst='git-pretty-status-wrapper'
 alias gprum='git pull --rebase upstream master'
 alias gpm='git-post-merge-cleanup'
+alias gbr="git for-each-ref --sort=-committerdate --format='%(committerdate:short) %(objectname:short) %(refname:short)' --count=25"
 
 # Fast vim
 alias v='vim'
