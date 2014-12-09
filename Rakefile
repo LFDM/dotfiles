@@ -56,7 +56,7 @@ desc 'compiles several ressources'
 task :compile do
   log('Compiling YouCompleteMe')
   Dir.chdir('plugins/YouCompleteMe') do
-    exec './install.sh'
+    system './install.sh'
   end
 
   log('Compiling xcape')
