@@ -133,3 +133,6 @@
 [submodule "plugins/tern_for_vim"]
 	path = plugins/tern_for_vim
 	url = git@github.com:marijnh/tern_for_vim.git
+[submodule "util/tig"]
+	path = util/tig
+	url = https://github.com/jonas/tig
