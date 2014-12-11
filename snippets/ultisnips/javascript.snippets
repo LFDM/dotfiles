@@ -604,4 +604,55 @@ expect(function() {
 }).toThrow(new ${2:Error}(${3:"${4:message}"}));
 endsnippet
 
+####################
+#  ngdoc snippets  #
+####################
+
+snippet dd "ngdoc directive" !b
+/**
+ * @ngdoc directive
+ * @name ${1:arethusa.}${2}
+ * @restrict ${3:A}
+ *
+ * @description
+ * ${4}
+ *
+ */
+endsnippet
+
+snippet ds "ngdoc service" !b
+/**
+ * @ngdoc directive
+ * @name ${1:arethusa.}${2}
+ *
+ * @description
+ * ${4}
+ *
+ */
+endsnippet
+
+snippet df "ngdoc function" !b
+/**
+ * @ngdoc function
+ * @name ${1:arethusa.}${2}
+ * @methodOf ${3:arethusa.}${4}
+ *
+ * @description
+ * ${5}
+ *
+ */
+endsnippet
+
+snippet dp "ngdoc param" !w
+@param {${1}} ${2:name} ${3:description}
+endsnippet
+
+snippet dr "ngdoc requires" !w
+@requires ${1}
+endsnippet
+
+snippet dl "ngdoc link" !w
+{@link ${1:arethusa.}${2}}
+endsnippet
+
 # vim:ft=snippets:
