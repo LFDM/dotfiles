@@ -28,7 +28,7 @@ hi Visual                        ctermbg=236
 " Fold colors
 
 hi Folded            ctermfg=180 ctermbg=236
-hi FoldColumn                    ctermbg=233
+hi FoldColumn        ctermfg=180 ctermbg=233
 
 
 """""""""""""""""
@@ -450,7 +450,7 @@ endfunction
 
 function! JsSettings()
   " folding of ngdoc comment strings
-  set fmr=/**,*/ fdm=marker
+  set fmr=/**,*/ fdm=marker fdc=1
   set foldenable
   let &foldtext = "MultiLineCommentFold()"
 endfunction
