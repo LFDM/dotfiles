@@ -440,6 +440,7 @@ map <leader>lt :call SetLLTPath()<Cr>
 
 function! MultiLineCommentFold()
   let text = getline(v:foldstart + 1)
+  let text = substitute(text, '\(\s*\) \* \(.*\)', '\1\2', '')
   let ind = indent(v:foldstart)
   let line_count = v:foldend-v:foldstart + 1
   let line_text = '('. line_count .' lines) '
