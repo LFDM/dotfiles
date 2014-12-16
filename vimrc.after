@@ -443,7 +443,7 @@ function! MultiLineCommentFold()
   let text = substitute(text, '\(\s*\) \* \(.*\)', '\1\2', '')
   let ind = indent(v:foldstart)
   let line_count = v:foldend-v:foldstart + 1
-  let line_text = '('. line_count .' lines) '
+  let line_text = '('. line_count .' lines)    '
   let offset = strlen(line_text) + 4
   return text . repeat(' ', winwidth(0) - strlen(text) - offset) . line_text
 endfunction
