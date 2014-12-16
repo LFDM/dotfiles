@@ -615,7 +615,7 @@ snippet dd "ngdoc directive" !b
  * @restrict ${3:A}
  *
  * @description
- * ${4}
+ * ${4:TODO}
  *
  */
 endsnippet
@@ -626,7 +626,7 @@ snippet ds "ngdoc service" !b
  * @name ${1:arethusa.}${2}
  *
  * @description
- * ${4}
+ * ${4:TODO}
  *
  */
 endsnippet
@@ -634,12 +634,11 @@ endsnippet
 snippet df "ngdoc function" !b
 /**
  * @ngdoc function
- * @name ${1:arethusa.}${2}
- * @methodOf ${3:arethusa.}${4}
+ * @name arethusa.core.globalSettings#$1
+ * @methodOf arethusa.core.globalSettings
  *
  * @description
- * ${5}
- *
+ * ${2:TODO}
  */
 endsnippet
 
@@ -647,8 +646,26 @@ snippet dp "ngdoc param" !w
 @param {${1}} ${2:name} ${3:description}
 endsnippet
 
-snippet dr "ngdoc requires" !w
-@requires ${1}
+snippet dprs "ngdoc property (short)" !w
+@property {${1}} ${2:name} ${3:description}
+endsnippet
+
+snippet dpr "ngdoc property" !w
+/**
+ * @ngdoc property
+ * @name $1
+ * @propertyOf arethusa.core.globalSettings
+ * @description
+ * ${2:TODO}
+ */
+endsnippet
+
+snippet dq "ngdoc requires" !w
+@requires ${1:arethusa.core.}$2
+endsnippet
+
+snippet dr "ngdoc return" !w
+@returns {${1}} ${2}
 endsnippet
 
 snippet dl "ngdoc link" !w
