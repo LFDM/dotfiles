@@ -25,6 +25,11 @@ hi TabLineSel                    ctermbg=239
 
 hi Visual                        ctermbg=236
 
+" Fold colors
+
+hi Folded            ctermfg=180 ctermbg=236
+hi FoldColumn                    ctermbg=233
+
 
 """""""""""""""""
 "  set options  "
@@ -433,6 +438,13 @@ map <leader>lt :call SetLLTPath()<Cr>
 
 " wrap a line in a console log
 
+function! JsSettings()
+  " folding of ngdoc comment strings
+  set fmr=/**,*/ fdm=marker
+  set foldenable
+endfunction
+
+autocmd FileType javascript call JsSettings()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          Plugin customization                           "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
