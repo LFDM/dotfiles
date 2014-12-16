@@ -27,7 +27,7 @@ hi Visual                        ctermbg=236
 
 " Fold colors
 
-hi Folded            ctermfg=180 ctermbg=236
+hi Folded            ctermfg=180 ctermbg=none
 hi FoldColumn        ctermfg=180 ctermbg=233
 
 
@@ -438,10 +438,34 @@ map <leader>lt :call SetLLTPath()<Cr>
 
 " wrap a line in a console log
 
+function! WithoutPrefix(text)
+  return substitute(a:text, '\(\s*\) \* \(.*\)', '\1\2', '')
+endfunction
+
+function! WithoutAll(text)
+  return substitute(a:text, '\s*\* \(.*\)', '\1', '')
+endfunction
+
 function! MultiLineCommentFold()
-  let text = getline(v:foldstart + 1)
-  let text = substitute(text, '\(\s*\) \* \(.*\)', '\1\2', '')
-  let ind = indent(v:foldstart)
+  let text = WithoutPrefix(getline(v:foldstart + 1))
+  " Adds the description of an ngdoc string if possible
+  "if text =~ 'ngdoc'
+    "let i = 2
+    "let no_description = 1
+    "while i < 7 && no_description
+      "let line = getline(v:foldstart + i)
+      "echom line
+      "if line =~ '^\s*\* @description'
+        "let no_description = 0
+      "endif
+      "let i += 1
+    "endwhile
+    "if !no_description
+      "echom text
+      "let text = text . ': ' . WithoutAll(getline(v:foldstart + i))
+    "endif
+  "endif
+
   let line_count = v:foldend-v:foldstart + 1
   let line_text = '('. line_count .' lines)    '
   let offset = strlen(line_text) + 4
