@@ -477,6 +477,8 @@ function! JsSettings()
   set fmr=/**,*/ fdm=marker fdc=1
   set foldenable
   let &foldtext = "MultiLineCommentFold()"
+
+  map zx :set foldenable!<cr>
 endfunction
 
 autocmd FileType javascript call JsSettings()
