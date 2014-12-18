@@ -474,11 +474,14 @@ endfunction
 
 function! JsSettings()
   " folding of ngdoc comment strings
-  set fmr=/**,*/ fdm=marker fdc=1
-  set foldenable
-  let &foldtext = "MultiLineCommentFold()"
+  let filename = expand('%:t')
+  if filename !~ '^\([Gg]runt\|[Gg]ulp\)'
+    set fmr=/**,*/ fdm=marker fdc=1
+    set foldenable
+    let &foldtext = "MultiLineCommentFold()"
+    map zx :set foldenable!<cr>
+  endif
 
-  map zx :set foldenable!<cr>
 endfunction
 
 autocmd FileType javascript call JsSettings()
