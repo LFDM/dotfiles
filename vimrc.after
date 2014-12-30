@@ -619,6 +619,8 @@ let scdh =
       \  'jasmine-defined': ['toBeDefined', 'toBeUndefined'],
       \  'jasmine-not': ['.to', '.not.to'],
       \  'ng-scope': ['scope', '$scope'],
+      \  'ng-emit-broadcast': ['$emit', '$broadcast'],
+      \  'this-self': ['this', 'self'],
       \  'fn-declarations': {
       \     '\v^(.*)this\.(.{-}) \= function\s?\((.{-})\) (.*)' : '\1function \2(\3) \4',
       \     '\v^(.*)function (.{-})\((.*)\) (.*)' : '\1var \2 = function(\3) \4',
@@ -641,7 +643,9 @@ au Filetype javascript let b:switch_custom_definitions =
       \  scdh['jasmine-defined'],
       \  scdh['jasmine-not'],
       \  scdh['ng-scope'],
+      \  scdh['ng-emit-broadcast'],
       \  scdh['fn-declarations'],
+      \  scdh['this-self'],
       \]
 
 let g:switch_custom_definitions =
