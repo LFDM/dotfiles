@@ -1,0 +1,4 @@
+[
+  [ "snippets", "snippets/ultisnips/@@input@@" ],
+  [ "scripts",  "zsh/scripts/@@input@@"]
+]
