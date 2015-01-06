@@ -815,6 +815,8 @@ let g:ctrlp_switch_buffer = 0
 " no new window directly on startified startup
 let g:ctrlp_reuse_window = 'startify'
 
+let g:ctrlp_extensions = [ 'rel', 'line' ]
+
 
 """"""""""""""""
 "  EasyMotion  "
