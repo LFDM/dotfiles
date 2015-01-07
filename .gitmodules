@@ -139,3 +139,6 @@
 [submodule "plugins/ctrlp_custom_modes"]
 	path = plugins/ctrlp_custom_modes
 	url = git@github.com:LFDM/ctrlp_custom_modes.git
+[submodule "plugins/ctrlp-rel"]
+	path = plugins/ctrlp-rel
+	url = git@github.com:LFDM/ctrlp-rel.git
