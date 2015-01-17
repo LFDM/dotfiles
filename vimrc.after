@@ -806,8 +806,7 @@ noremap <C-\> :CtrlPTag<cr>
 
 let g:ctrlp_user_command = 'ag %s --files-with-matches -g "" --ignore "\.git$\|\.hg$\|\.svn$"'
 
-" no caching needed, ag is so absurdely fast
-let g:ctrlp_use_caching = 0
+let g:ctrlp_use_caching = 1
 
 " reopens a file even when already open somewhere
 let g:ctrlp_switch_buffer = 0
