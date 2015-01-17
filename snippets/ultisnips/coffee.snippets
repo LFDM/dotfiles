@@ -119,3 +119,92 @@ endsnippet
 snippet am "angular module" !b
 angular.module('$1').
 endsnippet
+
+#############
+#  Jasmine  #
+#############
+
+snippet spec "New spec file" !b
+describe '$1', ->
+	$1 = null
+
+	$0
+endsnippet
+
+snippet d "describe block" !b
+describe '${1:description}', ->
+	$0
+endsnippet
+
+snippet desc "describe block" b!
+describe '${1:description}', ->
+	$0
+endsnippet
+
+snippet it "it block" !b
+it '${1:description}', ->
+	$0
+endsnippet
+
+snippet be "beforeEach" !b
+beforeEach ->
+	$0
+endsnippet
+
+snippet bem "before each module" !b
+beforeEach module '$1'
+endsnippet
+
+snippet bemp "before each module provide" !b
+beforeEach module '$1', ($provide) ->
+	$provide.$2
+endsnippet
+
+snippet bei "before each inject" !b
+beforeEach inject ($1) ->
+	$0
+endsnippet
+
+snippet ete "expect to equal" !b
+expect(${1:actual}).toEqual(${0:expected})
+endsnippet
+
+snippet etb "expect to be" !b
+expect(${1:actual}).toBe(${0:expected})
+endsnippet
+
+snippet ett "expect to be truthy" !b
+expect(${1:actual}).toBeTruthy()
+endsnippet
+
+snippet etf "expect to be falsy" !b
+expect(${1:actual}).toBeFalsy()
+endsnippet
+
+snippet etd "expect to be defined" !b
+expect(${1:actual}).toBeDefined()
+endsnippet
+
+snippet etud "expect to be undefined" !b
+expect(${1:actual}).toBeUndefined()
+endsnippet
+
+snippet etc "expect to contain" !b
+expect(${1:actual}).toContain(${0:expected}
+endsnippet
+
+snippet ethbc "expect to have been called" !b
+expect(${1:actual}).toHaveBeenCalled()
+endsnippet
+
+snippet so "spyOn" !b
+spyOn($1, '$2')
+endsnippet
+
+snippet soa "spyOn and.callThrough" !b
+spyOn($1, '$2').and.callThrough()
+endsnippet
+
+snippet hfl "$httpBackend.flush()" !b
+$httpBackend.flush()
+endsnippet
