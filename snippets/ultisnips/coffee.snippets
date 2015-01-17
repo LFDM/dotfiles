@@ -160,8 +160,21 @@ beforeEach module '$1', ($provide) ->
 	$provide.$2
 endsnippet
 
+global !p
+def assign_injections(injections, indentation, re):
+	indent = indentation + '\t'
+	args = injections.split(', ')
+	vars = []
+	for var in args:
+		m = re.match('^_(.*)_$', var)
+		if m:
+			vars.append('%s = %s' % (m.groups()[0], var))
+	return '\n'.join(vars)
+endglobal
+
 snippet bei "before each inject" !b
 beforeEach inject ($1) ->
+	`!p snip.rv = assign_injections(t[1], snip._initial_indent, re)`
 	$0
 endsnippet
 
