@@ -116,6 +116,10 @@ snippet tv "this.variable"
 this.${1:variable_name} = ${2:value};
 endsnippet
 
+snippet ta "this.variable = variable - this assignment" !b
+this.${1} = $1;
+endsnippet
+
 snippet pv "prototype.variable"
 ${1:cl}.prototype.${2:var} = ${0:val};
 endsnippet
