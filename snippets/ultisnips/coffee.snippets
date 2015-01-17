@@ -168,13 +168,13 @@ def assign_injections(injections, indentation, re):
 	for var in args:
 		m = re.match('^_(.*)_$', var)
 		if m:
-			vars.append('%s = %s' % (m.groups()[0], var))
-	return '\n'.join(vars)
+			vars.append('\n%s%s = %s' % (indent, m.groups()[0], var))
+
+	return ''.join(vars)
 endglobal
 
 snippet bei "before each inject" !b
-beforeEach inject ($1) ->
-	`!p snip.rv = assign_injections(t[1], snip._initial_indent, re)`
+beforeEach inject ($1) ->`!p snip.rv = assign_injections(t[1], snip._initial_indent, re)`
 	$0
 endsnippet
 
