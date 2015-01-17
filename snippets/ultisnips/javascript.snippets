@@ -688,4 +688,35 @@ snippet dae "ngdoc event through arethusa-ngdocs-generator" !b
 // @arethusa-event
 endsnippet
 
+########################
+#  Small Improvements  #
+########################
+
+snippet sis "service" !b
+sandbox.angular
+	.module('si.$1.$2', [
+		$3
+	])
+	.service('$2', $2)
+
+function $2($4) {
+	$0
+}
+endsnippet
+
+snippet sid "directive" !b
+sandbox.angular
+	.module('si.$1.$2', [
+		$3
+	])
+	.directive('$2', $2)
+
+function $2($4) {
+	return {
+		restrict: 'AE',
+		$0
+	}
+}
+endsnippet
+
 # vim:ft=snippets:
