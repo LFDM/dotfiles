@@ -30,6 +30,8 @@ alias diploma='cd ~/code/diploma_thesis'
 alias dc='cd ~/code/diploma_thesis_code'
 alias are='cd ~/code/arethusa'
 
+alias si="cd ~/code/si/praisemanager/frontend"
+
 # Rake
 
 # noglob to enable arguments without zsh escaping, uses
