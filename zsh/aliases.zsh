@@ -87,6 +87,7 @@ alias ttmux='~/.tmux/thinkpad-session.sh'
 # connect to home session and remain independent
 # kills subsession immediately after detachment
 alias ctmux='tmux new -s home-sub -t home; tmux kill-session -t home-sub'
+alias cttmux='tmux new -s thinkpad-sub -t thinkpad; tmux kill-session -t thinkpad-sub'
 
 # retrieve my current public ip (echo to strip the newline char)
 #alias pip='echo $(curl --silent http://ipecho.net/plain)'
