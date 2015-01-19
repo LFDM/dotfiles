@@ -333,6 +333,14 @@ command! -nargs=* HardWrap set wrap linebreak nolist textwidth=72
 command! -nargs=* Wrap set wrap linebreak nolist textwidth=0 wrapmargin=0
 
 
+""""""""""""
+"  Macros  "
+""""""""""""
+
+" Fast replay of standard q macro
+noremap Q @q
+
+
 """""""""""""""""""
 "  File renaming  "
 """""""""""""""""""
@@ -816,6 +824,10 @@ let g:ctrlp_reuse_window = 'startify'
 
 let g:ctrlp_extensions = [ 'rel', 'line' ]
 
+map <leader><leader>r :CtrlPRelFiles<cr>
+
+" For SI/praisemanager
+let g:ctrlp_root_markers = [ 'frontend' ]
 
 """"""""""""""""
 "  EasyMotion  "
