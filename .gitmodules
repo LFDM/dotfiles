@@ -135,7 +135,7 @@
 	url = git@github.com:marijnh/tern_for_vim.git
 [submodule "util/tig"]
 	path = util/tig
-	url = https://github.com/jonas/tig
+	url = git@github.com:jonas/tig.git
 [submodule "plugins/ctrlp_custom_modes"]
 	path = plugins/ctrlp_custom_modes
 	url = git@github.com:LFDM/ctrlp_custom_modes.git
