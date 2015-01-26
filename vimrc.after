@@ -800,6 +800,8 @@ let g:ack_mappings = {
 
 " auto-quote
 map <leader>fa :Ack ""<left>
+" search, but don't open the first result immediately
+map <leader>fs :!Ack ""<left>
 
 
 """"""""""""""
