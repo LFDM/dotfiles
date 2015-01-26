@@ -142,3 +142,6 @@
 [submodule "plugins/ctrlp-rel"]
 	path = plugins/ctrlp-rel
 	url = git@github.com:LFDM/ctrlp-rel.git
+[submodule "plugins/ctrlp-py-matcher"]
+	path = plugins/ctrlp-py-matcher
+	url = git@github.com:FelikZ/ctrlp-py-matcher.git

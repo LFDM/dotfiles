@@ -829,6 +829,8 @@ map <leader><leader>r :CtrlPRelFiles<cr>
 " For SI/praisemanager
 let g:ctrlp_root_markers = [ 'frontend' ]
 
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+
 """"""""""""""""
 "  EasyMotion  "
 """"""""""""""""
