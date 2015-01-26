@@ -803,6 +803,11 @@ map <leader>fa :Ack ""<left>
 " search, but don't open the first result immediately
 map <leader>fs :Ack! ""<left>
 
+" Prevent the screen flicker by avoiding outputting to the terminal
+" We might need this feature for other things at some point, but definetely
+" right now
+let &shellpipe="&>"
+
 
 """"""""""""""
 "  yankring  "
