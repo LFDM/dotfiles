@@ -793,7 +793,7 @@ let g:startify_change_to_dir = 0
 """""""""""""
 
 " much faster when using ag
-let g:ackprg = 'ag --nocolor --nogroup --column'
+let g:ackprg = 'ag --nocolor --nogroup --column --ignore ''.git'' --ignore ''node_modules'' --ignore ''bower_components'' --hidden'
 
 " auto-quote
 map <leader>fa :Ack ""<left>
