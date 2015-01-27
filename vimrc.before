@@ -93,3 +93,9 @@ let g:NumberToggleTrigger = '<Plug>UndefinedOfNoMansLand'
 """""""""""""""
 
 let g:user_emmet_leader_key = ','
+
+""""""""""""""""
+"  localvimrc  "
+""""""""""""""""
+
+let g:localvimrc_whitelist=$HOME."/code/.*"
