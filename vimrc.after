@@ -458,6 +458,14 @@ map <leader>lt :call SetLLTPath()<Cr>
 
 " wrap a line in a console log
 
+function! WrapInConsoleLog()
+  s/\(\s*\)\(.\{-}\);\?$/\1console.log(\2);
+endfunction
+
+noremap <leader>ll :call WrapInConsoleLog()<cr>
+noremap <leader>dd odebugger;<esc>:w<cr>
+
+
 function! WithoutPrefix(text)
   return substitute(a:text, '\(\s*\) \* \(.*\)', '\1\2', '')
 endfunction
