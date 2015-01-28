@@ -70,6 +70,12 @@ task :compile do
     system 'make prefix=/usr/local'
     system 'sudo make install prefix=/usr/local'
   end
+
+  log('Compiling tidy-html5')
+  Dir.chdir('util/tidy-html5') do
+    system 'make -C build/gmake'
+    system 'sudo make install -C build/gmake'
+  end
 end
 
 desc 'install synaptics configuration for T440s'
