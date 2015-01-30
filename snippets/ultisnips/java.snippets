@@ -1,0 +1,17 @@
+snippet user
+userService.createUser(
+	new User()
+		.setName("$1" + apo)
+		.setLastName("$2")
+		.setDescription("$3")
+		.setEmail("`!p snip.rv = t[1].lower()`" + fdomain)
+		.setLoginname("`!p snip.rv = t[1].lower()`" + fdomain)
+		.setActive(${4:true})
+		.setLocation("${5:Berlin}")
+		.setCompany(company)
+		.setRole("${6:Developer}")
+		.setDepartment("${7:Development}")
+		.setBossUser($8),
+	false
+);
+endsnippet

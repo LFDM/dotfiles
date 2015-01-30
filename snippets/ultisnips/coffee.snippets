@@ -125,24 +125,24 @@ endsnippet
 #############
 
 snippet spec "New spec file" !b
-describe '$1', ->
+describe "$1", ->
 	$1 = null
 
 	$0
 endsnippet
 
 snippet d "describe block" !b
-describe '${1:description}', ->
+describe "${1:description}", ->
 	$0
 endsnippet
 
 snippet desc "describe block" b!
-describe '${1:description}', ->
+describe "${1:description}'", ->
 	$0
 endsnippet
 
 snippet it "it block" !b
-it '${1:description}', ->
+it "${1:description}", ->
 	$0
 endsnippet
 
@@ -152,11 +152,11 @@ beforeEach ->
 endsnippet
 
 snippet bem "before each module" !b
-beforeEach module '$1'
+beforeEach module "$1"
 endsnippet
 
 snippet bemp "before each module provide" !b
-beforeEach module '$1', ($provide) ->
+beforeEach module "$1", ($provide) ->
 	$provide.$2
 endsnippet
 
