@@ -154,3 +154,6 @@
 [submodule "plugins/vim-extradite"]
 	path = plugins/vim-extradite
 	url = git@github.com:int3/vim-extradite.git
+[submodule "plugins/vim-textobj-flow"]
+	path = plugins/vim-textobj-flow
+	url = git@github.com:LFDM/vim-textobj-flow.git
