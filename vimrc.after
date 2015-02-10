@@ -807,12 +807,21 @@ map <leader>ga :Gwrite<cr>
 map <leader>gr :Gremove<cr>
 
 
-""""""""""""""
-"  Startify  "
-""""""""""""""
+"""""""""""""""
+"  extradite  "
+"""""""""""""""
+
+let g:extradite_width = 90
+map <leader>ge :Extradite!<cr>
+map <leader>gE :Extradite<cr>
+
+
 
 function! VimVersion()
   return split(system('vim --version | head -2'), '\n')
+""""""""""""""
+"  Startify  "
+""""""""""""""
 endfunction
 let g:startify_custom_header = VimVersion() + [ '' ]
 let g:startify_skiplist = [ 'COMMIT_EDITMSG', '.git/index']

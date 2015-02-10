@@ -148,3 +148,9 @@
 [submodule "plugins/vim-localvimrc"]
 	path = plugins/vim-localvimrc
 	url = git@github.com:embear/vim-localvimrc.git
+[submodule "util/tidy-html5"]
+	path = util/tidy-html5
+	url = https://github.com/htacg/tidy-html5
+[submodule "plugins/vim-extradite"]
+	path = plugins/vim-extradite
+	url = git@github.com:int3/vim-extradite.git
