@@ -131,6 +131,22 @@ describe "$1", ->
 	$0
 endsnippet
 
+snippet specd "New spec file for a directive" !b
+describe "$1" ->
+	scope = el = $compile = null
+
+	beforeEach inject($rootScope, _$compile_) ->
+		scope = $rootScope.$new()
+		$compile = _$compile_
+
+	compile = (tpl = template) ->
+		el = angular.element(tpl)
+		$compile(el)(scope)
+		scope.$digest()
+
+	template = '$2'
+endsnippet
+
 snippet d "describe block" !b
 describe "${1:description}", ->
 	$0
