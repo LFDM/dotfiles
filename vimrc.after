@@ -690,6 +690,15 @@ au Filetype javascript let b:switch_custom_definitions =
       \  scdh['this-self'],
       \]
 
+
+au Filetype coffee let b:switch_custom_definitions =
+      \[
+      \  scdh['jasmine-bools'],
+      \  scdh['jasmine-defined'],
+      \  scdh['jasmine-not'],
+      \  scdh['ng-scope'],
+      \]
+
 let g:switch_custom_definitions =
       \ [
       \   ['+', '-'],
@@ -819,12 +828,12 @@ map <leader>ge :Extradite!<cr>
 map <leader>gE :Extradite<cr>
 
 
-
-function! VimVersion()
-  return split(system('vim --version | head -2'), '\n')
 """"""""""""""
 "  Startify  "
 """"""""""""""
+
+function! VimVersion()
+  return split(system('vim --version | head -2'), '\n')
 endfunction
 let g:startify_custom_header = VimVersion() + [ '' ]
 let g:startify_skiplist = [ 'COMMIT_EDITMSG', '.git/index']
