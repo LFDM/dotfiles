@@ -215,6 +215,9 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
+" Break out window to tab
+nnoremap <leader>wt <c-w>T
+
 nnoremap <leader>bd :bd<cr>
 
 
