@@ -221,3 +221,11 @@ endsnippet
 snippet hfl "$httpBackend.flush()" !b
 $httpBackend.flush()
 endsnippet
+
+snippet heg "$httpBackend.expectGET" !b
+$httpBackend.expectGET($1).respond(${0:200})
+endsnippet
+
+snippet he "$httpBackend.expect" !b
+$httpBackend.expect$0($1)
+endsnippet
