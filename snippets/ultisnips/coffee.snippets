@@ -111,6 +111,10 @@ snippet us "use strict" !b
 $0
 endsnippet
 
+snippet ip "interpolation"
+#{$0}
+endsnippet
+
 #############
 #  Angular  #
 #############
@@ -132,10 +136,12 @@ describe "$1", ->
 endsnippet
 
 snippet specd "New spec file for a directive" !b
-describe "$1" ->
+describe "$1", ->
 	scope = el = $compile = null
 
-	beforeEach inject($rootScope, _$compile_) ->
+	beforeEach module "$2$1"
+
+	beforeEach inject ($rootScope, _$compile_) ->
 		scope = $rootScope.$new()
 		$compile = _$compile_
 
@@ -144,7 +150,7 @@ describe "$1" ->
 		$compile(el)(scope)
 		scope.$digest()
 
-	template = '$2'
+	template = '$3'
 endsnippet
 
 snippet d "describe block" !b
@@ -153,7 +159,7 @@ describe "${1:description}", ->
 endsnippet
 
 snippet desc "describe block" b!
-describe "${1:description}'", ->
+describe "${1:description}", ->
 	$0
 endsnippet
 
