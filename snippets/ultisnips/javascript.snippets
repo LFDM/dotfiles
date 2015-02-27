@@ -698,7 +698,7 @@ endsnippet
 #  Small Improvements  #
 ########################
 
-snippet sis "service" !b
+snippet siso "service" !b
 sandbox.angular
 	.module('si.$1.$2', [
 		$3
@@ -710,7 +710,7 @@ function $2($4) {
 }
 endsnippet
 
-snippet sid "directive" !b
+snippet sido "directive" !b
 sandbox.angular
 	.module('si.$1.$2', [
 		$3
@@ -723,6 +723,43 @@ function $2($4) {
 		$0
 	};
 }
+endsnippet
+
+snippet sis "SI service" !b
+module.exports = angular.module('si.$1.$2', [
+	$4
+]).service('$2', $2);
+
+function $2($3) {
+	$0
+}
+endsnippet
+
+global !p
+def template_name(snip):
+	snip.rv = "%s%s" % (snip.basename, '-tpl.html')
+endglobal
+
+snippet sid "SI directive" !b
+module.exports = angular.module('si.$1.$2', [
+	$4
+]).directive('$2', $2);
+
+function $2($5) {
+	return {
+		restrict: 'AE',
+		${6:templateUrl: require('./`!p template_name(snip)`'),}
+		$0
+	};
+}
+endsnippet
+
+snippet re "require" !b
+require('$1').name$0
+endsnippet
+
+snippet rer "require relative" !b
+require('./$1').name$0
 endsnippet
 
 # vim:ft=snippets:
