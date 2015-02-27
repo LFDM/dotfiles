@@ -517,6 +517,8 @@ function! JsSettings()
 endfunction
 
 autocmd FileType javascript call JsSettings()
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          Plugin customization                           "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -542,6 +544,7 @@ let g:syntastic_html_tidy_ignore_errors=[
       \  "discarding unexpected"
       \]
 
+"let g:syntastic_javascript_checkers = ['jsxhint']
 
 """""""""""""""""""
 "  YouCompleteMe  "
@@ -660,6 +663,14 @@ let scdh =
       \  'jasmine-bools': ['toBeTruthy', 'toBeFalsy'],
       \  'jasmine-defined': ['toBeDefined', 'toBeUndefined'],
       \  'jasmine-not': ['.to', '.not.to'],
+      \  'jasmine-describe-focus': {
+      \     'describe': 'fdescribe',
+      \     'fdescribe': 'describe',
+      \   },
+      \  'jasmine-it-focus': {
+      \     'it': 'fit',
+      \     'fit': 'it',
+      \   },
       \  'ng-scope': ['scope', '$scope'],
       \  'ng-emit-broadcast': ['$emit', '$broadcast'],
       \  'this-self': ['this', 'self'],
@@ -695,6 +706,8 @@ au Filetype coffee let b:switch_custom_definitions =
       \[
       \  scdh['jasmine-bools'],
       \  scdh['jasmine-defined'],
+      \  scdh['jasmine-describe-focus'],
+      \  scdh['jasmine-it-focus'],
       \  scdh['jasmine-not'],
       \  scdh['ng-scope'],
       \]
