@@ -31,6 +31,9 @@ alias dc='cd ~/code/diploma_thesis_code'
 alias are='cd ~/code/arethusa'
 
 alias si="cd ~/code/si/praisemanager/frontend"
+alias sim="cd ~/code/si/praisemanager/frontend/src/app/screens/message"
+alias simc="cd ~/code/si/praisemanager/frontend/src/app/screens/message/components"
+alias sims="cd ~/code/si/praisemanager/frontend/src/app/screens/message/services"
 
 # Rake
 
