@@ -142,6 +142,7 @@ describe "$1", ->
 	beforeEach module "$2$1"
 
 	beforeEach inject ($rootScope, _$compile_) ->
+		el = null
 		scope = $rootScope.$new()
 		$compile = _$compile_
 
@@ -225,7 +226,7 @@ expect(${1:actual}).toBeUndefined()
 endsnippet
 
 snippet etc "expect to contain" !b
-expect(${1:actual}).toContain(${0:expected}
+expect(${1:actual}).toContain(${0:expected})
 endsnippet
 
 snippet ethbc "expect to have been called" !b

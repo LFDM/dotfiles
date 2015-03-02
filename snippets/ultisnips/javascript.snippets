@@ -282,6 +282,10 @@ scope.$on('${1:expression}', function(${2:event}) {
 });
 endsnippet
 
+snippet sod "scope on destroy" !b
+scope.$on('$destroy', $0);
+endsnippet
+
 snippet sb "scope broadcast" w
 scope.$broadcast('${1:event}', $0);
 endsnippet
@@ -748,7 +752,7 @@ module.exports = angular.module('si.$1.$2', [
 function $2($5) {
 	return {
 		restrict: 'AE',
-		${6:templateUrl: require('./`!p template_name(snip)`'),}
+		${6:template: require('./`!p template_name(snip)`'),}
 		$0
 	};
 }
