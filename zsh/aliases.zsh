@@ -64,6 +64,7 @@ alias gbr="git for-each-ref --sort=-committerdate --format='%(committerdate:shor
 
 # Fast vim
 alias v='vim'
+alias minvim= 'MINVIM=1 vim'
 
 # Config files
 alias vimrc="vim $DOTFILES/vimrc.after"
@@ -206,3 +207,8 @@ alias acli="$HOME/code/arethusa-cli/bin/arethusa"
 
 # arethusa dev server
 alias ares="DEV=1 grunt reloading-server"
+
+# time-track
+alias tts="node $HOME/code/time-track start"
+alias tte="node $HOME/code/time-track stop"
+alias ttsh="node $HOME/code/time-track show"
