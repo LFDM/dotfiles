@@ -205,6 +205,10 @@ snippet ete "expect to equal" !b
 expect(${1:actual}).toEqual(${0:expected})
 endsnippet
 
+snippet eted "expect to equal data" !b
+expect(${1:actual}).toEqualData(${0:expected})
+endsnippet
+
 snippet etb "expect to be" !b
 expect(${1:actual}).toBe(${0:expected})
 endsnippet
@@ -233,12 +237,30 @@ snippet ethbc "expect to have been called" !b
 expect(${1:actual}).toHaveBeenCalled()
 endsnippet
 
+snippet ethbcw "expect to have been called with" !b
+expect(${1:actual}).toHaveBeenCalledWith($0)
+endsnippet
+
+snippet etth "expect to throw" !b
+expect(${1:actual}).toThrow($0)
+endsnippet
+
 snippet so "spyOn" !b
 spyOn($1, '$2')
 endsnippet
 
 snippet soa "spyOn and.callThrough" !b
 spyOn($1, '$2').and.callThrough()
+endsnippet
+
+snippet soe "spyOn with an expectation" !b
+spyOn($1, '$2')
+expect($1.$2).toHaveBeenCalled()
+endsnippet
+
+snippet soae "spyOn and.callThrough with an expectation" !b
+spyOn($1, '$2').and.callThrough()
+expect($1.$2).toHaveBeenCalled()
 endsnippet
 
 snippet hfl "$httpBackend.flush()" !b
