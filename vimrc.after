@@ -415,12 +415,6 @@ map <leader>k :call OpenSpec()<cr>
 "  Ruby "
 """""""""
 
-" Insert pry statement
-" Mind that ; is remapped - we have to shield it with paste mode
-map <leader>p :set paste<cr>orequire 'pry'; binding.pry<esc>:set nopaste<cr>
-map <leader>P :set paste<cr>Orequire 'pry'; binding.pry<esc>:set nopaste<cr>
-
-
 " Focus the RSpec do block you're currently hovering and saves the file
 function! RSpecFocus()
   if getline(".") =~ ', :focus'
@@ -430,7 +424,6 @@ function! RSpecFocus()
   endif
   exec ":w"
 endfunction
-map <leader>j :call RSpecFocus()<Cr>
 
 " Change Ruby 1.8 style hashes to new syntax - asks for confirmation
 " Not terribly well done for now
@@ -438,6 +431,15 @@ function! MorphHash()
   exec ":'<,'>:s/:\([^ ]*\)\(\s*\)=>/\1:/gc"
 endfunction
 
+function! RubySettings()
+  " Insert pry statement
+  " Mind that ; is remapped - we have to shield it with paste mode
+  map <leader>p :set paste<cr>orequire 'pry'; binding.pry<esc>:set nopaste<cr>
+  map <leader>P :set paste<cr>Orequire 'pry'; binding.pry<esc>:set nopaste<cr>
+  map <leader>j :call RSpecFocus()<Cr>
+endfunction
+
+autocmd FileType ruby call RubySettings()
 
 """""""""""""""
 "  LLT stuff  "
@@ -518,6 +520,42 @@ endfunction
 
 autocmd FileType javascript call JsSettings()
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                              Coffeescript                               "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! FocusOutmostDescribe()
+  exec FocusDescribe('c', 'file', 1)
+endfunction
+
+function! FocusInnerDescribe()
+  exec FocusDescribe('bc', 'inner describe', 0)
+endfunction
+
+function! FocusDescribe(flags, name, move_to_start)
+  normal! mo
+  if a:move_to_start == 1
+    normal! gg
+  endif
+  exec search('^\s*f\?describe', a:flags)
+  let line = getline('.')
+  if line =~ '^\s*f'
+    normal! "_x
+    echo "Unfocus " . a:name
+  else
+    normal! ^if
+    echo "Focus ". a:name
+  endif
+  normal! `o
+endfunction
+
+function! CoffeeSettings()
+  map <leader>j :call FocusOutmostDescribe()<cr>
+  map <leader>J :call FocusInnerDescribe()<cr>
+endfunction
+
+autocmd FileType coffee call CoffeeSettings()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          Plugin customization                           "
