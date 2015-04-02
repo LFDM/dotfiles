@@ -8,13 +8,48 @@ let mapleader = ';'
 "  Disabled janus stuff  "
 """"""""""""""""""""""""""
 
-call janus#disable_plugin('snipmate-snippets')
-call janus#disable_plugin('vimwiki')
-call janus#disable_plugin('snipmate')
-call janus#disable_plugin('supertab')
-" have pulled the plugin under vim-easymotion myself
-call janus#disable_plugin('easymotion')
+function! s:disable_plugins(plugins)
+  for plugin in a:plugins
+    call janus#disable_plugin(plugin)
+  endfor
+endfunction
+"
+" pulled new version of easymotion as vim-easymotion
+let s:always_to_disable = [
+      \  'snipmate-snippets',
+      \  'vimwiki',
+      \  'snipmate',
+      \  'supertab',
+      \  'easymotion',
+      \  'buffergator',
+      \  'dispatch',
+      \  'eunuch',
+      \  'narrowregion',
+      \  'vroom',
+      \  'vim-latex',
+      \  'vim-ruby-refactoring'
+      \]
 
+call s:disable_plugins(s:always_to_disable)
+"call janus#disable_plugin('YouCompleteMe')
+
+if $MINVIM
+  " Use this for a minimal setup which loads much fast (=> instantly is the
+  " goal!
+  let s:min_vim_disable = [
+        \  'vim-startify',
+        \  'ctrlp',
+        \  'ctrlp_custom_modes',
+        \  'sideways.vim',
+        \  'splitjoin.vim',
+        \  'tern_for_vim',
+        \  'vim-clojure-static',
+        \  'vim-fireplace',
+        \  'Ultisnips',
+        \  'syntastic'
+        \]
+  call s:disable_plugins(s:min_vim_disable)
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                        Upfront Keybindings                              "
@@ -78,6 +113,28 @@ let g:indentLine_noConcealCursor = 1
 """"""""""""""""
 
 let g:hopper_prefix = '<space>'
+
+let angular_file = '\v\.(js|less|spec.coffee|tpl.html)$'
+let angular_service   = '\v(service|factory)\.js$'
+let angular_directive = 'directive\.js$'
+
+let g:hopper_file_opener = [
+      \[
+        \[
+          \angular_service,
+          \[
+            \ [['source'], [angular_file, '.spec.coffee']]
+          \]
+        \],
+        \[
+          \angular_directive,
+          \[
+            \ [[angular_file, '.js'], [angular_file, '-tpl.html']],
+            \ [[angular_file, '.spec.coffee', 15], [angular_file, '.less', 10]]
+          \]
+        \]
+      \]
+\]
 
 
 """"""""""""""""""
