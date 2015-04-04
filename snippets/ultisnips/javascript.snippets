@@ -368,9 +368,11 @@ factory('${1:factoryName}', [
 endsnippet
 
 snippet ngmc "Define an Angular Module Controller" w
-controller('${1:controllerName}', function($scope${2:injectables}) {
-	$0
-}),
+controller('${1:serviceName}', [
+`!p injectables(t[2], snip)`  function(${2:injectables}) {
+		$0
+	}
+]);
 endsnippet
 
 snippet ngms "Define an Angular Module Service" w
