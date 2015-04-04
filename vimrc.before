@@ -120,22 +120,60 @@ let g:hopper_file_opener = [ 'angular' ]
 """"""""""""""""
 
 let angular_pattern = '\v.(js|less|spec.coffee|tpl.html)$'
-let g:lookup_window_opener = {
-      \'angular' : [
-        \{
-          \'pattern' : 'directive' . angular_pattern,
-          \'windows' : [
-          \  [
-          \    { 'substitute': [angular_pattern, '.js'] },
-          \    { 'substitute': [angular_pattern, '-tpl.html'] }
-          \  ],
-          \  [
-          \    { 'substitute': [angular_pattern, '.spec.coffee'], 'rows': 18 },
-          \    { 'substitute': [angular_pattern, '.less'], 'rows': 18 }
-          \  ]
-        \]
-      \}
-    \]
+
+let g:lookup_file_mappings = {
+  \'js': [
+    \ {
+    \   'pattern': angular_pattern,
+    \   'substitute': [angular_pattern, '.js']
+    \ }
+  \],
+  \'spec': [
+    \ {
+    \   'pattern': angular_pattern,
+    \   'substitute': [angular_pattern, '.spec.coffee']
+    \ }
+  \],
+  \'tpl': [
+    \ {
+    \   'pattern': angular_pattern,
+    \   'substitute': [angular_pattern, '-tpl.html']
+    \ }
+  \],
+  \'less': [
+    \ {
+    \   'pattern': angular_pattern,
+    \   'substitute': [angular_pattern, '.less']
+    \ }
+  \]
+\}
+
+let g:lookup_layouts = {
+  \'angular' : [
+    \{
+      \'pattern' : 'directive' . angular_pattern,
+      \'windows' : [
+      \  [
+      \    { 'substitute': [angular_pattern, '.js'] },
+      \    { 'substitute': [angular_pattern, '-tpl.html'] }
+      \  ],
+      \  [
+      \    { 'substitute': [angular_pattern, '.spec.coffee'], 'rows': 18 },
+      \    { 'substitute': [angular_pattern, '.less'] },
+      \    { 'substitute': [angular_pattern, '.less'], 'rows': 18 }
+      \  ]
+      \]
+    \},
+    \{
+      \'pattern' : '\v(service|factory|controller)' . angular_pattern,
+      \'windows' : [
+      \  [
+      \    { 'substitute': [angular_pattern, '.js'] },
+      \    { 'substitute': [angular_pattern, '.spec.coffee'] }
+      \  ]
+      \]
+    \}
+  \]
 \}
 
 
