@@ -113,28 +113,30 @@ let g:indentLine_noConcealCursor = 1
 """"""""""""""""
 
 let g:hopper_prefix = '<space>'
+let g:hopper_file_opener = [ 'angular' ]
 
-let angular_file = '\v\.(js|less|spec.coffee|tpl.html)$'
-let angular_service   = '\v(service|factory)\.js$'
-let angular_directive = 'directive\.js$'
+""""""""""""""""
+"  vim-lookup  "
+""""""""""""""""
 
-let g:hopper_file_opener = [
-      \[
-        \[
-          \angular_service,
-          \[
-            \ [['source'], [angular_file, '.spec.coffee']]
-          \]
-        \],
-        \[
-          \angular_directive,
-          \[
-            \ [[angular_file, '.js'], [angular_file, '-tpl.html']],
-            \ [[angular_file, '.spec.coffee', 15], [angular_file, '.less', 10]]
-          \]
+let angular_pattern = '\v.(js|less|spec.coffee|tpl.html)$'
+let g:lookup_window_opener = {
+      \'angular' : [
+        \{
+          \'pattern' : 'directive' . angular_pattern,
+          \'windows' : [
+          \  [
+          \    { 'substitute': [angular_pattern, '.js'] },
+          \    { 'substitute': [angular_pattern, '-tpl.html'] }
+          \  ],
+          \  [
+          \    { 'substitute': [angular_pattern, '.spec.coffee'], 'rows': 18 },
+          \    { 'substitute': [angular_pattern, '.less'], 'rows': 18 }
+          \  ]
         \]
-      \]
-\]
+      \}
+    \]
+\}
 
 
 """"""""""""""""""
