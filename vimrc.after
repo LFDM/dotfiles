@@ -61,15 +61,16 @@ set list                          " Show invisible characters
 set backspace=indent,eol,start    " backspace through everything in insert mode
 
 
-"""""""""""""""""
-"  Good habits  "
-"""""""""""""""""
+""""""""""""""""""""""""""""""""""""""
+"  Use cursors for something useful  "
+""""""""""""""""""""""""""""""""""""""
+
 
 " not needed anymore, I am converted
-map   <Up>    <NOP>
-map   <Down>  <NOP>
-map   <Left>  <NOP>
-map   <Right> <NOP>
+map   <Up>    :lprev<cr>
+map   <Down>  :lnext<cr>
+map   <Left>  :bprev<cr>
+map   <Right> :bnext<cr>
 imap  <Up>    <NOP>
 imap  <Down>  <NOP>
 imap  <Left>  <NOP>
@@ -567,6 +568,10 @@ autocmd FileType coffee call CoffeeSettings()
 """""""""""""""
 "  Syntastic  "
 """""""""""""""
+
+" Quickly jump through the list
+noremap <c-:> :lnext<cr>
+noremap <c-'> :lprev<cr>
 
 " Disables buggy checks for bats files
 let g:syntastic_ignore_files = ['\.bats$']
