@@ -157,3 +157,6 @@
 [submodule "plugins/vim-textobj-flow"]
 	path = plugins/vim-textobj-flow
 	url = git@github.com:LFDM/vim-textobj-flow.git
+[submodule "plugins/vim-lookup"]
+	path = plugins/vim-lookup
+	url = git@github.com:LFDM/vim-lookup.git
