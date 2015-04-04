@@ -628,6 +628,16 @@ imap <C-b> <c-j><esc>"_dd}
 
 " see vimrc.before
 
+""""""""""""""""
+"  vim-lookup  "
+""""""""""""""""
+
+" see vimrc.before"
+
+noremap <leader>lft :LookupOpenFile tpl<cr>
+noremap <leader>lfs :LookupOpenFile spec<cr>
+noremap <leader>lfj :LookupOpenFile js<cr>
+noremap <leader>lfl :LookupOpenFile less<cr>
 
 """""""""""""""""""
 "  NerdCommenter  "
