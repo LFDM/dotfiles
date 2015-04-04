@@ -159,7 +159,6 @@ let g:lookup_layouts = {
       \  ],
       \  [
       \    { 'substitute': [angular_pattern, '.spec.coffee'], 'rows': 18 },
-      \    { 'substitute': [angular_pattern, '.less'] },
       \    { 'substitute': [angular_pattern, '.less'], 'rows': 18 }
       \  ]
       \]
