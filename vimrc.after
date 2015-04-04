@@ -228,7 +228,7 @@ nnoremap <leader>bd :bd<cr>
 set ssop-=options    " do not store global and local values in a session
 set ssop-=folds      " do not store folds
 map <leader>ms :mksession! ~/session.vim
-map <leader>ls :so ~/session.vim
+map <leader>lS :so ~/session.vim
 
 
 """""""""""""""""""""""""
@@ -515,6 +515,9 @@ function! JsSettings()
     set foldenable
     let &foldtext = "MultiLineCommentFold()"
     map zx :set foldenable!<cr>
+
+    map gh :call lookup#goToFunc()<cr>
+    map gH :call lookup#goToFile()<cr>
   endif
 endfunction
 
