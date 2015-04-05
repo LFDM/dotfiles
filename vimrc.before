@@ -121,6 +121,35 @@ let g:hopper_file_opener = [ 'angular' ]
 
 let angular_pattern = '\v.(js|less|spec.coffee|tpl.html)$'
 
+let g:lookup_go_to_mappings = {
+  \'javascript': {
+  \  'substitute': ['\(\<\u\l\+\|\l\+\)\(\u\)' ,'\l\1-\l\2'],
+  \  'extension' : '.js',
+  \  'spec_extension' : '.spec.coffee',
+  \  'callsign'  : '.',
+  \  'func_def'  : [
+  \     { 'lhs': 'function ', 'rhs': '\(\s\|(\)' },
+  \     { 'lhs': 'this\.', 'rhs': ' = function' }
+  \  ]
+  \},
+  \'coffee': {
+  \  'substitute': ['\(\<\u\l\+\|\l\+\)\(\u\)' ,'\l\1-\l\2'],
+  \  'extension' : '.js',
+  \  'spec_extension' : '.spec.coffee',
+  \  'callsign'  : '.',
+  \  'func_def'  : [
+  \     { 'lhs': 'describe .', 'rhs': '' },
+  \  ]
+  \},
+  \'html' : {
+  \  'substitute': ['\v(.*)', '\1-directive'],
+  \  'extension' : '.js',
+  \  'spec_extension' : '.spec.coffee',
+  \  'callsign'  : '.',
+  \  'func_def'  : []
+  \}
+\}
+
 let g:lookup_file_mappings = {
   \'js': [
     \ {
