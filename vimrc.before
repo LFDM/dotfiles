@@ -123,7 +123,16 @@ let angular_pattern = '\v.(js|less|spec.coffee|tpl.html)$'
 
 let g:lookup_go_to_mappings = {
   \'javascript': {
-  \  'substitute': ['\(\<\u\l\+\|\l\+\)\(\u\)' ,'\l\1-\l\2'],
+  \  'substitute': [
+  \    {
+  \      'pattern': '\(\<\u\l\+\|\l\+\)\(\u\)',
+  \      'replacement': 'app/**\l\1-\l\2'
+  \    },
+  \    {
+  \      'pattern': '\(.*\)',
+  \      'replacement': 'app/**/\l\1'
+  \    }
+  \  ],
   \  'extension' : '.js',
   \  'spec_extension' : '.spec.coffee',
   \  'callsign'  : '.',
@@ -133,7 +142,16 @@ let g:lookup_go_to_mappings = {
   \  ]
   \},
   \'coffee': {
-  \  'substitute': ['\(\<\u\l\+\|\l\+\)\(\u\)' ,'\l\1-\l\2'],
+  \  'substitute': [
+  \    {
+  \      'pattern': '\(\<\u\l\+\|\l\+\)\(\u\)',
+  \      'replacement': 'app/**\l\1-\l\2'
+  \    },
+  \    {
+  \      'pattern': '\(.*\)',
+  \      'replacement': 'app/**/\l\1'
+  \    }
+  \  ],
   \  'extension' : '.js',
   \  'spec_extension' : '.spec.coffee',
   \  'callsign'  : '.',
@@ -142,7 +160,12 @@ let g:lookup_go_to_mappings = {
   \  ]
   \},
   \'html' : {
-  \  'substitute': ['\v(.*)', '\1-directive'],
+  \  'substitute': [
+  \    {
+  \      'pattern': '\v(.*)',
+  \      'replacement': '\1-directive'
+  \    }
+  \  ],
   \  'extension' : '.js',
   \  'spec_extension' : '.spec.coffee',
   \  'callsign'  : '.',
