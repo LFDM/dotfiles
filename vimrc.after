@@ -649,8 +649,8 @@ let g:lookup_go_to_mappings = {
   \  'spec_file': { 'dir': 'app/**', 'prefix': '', 'suffix': '.spec.coffee' },
   \  'callsign'  : '.',
   \  'func_def'  : [
-  \     { 'lhs': 'function ', 'rhs': '\(\s\|(\)' },
-  \     { 'lhs': 'this\.', 'rhs': ' = function' }
+  \     { 'lhs': 'function ', 'rhs': '\s\?(' },
+  \     { 'lhs': 'this\.', 'rhs': ' = ' }
   \  ]
   \},
   \'coffee': {
