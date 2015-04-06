@@ -124,17 +124,11 @@ let angular_pattern = '\v.(js|less|spec.coffee|tpl.html)$'
 let g:lookup_go_to_mappings = {
   \'javascript': {
   \  'substitute': [
-  \    {
-  \      'pattern': '\(\<\u\l\+\|\l\+\)\(\u\)',
-  \      'replacement': 'app/**\l\1-\l\2'
-  \    },
-  \    {
-  \      'pattern': '\(.*\)',
-  \      'replacement': 'app/**/\l\1'
-  \    }
+  \    ['\(\<\u\l\+\|\l\+\)\(\u\)', '\l\1-\l\2'],
+  \    ['\(.*\)', '\l\1']
   \  ],
-  \  'extension' : '.js',
-  \  'spec_extension' : '.spec.coffee',
+  \  'main_file': { 'dir': 'app/**', 'prefix': '', 'suffix': '.js' },
+  \  'spec_file': { 'dir': 'app/**', 'prefix': '', 'suffix': '.spec.coffee' },
   \  'callsign'  : '.',
   \  'func_def'  : [
   \     { 'lhs': 'function ', 'rhs': '\(\s\|(\)' },
@@ -143,17 +137,11 @@ let g:lookup_go_to_mappings = {
   \},
   \'coffee': {
   \  'substitute': [
-  \    {
-  \      'pattern': '\(\<\u\l\+\|\l\+\)\(\u\)',
-  \      'replacement': 'app/**\l\1-\l\2'
-  \    },
-  \    {
-  \      'pattern': '\(.*\)',
-  \      'replacement': 'app/**/\l\1'
-  \    }
+  \    ['\(\<\u\l\+\|\l\+\)\(\u\)', '\l\1-\l\2'],
+  \    ['\(.*\)', '\l\1']
   \  ],
-  \  'extension' : '.js',
-  \  'spec_extension' : '.spec.coffee',
+  \  'main_file': { 'dir': 'app/**', 'prefix': '', 'suffix': '.js' },
+  \  'spec_file': { 'dir': 'app/**', 'prefix': '', 'suffix': '.spec.coffee' },
   \  'callsign'  : '.',
   \  'func_def'  : [
   \     { 'lhs': 'describe .', 'rhs': '' },
@@ -161,13 +149,10 @@ let g:lookup_go_to_mappings = {
   \},
   \'html' : {
   \  'substitute': [
-  \    {
-  \      'pattern': '\v(.*)',
-  \      'replacement': '\1-directive'
-  \    }
+  \    ['\v(.*)', '\1-directive']
   \  ],
-  \  'extension' : '.js',
-  \  'spec_extension' : '.spec.coffee',
+  \  'main_file': { 'dir': 'app/**', 'prefix': '', 'suffix': '.js' },
+  \  'spec_file': { 'dir': 'app/**', 'prefix': '', 'suffix': '.spec.coffee' },
   \  'callsign'  : '.',
   \  'func_def'  : []
   \}
