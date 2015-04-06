@@ -641,25 +641,16 @@ let angular_pattern = '\v.(js|less|spec.coffee|tpl.html)$'
 
 let g:lookup_go_to_mappings = {
   \'javascript': {
-  \  'substitute': [
-  \    g:lookup_substitutions.camel_case_to_hyphenated,
-  \    g:lookup_substitutions.to_lowercase
-  \  ],
-  \  'main_file': { 'dir': 'app/**', 'prefix': '', 'suffix': '.js' },
-  \  'spec_file': { 'dir': 'app/**', 'prefix': '', 'suffix': '.spec.coffee' },
-  \  'callsign'  : '.',
-  \  'func_def'  : [
-  \     { 'lhs': 'function ', 'rhs': '\s\?(' },
-  \     { 'lhs': 'this\.', 'rhs': ' = ' }
-  \  ]
+  \  'main_file': { 'dir': 'app/**', 'suffix': '.js' },
+  \  'spec_file': { 'dir': 'app/**', 'suffix': '.spec.coffee' },
   \},
   \'coffee': {
   \  'substitute': [
   \    g:lookup_substitutions.camel_case_to_hyphenated,
   \    g:lookup_substitutions.to_lowercase
   \  ],
-  \  'main_file': { 'dir': 'app/**', 'prefix': '', 'suffix': '.js' },
-  \  'spec_file': { 'dir': 'app/**', 'prefix': '', 'suffix': '.spec.coffee' },
+  \  'main_file': { 'dir': 'app/**', 'suffix': '.js' },
+  \  'spec_file': { 'dir': 'app/**', 'suffix': '.spec.coffee' },
   \  'callsign'  : '.',
   \  'func_def'  : [
   \     { 'lhs': 'describe .', 'rhs': '' },
@@ -669,10 +660,12 @@ let g:lookup_go_to_mappings = {
   \  'substitute': [
   \    ['\v(.*)', '\1-directive']
   \  ],
-  \  'main_file': { 'dir': 'app/**', 'prefix': '', 'suffix': '.js' },
-  \  'spec_file': { 'dir': 'app/**', 'prefix': '', 'suffix': '.spec.coffee' },
-  \  'callsign'  : '.',
-  \  'func_def'  : []
+  \  'main_file': { 'dir': 'app/**', 'suffix': '.js' },
+  \  'spec_file': { 'dir': 'app/**', 'suffix': '.spec.coffee' },
+  \},
+  \'ruby' : {
+  \  'main_file': { 'dir': 'lib/**', 'suffix': '.rb' },
+  \  'spec_file': { 'dir': 'spec/**', 'suffix': '.rb' },
   \}
 \}
 
