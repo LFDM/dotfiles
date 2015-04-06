@@ -658,7 +658,7 @@ let g:lookup_go_to_mappings = {
   \},
   \'html' : {
   \  'substitute': [
-  \    ['\v(.*)', '\1-directive']
+  \    ['\v(.*)', '\1-directive', '']
   \  ],
   \  'main_file': { 'dir': 'app/**', 'suffix': '.js' },
   \  'spec_file': { 'dir': 'app/**', 'suffix': '.spec.coffee' },
@@ -673,25 +673,25 @@ let g:lookup_file_mappings = {
   \'js': [
     \ {
     \   'pattern': angular_pattern,
-    \   'substitute': [angular_pattern, '.js']
+    \   'substitute': [angular_pattern, '.js', '']
     \ }
   \],
   \'spec': [
     \ {
     \   'pattern': angular_pattern,
-    \   'substitute': [angular_pattern, '.spec.coffee']
+    \   'substitute': [angular_pattern, '.spec.coffee', '']
     \ }
   \],
   \'tpl': [
     \ {
     \   'pattern': angular_pattern,
-    \   'substitute': [angular_pattern, '-tpl.html']
+    \   'substitute': [angular_pattern, '-tpl.html', '']
     \ }
   \],
   \'less': [
     \ {
     \   'pattern': angular_pattern,
-    \   'substitute': [angular_pattern, '.less']
+    \   'substitute': [angular_pattern, '.less', '']
     \ }
   \]
 \}
