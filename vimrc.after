@@ -727,6 +727,8 @@ for mapping in items(lookup_mappings)
   exec "noremap " . g:lookup_leader . mapping[0] . ' :Lookup' . mapping[1] . '<cr>'
 endfor
 
+let g:lookup_glob_command = 'ag %s --files-with-matches -g "" --ignore "\.git$\|\.hg$\|\.svn$"'
+
 
 """""""""""""""""""
 "  NerdCommenter  "
