@@ -645,16 +645,8 @@ let g:lookup_go_to_mappings = {
   \  'spec_file': { 'dir': 'app/**', 'suffix': '.spec.coffee' },
   \},
   \'coffee': {
-  \  'substitute': [
-  \    g:lookup_substitutions.camel_case_to_hyphenated,
-  \    g:lookup_substitutions.to_lowercase
-  \  ],
   \  'main_file': { 'dir': 'app/**', 'suffix': '.js' },
   \  'spec_file': { 'dir': 'app/**', 'suffix': '.spec.coffee' },
-  \  'callsign'  : '.',
-  \  'func_def'  : [
-  \     { 'lhs': 'describe .', 'rhs': '' },
-  \  ]
   \},
   \'html' : {
   \  'substitute': [
