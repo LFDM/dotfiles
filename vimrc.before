@@ -116,6 +116,13 @@ let g:hopper_prefix = '<space>'
 let g:hopper_file_opener = [ 'angular' ]
 
 
+""""""""""""""""
+"  vim-lookup  "
+""""""""""""""""
+
+let g:lookup_leader = 'F'
+
+
 """"""""""""""""""
 "  numbertoggle  "
 """"""""""""""""""
