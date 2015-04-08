@@ -538,11 +538,11 @@ function! FocusInnerDescribe()
 endfunction
 
 function! FocusDescribe(flags, name, move_to_start)
-  normal! mo
+  let pos = getpos('.')
   if a:move_to_start == 1
     normal! gg
   endif
-  exec search('^\s*f\?describe', a:flags)
+  call search('^\s*f\?describe', a:flags)
   let line = getline('.')
   if line =~ '^\s*f'
     normal! "_x
@@ -551,7 +551,7 @@ function! FocusDescribe(flags, name, move_to_start)
     normal! ^if
     echo "Focus ". a:name
   endif
-  normal! `o
+  call setpos('.', pos)
 endfunction
 
 function! CoffeeSettings()
