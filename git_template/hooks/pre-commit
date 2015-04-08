@@ -16,6 +16,8 @@ function check_for_pattern() {
 for file in ${(f)staged_files}; do
   check_for_pattern $file 'spec.rb$' ':focus'
   check_for_pattern $file '.rb$' 'binding.pry'
+  check_for_pattern $file '.spec.coffee$' 'fdescribe'
+  check_for_pattern $file '.spec.coffee$' 'fit'
 done
 
 if [[ $#messages == 0 ]]; then
