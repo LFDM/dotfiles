@@ -92,6 +92,10 @@ snippet ifs "if shorthand"
 if (${1}) ${2};
 endsnippet
 
+snippet ifr "if () { return; }" !b
+if ($0) { return; }
+endsnippet
+
 snippet tc "try - catch" !b
 try {
 	${1:statements}
