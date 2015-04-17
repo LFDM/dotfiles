@@ -720,7 +720,12 @@ let lookup_mappings = {
   \'fs': 'OpenFile spec',
   \'fj': 'OpenFile js',
   \'fl': 'OpenFile less',
-  \'oa': 'OpenLayout angular'
+  \'Ft': 'OpenFile tpl',
+  \'Fs': 'OpenFile spec',
+  \'Fj': 'OpenFile js',
+  \'Fl': 'OpenFile less',
+  \'oa': 'OpenLayout angular',
+  \'a': 'OpenLayout angular',
 \}
 
 for mapping in items(lookup_mappings)
