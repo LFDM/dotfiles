@@ -1009,6 +1009,7 @@ let g:ackprg = 'ag --nocolor --nogroup --column --ignore ''.git'' --ignore ''nod
 let g:ack_mappings = {
       \  'o' : '<CR><C-W>p'
       \}
+let g:ack_use_dispatch = 1
 
 " auto-quote
 map <leader>fa :Ack ""<left>
