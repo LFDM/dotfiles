@@ -772,4 +772,37 @@ snippet rer "require relative" !b
 require('./$1').name$0
 endsnippet
 
+#####################
+#  Lodash snippets  #
+#####################
+
+
+snippet _fe "_.forEach" !b
+_.forEach($1, $2);
+endsnippet
+
+snippet _m "_.map" !b
+_.map($1, $2);
+endsnippet
+
+snippet _p "_.pluck" !b
+_.pluck($1, '$2');
+endsnippet
+
+snippet _c "_.contains" !b
+_.contains($1, $2);
+endsnippet
+
+snippet _i "_.inject" !b
+_.inject($1, $3, ${2:{}});
+endsnippet
+
+snippet _f "_.find" !b
+_.find($1, $2);
+endsnippet
+
+snippet _.F "_.filter" !b
+_.filter($1, $2);
+endsnippet
+
 # vim:ft=snippets:
