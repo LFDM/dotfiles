@@ -84,6 +84,14 @@ snippet log "console.log call"
 console.log($0);
 endsnippet
 
+snippet loga "console.log('aaa')" !b
+console.log('aaa');
+endsnippet
+
+snippet logb "console.log('bbb')" !b
+console.log('bbb');
+endsnippet
+
 snippet al "alert"
 alert($0);
 endsnippet
@@ -122,6 +130,10 @@ endsnippet
 
 snippet ta "this.variable = variable - this assignment" !b
 this.${1} = $1;
+endsnippet
+
+snippet va "vm.variable = variable - vm assignment" !b
+vm.${1} = $1;
 endsnippet
 
 snippet pv "prototype.variable"
@@ -408,6 +420,34 @@ directive('${1:directiveName}', function() {
 		$0
 	};
 });
+endsnippet
+
+snippet ld "link definition" !b
+link: linkFn$0
+endsnippet
+
+snippet cd "controller definition" !b
+controller: controllerFn$0
+endsnippet
+
+snippet lfn "link function" !b
+function linkFn(scope, el, attrs) {
+	$0
+};
+endsnippet
+
+snippet cfn "controller fn" !b
+function controllerFn(${1:$scope}) {
+	$0
+};
+endsnippet
+
+snippet ca "controllerAs" !b
+controllerAs: '${1:vm}'$0
+endsnippet
+
+snippet btc "bindToController" !b
+bindToController: true$0
 endsnippet
 
 global !p
@@ -772,36 +812,63 @@ snippet rer "require relative" !b
 require('./$1').name$0
 endsnippet
 
+snippet soa "Store.on add" !b
+${2:Name}Store.on(EVENTS.add, ${1:onAdd}$0);
+endsnippet
+
+snippet sou "Store.on update" !b
+${2:Name}Store.on(EVENTS.update, ${1:onUpdate}$0);
+endsnippet
+
+snippet sor "Store.on remove" !b
+${2:Name}Store.on(EVENTS.remove, ${1:onRemove}$0);
+endsnippet
+
+snippet sdc "dialog.confirm" !b
+dialog.confirm({
+	${1:template: require('$2')},
+	scope: {$0}
+});
+endsnippet
+
+snippet Tab_trigger "Description" !b
+
+endsnippet
+
 #####################
 #  Lodash snippets  #
 #####################
 
 
-snippet _fe "_.forEach" !b
+snippet _fe "_.forEach" !w
 _.forEach($1, $2);
 endsnippet
 
-snippet _m "_.map" !b
+snippet _m "_.map" !w
 _.map($1, $2);
 endsnippet
 
-snippet _p "_.pluck" !b
+snippet _p "_.pluck" !w
 _.pluck($1, '$2');
 endsnippet
 
-snippet _c "_.contains" !b
+snippet _c "_.contains" !w
 _.contains($1, $2);
 endsnippet
 
-snippet _i "_.inject" !b
+snippet _i "_.inject" !w
 _.inject($1, $3, ${2:{}});
 endsnippet
 
-snippet _f "_.find" !b
+snippet _f "_.find" !w
 _.find($1, $2);
 endsnippet
 
-snippet _.F "_.filter" !b
+snippet _fi "_.findIndex" !w
+_.findIndex($1, $2);
+endsnippet
+
+snippet _.F "_.filter" !w
 _.filter($1, $2);
 endsnippet
 
