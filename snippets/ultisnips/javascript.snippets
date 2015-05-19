@@ -132,8 +132,24 @@ snippet ta "this.variable = variable - this assignment" !b
 this.${1} = $1;
 endsnippet
 
+snippet taf "this.variable = variable with function" !b
+this.${1} = $1;
+
+function $1($2) {
+	$0
+}
+endsnippet
+
 snippet va "vm.variable = variable - vm assignment" !b
 vm.${1} = $1;
+endsnippet
+
+snippet vaf "this.variable = variable with function" !b
+vm.${1} = $1;
+
+function $1($2) {
+	$0
+}
 endsnippet
 
 snippet pv "prototype.variable"
@@ -144,6 +160,14 @@ snippet pf "prototype.function"
 ${1:cl}.prototype.${2:fn} = function(${3:args}) {
 	$0
 };
+snippet vaf "this.variable = variable with function" !b
+vm.${1} = $1;
+
+function $1($2) {
+	$0
+}
+endsnippet
+
 endsnippet
 
 global !p
