@@ -99,3 +99,11 @@ function rake-or-grunt {
 function xml-format {
   xmllint --format $1 > temporary_formatted_xml_file && mv temporary_formatted_xml_file $1
 }
+
+# echoes a clickable link to the last commit in our work repo
+# and copies it to the clipboard
+function sigh {
+  str="https://github.com/SmallImprovements/praisemanager/commit/$(git rev-parse HEAD)"
+  echo -n $str | xclip -sel clip
+  echo $str
+}
