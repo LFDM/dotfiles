@@ -11,6 +11,8 @@ alias dots="cd $DOTFILES"
 c="$HOME/code"
 forks="$HOME/code/forks"
 scripts="$HOME/.zsh/scripts"
+SI_FE="$HOME/code/si/praisemanager/frontend"
+VISTIVO="$HOME/code/vistivo"
 
 # Active projects
 #alias llt=' cd ~/code/llt/'
@@ -31,9 +33,12 @@ alias dc='cd ~/code/diploma_thesis_code'
 alias are='cd ~/code/arethusa'
 
 alias si="cd ~/code/si/praisemanager/frontend"
-alias sim="cd ~/code/si/praisemanager/frontend/src/app/screens/message"
-alias simc="cd ~/code/si/praisemanager/frontend/src/app/screens/message/components"
-alias sims="cd ~/code/si/praisemanager/frontend/src/app/screens/message/services"
+alias sim="cd $SI_FE/src/app/screens/message"
+alias simc="cd $SI_FE/src/app/screens/message/components"
+alias sims="cd $SI_FE/src/app/screens/message/services"
+alias sio="cd $SI_FE/src/app/screens/objective"
+
+alias vis="cd ~/code/vistivo"
 
 # Rake
 
@@ -61,6 +66,7 @@ alias gst='git-pretty-status-wrapper'
 alias gprum='git pull --rebase upstream master'
 alias gpm='git-post-merge-cleanup'
 alias gbr="git for-each-ref --sort=-committerdate --format='%(committerdate:short) %(objectname:short) %(refname:short)' --count=25"
+alias ggpushs="ggpush && sigh"
 
 # Fast vim
 alias v='vim'
@@ -212,3 +218,6 @@ alias ares="DEV=1 grunt reloading-server"
 alias tts="node $HOME/code/time-track start"
 alias tte="node $HOME/code/time-track stop"
 alias ttsh="node $HOME/code/time-track show"
+
+# Running karma
+alias ks="karma start --reporters mocha,progress,growl"
