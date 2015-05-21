@@ -249,8 +249,12 @@ snippet so "spyOn" !b
 spyOn($1, '$2')
 endsnippet
 
-snippet soa "spyOn and.callThrough" !b
+snippet soc "spyOn and.callThrough" !b
 spyOn($1, '$2').and.callThrough()
+endsnippet
+
+snippet sor "spyOn and.returnValue" !b
+spyOn($1, '$2').and.returnValue($0)
 endsnippet
 
 snippet soe "spyOn with an expectation" !b

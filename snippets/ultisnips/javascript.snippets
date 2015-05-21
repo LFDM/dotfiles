@@ -17,6 +17,10 @@ ${1:method_name}: function(${3:attribute}){
 }${10:,}
 endsnippet
 
+snippet fs "one liner method" !b
+function($1) { $0; }
+endsnippet
+
 snippet :, "Object Value JS"
 ${1:value_name}: ${0:value},
 endsnippet
@@ -75,7 +79,7 @@ endsnippet
 ###########################################################################
 
 snippet f "function" w
-function(${1:args}) {
+function($1) {
 	$0
 }
 endsnippet
@@ -97,7 +101,7 @@ alert($0);
 endsnippet
 
 snippet ifs "if shorthand"
-if (${1}) ${2};
+if (${1}) { ${2}; }
 endsnippet
 
 snippet ifr "if () { return; }" !b
@@ -113,7 +117,7 @@ try {
 endsnippet
 
 snippet vf "named function" !b
-function ${1:function_name}(${2:args}) {
+function ${1:function_name}($2) {
 	$0
 }
 endsnippet
@@ -160,14 +164,6 @@ snippet pf "prototype.function"
 ${1:cl}.prototype.${2:fn} = function(${3:args}) {
 	$0
 };
-snippet vaf "this.variable = variable with function" !b
-vm.${1} = $1;
-
-function $1($2) {
-	$0
-}
-endsnippet
-
 endsnippet
 
 global !p
@@ -191,7 +187,7 @@ function ${1:class}(${2:args}) {
 endsnippet
 
 snippet r "return"
-return $0
+return $0;
 endsnippet
 
 snippet us "use strict" b
@@ -892,8 +888,37 @@ snippet _fi "_.findIndex" !w
 _.findIndex($1, $2);
 endsnippet
 
-snippet _.F "_.filter" !w
+snippet _F "_.filter" !w
 _.filter($1, $2);
 endsnippet
 
+
+####################
+#  React snippets  #
+####################
+
+snippet rcomp "Creates a components file" !b
+'use strict';
+
+import React from 'react';
+
+const $1 = React.createClass({
+	displayName: '$1',
+	render() {
+		return (
+			$2
+		);
+	}
+});
+
+export default $1;
+endsnippet
+
+snippet rp "this.props"
+this.props$0
+endsnippet
+
+snippet rs "this.state"
+this.state$0
+endsnippet
 # vim:ft=snippets:
