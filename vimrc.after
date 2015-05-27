@@ -320,6 +320,8 @@ map <esc><esc> :nohl<cr>
 " should be enabled for others too
 au BufWritePre *.rb :%s/\s\+$//e
 au BufWritePre *.js :%s/\s\+$//e
+au BufWritePre *.jsx :%s/\s\+$//e
+au BufWritePre *.coffee :%s/\s\+$//e
 au BufWritePre *.less :%s/\s\+$//e
 au BufWritePre *.scss :%s/\s\+$//e
 
