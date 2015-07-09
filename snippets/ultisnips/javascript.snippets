@@ -128,6 +128,28 @@ this.${1:function_name} = function(${2:args}) {
 };
 endsnippet
 
+snippet cf "class function" !b
+$1($2) {
+	$3
+}
+endsnippet
+
+snippet cc "class constructor" !b
+constructor($1) {
+	$2
+}
+endsnippet
+
+snippet af "arrow function" !w
+($1) => {
+	$0
+}
+endsnippet
+
+snippet afs "arrow function short" !w
+($1) => $0
+endsnippet
+
 snippet tv "this.variable"
 this.${1:variable_name} = ${2:value};
 endsnippet
@@ -304,6 +326,10 @@ scope.${1:var} = $1;
 endsnippet
 
 snippet sw "scope watch" w
+scope.$watch('$1', $2);
+endsnippet
+
+snippet swl "scope watch long form" w
 scope.$watch('${1:expression}', function(newVal, oldVal) {
 	${2:if (newVal !== oldVal) {
 		$3
@@ -897,7 +923,7 @@ endsnippet
 #  React snippets  #
 ####################
 
-snippet rcomp "Creates a components file" !b
+snippet rcomp2 "Creates a components file" !b
 'use strict';
 
 import React from 'react';
@@ -914,11 +940,116 @@ const $1 = React.createClass({
 export default $1;
 endsnippet
 
+snippet irouter "import from react-router" !b
+import { $1 } from 'react-router';
+
+endsnippet
+
+snippet iim "import from immutable" !b
+import { $1 } from 'immutable';
+endsnippet
+
+snippet ic "import constans" !b
+import { $1 } from '../../utils/constants';
+endsnippet
+
+snippet ia "import actions" !b
+import { ACTIONS } from '../../utils/constants';
+endsnippet
+
+snippet ih "import helpers" !b
+import helpers from '../../utils/helpers';
+endsnippet
+
+snippet comp "Creates a component" !b
+import React from 'react';
+
+class $1 extends React.Component {
+	displayName: '$1'
+
+	render() {
+		return (
+			$2
+		);
+	}
+}
+
+export default $1;
+endsnippet
+
 snippet rp "this.props"
 this.props$0
 endsnippet
 
 snippet rs "this.state"
 this.state$0
+endsnippet
+
+snippet rpt "React PropType" !b
+PropTypes.$0
+endsnippet
+
+snippet Po "React PropTypes.object" !w
+PropTypes.object$0
+endsnippet
+
+snippet Pf "React PropTypes.func" !w
+PropTypes.func$0
+endsnippet
+
+snippet Pb "React PropTypes.bool" !w
+PropTypes.bool$0
+endsnippet
+
+snippet Por "React PropTypes.object.isRequired" !w
+PropTypes.object.isRequired$0
+endsnippet
+
+snippet Pfr "React PropTypes.func.isRequired" !w
+PropTypes.func.isRequired$0
+endsnippet
+
+snippet Pbr "React PropTypes.bool.isRequired" !w
+PropTypes.bool.isRequired$0
+endsnippet
+
+snippet c "A self closing component" !b
+<$1 ${2:{ ...this.props }} $0/>
+endsnippet
+
+snippet pd "props deconstruct" !b
+const { $0 } = this.props;
+endsnippet
+
+###########
+#  Redux  #
+###########
+
+snippet rconst "redux constant" !b
+export const $1 = '$1';
+endsnippet
+
+snippet rred "redux reduce" !b
+function on$1(state, action) {
+	return state;
+}
+endsnippet
+
+snippet rreda "redux reduce async" !b
+function on$1Begin(state, action) {
+	return state;
+}
+
+function on$1Success(state, action) {
+	return state;
+}
+
+function on$1Error(state, action) {
+	return state;
+}
+endsnippet
+
+snippet rcon "redux connect" !b
+@connect((state) => $1)
 endsnippet
 # vim:ft=snippets:
