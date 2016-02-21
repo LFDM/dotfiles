@@ -37,6 +37,15 @@ function git-push-with-force {
   git push -f origin `current_branch`
 }
 
+function git-reset-head-hard {
+  if [[ -z $1 ]]; then
+    steps=1
+  else
+    steps=$1
+  fi
+  git reset --hard HEAD~$steps
+}
+
 # compile and run C
 function car {
   gcc -o $1 $1.c; ./$1
