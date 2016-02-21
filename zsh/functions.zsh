@@ -5,6 +5,12 @@ function git-on-master {
   git rebase master
 }
 
+function git-cleanup {
+  branch=`current_branch`
+  git checkout master && git pull
+  git-nuke! $current_branch
+}
+
 function git-new-tracked-branch {
   git checkout -b $1 && git push -u origin $1
 }
