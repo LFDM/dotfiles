@@ -33,6 +33,10 @@ function git-post-merge-cleanup {
   git pull origin master && git-nuke! $branch
 }
 
+function git-push-with-force {
+  git push -f origin `current_branch`
+}
+
 # compile and run C
 function car {
   gcc -o $1 $1.c; ./$1
