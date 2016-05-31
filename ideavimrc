@@ -1,0 +1,5 @@
+source ~/.vimrc.after
+
+nmap ;qq :q<cr>
+nmap ;vv :vsp<cr>
+nmap ;ss :sp<cr>
