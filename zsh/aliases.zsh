@@ -37,6 +37,7 @@ alias sim="cd $SI_FE/src/app/screens/message"
 alias simc="cd $SI_FE/src/app/screens/message/components"
 alias sims="cd $SI_FE/src/app/screens/message/services"
 alias sio="cd $SI_FE/src/app/screens/objective"
+alias siui="cd $SI_FE/src/app/ui/"
 
 alias vis="cd ~/code/vistivo"
 
@@ -67,6 +68,11 @@ alias gprum='git pull --rebase upstream master'
 alias gpm='git-post-merge-cleanup'
 alias gbr="git for-each-ref --sort=-committerdate --format='%(committerdate:short) %(objectname:short) %(refname:short)' --count=25"
 alias ggpushs="ggpush && sigh"
+alias grbm="git rebase master"
+alias ggpurs="ggpur && ggpush"
+alias gpF="git-push-with-force"
+alias gcnf="git commit --no-verify"
+alias grH="git-reset-head-hard"
 
 # Fast vim
 alias v='vim'
@@ -221,3 +227,9 @@ alias ttsh="node $HOME/code/time-track show"
 
 # Running karma
 alias ks="karma start --reporters mocha,progress,growl"
+
+# Restart appengine
+alias siaer="./gradlew appengineStop -Pforeground && ./gradlew appengineRun -Pforeground"
+
+# Invoke SI ftemp
+alias sigen="FTEMP_CWD=$PWD npm run -s generate --"
