@@ -1,0 +1,46 @@
+extends javascript
+
+snippet ng2c "Component" !b
+/// <reference path="../../typings/angular2-meteor.d.ts" />
+
+import { Component, $1 } from 'angular2/angular2';
+
+@Component({
+	selector: '$2',
+	directives: [$3],
+	templateUrl: 'client/components/$2.html'
+})
+export class $4 {
+	constructor() {
+	}
+}
+endsnippet
+
+snippet imp "import" !b
+import $1 from '$2';
+endsnippet
+
+snippet mc "Meteor collection" !b
+/// <reference path="../typings/angular2-meteor.d.ts" />
+
+export default new Mongo.Collection('$2');
+endsnippet
+
+snippet impc "import component" !b
+import { $1 } from 'client/components/$2/index';
+endsnippet
+
+snippet coll "Mongo Collection" !b
+/// <reference path="../typings/angular2-meteor.d.ts" />
+
+export const $1 = new Mongo.collection('$2');
+endsnippet
+
+snippet route "Angular Route" !b
+$1: {
+	path: '/$1',
+	as: '$2',
+	component: $2,
+	link: ['/$2']
+}
+endsnippet
