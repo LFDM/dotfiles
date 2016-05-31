@@ -93,9 +93,9 @@ imap  <Right> <NOP>
 "
 " Toggle with the command ToggleCustomizedKeymap
 
+      "\  ';' : ':',
+      "\  ':' : ';',
 let g:lfdm_custom_keymap = {
-      \  ';' : ':',
-      \  ':' : ';',
       \  '/' : '_',
       \  '_' : '\',
       \  '\' : '/',
@@ -320,10 +320,12 @@ map <esc><esc> :nohl<cr>
 " should be enabled for others too
 au BufWritePre *.rb :%s/\s\+$//e
 au BufWritePre *.js :%s/\s\+$//e
+au BufWritePre *.py :%s/\s\+$//e
 au BufWritePre *.jsx :%s/\s\+$//e
 au BufWritePre *.coffee :%s/\s\+$//e
 au BufWritePre *.less :%s/\s\+$//e
 au BufWritePre *.scss :%s/\s\+$//e
+au BufWritePre *.java :%s/\s\+$//e
 
 
 """"""""""""""""""""""
@@ -521,6 +523,10 @@ function! JsSettings()
 
     map gh :call lookup#goToFunc()<cr>
     map gH :call lookup#goToFile()<cr>
+
+    nmap gd :TernDef<cr>
+    nmap gD :TernDoc<cr>
+    nmap gr :TernRefs<cr>
   endif
 endfunction
 
@@ -593,6 +599,7 @@ let g:syntastic_html_tidy_ignore_errors=[
       \]
 
 "let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_typescript_checkers = ['tslint']
 
 """""""""""""""""""
 "  YouCompleteMe  "
@@ -639,7 +646,7 @@ imap <C-b> <c-j><esc>"_dd}
 "  vim-lookup  "
 """"""""""""""""
 
-let angular_pattern = '\v.(js|less|spec.coffee|tpl.html)$'
+let angular_pattern = '\v(index.js|style.less|spec.coffee|template.html)$'
 
 let g:lookup_go_to_mappings = {
   \'javascript': {
@@ -652,7 +659,7 @@ let g:lookup_go_to_mappings = {
   \},
   \'html' : {
   \  'substitute': [
-  \    ['\v(.*)', '\1-directive', '']
+  \    ['\v(.*)', 'components/\1/index.js', '']
   \  ],
   \  'main_file': { 'dir': 'app/**', 'suffix': '.js' },
   \  'spec_file': { 'dir': 'app/**', 'suffix': '.spec.coffee' },
@@ -667,25 +674,25 @@ let g:lookup_file_mappings = {
   \'js': [
     \ {
     \   'pattern': angular_pattern,
-    \   'substitute': [angular_pattern, '.js', '']
+    \   'substitute': [angular_pattern, 'index.js', '']
     \ }
   \],
   \'spec': [
     \ {
     \   'pattern': angular_pattern,
-    \   'substitute': [angular_pattern, '.spec.coffee', '']
+    \   'substitute': [angular_pattern, 'spec.coffee', '']
     \ }
   \],
   \'tpl': [
     \ {
     \   'pattern': angular_pattern,
-    \   'substitute': [angular_pattern, '-tpl.html', '']
+    \   'substitute': [angular_pattern, 'template.html', '']
     \ }
   \],
   \'less': [
     \ {
     \   'pattern': angular_pattern,
-    \   'substitute': [angular_pattern, '.less', '']
+    \   'substitute': [angular_pattern, 'style.less', '']
     \ }
   \]
 \}
@@ -937,6 +944,8 @@ let g:tagbar_type_snippets = {
       \ ]
 \ }
 
+let g:tagbar_width = 60
+
 
 """""""""""""""
 "  IndentLine  "
@@ -986,6 +995,7 @@ map <leader>gr :Gremove<cr>
 """""""""""""""
 
 let g:extradite_width = 90
+let g:extradite_showhash = 1
 map <leader>ge :Extradite!<cr>
 map <leader>gE :Extradite<cr>
 
@@ -1007,7 +1017,7 @@ let g:startify_change_to_dir = 0
 """""""""""""
 
 " much faster when using ag
-let g:ackprg = 'ag --nocolor --nogroup --column --ignore ''.git'' --ignore ''node_modules'' --ignore ''bower_components'' --hidden'
+let g:ackprg = 'ag --nocolor --nogroup --column --ignore ''.git'' --ignore ''node_modules'' --ignore ''bower_components'' --ignore ''build'' --ignore ''lib'' --hidden'
 let g:ack_mappings = {
       \  'o' : '<CR><C-W>p'
       \}
@@ -1056,6 +1066,8 @@ map <leader><leader>r :CtrlPRelFiles<cr>
 let g:ctrlp_root_markers = [ 'frontend' ]
 
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+
+map <c-=> :CtrlPMRU<cr>
 
 """"""""""""""""
 "  EasyMotion  "
@@ -1156,7 +1168,7 @@ map <leader>tr :call TexRel()<cr>
 "  cosco  "
 """""""""""
 
-au Filetype javascript,css nmap <silent> <leader>< :call cosco#commaOrSemiColon()<cr>
+au Filetype javascript,typescript,css nmap <silent> <leader>< :call cosco#commaOrSemiColon()<cr>
 
 "  vimrc handling  "
 """"""""""""""""""""
@@ -1169,6 +1181,20 @@ map <leader><leader>v :call Vimrc()<cr>
 
 " Source this file when it's saved
 au BufWritePost .vimrc.after source ~/.vimrc.after
+
+"""""""""""""
+"  vim-jsx  "
+"""""""""""""
+
+let g:jsx_ext_required = 0
+
+
+""""""""""""""
+"  vim-json  "
+""""""""""""""
+
+let g:vim_json_syntax_conceal = 1
+au BufNewFile,BufRead *.json set filetype=json
 
 
 """""""""""""""""
