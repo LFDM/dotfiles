@@ -166,3 +166,12 @@
 [submodule "plugins/vim-node"]
 	path = plugins/vim-node
 	url = git@github.com:moll/vim-node.git
+[submodule "plugins/typescript-vim"]
+	path = plugins/typescript-vim
+	url = git@github.com:leafgarland/typescript-vim.git
+[submodule "plugins/elm.vim"]
+	path = plugins/elm.vim
+	url = git@github.com:lambdatoast/elm.vim.git
+[submodule "plugins/vim-json"]
+	path = plugins/vim-json
+	url = git@github.com:elzr/vim-json
