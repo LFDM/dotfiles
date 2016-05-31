@@ -8,48 +8,13 @@ let mapleader = ';'
 "  Disabled janus stuff  "
 """"""""""""""""""""""""""
 
-function! s:disable_plugins(plugins)
-  for plugin in a:plugins
-    call janus#disable_plugin(plugin)
-  endfor
-endfunction
-"
-" pulled new version of easymotion as vim-easymotion
-let s:always_to_disable = [
-      \  'snipmate-snippets',
-      \  'vimwiki',
-      \  'snipmate',
-      \  'supertab',
-      \  'easymotion',
-      \  'buffergator',
-      \  'dispatch',
-      \  'eunuch',
-      \  'narrowregion',
-      \  'vroom',
-      \  'vim-latex',
-      \  'vim-ruby-refactoring'
-      \]
+call janus#disable_plugin('snipmate-snippets')
+call janus#disable_plugin('vimwiki')
+call janus#disable_plugin('snipmate')
+call janus#disable_plugin('supertab')
+" have pulled the plugin under vim-easymotion myself
+call janus#disable_plugin('easymotion')
 
-call s:disable_plugins(s:always_to_disable)
-"call janus#disable_plugin('YouCompleteMe')
-
-if $MINVIM
-  " Use this for a minimal setup which loads much fast (=> instantly is the
-  " goal!
-  let s:min_vim_disable = [
-        \  'vim-startify',
-        \  'ctrlp',
-        \  'ctrlp_custom_modes',
-        \  'sideways.vim',
-        \  'splitjoin.vim',
-        \  'tern_for_vim',
-        \  'vim-clojure-static',
-        \  'vim-fireplace',
-        \  'Ultisnips',
-        \  'syntastic'
-        \]
-  call s:disable_plugins(s:min_vim_disable)
-endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                        Upfront Keybindings                              "
@@ -116,13 +81,6 @@ let g:hopper_prefix = '<space>'
 let g:hopper_file_opener = [ 'angular' ]
 
 
-""""""""""""""""
-"  vim-lookup  "
-""""""""""""""""
-
-let g:lookup_leader = 'F'
-
-
 """"""""""""""""""
 "  numbertoggle  "
 """"""""""""""""""
@@ -137,8 +95,17 @@ let g:NumberToggleTrigger = '<Plug>UndefinedOfNoMansLand'
 
 let g:user_emmet_leader_key = ','
 
+
 """"""""""""""""
 "  localvimrc  "
 """"""""""""""""
 
 let g:localvimrc_whitelist=$HOME."/code/.*"
+
+
+""""""""""""""""
+"  vim-lookup  "
+""""""""""""""""
+
+let g:lookup_leader = 'F'
+
