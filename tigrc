@@ -1,0 +1,3 @@
+set tab-size = 2
+bind generic	J	move-half-page-down
+bind generic	K	move-half-page-up
