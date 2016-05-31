@@ -41,12 +41,22 @@ export JRUBY_OPTS=--2.0
 export BUNDLER_JOBS=4
 
 # scala
-export SCALA_HOME='~/tools/scala-2.10.4'
+export SCALA_HOME="$HOME/tools/scala-2.10.4"
 export PATH=$PATH:$SCALA_HOME/bin
+
+# java
+export JAVA_HOME="$HOME/tools/jdk1.7.0_80"
+export PATH=$PATH:$JAVA_HOME/bin
 
 # mongoDB
 
 export PATH=$PATH:$HOME/tools/mongodb/bin
+
+# Linuxbrew
+
+export PATH="$HOME/.linuxbrew/bin:$PATH"
+export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
 # vi mode (oh-my-zsh is overwriting something here, so we stuff it in the back)
 bindkey -v
@@ -69,3 +79,19 @@ bindkey -M vicmd 'L' end-of-line
 
 # Here the rebind-keys script was called in the past. Run it on startup of the machine
 # instead, to avoid duplification of the xcape daemons.
+
+
+export PATH=$PATH:$HOME/tools/google-cloud-sdk/bin
+
+export SASS_LIBSASS_PATH=$HOME/code/libsass
+
+export PATH=$PATH:$HOME/tools/iojs/bin
+
+export PATH=$PATH:$HOME/tools/flow/bin
+
+export PATH=$PATH:$HOME/tools/phantomjs/bin
+export PHANTOMJS_BIN=$HOME/tools/phantomjs/bin/phantomjs
+
+
+export NVM_DIR="/home/lfdm/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
