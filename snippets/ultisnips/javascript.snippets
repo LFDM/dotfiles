@@ -37,14 +37,14 @@ ${1:class_name}.prototype.${2:method_name} = function(${3:first_argument}) ,,{
 endsnippet
 
 snippet for "for (...) {...} (faster)"
-for (var ${2:i} = ${1:Things}.length - 1; $2 >= 0; $2--) {
+for (let ${2:i} = ${1:Things}.length - 1; $2 >= 0; $2--) {
 	${3:var ${4} = $1[$2]};$0
 }
 endsnippet
 
 snippet for "for (...) {...}"
-for (var ${2:i}=0; $2 < ${1:Things}.length; $2++) {
-	${3:$1[$2]}$0
+for (let i = 0; i < ${1:Things}.length; i++) {
+	let ${2} = $1[i];
 }
 endsnippet
 
@@ -77,6 +77,12 @@ endsnippet
 ###########################################################################
 #                             Customizations                              #
 ###########################################################################
+
+snippet pr "new Promise"
+new Promise((resolve, reject) => {
+	$0
+});
+endsnippet
 
 snippet f "function" w
 function($1) {
@@ -479,13 +485,13 @@ endsnippet
 snippet lfn "link function" !b
 function linkFn(scope, el, attrs) {
 	$0
-};
+}
 endsnippet
 
 snippet cfn "controller fn" !b
 function controllerFn(${1:$scope}) {
 	$0
-};
+}
 endsnippet
 
 snippet ca "controllerAs" !b
@@ -576,6 +582,10 @@ element.bind('click', function(e) {
 });
 endsnippet
 
+snippet stack "Prints a stack trace" !b
+try { throw new Error(); } catch(e) { console.log(e.stack); }
+endsnippet
+
 
 ################
 #  require.js  #
@@ -658,11 +668,11 @@ snippet d "dump" !b
 dump($0);
 endsnippet
 
-snippet desc "Describe block"
-describe('${1:description}', function() {
-	$0
-});
-endsnippet
+#snippet desc "Describe block"
+#describe('${1:description}', function() {
+	#$0
+#});
+#endsnippet
 
 snippet ait "Angular it block"
 it('${1:description}', inject(function(${2:injectables}) {
@@ -676,32 +686,66 @@ beforeEach(module('${1:module}', function($provide) {
 }));
 endsnippet
 
+#snippet ete "expect to equal" !b
+#expect(${1:actual}).toEqual(${0:expected});
+#endsnippet
+
+#snippet etb "expect to be" !b
+#expect(${1:actual}).toBe(${0:expected});
+#endsnippet
+
+#snippet ett "expect to be truthy" !b
+#expect(${1:actual}).toBeTruthy();
+#endsnippet
+
+#snippet etf "expect to be falsy" !b
+#expect(${1:actual}).toBeFalsy();
+#endsnippet
+
+#snippet etd "expect to be defined" !b
+#expect(${1:actual}).toBeDefined();
+#endsnippet
+
+#snippet etud "expect to be undefined" !b
+#expect(${1:actual}).toBeUndefined();
+#endsnippet
+
+#snippet etc "expect to contain" !b
+#expect(${1:actual}).toContain(${0:expected};
+#endsnippet
+
+#snippet ette "expect to throw error" !b
+#expect(function() {
+	#${1}
+#}).toThrow(new ${2:Error}(${3:"${4:message}"}));
+#endsnippet
+
 snippet ete "expect to equal" !b
-expect(${1:actual}).toEqual(${0:expected});
+expect(${1:actual}).to.equal(${0:expected});
+endsnippet
+
+snippet etE "expect to deep equal" !b
+expect(${1:actual}).to.deep.equal(${0:expected});
 endsnippet
 
 snippet etb "expect to be" !b
-expect(${1:actual}).toBe(${0:expected});
+expect(${1:actual}).to.be;
 endsnippet
 
-snippet ett "expect to be truthy" !b
-expect(${1:actual}).toBeTruthy();
+snippet ett "expect to be true" !b
+expect(${1:actual}).to.be.true;
 endsnippet
 
-snippet etf "expect to be falsy" !b
-expect(${1:actual}).toBeFalsy();
-endsnippet
-
-snippet etd "expect to be defined" !b
-expect(${1:actual}).toBeDefined();
+snippet etf "expect to be false" !b
+expect(${1:actual}).to.be.false;
 endsnippet
 
 snippet etud "expect to be undefined" !b
-expect(${1:actual}).toBeUndefined();
+expect(${1:actual}).to.be.undefined;
 endsnippet
 
 snippet etc "expect to contain" !b
-expect(${1:actual}).toContain(${0:expected};
+expect(${1:actual}).to.contain(${0:expected};
 endsnippet
 
 snippet ette "expect to throw error" !b
@@ -714,81 +758,81 @@ endsnippet
 #  ngdoc snippets  #
 ####################
 
-snippet dd "ngdoc directive" !b
-/**
- * @ngdoc directive
- * @name ${1:arethusa.}${2}
- * @restrict ${3:A}
- *
- * @description
- * ${4:TODO}
- *
- */
-endsnippet
+#snippet dd "ngdoc directive" !b
+#/**
+ #* @ngdoc directive
+ #* @name ${1:arethusa.}${2}
+ #* @restrict ${3:A}
+ #*
+ #* @description
+ #* ${4:TODO}
+ #*
+ #*/
+#endsnippet
 
-snippet ds "ngdoc service" !b
-/**
- * @ngdoc service
- * @name ${1:arethusa.}${2}
- *
- * @description
- * ${4:TODO}
- *
- */
-endsnippet
+#snippet ds "ngdoc service" !b
+#/**
+ #* @ngdoc service
+ #* @name ${1:arethusa.}${2}
+ #*
+ #* @description
+ #* ${4:TODO}
+ #*
+ #*/
+#endsnippet
 
-snippet df "ngdoc function" !b
-/**
- * @ngdoc function
- * @name arethusa.core.globalSettings#$1
- * @methodOf arethusa.core.globalSettings
- *
- * @description
- * ${2:TODO}
- */
-endsnippet
+#snippet df "ngdoc function" !b
+#/**
+ #* @ngdoc function
+ #* @name arethusa.core.globalSettings#$1
+ #* @methodOf arethusa.core.globalSettings
+ #*
+ #* @description
+ #* ${2:TODO}
+ #*/
+#endsnippet
 
-snippet dp "ngdoc param" !w
-@param {${1}} ${2:name} ${3:description}
-endsnippet
+#snippet dp "ngdoc param" !w
+#@param {${1}} ${2:name} ${3:description}
+#endsnippet
 
-snippet dprs "ngdoc property (short)" !w
-@property {${1}} ${2:name} ${3:description}
-endsnippet
+#snippet dprs "ngdoc property (short)" !w
+#@property {${1}} ${2:name} ${3:description}
+#endsnippet
 
-snippet dpr "ngdoc property" !w
-/**
- * @ngdoc property
- * @name $1
- * @propertyOf arethusa.core.globalSettings
- * @description
- * ${2:TODO}
- */
-endsnippet
+#snippet dpr "ngdoc property" !w
+#/**
+ #* @ngdoc property
+ #* @name $1
+ #* @propertyOf arethusa.core.globalSettings
+ #* @description
+ #* ${2:TODO}
+ #*/
+#endsnippet
 
-snippet dq "ngdoc requires" !w
-@requires ${1:arethusa.core.}$2
-endsnippet
+#snippet dq "ngdoc requires" !w
+#@requires ${1:arethusa.core.}$2
+#endsnippet
 
-snippet dr "ngdoc return" !w
-@returns {${1}} ${2}
-endsnippet
+#snippet dr "ngdoc return" !w
+#@returns {${1}} ${2}
+#endsnippet
 
-snippet dl "ngdoc link" !w
-{@link ${1:arethusa.}${2}}
-endsnippet
+#snippet dl "ngdoc link" !w
+#{@link ${1:arethusa.}${2}}
+#endsnippet
 
-snippet daf "ngdoc function through arethusa-ngdocs-generator" !b
-// @arethusa-function
-endsnippet
+#snippet daf "ngdoc function through arethusa-ngdocs-generator" !b
+#// @arethusa-function
+#endsnippet
 
-snippet dap "ngdoc property through arethusa-ngdocs-generator" !b
-// @arethusa-property
-endsnippet
+#snippet dap "ngdoc property through arethusa-ngdocs-generator" !b
+#// @arethusa-property
+#endsnippet
 
-snippet dae "ngdoc event through arethusa-ngdocs-generator" !b
-// @arethusa-event
-endsnippet
+#snippet dae "ngdoc event through arethusa-ngdocs-generator" !b
+#// @arethusa-event
+#endsnippet
 
 ########################
 #  Small Improvements  #
@@ -920,6 +964,21 @@ endsnippet
 
 
 ####################
+#  Relay Snippets  #
+####################
+
+snippet rqf "Relay query fragment" !b
+const conf = () => ({
+	fragments: {
+		$1: () => Relay.QL\`
+			$0
+		\`
+	}
+});
+
+endsnippet
+
+####################
 #  React snippets  #
 ####################
 
@@ -977,6 +1036,21 @@ class $1 extends React.Component {
 export default $1;
 endsnippet
 
+snippet sc "Stateless component" !b
+function $1({ $2 }) {
+	return (
+	);
+}
+endsnippet
+
+snippet rns "React noscript tag" !w
+<noscript />
+endsnippet
+
+snippet xs "Jsx short" !w
+<$1 { ...$2 } />
+endsnippet
+
 snippet rp "this.props"
 this.props$0
 endsnippet
@@ -990,27 +1064,37 @@ PropTypes.$0
 endsnippet
 
 snippet Po "React PropTypes.object" !w
-PropTypes.object$0
+PropTypes.object,$0
 endsnippet
 
 snippet Pf "React PropTypes.func" !w
-PropTypes.func$0
+PropTypes.func,$0
 endsnippet
 
 snippet Pb "React PropTypes.bool" !w
-PropTypes.bool$0
+PropTypes.bool,$0
 endsnippet
 
 snippet Por "React PropTypes.object.isRequired" !w
-PropTypes.object.isRequired$0
+PropTypes.object.isRequired,$0
 endsnippet
 
 snippet Pfr "React PropTypes.func.isRequired" !w
-PropTypes.func.isRequired$0
+PropTypes.func.isRequired,$0
 endsnippet
 
 snippet Pbr "React PropTypes.bool.isRequired" !w
-PropTypes.bool.isRequired$0
+PropTypes.bool.isRequired,$0
+endsnippet
+
+snippet Ps "React PropTypes.bool.isRequired" !w
+PropTypes.string,$0
+endsnippet
+
+snippet PS "React PropTypes.shape" !w
+PropTypes.shape({
+	$0
+}),
 endsnippet
 
 snippet c "A self closing component" !b
@@ -1019,6 +1103,28 @@ endsnippet
 
 snippet pd "props deconstruct" !b
 const { $0 } = this.props;
+endsnippet
+
+snippet hoc "Higher order component" !b
+import { createElement, Component } from 'react';
+import wrapDisplayName from 'recompose/wrapDisplayName';
+
+export default function ${1:name}($2) {
+	return (component) => {
+		class Hoc extends Component {
+			constructor(props) {
+				super(props);
+			}
+
+			render() {
+				return createElement(component);
+			}
+		}
+
+		Hoc.displayName = wrapDisplayName(component, $1);
+		return Hoc;
+	};
+}
 endsnippet
 
 ###########
@@ -1052,4 +1158,56 @@ endsnippet
 snippet rcon "redux connect" !b
 @connect((state) => $1)
 endsnippet
+
+snippet desc "describe" !b
+describe('$1', () => {
+	$0
+});
+endsnippet
+
+snippet it "it" !b
+it('$1', () => {
+	$0
+});
+
+endsnippet
+
+###############
+#  Immutable  #
+###############
+
+snippet ig "Map.get" !b
+const $1 = $2.get('$1');
+endsnippet
+
+
+snippet gr "group" !b
+$1: {
+	label: '$2',
+	description: ''
+},$0
+endsnippet
+
+snippet lb "Description" !b
+{ name: '$1' },
+endsnippet
+
+snippet S "Description" !b
+const STATES = require('states');
+endsnippet
+
+
+
+
+snippet dfc "div flex-container" !b
+<div className="flex-container">
+</div>
+endsnippet
+
+snippet df "div flex" !b
+<div className="flex-${1:1}">
+</div>
+endsnippet
+
 # vim:ft=snippets:
+
