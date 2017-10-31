@@ -446,6 +446,15 @@ endfunction
 
 autocmd FileType ruby call RubySettings()
 
+
+function! HaskellSettings()
+  let g:haskellmode_completion_ghc = 0
+  setlocal omnifunc=necoghc#omnifunc
+endfunction
+
+autocmd FileType haskell call HaskellSettings()
+
+
 """""""""""""""
 "  LLT stuff  "
 """""""""""""""
@@ -525,6 +534,7 @@ function! JsSettings()
     map gH :call lookup#goToFile()<cr>
 
     nmap gd :TernDef<cr>
+
     nmap gD :TernDoc<cr>
     nmap gr :TernRefs<cr>
   endif
@@ -600,6 +610,10 @@ let g:syntastic_html_tidy_ignore_errors=[
 
 "let g:syntastic_javascript_checkers = ['jsxhint']
 let g:syntastic_typescript_checkers = ['tslint']
+
+if executable('node_modules/.bin/eslint')
+  let g:syntastic_javascript_eslint_exec = 'node_modules/.bin/eslint'
+endif
 
 """""""""""""""""""
 "  YouCompleteMe  "
@@ -1113,6 +1127,8 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+let g:rbpt_max = 6
+
 
 """"""""""
 "  Gist  "
@@ -1193,7 +1209,7 @@ let g:jsx_ext_required = 0
 "  vim-json  "
 """"""""""""""
 
-let g:vim_json_syntax_conceal = 1
+let g:vim_json_syntax_conceal = 0
 au BufNewFile,BufRead *.json set filetype=json
 
 
