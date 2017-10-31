@@ -175,3 +175,21 @@
 [submodule "plugins/vim-json"]
 	path = plugins/vim-json
 	url = git@github.com:elzr/vim-json
+[submodule "plugins/ghcmod-vim"]
+	path = plugins/ghcmod-vim
+	url = git@github.com:eagletmt/ghcmod-vim.git
+[submodule "plugins/neco-ghc"]
+	path = plugins/neco-ghc
+	url = git@github.com:eagletmt/neco-ghc.git
+[submodule "plugins/vimproc"]
+	path = plugins/vimproc
+	url = git@github.com:Shougo/vimproc.vim.git
+[submodule "plugins/vim-flow"]
+	path = plugins/vim-flow
+	url = git@github.com:flowtype/vim-flow.git
+[submodule "plugins/elm-vim"]
+	path = plugins/elm-vim
+	url = git@github.com:ElmCast/elm-vim.git
+[submodule "plugins/vim-cljfmt"]
+	path = plugins/vim-cljfmt
+	url = git@github.com:venantius/vim-cljfmt.git
