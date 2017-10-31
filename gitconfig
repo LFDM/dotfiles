@@ -10,7 +10,7 @@
   changed = green
   untracked = cyan
 [core]
-  editor = vim
+  editor = MINVIM=1 vim
 	excludesfile = ~/.gitignore_global
 [alias]
   ci = commit
