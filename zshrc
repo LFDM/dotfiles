@@ -46,7 +46,12 @@ export PATH=$PATH:$SCALA_HOME/bin
 
 # java
 export JAVA_HOME="$HOME/tools/jdk1.7.0_80"
+export JAVA8_HOME="$HOME/tools/jdk1.8.0_92"
 export PATH=$PATH:$JAVA_HOME/bin
+
+# android
+export ANDROID_HOME="$HOME/Android/Sdk"
+export PATH=$PATH:$HOME/Android/Sdk/tools:$HOME/Android/Sdk/platform-tools:
 
 # mongoDB
 
@@ -57,6 +62,10 @@ export PATH=$PATH:$HOME/tools/mongodb/bin
 export PATH="$HOME/.linuxbrew/bin:$PATH"
 export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+
+# Clojure
+export PATH=$PATH:$HOME/tools/leiningen
+export LEIN_JAVA_CMD=$JAVA8_HOME/bin/java
 
 # vi mode (oh-my-zsh is overwriting something here, so we stuff it in the back)
 bindkey -v
@@ -92,6 +101,8 @@ export PATH=$PATH:$HOME/tools/flow/bin
 export PATH=$PATH:$HOME/tools/phantomjs/bin
 export PHANTOMJS_BIN=$HOME/tools/phantomjs/bin/phantomjs
 
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.cabal/bin
 
 export NVM_DIR="/home/lfdm/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
